@@ -2,11 +2,12 @@
 
 // Initialize the Firebase SDK
 var config = {
-    apiKey: "AIzaSyASzMEUt7BfpWYA5WqNkijZam2OL66W3uE",
-    authDomain: "pizzasonet2017.firebaseapp.com",
-    databaseURL: "https://pizzasonet2017.firebaseio.com",
-    projectId: "pizzasonet2017",
-    storageBucket: "pizzasonet2017.appspot.com"
+    apiKey: "AIzaSyDUDFC04BUxoViarP3nA3sdXX2SmZRX-Z4",
+    authDomain: "scrapbook-5b34e.firebaseapp.com",
+    databaseURL: "https://scrapbook-5b34e.firebaseio.com",
+    projectId: "scrapbook-5b34e",
+    storageBucket: "scrapbook-5b34e.appspot.com",
+    messagingSenderId: "806919547565"
 };
 firebase.initializeApp(config);
 
