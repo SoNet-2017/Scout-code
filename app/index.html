@@ -16,6 +16,9 @@
   <!-- Bootstrap -->
   <script src="../lib/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
 
+  <!-- Angular Material  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js"></script>
+
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
 
@@ -35,13 +38,20 @@
 </head>
 
 <body ng-app="myApp">
-<header class="navbar navbar-default navbar-fixed-top">
+<header class="navbar navbar-default navbar-center navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <h1 class="navbar-brand">Pizza++</h1>
+        <form method="get" action="/search" id="search">
+            <input name="q" type="text" size="40" placeholder="Cerca..." />
+        </form>
     </div>
+      <div id="mwnu" ng-if=""></div>
   </div>
 </header>
+
+
+
+
 
 <div class="container-fluid" ng-view>
 

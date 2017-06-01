@@ -3,8 +3,12 @@
 angular.module('myApp.pizzaView', ['ngRoute','myApp.pizza'])
 
 .config(['$routeProvider', function($routeProvider) {
+    if vari = ...
+        templk = abc.html
+    else
+        templ = def.htnkl
   $routeProvider.when('/pizzaView', {
-    templateUrl: 'pizzaView/pizzaView.html',
+    templateUrl: templk,
     controller: 'View1Ctrl'
   });
 }])
