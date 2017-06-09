@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+
+
+.toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
+    color: white;
+}
+
+md-toolbar.md-default-theme.md-hue-2:not(.md-menu-toolbar), md-toolbar.md-hue-2:not(.md-menu-toolbar) {
+    background-color: rgb(56, 173, 58);
+    color: rgba(255,255,255,0.87);
+}
+
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+    background-color: rgb(56, 173, 58);
+    color: rgba(255,255,255,0.87);
+}
