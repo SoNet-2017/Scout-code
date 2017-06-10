@@ -1,7 +1,6 @@
-/**
- * Created by criac on 09/06/2017.
- */
 'use strict';
+
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyDUDFC04BUxoViarP3nA3sdXX2SmZRX-Z4",
@@ -13,12 +12,12 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var app1=angular.module('myApp', [
+var app=angular.module('myApp', [
         'ngMaterial',
         'ngRoute',
         "firebase"
     ]);
-app1.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
+app.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
         $scope.toggleLeft = buildDelayedToggler('left');
         $scope.toggleRight = buildToggler('right');
         $scope.isOpenRight = function(){
@@ -88,7 +87,12 @@ app1.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
                 });
         };
     });
-
-app1.controller('AppCtrl2', function($scope) {
-
+app.config(function($routeProvider){
+    $routeProvider.when("/sentiero",{
+        templateUrl:"../ragazzo/sentiero.html"
+    }).when("/profilo",{
+        templateUrl:"../ragazzo/profilo.html"
+    }).otherwise({
+        redirectTo:"index.html"
+    })
 });
