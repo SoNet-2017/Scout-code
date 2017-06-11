@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="style.css">
 
+
     <!-- Angular Material style sheet -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
@@ -33,10 +34,17 @@
     <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+
     <script src="app.js"></script>
+    <script src="../ragazzo/sentiero/sentiero.js"></script>
+    <script src="../ragazzo/profilo/profilo.js"></script>
+
 
 </head>
 <body ng-app="myApp">
@@ -55,9 +63,8 @@
                     </md-icon>
                 </md-button>
                 <h2 flex md-truncate>Scrapbook</h2>
-                <md-button class="md-icon-button" aria-label="Favorite">
-                    <md-icon aria-label="Favorite" class="material-icons">favorite</md-icon>
-                    <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+                <md-button class="md-icon-button" aria-label="Settings">
+                    <md-icon aria-label="Event" class="material-icons">event</md-icon>
                 </md-button>
 
                 <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary">
