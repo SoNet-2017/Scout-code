@@ -13,10 +13,12 @@ app.config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/profilo', {
             templateUrl: 'ragazzo/profilo/profilo.html',
             controller: 'myAppProfiloCtrl',
+            /* IN ATTESA DEL LOGIN
             resolve: {
                 "currentAuth":["Auth",function(auth) {
                     return Auth.$requireSignIn();
                 }]
             }
+             */
         })
     }]);

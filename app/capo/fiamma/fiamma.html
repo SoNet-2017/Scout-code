@@ -1,56 +1,40 @@
-
-<div>
-    <div ng-controller="myAppFiammaCtrl" ng-cloak >
-        <md-content class="md-padding" layout-xs="column" layout="row">
-            <div flex-xs flex-gt-xs="50" layout="column">
-                <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-                    <md-card-title>
-                        <md-card-title-text>
-                            <span class="sm-headline">Sei in cammino sulla tappa della Competenza</span>
-                        </md-card-title-text>
-
-                    </md-card-title>
-                    <md-card-actions layout="row" layout-align="end center">
-                        <md-button>Action 1</md-button>
-                        <md-button>Action 2</md-button>
-                    </md-card-actions>
-                </md-card>
+<div ng-controller="myAppFiammaCtrl" ng-cloak >
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Assegnazione fiamma</span>
+                        <span class="md-subhead">Fiamma detenuta dalla Sq: <b><span class="radioValue">{{ data.group1 }}</span></b></span>
+                    </md-card-title-text>
+                    <hr>
+                </md-card-title>
 
 
-                <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
-                    <md-card-title>
-                        <md-card-title-text>
-                            <span class="md-headline">Specialità</span>
-                        </md-card-title-text>
-                        <md-card-title-media>
-                            <div class="md-media-md card-media">
+                <!-- ASSEGNAZIONE FIAMMA -->
 
-                            </div>
-                        </md-card-title-media>
-                    </md-card-title>
-                    <md-card-actions layout="row" layout-align="end center">
+                <div class="card-content">
+                    <md-radio-group ng-model="data.group1">
 
-                    </md-card-actions>
-                </md-card>
+                        <md-radio-button value="Falchi">Falchi</md-radio-button>
+                        <md-radio-button value="Gazzelle">Gazzelle</md-radio-button>
+                        <md-radio-button value="Iene">Iene</md-radio-button>
+                        <md-radio-button value="Lupi">Lupi</md-radio-button>
+                        <md-radio-button value="Tori">Tori</md-radio-button>
+
+                    </md-radio-group>
+                    <span class="md-subhead">Fiamma assegnata alla Sq: <b><span class="radioValue">{{ data.group1 }}</span></b></span>
+                </div>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button>Salva</md-button>
+                </md-card-actions>
+            </md-card>
 
 
-                <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
-                    <md-card-title>
-                        <md-card-title-text>
-                            <span class="md-headline">Brevetti</span>
-                        </md-card-title-text>
-                        <md-card-title-media>
-                            <div class="md-media-md card-media">
 
-                            </div>
-                        </md-card-title-media>
-                    </md-card-title>
-                </md-card>
 
-            </div>
-        </md-content>
-    </div>
-
+        </div>
+    </md-content>
 </div>
 
 
@@ -63,11 +47,4 @@
 
 
 
-<p>Selected Value: <span class="radioValue">{{ data.group1 }}</span> </p>
-<md-radio-group ng-model="data.group1">
 
-    <md-radio-button value="Apple" class="md-primary">Apple</md-radio-button>
-    <md-radio-button value="Banana"> Banana </md-radio-button>
-    <md-radio-button value="Mango">Mango</md-radio-button>
-
-</md-radio-group>

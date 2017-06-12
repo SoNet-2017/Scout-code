@@ -20,8 +20,15 @@ var app=angular.module('myApp', [
         'myAppProfilo',
         'myAppFiamma',
         'myAppLogin',
-        'myAppAuthentication'
+        'myAppAuthentication',
+        'myAppHomeCapo'
     ]);
+
+
+app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+    $locationProvider.hashPrefix('!');
+    $routeProvider.otherwise({redirectTo: '/homeCapo'});
+}]);
 
 
 app.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
@@ -99,12 +106,6 @@ app.controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     });
 
 
-app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-    $locationProvider.hashPrefix('!');
-    $routeProvider.otherwise({
-        redirectTo:'/login'
-    });
-}]);
 
 app.run(["$rootScope", "$location", function($rootScope, $location){
     $rootScope.$on("$routeChangeEttor",function(event, next, previous, error){

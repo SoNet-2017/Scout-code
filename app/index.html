@@ -10,7 +10,6 @@
 
     <!-- Angular Material style sheet -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -46,27 +45,25 @@
     <script src="ragazzo/profilo/profilo.js"></script>
     <script src="capo/fiamma/fiamma.js"></script>
     <script src="login/login.js"></script>
+    <script src="capo/homeCapo/homeCapo.js"></script>
     <script src="components/authentication/authentication.js"></script>
     <script src="components/authentication/authentication-service.js"></script>
 
 
 </head>
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="AppCtrl1">
 
-<div ng-controller="AppCtrl1" ng-cloak>
-
+<header  ng-cloak>
     <md-content>
-        <md-toolbar class="md-hue-2">
+        <md-toolbar class="md-hue-2" >
             <div class="md-toolbar-tools">
                 <md-button ng-click="toggleLeft()" class="md-icon-button" aria-label="Settings">
                     <md-icon aria-label="Menu" class="material-icons">menu</md-icon>
                 </md-button>
 
-                <form class="cerca" >
-                    <md-input-container >
-                        <input type="text" id="cercaInput" ng-model="data" placeholder="Cerca">
-                    </md-input-container>
-                </form>
+                <md-input-container md-no-float class="md-block">
+                    <input type="text" placeholder="Cerca">
+                </md-input-container>
 
                 <md-button class="md-icon-button" aria-label="Settings">
                     <md-icon aria-label="Event" class="material-icons">event</md-icon>
@@ -78,90 +75,108 @@
             </div>
         </md-toolbar>
     </md-content>
+</header>
+
+
+
+
+<br><br><br>
+<div ng-view >
+    <!-- QUI DENTRO CI SONO LE VIEW CARICATE DINAMICAMENTE -->
 </div>
 
 
-<div ng-controller="AppCtrl1" layout="column" ng-cloak>
 
+<section layout="row" flex ng-controller="LeftCtrl">
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
 
-    <div ng-view layout="column">
+        <!-- toolbar della sidenav -->
+        <md-toolbar class="md-theme-indigo">
 
+            <div class="md-toolbar-tools">
+                <h1 flex md-truncate ><a class="logotype" href="#/index.html" ng-click="close()" >SCRAPBOOK</a></h1>
 
-    </div>
-
-
-
-    <section layout="row" flex>
-        <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
-
-            <!-- toolbar della sidenav -->
-            <md-toolbar class="md-theme-indigo">
-                <div class="md-toolbar-tools">
-                    <h1 flex md-truncate class="logotype">SCRAPBOOK </h1>
-
-                    <md-button class="md-icon-button" aria-label="Home" >
-                        <a href="#/index.html"ng-click="close()" >
-                            <md-icon aria-label="Home" class="material-icons" >home</md-icon>
-                        </a>
-                    </md-button>
-                </div>
-            </md-toolbar>
-
-            <!-- Voci del menu laterale -->
-            <md-content layout-padding ng-controller="LeftCtrl">
-
-                <div >
-                    <h4 class="user-name">Federico</h4>
-                    <img class="user-img" src="../images/default_profile.png">
-                </div>
-
-                <br>
-                <p><a href="#/sentiero" ng-click="close()" >Sentiero</a></p>
-                <p><a href="#/profilo" ng-click="close()" >Profilo</a></p>
-                <hr>
-
-                <ul>
-                    <li>
-                        <a href="#" ng-click="close()" ><md-icon aria-label="People" class="material-icons" >people</md-icon> Ragazzi</a>
-                    </li>
-                    <li>
-                        <a href="#" ng-click="close()" ><md-icon aria-label="Event" class="material-icons" >event</md-icon> Eventi</a>
-                    </li>
-                    <li>
-                        <a href="#" ng-click="close()" ><md-icon aria-label="Forum" class="material-icons" >forum</md-icon> Conversazioni</a>
-                    </li>
-                    <li>
-                        <a href="#" ng-click="close()" ><md-icon aria-label="Settings" class="material-icons" >settings</md-icon> Impostazioni</a>
-                        <ul>
-                            <li>
-                                <a href="#/fiamma" ng-click="close()" ><md-icon aria-label="Flag" class="material-icons" >flag</md-icon> Fiamma</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-
-
-
-            </md-content>
-        </md-sidenav>
-
-
-
-
-        <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
-            <md-toolbar class="md-theme-light">
-                <h1 class="md-toolbar-tools">Notifiche</h1>
-            </md-toolbar>
-            <md-content ng-controller="RightCtrl" layout-padding>
-                <md-button ng-click="close()" class="md-primary">
-                    <md-icon class="material-icons" aria-label="Clear">clear</md-icon>
+                <md-button ng-click="close()"  class="md-icon-button" aria-label="Home">
+                    <a href="#/index.html" >
+                        <md-icon aria-label="Home" class="material-icons" >home</md-icon>
+                    </a>
                 </md-button>
 
-            </md-content>
-        </md-sidenav>
-    </section>
-</div>
+
+            </div>
+        </md-toolbar>
+
+        <!-- Voci del menu laterale -->
+        <md-content layout-padding >
+
+            <div >
+                <h4 class="user-name">Federico</h4>
+                <img class="user-img" src="../images/default_profile.png">
+            </div>
+
+            <!-- MENU RAGAZZO -->
+            <ul>
+                <li>
+                    <a href="#!/sentiero" ng-click="close()" >
+                        <md-icon aria-label="eenhere" class="material-icons" >beenhere</md-icon> Sentiero</a>
+                </li>
+                <li>
+                    <a href="#!/profilo" ng-click="close()" ><md-icon aria-label="Person" class="material-icons" >person</md-icon> Profilo</a>
+                </li>
+            </ul>
+
+            <!-- MENU CAPO -->
+            <ul>
+                <li>
+                    <a href="#" ng-click="close()" ><md-icon aria-label="People" class="material-icons" >people</md-icon> Ragazzi</a>
+                </li>
+                <li>
+                    <a href="#" ng-click="close()"  class="not-active"><md-icon aria-label="Event" class="material-icons not-active">event</md-icon> Eventi</a>
+                </li>
+                <li>
+                    <a href="#" ng-click="close()" class="not-active"><md-icon aria-label="Forum" class="material-icons not-active" >forum</md-icon> Conversazioni</a>
+                </li>
+                <li>
+                    <a href="#" ng-click="close()" ><md-icon aria-label="Settings" class="material-icons" >settings</md-icon> Impostazioni</a>
+                    <ul>
+                        <li>
+                            <a href="#!/fiamma" ng-click="close()" ><md-icon aria-label="Flag" class="material-icons" >flag</md-icon> Fiamma</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+
+
+        </md-content>
+    </md-sidenav>
+
+
+
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+
+        <md-toolbar class="md-theme-indigo">
+            <div class="md-toolbar-tools">
+                <h1 flex md-truncate>Notifiche</h1>
+
+                <a href="#" ng-click="close()" >
+                    <md-icon aria-label="Clear" class="material-icons" >clear</md-icon>
+                </a>
+
+            </div>
+        </md-toolbar>
+
+        <md-content ng-controller="RightCtrl" layout-padding>
+            <md-button ng-click="close()" class="md-primary">
+                <md-icon class="material-icons" aria-label="Clear">clear</md-icon>
+            </md-button>
+
+        </md-content>
+    </md-sidenav>
+</section>
+
 
 
 
