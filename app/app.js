@@ -93,6 +93,8 @@ app.config(function($routeProvider){
         templateUrl:"ragazzo/sentiero/sentiero.html"
     }).when("/profilo",{
         templateUrl:"ragazzo/profilo/profilo.html"
+    }).when("/fiamma",{
+        templateUrl:"capo/fiamma/fiamma.html"
     }).otherwise({
         redirectTo:"index.html"
     })
