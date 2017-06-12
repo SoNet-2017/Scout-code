@@ -3,7 +3,28 @@
 
 .logotype {
     font-family: 'Baloo', cursive;
+    text-decoration: none;
 }
+
+
+.cerca {
+    padding-top: 20px;
+}
+
+.user-name{
+    margin: 0;
+    padding: 5% 0;
+    text-align: center;
+    background-color: lightgreen;
+}
+.user-img{
+    width: 100%;
+}
+
+md-input-container.md-default-theme .md-input, md-input-container .md-input {
+    color: #f7f7f7;
+}
+
 
 .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
     color: white;

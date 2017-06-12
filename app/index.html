@@ -57,12 +57,13 @@
                 <md-button ng-click="toggleLeft()" class="md-icon-button" aria-label="Settings">
                     <md-icon aria-label="Menu" class="material-icons">menu</md-icon>
                 </md-button>
-                <!-- font icon -->
-                <md-button>
-                    <md-icon md-font-icon="icon-home" ng-style="{color: 'green', 'font-size':'36px', height:'36px'}">
-                    </md-icon>
-                </md-button>
-                <h2 flex md-truncate class="logotype">SCRAPBOOK</h2>
+
+                <form class="cerca" >
+                    <md-input-container >
+                        <input type="text" id="cercaInput" ng-model="data" placeholder="Cerca">
+                    </md-input-container>
+                </form>
+
                 <md-button class="md-icon-button" aria-label="Settings">
                     <md-icon aria-label="Event" class="material-icons">event</md-icon>
                 </md-button>
@@ -91,21 +92,32 @@
 
             <!-- toolbar della sidenav -->
             <md-toolbar class="md-theme-indigo">
-                <h1 class="md-toolbar-tools logotype" >SCRAPBOOK</h1>
+                <div class="md-toolbar-tools">
+                    <h1 flex md-truncate class="logotype">SCRAPBOOK </h1>
+
+                    <md-button class="md-icon-button" aria-label="Home" >
+                        <a href="#/index.html"ng-click="close()" >
+                            <md-icon aria-label="Home" class="material-icons" >home</md-icon>
+                        </a>
+                    </md-button>
+                </div>
             </md-toolbar>
 
             <!-- Voci del menu laterale -->
             <md-content layout-padding ng-controller="LeftCtrl">
+
+                <div >
+                    <h4 class="user-name">Federico</h4>
+                    <img class="user-img" src="../images/default_profile.png">
+                </div>
+
+                <br>
                 <p><a href="#/sentiero" ng-click="close()" >Sentiero</a></p>
                 <p><a href="#/profilo" ng-click="close()" >Profilo</a></p>
             </md-content>
         </md-sidenav>
 
-        <md-content flex layout-padding>
-            <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary">
-            </md-button>
-            <div flex></div>
-        </md-content>
+
 
 
         <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
@@ -116,13 +128,7 @@
                 <md-button ng-click="close()" class="md-primary">
                     <md-icon class="material-icons" aria-label="Clear">clear</md-icon>
                 </md-button>
-                <form>
-                    <md-input-container>
-                        <label for="testInput">Test input</label>
-                        <input type="text" id="testInput"
-                               ng-model="data" md-autofocus>
-                    </md-input-container>
-                </form>
+
             </md-content>
         </md-sidenav>
     </section>
