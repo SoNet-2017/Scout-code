@@ -1,6 +1,10 @@
-angular
-    .module('myAppFiamma', ['ngMaterial'])
-    .controller('myAppFiammaCtrl', function($scope) {
+var app=angular.module('myAppFiamma', [
+    'ngMaterial',
+    'ngRoute'
+]);
+
+
+app.controller('myAppFiammaCtrl', function($scope) {
 
         $scope.data = {
             group1 : 'Banana',
@@ -42,7 +46,18 @@ angular
             $scope.radioData.pop();
         };
 
-    })
-    .config(function($mdIconProvider) {
+    });
+app.config(function($mdIconProvider) {
         $mdIconProvider.iconSet("avatars", 'icons/avatar-icons.svg',128);
     });
+app.config(['$routeProvider', function($routeProvider){
+    $routeProvider.when('/fiamma',{
+        templateUrl: 'capo/fiamma/fiamma.html',
+        controller: 'myAppFiammaCtrl',
+        resolve: {
+            "currentAuth":["Auth",function(auth) {
+                return Auth.$requireSignIn();
+            }]
+        }
+    })
+}]);

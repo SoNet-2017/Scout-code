@@ -16,8 +16,14 @@ var app=angular.module('myApp', [
         'ngMaterial',
         'ngRoute',
         "firebase",
-        'myAppSentiero'
+        'myAppSentiero',
+        'myAppProfilo',
+        'myAppFiamma',
+        'myAppLogin',
+        'myAppAuthentication'
     ]);
+
+
 app.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
         $scope.toggleLeft = buildDelayedToggler('left');
         $scope.toggleRight = buildToggler('right');
@@ -68,8 +74,10 @@ app.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
                     });
             };
         }
-    })
-    .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+    });
+
+
+app.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
         $scope.close = function () {
             // Component lookup should always be available since we are not using `ng-if`
             $mdSidenav('left').close()
@@ -78,8 +86,9 @@ app.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
                 });
 
         };
-    })
-    .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+    });
+
+app.controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
         $scope.close = function () {
             // Component lookup should always be available since we are not using `ng-if`
             $mdSidenav('right').close()
@@ -88,14 +97,19 @@ app.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
                 });
         };
     });
-app.config(function($routeProvider){
-    $routeProvider.when("/sentiero",{
-        templateUrl:"ragazzo/sentiero/sentiero.html"
-    }).when("/profilo",{
-        templateUrl:"ragazzo/profilo/profilo.html"
-    }).when("/fiamma",{
-        templateUrl:"capo/fiamma/fiamma.html"
-    }).otherwise({
-        redirectTo:"index.html"
+
+
+app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+    $locationProvider.hashPrefix('!');
+    $routeProvider.otherwise({
+        redirectTo:'/login'
+    });
+}]);
+
+app.run(["$rootScope", "$location", function($rootScope, $location){
+    $rootScope.$on("$routeChangeEttor",function(event, next, previous, error){
+        if(error==="AUTH_REQUIRED"){
+            $location.path("/login");
+        }
     })
-});
+}]);
