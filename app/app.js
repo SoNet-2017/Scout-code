@@ -90,9 +90,9 @@ app.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
     });
 app.config(function($routeProvider){
     $routeProvider.when("/sentiero",{
-        templateUrl:"../ragazzo/sentiero/sentiero.html"
+        templateUrl:"ragazzo/sentiero/sentiero.html"
     }).when("/profilo",{
-        templateUrl:"../ragazzo/profilo/profilo.html"
+        templateUrl:"ragazzo/profilo/profilo.html"
     }).otherwise({
         redirectTo:"index.html"
     })

@@ -42,8 +42,8 @@
 
 
     <script src="app.js"></script>
-    <script src="../ragazzo/sentiero/sentiero.js"></script>
-    <script src="../ragazzo/profilo/profilo.js"></script>
+    <script src="ragazzo/sentiero/sentiero.js"></script>
+    <script src="ragazzo/profilo/profilo.js"></script>
 
 
 </head>
@@ -62,7 +62,7 @@
                     <md-icon md-font-icon="icon-home" ng-style="{color: 'green', 'font-size':'36px', height:'36px'}">
                     </md-icon>
                 </md-button>
-                <h2 flex md-truncate>Scrapbook</h2>
+                <h2 flex md-truncate class="logotype">SCRAPBOOK</h2>
                 <md-button class="md-icon-button" aria-label="Settings">
                     <md-icon aria-label="Event" class="material-icons">event</md-icon>
                 </md-button>
@@ -88,16 +88,16 @@
 
     <section layout="row" flex>
         <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+
+            <!-- toolbar della sidenav -->
             <md-toolbar class="md-theme-indigo">
-                <h1 class="md-toolbar-tools">Nome</h1>
+                <h1 class="md-toolbar-tools logotype" >SCRAPBOOK</h1>
             </md-toolbar>
+
+            <!-- Voci del menu laterale -->
             <md-content layout-padding ng-controller="LeftCtrl">
-                <md-button ng-click="close()" class="md-primary" hide-gt-md>
-                    <md-icon class="material-icons" aria-label="Clear">clear</md-icon>
-                </md-button>
-                <br>
-                <p><a href="#/sentiero">Sentiero</a></p>
-                <p><a href="#/profilo">Profilo</a></p>
+                <p><a href="#/sentiero" ng-click="close()" >Sentiero</a></p>
+                <p><a href="#/profilo" ng-click="close()" >Profilo</a></p>
             </md-content>
         </md-sidenav>
 
