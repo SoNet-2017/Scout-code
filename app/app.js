@@ -21,7 +21,8 @@ var app=angular.module('myApp', [
         'myAppFiamma',
         'myAppLogin',
         'myAppAuthentication',
-        'myAppHomeCapo'
+        'myAppHomeCapo',
+        'myAppRegistrazioneRagazzo'
     ]);
 
 

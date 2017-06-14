@@ -1,0 +1,38 @@
+<div  ng-controller="addPizzaViewCtrl as $ctrl" >
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <form id="frmRegister" role="form" ng-submit="registrazioneRagazzo()">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Registra nuovo ragazzo</span>
+                        </md-card-title-text>
+                        <hr>
+                    </md-card-title>
+
+
+                    <!-- REGISTRAZIONE RAGAZZO -->
+                    <div class="card-content">
+                        <div class="form-group">
+                            <label for="txtCodice">Codice</label>
+                            <input type="number" class="form-control" id="txtCodice" placeholder="Codice Socio" name="codice" ng-model="user.codice" />
+                        </div>
+                        <div class="form-group">
+                            <label for="txtNome">Nome</label>
+                            <input type="text" class="form-control" id="txtNome" placeholder="Inserisci nome" name="nome" ng-model="user.nome" />
+                        </div>
+                        <div class="form-group">
+                            <label for="txtCognome">Cognome</label>
+                            <input type="text" class="form-control" id="txtCognome" placeholder="Inserisci cognome" name="cognome" ng-model="user.cognome" />
+                        </div>
+
+                        <button type="submit" class="btn btn-success center-block">Registra</button>
+                    </div>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button>Salva</md-button>
+                    </md-card-actions>
+                </form>
+            </md-card>
+        </div>
+    </md-content>
+</div>
