@@ -147,3 +147,14 @@ height: 100%;
     left: 7px;
     font-size: 14px;
     opacity: 0.54; }
+
+/*********
+    INPUT ERRORS
+ */
+.inputdemoErrors .inputErrorsApp {
+    min-height: 48px; }
+
+.inputdemoErrors md-input-container > p {
+    font-size: 0.8em;
+    text-align: left;
+    width: 100%; }

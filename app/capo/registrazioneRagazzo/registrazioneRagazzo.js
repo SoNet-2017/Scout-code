@@ -2,6 +2,7 @@
 
 angular.module('myAppRegistrazioneRagazzo', [
     'ngMaterial',
+    'ngMessages',
     'ngRoute'
 ])
 
@@ -24,6 +25,7 @@ angular.module('myAppRegistrazioneRagazzo', [
             $scope.imgPath= "";
             //define the function that will actually create a new record in the database
             $scope.registrazioneRagazzo = function() {
+                console.log("ho premuto su REGISTRA");
                 //check if the user inserted all the required information
                 if ($scope.dati.codice!= undefined && $scope.dati.codice!="" && $scope.dati.nome!= undefined && $scope.dati.nome!="" && $scope.dati.cognome!=undefined && $scope.dati.cognome!="") {
                     $scope.dati.error = "";

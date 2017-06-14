@@ -1,4 +1,4 @@
-<div  ng-controller="addPizzaViewCtrl as $ctrl" >
+<div  ng-controller="RegistrazioneRagazzoCtrl as $ctrl" >
     <md-content class="md-padding" layout-xs="column" layout="row">
         <div flex-xs flex-gt-xs="50" layout="column">
             <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
@@ -13,6 +13,24 @@
 
                     <!-- REGISTRAZIONE RAGAZZO -->
                     <div class="card-content">
+                        <!--
+                        <div class="form-group">
+
+                            <b>Descriptive image (CAMPO NON USATO):</b>
+                            <file-upload on-change="$ctrl.onChange">
+                            </file-upload>
+                        </div>
+                        -->
+
+                        <md-input-container flex="50">
+                            <label>Client Name</label>
+                            <input required name="clientName" ng-model="project.clientName">
+                            <div ng-messages="projectForm.clientName.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+
+
                         <div class="form-group">
                             <label for="txtCodice">Codice</label>
                             <input type="number" class="form-control" id="txtCodice" placeholder="Codice Socio" name="codice" ng-model="user.codice" />
@@ -35,4 +53,5 @@
             </md-card>
         </div>
     </md-content>
+</div>
 </div>
