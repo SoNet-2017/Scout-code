@@ -1,4 +1,4 @@
-<div  ng-controller="RegistrazioneRagazzoCtrl as $ctrl" >
+<div  ng-controller="RegistrazioneRagazzoCtrl" >
     <md-content class="md-padding" layout-xs="column" layout="row">
         <div flex-xs flex-gt-xs="50" layout="column">
             <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
@@ -44,7 +44,9 @@
                             <input type="text" class="form-control" id="txtCognome" placeholder="Inserisci cognome" name="cognome" ng-model="user.cognome" />
                         </div>
 
-                        <button type="submit" class="btn btn-success center-block">Registra</button>
+                        <md-button class="md-raised md-primary">Salva</md-button>
+
+                        <button type="submit" class="md-raised md-primary">Registra</button>
                     </div>
                     <md-card-actions layout="row" layout-align="end center">
                         <md-button>Salva</md-button>
