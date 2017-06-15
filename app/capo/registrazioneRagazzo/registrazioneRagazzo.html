@@ -20,7 +20,6 @@
                             <file-upload on-change="$ctrl.onChange">
                             </file-upload>
                         </div>
-                        -->
 
                         <md-input-container flex="50">
                             <label>Client Name</label>
@@ -30,30 +29,35 @@
                             </div>
                         </md-input-container>
 
+                        -->
 
                         <div class="form-group">
                             <label for="txtCodice">Codice</label>
-                            <input type="number" class="form-control" id="txtCodice" placeholder="Codice Socio" name="codice" ng-model="user.codice" />
+                            <input type="number" class="form-control" id="txtCodice" placeholder="Inserisci il codice socio" name="codice" ng-model="user.codice" />
                         </div>
                         <div class="form-group">
                             <label for="txtNome">Nome</label>
-                            <input type="text" class="form-control" id="txtNome" placeholder="Inserisci nome" name="nome" ng-model="user.nome" />
+                            <input type="text" class="form-control" id="txtNome" placeholder="Inserisci il nome" name="nome" ng-model="user.nome" />
                         </div>
                         <div class="form-group">
                             <label for="txtCognome">Cognome</label>
-                            <input type="text" class="form-control" id="txtCognome" placeholder="Inserisci cognome" name="cognome" ng-model="user.cognome" />
+                            <input type="text" class="form-control" id="txtCognome" placeholder="Inserisci il cognome" name="cognome" ng-model="user.cognome" />
                         </div>
 
-                        <md-button class="md-raised md-primary">Salva</md-button>
 
-                        <button type="submit" class="md-raised md-primary">Registra</button>
+
                     </div>
                     <md-card-actions layout="row" layout-align="end center">
-                        <md-button>Salva</md-button>
+                        <md-button type="submit" class="md-raised md-primary">REGISTRA</md-button>
                     </md-card-actions>
                 </form>
+                <div class="alert alert-success alert-dismissible" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
+                <div class="alert alert-danger alert-dismissible" role="alert" ng-if="dati.error">{{ dati.error }}</div>
             </md-card>
         </div>
+
+
     </md-content>
 </div>
-</div>
+
+

@@ -4,8 +4,13 @@
 angular.module('myAppUtente.registrazioneRagazzoService', [])
 
     .factory('RegistrazioneRagazzoService', function($firebaseArray) {
+        console.log("entra nel factory registrazione ragazzo");
+
         var NuovoRagazzoService = {
             aggiungiRagazzo: function (codice, nome, cognome) {
+                console.log("entra nella function che aggiunge un ragazzo");
+
+
                 //add the user to list of users and set the logged value to true
                 var ref = firebase.database().ref().child("utenti");
                 // create a synchronized array

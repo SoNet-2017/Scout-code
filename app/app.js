@@ -86,6 +86,7 @@ app.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
 
 
 app.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+    console.log("entra nel leftctrl");
         $scope.close = function () {
             // Component lookup should always be available since we are not using `ng-if`
             $mdSidenav('left').close()
