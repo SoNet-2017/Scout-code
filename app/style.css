@@ -34,7 +34,7 @@ body {
     background: linear-gradient(to bottom right, #4CAF50, #B2FF59); /* Standard syntax (must be last) */
 }
 .user-img{
-    width: 100%;
+    width: 20%;
 }
 
 .not-active {
