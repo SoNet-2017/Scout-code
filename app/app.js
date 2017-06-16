@@ -23,7 +23,9 @@ var app = angular.module('myApp', [
         'myAppAuthentication',
         'myAppHomeCapo',
         'myAppRegistrazioneRagazzo',
-        'myAppSquadriglia'
+        'myAppSquadriglia',
+        'myAppFormaSquadriglie',
+        'myAppStaff'
     ]);
 
 

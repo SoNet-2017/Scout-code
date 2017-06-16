@@ -4,7 +4,8 @@
 angular.module('myAppUtente', [
     //'myAppUtente.pizzaService',
     //'myAppUtente.singlePizzaService',
-    'myAppUtente.registrazioneRagazzoService'
+    'myAppUtente.registrazioneRagazzoService',
+    'myAppUtente.utentiService'
 ])
 
 .value('version', '0.1');
