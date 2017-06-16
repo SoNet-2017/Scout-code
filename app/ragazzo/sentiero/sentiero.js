@@ -1,6 +1,7 @@
 var app=angular.module('myAppSentiero', [
     'ngMaterial',
-    'ngRoute'
+    'ngRoute',
+    'myAppListaSpecialita'
 ]);
 
 app.config(['$routeProvider', function($routeProvider){

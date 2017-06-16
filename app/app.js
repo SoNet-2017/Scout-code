@@ -23,8 +23,10 @@ var app = angular.module('myApp', [
         'myAppAuthentication',
         'myAppHomeCapo',
         'myAppRegistrazioneRagazzo',
-        'myAppSquadriglia'
-    ]);
+        'myAppSquadriglia',
+        'myAppListaSpecialita',
+        'myAppRegistration'
+]);
 
 
 app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
