@@ -30,6 +30,7 @@ app.controller('myAppStaffCtrl', ['$scope','$rootScope', 'Utente', function($sco
 
     //initialize variables
     $scope.dati={};
+    $scope.dati.feedback = "";
     //get the list of available sq
     $scope.dati.utenti = Utente.getData();
     $scope.dati.utenti.$loaded().then(function () {
@@ -63,23 +64,8 @@ app.controller('myAppStaffCtrl', ['$scope','$rootScope', 'Utente', function($sco
 
             }
         }
+        $scope.dati.feedback = "Salvataggio avvenuto con successo";
 
-        //AGGIORNA VALORI
-        //initialize variables
-        $scope.dati={};
-        //get the list of available sq
-        $scope.dati.utenti = Utente.getData();
-        $scope.dati.utenti.$loaded().then(function () {
-
-            for (var i = 0; i < $scope.dati.utenti.length; i++) {
-                if ($scope.dati.utenti[i].ruolo == 'capo') {
-
-                    var uuid = $scope.dati.utenti[i].$id;
-                    var checkedOld =  $scope.dati.utenti[i].staff;
-                    console.log("Dopo salvataggio " + $scope.dati.utenti[i].nome + " ha il toggle " + checkedOld);
-                }
-            }
-        });
     };
 
 

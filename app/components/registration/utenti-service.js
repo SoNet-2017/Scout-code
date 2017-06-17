@@ -12,11 +12,9 @@ angular.module('myAppUtente.utentiService', [])
             },
 
             aggiornaStaff: function (uuid, checked) {
-
                 console.log("sono entrato nello staff service, aggiorna staff");
                 console.log("NEL SERVICE - uuid: " + uuid);
                 console.log("NEL SERVICE - checked: " + checked);
-
 
                 var ref = firebase.database().ref().child("utenti").child(uuid);
                 // create a synchronized array
@@ -30,9 +28,18 @@ angular.module('myAppUtente.utentiService', [])
                         staff: false
                     });
                 }
+            },
 
+            aggiornaSq: function (uuid, newSq) {
+                console.log("sono entrato nello sq service, aggiorna sq");
+                console.log("NEL SERVICE - uuid: " + uuid);
+                console.log("NEL SERVICE - newSq: " + newSq);
 
-
+                var ref = firebase.database().ref().child("utenti").child(uuid);
+                // create a synchronized array
+                ref.update({
+                    sq: newSq
+                });
             }
         };
         return utentiService;

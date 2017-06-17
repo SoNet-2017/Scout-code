@@ -1,5 +1,8 @@
 <div ng-controller="myAppFormaSquadriglieCtrl"  >
     <md-content class="md-padding" layout-xs="column" layout="row">
+
+        <div class="alert alert-success alert-dismissible inset" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
+
         <div flex-xs flex-gt-xs="50" layout="column">
             <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
                 <md-card-title>
@@ -44,19 +47,19 @@
                                 <b>{{utente.nome}}</b> {{utente.cognome[0]}}.
                             </div>
                             <div flex>
-                                <md-radio-group ng-model="utente.sq"><md-radio-button value="Falchi" class="md-primary" aria-label="{{utente.codice}}"></md-radio-button></md-radio-group>
+                                <md-radio-group ng-model="utente.sq" id="{{utente.codice}}"><md-radio-button value="Falchi" class="md-primary" aria-label="{{utente.codice}}"></md-radio-button></md-radio-group>
                             </div>
                             <div flex>
-                                <md-radio-group ng-model="utente.sq"><md-radio-button value="Gazzelle" class="md-primary" aria-label="{{utente.codice}}"></md-radio-button></md-radio-group>
+                                <md-radio-group ng-model="utente.sq" id="{{utente.codice}}"><md-radio-button value="Gazzelle" class="md-primary" aria-label="{{utente.codice}}"></md-radio-button></md-radio-group>
                             </div>
                             <div flex>
-                                <md-radio-group ng-model="utente.sq"><md-radio-button value="Iene" class="md-primary" aria-label="{{utente.codice}}"></md-radio-button></md-radio-group>
+                                <md-radio-group ng-model="utente.sq" id="{{utente.codice}}"><md-radio-button value="Iene" class="md-primary" aria-label="{{utente.codice}}"></md-radio-button></md-radio-group>
                             </div>
                             <div flex>
-                                <md-radio-group ng-model="utente.sq"><md-radio-button value="Lupi" class="md-primary" aria-label="{{utente.codice}}"></md-radio-button></md-radio-group>
+                                <md-radio-group ng-model="utente.sq" id="{{utente.codice}}"><md-radio-button value="Lupi" class="md-primary" aria-label="{{utente.codice}}"></md-radio-button></md-radio-group>
                             </div>
                             <div flex>
-                                <md-radio-group ng-model="utente.sq"><md-radio-button value="Tori" class="md-primary" aria-label="{{utente.codice}}"></md-radio-button></md-radio-group></td>
+                                <md-radio-group ng-model="utente.sq" id="{{utente.codice}}"><md-radio-button value="Tori" class="md-primary" aria-label="{{utente.codice}}"></md-radio-button></md-radio-group></td>
                             </div>
                     </div>
 
@@ -64,7 +67,7 @@
                 </div>
                 <br>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-click="" class="md-raised md-primary">Salva</md-button>
+                    <md-button ng-click="salvaSquadriglie()" class="md-raised md-primary">Salva</md-button>
                 </md-card-actions>
             </md-card>
         </div>
