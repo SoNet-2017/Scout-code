@@ -28,7 +28,8 @@ var app = angular.module('myApp', [
         'myAppRegistration',
         'myAppSquadriglia',
         'myAppFormaSquadriglie',
-        'myAppStaff'
+        'myAppStaff',
+        'myAppEvento'
     ]);
 
 
@@ -40,7 +41,32 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
 
 app.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
         $scope.toggleLeft = buildDelayedToggler('left');
-        $scope.toggleRight = buildToggler('right');
+
+        $scope.notifiche = function() {
+            console.log("Hai cliccato su notifiche");
+            $scope.data = {
+                menu : "notifications"
+            };
+            console.log("vado al build toggler");
+
+            $scope.toggleRight = buildToggler('right');
+            $scope.toggleRight();
+        };
+
+        $scope.eventi = function() {
+            console.log("Hai cliccato su eventi");
+
+            $scope.data = {
+                menu : "events"
+            };
+            console.log("vado al build toggler");
+
+            $scope.toggleRight = buildToggler('right');
+            $scope.toggleRight();
+        };
+
+
+
         $scope.isOpenRight = function(){
             return $mdSidenav('right').isOpen();
         };
@@ -92,7 +118,6 @@ app.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
 
 
 app.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
-    console.log("entra nel leftctrl");
         $scope.close = function () {
             // Component lookup should always be available since we are not using `ng-if`
             $mdSidenav('left').close()
@@ -112,6 +137,27 @@ app.controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
                 });
         };
     });
+
+
+
+
+
+
+app.controller('EventCtrl', ['$scope','$rootScope', 'Evento', function($scope,$rootScope, Evento) {
+
+    //initialize variables
+    $scope.dati={};
+    $scope.dati.feedback = "";
+    //get the list of available sq
+    $scope.dati.eventi = Evento.getData();
+    $scope.dati.eventi.$loaded().then(function () {
+    });
+}]);
+
+
+
+
+
 
 
 

@@ -34,14 +34,6 @@ app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', function($
     $scope.dati.eventi = Evento.getData();
     $scope.dati.eventi.$loaded().then(function () {
 
-        for (var i = 0; i < $scope.dati.eventi.length; i++) {
-
-            var uuid = $scope.dati.eventi[i].$id;
-            console.log("Titolo: " + $scope.dati.eventi[i].titolo);
-            console.log("Luogo: " + $scope.dati.eventi[i].luogo);
-            console.log("Data inizio: " + $scope.dati.eventi[i].dataInizio);
-
-            }
     });
 
 

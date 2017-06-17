@@ -80,11 +80,11 @@
                     <input type="text" placeholder="Cerca" class="search">
                 </md-input-container>
 
-                <md-button class="md-icon-button" aria-label="Settings">
+                <md-button class="md-icon-button" aria-label="Events" ng-click="eventi()" ng-hide="isOpenRight()" class="md-primary">
                     <md-icon aria-label="Event" class="material-icons">event</md-icon>
                 </md-button>
 
-                <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary">
+                <md-button class="md-icon-button" aria-label="Notifications" ng-click="notifiche()" ng-hide="isOpenRight()" class="md-primary">
                     <md-icon aria-label="Notifications" class="material-icons">notifications</md-icon>
                 </md-button>
             </div>
@@ -194,23 +194,55 @@
 
 
 
+
     <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+
 
         <md-toolbar class="md-theme-indigo">
             <div class="md-toolbar-tools">
-                <h1 flex md-truncate>Notifiche</h1>
 
-                <a href="#" ng-click="close()" >
-                    <md-icon aria-label="Clear" class="material-icons" >clear</md-icon>
-                </a>
+                <!-- TOOLBAR SE SI APRONO LE NOTIFICHE -->
+                <div layout="row" ng-if="data.menu == 'notifications'">
+                    <md-icon flex="40" aria-label="Notifications" class="material-icons" >notifications</md-icon>
+                    <h1 flex="60" style="white-space: nowrap;">Notifiche</h1>
+                </div>
 
+                <!-- TOOLBAR SE SI APRONO GLI EVENTI -->
+                <div layout="row" ng-if="data.menu == 'events'">
+                    <md-icon flex="40" aria-label="Event" class="material-icons" >event</md-icon>
+                    <h1 flex="60" style="white-space: nowrap;"> Prossimi eventi</h1>
+                </div>
             </div>
         </md-toolbar>
 
         <md-content ng-controller="RightCtrl" layout-padding>
-            <md-button ng-click="close()" class="md-primary">
-                <md-icon class="material-icons" aria-label="Clear">clear</md-icon>
-            </md-button>
+
+            <!-- CONTENUTO SE SI APRONO LE NOTIFICHE -->
+            <div ng-if="data.menu == 'notifications'">
+                <p>qui ci saranno le notifiche</p>
+            </div>
+
+
+
+            <!-- CONTENUTO SE SI APRONO GLI EVENTI -->
+            <div ng-controller="EventCtrl" ng-if="data.menu == 'events'">
+                <div ng-repeat="evento in dati.eventi  | orderBy:'id'">
+                    <div ng-if="evento.tipo == 'single'">
+                        <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i>
+                        <br>
+                        {{evento.giornoInizio}} {{evento.dataInizio}} dalle ore {{evento.oraInizio}} alle {{evento.oraFine}}
+                    </div>
+                    <div ng-if="evento.tipo == 'range'">
+                        <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i>
+                        <br>
+                        Da {{evento.giornoInizio}} {{evento.dataInizio}} a {{evento.giornoFine}} {{evento.dataFine}}
+                    </div>
+                    <br>
+                    <md-divider ng-if="!$last"></md-divider>
+                    <br>
+                </div>
+            </div>
+
 
         </md-content>
     </md-sidenav>
