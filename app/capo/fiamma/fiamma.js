@@ -83,8 +83,6 @@ app.controller('myAppFiammaCtrl', ['$scope','$rootScope', 'Squadriglia', 'Fiamma
 
 
 
-        //NON HA SENSO RISCRIVERE TUTTO, ANDREBBE MESSO IN UNA FUNCTION
-
 
         //initialize variables
         $scope.dati={};

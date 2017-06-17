@@ -9,6 +9,30 @@ angular.module('myAppUtente.utentiService', [])
                 var ref = firebase.database().ref().child("utenti");
                 // download the data into a local object
                 return $firebaseArray(ref);
+            },
+
+            aggiornaStaff: function (uuid, checked) {
+
+                console.log("sono entrato nello staff service, aggiorna staff");
+                console.log("NEL SERVICE - uuid: " + uuid);
+                console.log("NEL SERVICE - checked: " + checked);
+
+
+                var ref = firebase.database().ref().child("utenti").child(uuid);
+                // create a synchronized array
+                if (checked == 'true'){
+                    ref.update({
+                        staff: true
+                    });
+                }
+                else if (checked == 'false'){
+                    ref.update({
+                        staff: false
+                    });
+                }
+
+
+
             }
         };
         return utentiService;

@@ -34,27 +34,53 @@ app.controller('myAppStaffCtrl', ['$scope','$rootScope', 'Utente', function($sco
     $scope.dati.utenti = Utente.getData();
     $scope.dati.utenti.$loaded().then(function () {
 
-        /**
-
         for (var i = 0; i < $scope.dati.utenti.length; i++) {
-            if ($scope.dati.squadriglie[i].fiamma == true) {
-                var oldFiamma = $scope.dati.squadriglie[i].nome;
+            if ($scope.dati.utenti[i].ruolo == 'capo') {
 
-                var uuidOld = $scope.dati.squadriglie[i].$id;
-                console.log("nel for questo e' lo uuid di " +$scope.dati.squadriglie[i].nome +": "+ uuidOld);
-
-                $scope.data = {
-                    oldFiamma : oldFiamma,
-                    newFiamma : oldFiamma,
-                    uuidOld : uuidOld,
-                };
+                var uuid = $scope.dati.utenti[i].$id;
+                var checkedOld =  $scope.dati.utenti[i].staff;
+                console.log("All'inizio " + $scope.dati.utenti[i].nome + " ha il toggle " + checkedOld);
             }
         }
-
-         **/
     });
 
 
+
+    $scope.salvaStaff = function(params) {
+        for (var i = 0; i < $scope.dati.utenti.length; i++) {
+            console.log("ENTRO NEL salva staff");
+
+            if ($scope.dati.utenti[i].ruolo == 'capo') {
+                var uuid = $scope.dati.utenti[i].$id;
+                var codiceCicloi = $scope.dati.utenti[i].codice;
+                var switchCicloi = document.getElementById(codiceCicloi);
+                var checked =  switchCicloi.getAttribute("aria-checked");
+                console.log("Alla fine " + $scope.dati.utenti[i].nome + " ha il toggle " + checked);
+
+
+                Utente.aggiornaStaff(uuid, checked);
+
+
+            }
+        }
+
+        //AGGIORNA VALORI
+        //initialize variables
+        $scope.dati={};
+        //get the list of available sq
+        $scope.dati.utenti = Utente.getData();
+        $scope.dati.utenti.$loaded().then(function () {
+
+            for (var i = 0; i < $scope.dati.utenti.length; i++) {
+                if ($scope.dati.utenti[i].ruolo == 'capo') {
+
+                    var uuid = $scope.dati.utenti[i].$id;
+                    var checkedOld =  $scope.dati.utenti[i].staff;
+                    console.log("Dopo salvataggio " + $scope.dati.utenti[i].nome + " ha il toggle " + checkedOld);
+                }
+            }
+        });
+    };
 
 
 

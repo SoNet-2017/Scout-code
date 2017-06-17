@@ -47,9 +47,10 @@ body {
     padding: 0 16px;
 }
 
-md-input-container.md-default-theme .md-input, md-input-container .md-input {
+.search {
     color: #f7f7f7;
 }
+
 
 
 .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
@@ -171,3 +172,26 @@ md-radio-group.md-default-theme:not([disabled]) .md-primary .md-checked .md-off,
     font-size: 0.8em;
     text-align: left;
     width: 100%; }
+
+
+
+/******
+    SWITCH
+ */
+
+md-switch {
+    margin: 0!important;
+    height: 1em!important;
+}
+md-switch.md-default-theme.md-checked.md-primary .md-thumb, md-switch.md-checked.md-primary .md-thumb {
+    background-color: #4CAF50;
+}
+md-switch.md-default-theme.md-checked.md-primary .md-bar, md-switch.md-checked.md-primary .md-bar {
+    background-color: rgba(76,175,80,0.5);
+}
+
+
+
+/****
+    INPUT REGISTRAZIONE
+ */

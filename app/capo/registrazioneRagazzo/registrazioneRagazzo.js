@@ -14,9 +14,8 @@ app.config(['$routeProvider', function($routeProvider) {
         });
     }]);
 
-app.controller('RegistrazioneRagazzoCtrl', ['$scope', 'RegistrazioneRagazzoService', '$firebaseStorage',
+app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'RegistrazioneRagazzoService', '$firebaseStorage',
         function($scope, $rootScope, RegistrazioneRagazzoService, $firebaseStorage) {
-
 
 
             //initialize variables
@@ -27,22 +26,13 @@ app.controller('RegistrazioneRagazzoCtrl', ['$scope', 'RegistrazioneRagazzoServi
             $scope.registrazioneRagazzo = function() {
 
                 console.log("ho premuto su REGISTRA");
-                $scope.dati.feedback = "feedback:hai premuto su registra";
-
-                $scope.aggiuntaRagazzoFinale();
-
 
                 //check if the user inserted all the required information
                 if ($scope.dati.codice!= undefined && $scope.dati.codice!="" && $scope.dati.nome!= undefined && $scope.dati.nome!="" && $scope.dati.cognome!=undefined && $scope.dati.cognome!="") {
 
-
                     console.log("entra nell'if che controlla se dati inseriti");
 
-                    $scope.dati.error = "";
-
                     $scope.aggiuntaRagazzoFinale();
-
-
                 }
                 else
                 {
@@ -52,20 +42,25 @@ app.controller('RegistrazioneRagazzoCtrl', ['$scope', 'RegistrazioneRagazzoServi
             };
 
 
-
             //function that will create the new record (with the boy) in the Firebase storage
             $scope.aggiuntaRagazzoFinale = function()
             {
+                console.log("entro in aggiunta ragazzo finale");
+
                 RegistrazioneRagazzoService.aggiungiRagazzo($scope.dati.codice, $scope.dati.nome, $scope.dati.cognome).then(function(ref) {
 
-                    console.log("entra nell'aggiungi ragazzo");
+                    console.log("uscito dal factory aggiungi ragazzo");
 
-                    var ragazzoId = ref.key;
-                    RegistrazioneRagazzoService.aggiornaUtente(ragazzoId);
-                    $scope.dati.feedback = "Il ragazzo è stato aggiunto con successo";
-                    $scope.dati.codice = "";
-                    $scope.dati.nome = "";
-                    $scope.dati.cognome = "";
+                    var ragazzoId = ref.key
+                    console.log("Questo è il uuid del ragazzo: "+ ragazzoId);
+
+                    $scope.dati.feedback = "Registrazione avvenuta con successo";
+
                 });
             }
+
+
+
+
+
         }]);

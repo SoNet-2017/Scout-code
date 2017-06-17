@@ -18,5 +18,5 @@ app.config(['$routeProvider', function($routeProvider){
 }]);
 
 app.controller('myAppHomeCapoCtrl', function($scope) {
-    var ref=new Firebase("")
+
 });

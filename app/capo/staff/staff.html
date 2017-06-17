@@ -11,30 +11,28 @@
                 </md-card-title>
 
 
-                <!-- ASSEGNAZIONE FIAMMA -->
-                <br>
+                <!-- FORMAZIONE STAFF -->
                 <div class="card-content">
+                    <div>Puoi decidere quali capi facciano parte o meno dello staf, abilitandoli o disabilitandoli</div>
+                    <br>
 
+                    <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.ruolo == 'capo'">
+                        <div flex="50">
+                            <b>{{utente.nome}}</b> {{utente.cognome}}
+                        </div>
+                        <div flex="40">
+                            <i>{{utente.codice}}</i>
+                        </div>
+                        <div flex>
+                            <md-switch class="md-primary" md-no-ink ng-model="utente.staff" id="{{utente.codice}}" aria-label="{{utente.codice}}" >
+                            </md-switch>
+                        </div>
+                        <br><br>
+                    </div>
 
-                <ul>
-                    <li  ng-repeat="utente in dati.utenti" ng-if="utente.ruolo == 'capo'">{{utente.nome}}
-                    </li>
-                </ul>
-
-
-
-
-
-
-
-                    <br><br><br><br><b>parte vecchia</b>
-                    <md-radio-group ng-model="data.newFiamma">
-                        <md-radio-button class="md-primary" ng-repeat="squadriglia in dati.squadriglie" value="{{squadriglia.nome}}"><b>{{squadriglia.nome}}</b>, Fiamma: {{squadriglia.fiamma}}</md-radio-button>
-                    </md-radio-group>
-                    <span class="md-subhead">Fiamma assegnata alla Sq: <b><span class="radioValue">{{data.newFiamma}}</span></b></span>
                 </div>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-click="salvaFiamma()" class="md-raised md-primary">Salva</md-button>
+                    <md-button ng-click="salvaStaff()" class="md-raised md-primary" id="btn-salva">Salva</md-button>
                 </md-card-actions>
             </md-card>
         </div>
