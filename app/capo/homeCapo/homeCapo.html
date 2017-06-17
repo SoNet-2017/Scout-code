@@ -1,12 +1,28 @@
-    <div ng-controller="myAppHomeCapoCtrl" ng-cloak >
+    <div ng-controller="myAppHomeCapoCtrl" >
         <md-content class="md-padding" layout-xs="column" layout="row">
             <div flex-xs flex-gt-xs="50" layout="column">
                 <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
                     <md-card-title>
                         <md-card-title-text>
-                            <span class="md-headline">Prossimi eventi</span>
+                            <span class="md-headline">Prossimo evento</span>
                         </md-card-title-text>
                     </md-card-title>
+
+                    <div class="card-content">
+                            <div ng-repeat="evento in dati.eventi  | orderBy:'id'" ng-if="$first">
+                                <div ng-if="evento.tipo == 'single'">
+                                    <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i>
+                                    <br>
+                                    {{evento.giornoInizio}} {{evento.dataInizio}} dalle ore {{evento.oraInizio}} alle {{evento.oraFine}}
+                                </div>
+                                <div ng-if="evento.tipo == 'range'">
+                                    <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i>
+                                    <br>
+                                    Da {{evento.giornoInizio}} {{evento.dataInizio}} a {{evento.giornoFine}} {{evento.dataFine}}
+                                </div>
+                                <br>
+                            </div>
+                    </div>
 
                 </md-card>
 
