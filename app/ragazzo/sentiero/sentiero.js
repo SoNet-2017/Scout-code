@@ -18,6 +18,14 @@ app.config(['$routeProvider', function($routeProvider){
     })
 }]);
 
+
 app.controller('myAppSentieroCtrl', function($scope) {
+    console.log("Siamo nel Controller di Sentiero");
+    $scope.specialita = [
+        {
+            "name":"Allevatore",
+            "img":"../"
+        }
+    ]
 
 });

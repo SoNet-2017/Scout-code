@@ -1,5 +1,5 @@
 <div ng-controller="myAppListaSpecialitaCtrl">
-    <md-card-actions class="md-padding" layout-xs="column" layout="row">
+    <md-content class="md-padding" layout-xs="column" layout="row">
         <div flex-xs flex-gt-xs="50" layout="column">
             <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
                 <md-card-title>
@@ -8,9 +8,23 @@
                         <span class="md-subhead">Specialità correlate ai tuoi hobby</span>
                     </md-card-title-text>
                 </md-card-title>
-                <md-card-actions layout="row" layout-align="end center">
+                <md-card-actions layout="row" layout-align="none">
                     <div class="md-media-lg card-media">
-
+                                <ul class="media-list">
+                                    <li class="media" ng-repeat="specialita in dati.specialita">
+                                        <b><h3>{{specialita.nome}}</h3></b>
+                                            <div class="col media-left">
+                                                <img class="media-object img-responsive" ng-src="../{{specialita.img_url}}">
+                                            </div>
+                                            <div class="col media-left">
+                                                <div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
+                                                    <md-button class="md-primary md-raised" ng-click="showAlert($event)"   >
+                                                        Approfondisci <md-icon aria-label="Settings" class="material-icons" >menu</md-icon>
+                                                    </md-button>
+                                                </div>
+                                            </div>
+                                    </li>
+                                </ul>
                     </div>
                 </md-card-actions>
             </md-card>
