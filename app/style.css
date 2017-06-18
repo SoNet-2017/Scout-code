@@ -6,6 +6,7 @@ a.logotype, a.logotype:visited, a.logotype:active, a.logotype:hover {
     font-family: 'Baloo', cursive;
     text-decoration: none;
     color: #f7f7f7;
+    font-size: 1.5em;
 }
 
 
@@ -18,7 +19,7 @@ body {
     height: 20px;
 }
 ._md {
-    overflow: hidden;
+    /*overflow: hidden; */
 }
 
 .user-name{
@@ -35,8 +36,45 @@ body {
     background: -moz-linear-gradient(bottom right, #4CAF50, #B2FF59); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to bottom right, #4CAF50, #B2FF59); /* Standard syntax (must be last) */
 }
-.user-img{
+.user-img {
     width: 100px;
+    border: 4px solid transparent;
+    -moz-border-image: -moz-linear-gradient(top right, #B2FF59 0%, #4CAF50 100%);
+    -webkit-border-image: -webkit-linear-gradient(top right, #B2FF59 0%, #4CAF50 100%);
+    border-image: linear-gradient(to top right, #B2FF59 0%, #4CAF50 100%);
+    border-image-slice: 1;
+
+    background: #B2FF59; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, #4CAF50, #B2FF59); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #4CAF50, #B2FF59); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #4CAF50, #B2FF59); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #4CAF50, #B2FF59); /* Standard syntax (must be last) */
+}
+
+.menu-laterale > ul {
+    padding-left: 0;
+}
+
+.menu-laterale > ul > li > a:not(.not-active) {
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+.menu-laterale > ul > li {
+
+
+    /*
+    background: #B2FF59; /* For browsers that do not support gradients
+    background: -webkit-linear-gradient(left top, #4CAF50, #B2FF59); /* For Safari 5.1 to 6.0
+    background: -o-linear-gradient(bottom right, #4CAF50, #B2FF59); /* For Opera 11.1 to 12.0
+    background: -moz-linear-gradient(bottom right, #4CAF50, #B2FF59); /* For Firefox 3.6 to 15
+    background: linear-gradient(to bottom right, #4CAF50, #B2FF59); /* Standard syntax (must be last)
+    */
+}
+
+.menu-laterale {
+    line-height: 2.5em;
+    font-size: 1.5em;
 }
 
 .not-active {

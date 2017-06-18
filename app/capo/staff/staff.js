@@ -31,6 +31,7 @@ app.controller('myAppStaffCtrl', ['$scope','$rootScope', 'Utente', function($sco
     //initialize variables
     $scope.dati={};
     $scope.dati.feedback = "";
+    $scope.modulo = "";
     //get the list of available sq
     $scope.dati.utenti = Utente.getData();
     $scope.dati.utenti.$loaded().then(function () {
