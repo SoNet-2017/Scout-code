@@ -3,26 +3,27 @@
 var app=angular.module('myAppHomeCapo', [
     'ngMaterial',
     'ngRoute',
-    'myAppEvento'
+    'myAppEvento',
+    'myAppAuthentication'
 ]);
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider.when('/homeCapo',{
         templateUrl: 'capo/homeCapo/homeCapo.html',
         controller: 'myAppHomeCapoCtrl',
-        /*IN ATTESA DEL LOGIN
+
+        /**/
         resolve: {
-            "currentAuth":["Auth",function(auth) {
+            "currentAuth":["Auth",function(Auth) {
                 return Auth.$requireSignIn();
             }]
         }
-        */
+
     })
 }]);
 
 
-
-app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', function($scope,$rootScope, Evento) {
+app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebaseAuth', function($scope,$rootScope, Evento, $firebaseAuth) {
 
     console.log("e' entrato nel ctrl evento");
 
@@ -37,8 +38,13 @@ app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', function($
     });
 
 
-
-
+    $scope.isLogged = function()
+    {
+        if ($firebaseAuth().$getAuth())
+            return true;
+        else
+            return false;
+    }
 
 
 

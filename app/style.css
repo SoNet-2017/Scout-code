@@ -9,6 +9,10 @@ a.logotype, a.logotype:visited, a.logotype:active, a.logotype:hover {
     font-size: 1.5em;
 }
 
+h1 {
+    text-align: center;
+}
+
 
 body {
     background-color: #fafafa!important;

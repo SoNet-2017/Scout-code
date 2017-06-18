@@ -3,7 +3,8 @@
 var app = angular.module('myAppFiamma', [
     'ngMaterial',
     'ngRoute',
-    'myAppSquadriglia'
+    'myAppSquadriglia',
+    'myAppAuthentication'
 ]);
 
 
@@ -12,11 +13,7 @@ app.config(['$routeProvider', function($routeProvider){
         templateUrl: 'capo/fiamma/fiamma.html',
         controller: 'myAppFiammaCtrl',
         /* IN ATTESA DEL LOGIN
-         resolve: {
-         "currentAuth":["Auth",function(auth) {
-         return Auth.$requireSignIn();
-         }]
-         }
+
          */
     })
 }]);

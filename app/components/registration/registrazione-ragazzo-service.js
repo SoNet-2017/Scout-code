@@ -19,7 +19,8 @@ angular.module('myAppUtente.registrazioneRagazzoService', [])
                     cognome: cognome,
                     ruolo: "ragazzo",
                     sq: "",
-                    email: ""
+                    email: "",
+                    logged: false
                 });
             }
         };

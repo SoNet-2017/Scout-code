@@ -11,5 +11,5 @@ app.config(['$routeProvider', function($routeProvider) {
 
 
 app.controller('registrationViewCtrl', ['$scope', '$firebaseArray', function($scope, $firebaseArray){
-    console.log('controller loaded...');
+    console.log('registration view controller');
 }]);

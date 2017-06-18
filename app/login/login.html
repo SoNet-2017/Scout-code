@@ -1,15 +1,97 @@
-<div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Login failed! {{ error.message }}</div>
+<div  ng-controller="LoginCtrl" >
+    <md-content class="md-padding" layout-xs="column" layout="row">
 
-<form id="frmLogin" role="form" ng-submit="signIn()">
-    <h2>Login</h2>
+        <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Login failed! {{ error.message }}</div>
+        <div class="alert alert-success alert-dismissible inset" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
 
-    <div class="form-group">
-        <label for="txtEmail">Email address</label>
-        <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="email" ng-model="user.email" />
-    </div>
-    <div class="form-group">
-        <label for="txtPass">Password</label>
-        <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" ng-model="user.password" />
-    </div>
-    <button type="submit" class="btn btn-success center-block">Login</button>
-</form>
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+
+
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Effettua l'accesso</span>
+                        </md-card-title-text>
+                        <hr>
+                    </md-card-title>
+
+
+
+                    <div class="card-content">
+
+                        <form id="frmLogin" role="form" ng-submit="signIn()">
+                            <h2>Login</h2>
+
+                            <div class="form-group">
+                                <label for="txtEmail">Email address</label>
+                                <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="email" ng-model="user.email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="txtPass">Password</label>
+                                <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" ng-model="user.password" />
+                            </div>
+                            <button type="submit" class="btn btn-success center-block">Login</button>
+                        </form>
+
+
+
+
+                        <!--
+                           <md-input-container class="md-block">
+                            <label>Email</label>
+                            <input required id="codice" ng-model="dati.codice" name="codice" type="number">
+                            <div ng-messages="moduloRegistrazione.codice.$error">
+                                <div ng-message="required">Questo campo è obbligatorio e deve essere numerico.</div>
+                            </div>
+                        </md-input-container>
+
+                        <br><br><br>
+
+                        <md-input-container class="md-block">
+                            <label>Password</label>
+                            <input required id="nome" ng-model="dati.nome" name="nome">
+                            <div ng-messages="moduloRegistrazione.nome.$error">
+                                <div ng-message="required">Questo campo è obbligatorio.</div>
+                            </div>
+                        </md-input-container>
+
+                        <br><br><br>
+
+                        <br>
+
+                                        -->
+
+                    </div>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button type=submit" class="md-raised md-primary">ACCEDI</md-button>
+                    </md-card-actions>
+
+
+            </md-card>
+
+
+
+
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Oppure</span>
+                            <span class="md-subhead">Registra un nuovo account capo</span>
+                        </md-card-title-text>
+                    </md-card-title>
+
+                    <!--  -->
+                    <div class="card-content">
+                    </div>
+
+                    <md-card-actions layout="row" layout-align="end center">
+                        <a href="#!/registrationView">
+                            <md-button class="md-raised md-primary">REGISTRA</md-button>
+                        </a>
+                    </md-card-actions>
+            </md-card>
+        </div>
+    </md-content>
+</div>
+
+

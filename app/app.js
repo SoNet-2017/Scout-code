@@ -29,14 +29,61 @@ var app = angular.module('myApp', [
         'myAppSquadriglia',
         'myAppFormaSquadriglie',
         'myAppStaff',
-        'myAppEvento',
-        'myAppAssegnaTappa'
+        'myAppEvento'
     ]);
 
 
 app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
-    $routeProvider.otherwise({redirectTo: '/homeCapo'});
+    $routeProvider.otherwise({redirectTo: '/login'});
+}]);
+
+
+app.run(["$rootScope", "$location", function($rootScope, $location){
+    $rootScope.$on("$routeChangeEttor",function(event, next, previous, error){
+        if(error==="AUTH_REQUIRED"){
+            $location.path("/login");
+        }
+    })
+}]);
+
+
+
+// .controller('userProfileCtrl', ['$scope', '$rootScope', 'UsersChatService', 'Users', function($scope, $rootScope, UsersChatService, Users, currentAuth, $firebaseAuth, $location) {
+
+
+app.controller('LogCtrl', ['$scope', '$rootScope', '$firebaseAuth', 'Utente', function($scope, $rootScope, $firebaseAuth, Utente) {
+    //this controller only declares a function to get information about the user status (logged in / out)
+    //it is used to show menu buttons only when the user is logged
+    $scope.dati={};
+
+    //set the variable that is used in the main template to show the active button
+    $scope.isLogged = function()
+    {
+        if ($firebaseAuth().$getAuth())
+            return true;
+        else
+            return false;
+    }
+
+
+    // function called when the "logout" button will be pressed
+    $scope.logout = function () {
+
+        //save the new status in the database (we do it before the actual logout because we can write in the database only if the user is logged in)
+        Utente.registerLogout(currentAuth.uid);
+        //sign out
+        $firebaseAuth().$signOut();
+        $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
+            if (firebaseUser) {
+                console.log("User is yet signed in as:", firebaseUser.uid);
+            } else {
+                $location.path("/loginView");
+            }
+        });
+
+
+    };
 }]);
 
 
@@ -161,11 +208,3 @@ app.controller('EventCtrl', ['$scope','$rootScope', 'Evento', function($scope,$r
 
 
 
-
-app.run(["$rootScope", "$location", function($rootScope, $location){
-    $rootScope.$on("$routeChangeEttor",function(event, next, previous, error){
-        if(error==="AUTH_REQUIRED"){
-            $location.path("/login");
-        }
-    })
-}]);

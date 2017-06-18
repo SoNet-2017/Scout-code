@@ -52,7 +52,50 @@ angular.module('myAppUtente.utentiService', [])
                 ref.update({
                     tappa: newTappa
                 });
+            },
+
+
+
+            /**
+             * GESTIONE LOGIN UTENTI
+             *
+             * **/
+            registerLogin: function (userId, email) {
+                //add the user to list of users and set the logged value to true
+                var ref = firebase.database().ref().child("utenti").child(userId);
+                // create a synchronized array
+                ref.update({
+                    email: email,
+                    logged: true
+                });
+            },
+            registerLogout: function (userId)
+            {
+                var ref = firebase.database().ref().child("utenti").child(userId);
+                // create a synchronized array
+                ref.update({
+                    logged: false
+                });
+            },
+
+
+            /**
+             * REGISTRAZIONE NUOVO CAPO
+             *
+             * **/
+            registerNewUserInfo: function (userId, name, surname, email) {
+                //add the user to list of users and set the logged value to true
+                var ref = firebase.database().ref().child("users").child(userId);
+                // create a synchronized array
+                ref.set({
+                    nome: name,
+                    cognome: surname,
+                    email: email
+                });
             }
+
+
+
         };
         return utentiService;
     });
