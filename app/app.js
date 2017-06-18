@@ -29,7 +29,8 @@ var app = angular.module('myApp', [
         'myAppSquadriglia',
         'myAppFormaSquadriglie',
         'myAppStaff',
-        'myAppEvento'
+        'myAppEvento',
+        'myAppSpecialita'
     ]);
 
 
