@@ -19,6 +19,32 @@
                     <div>Puoi decidere quali capi facciano parte o meno dello staf, abilitandoli o disabilitandoli</div>
                     <br>
 
+                    <div>Inserisci il codice socio del singolo capo che vuoi abilitare o disabilitare (copia i codici sotto) oppure vedi la lista completa.</div>
+                    <br><br>
+
+                    <md-input-container  md-no-float class="md-block">
+                        <label>Codice socio del capo</label>
+                        <input id="codice" ng-model="modulo.codice" name="codice" type="number">
+                    </md-input-container>
+                    <br>
+
+                    <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.codice == modulo.codice">
+                        <div flex="50">
+                            <b>{{utente.nome}}</b> {{utente.cognome}}
+                        </div>
+                        <div flex="40">
+                            <i>{{utente.codice}}</i>
+                        </div>
+                        <div flex>
+                            <md-switch class="md-primary" md-no-ink ng-model="utente.staff" id="{{utente.codice}}" aria-label="{{utente.codice}}" >
+                            </md-switch>
+                        </div>
+                        <br><br>
+                    </div>
+
+                    <md-divider ng-if="!$last"></md-divider>
+                    <br>
+
                     <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.ruolo == 'capo'">
                         <div flex="50">
                             <b>{{utente.nome}}</b> {{utente.cognome}}
@@ -32,6 +58,8 @@
                         </div>
                         <br><br>
                     </div>
+
+
 
                 </div>
                 <md-card-actions layout="row" layout-align="end center">

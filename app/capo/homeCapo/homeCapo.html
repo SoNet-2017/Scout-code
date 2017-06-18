@@ -11,12 +11,12 @@
                     <div class="card-content">
                             <div ng-repeat="evento in dati.eventi  | orderBy:'id'" ng-if="$first">
                                 <div ng-if="evento.tipo == 'single'">
-                                    <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i>
+                                    <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i> - Presenti: {{evento.presenti}}
                                     <br>
                                     {{evento.giornoInizio}} {{evento.dataInizio}} dalle ore {{evento.oraInizio}} alle {{evento.oraFine}}
                                 </div>
                                 <div ng-if="evento.tipo == 'range'">
-                                    <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i>
+                                    <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i> - Presenti: {{evento.presenti}}
                                     <br>
                                     Da {{evento.giornoInizio}} {{evento.dataInizio}} a {{evento.giornoFine}} {{evento.dataFine}}
                                 </div>

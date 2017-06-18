@@ -31,6 +31,8 @@ var app = angular.module('myApp', [
         'myAppStaff',
         'myAppEvento',
         'myAppSpecialita'
+        'myAppEvento',
+        'myAppAssegnaTappa'
     ]);
 
 
