@@ -40,6 +40,18 @@ angular.module('myAppUtente.utentiService', [])
                 ref.update({
                     sq: newSq
                 });
+            },
+
+            aggiornaTappa: function (uuid, newTappa) {
+                console.log("sono entrato nello sq service, aggiorna tappa");
+                console.log("NEL SERVICE - uuid: " + uuid);
+                console.log("NEL SERVICE - newSq: " + newTappa);
+
+                var ref = firebase.database().ref().child("utenti").child(uuid);
+                // create a synchronized array
+                ref.update({
+                    tappa: newTappa
+                });
             }
         };
         return utentiService;

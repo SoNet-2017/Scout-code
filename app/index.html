@@ -63,6 +63,7 @@
     <script src="components/registration/utenti-service.js"></script>
     <script src="components/evento/evento.js"></script>
     <script src="components/evento/evento-service.js"></script>
+    <script src="capo/assegnaTappa/assegnaTappa.js"></script>
 
 
 </head>
@@ -154,7 +155,7 @@
                     </li>
                     <md-divider ng-if="!$last"></md-divider>
                     <li>
-                        <a href="#!/" ng-click="close()" ><md-icon aria-label="Verified User" class="material-icons" >verified_user</md-icon> Assegnazione Ruoli</a>
+                        <a href="#!/assegnaTappa" ng-click="close()" ><md-icon aria-label="Verified User" class="material-icons" >verified_user</md-icon> Assegnazione Ruoli</a>
                     </li>
                     <md-divider ng-if="!$last"></md-divider>
                     <li>
@@ -241,12 +242,12 @@
             <div ng-controller="EventCtrl" ng-if="data.menu == 'events'">
                 <div ng-repeat="evento in dati.eventi  | orderBy:'id'">
                     <div ng-if="evento.tipo == 'single'">
-                        <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i>
+                        <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i> - Presenti: {{evento.presenti}}
                         <br>
                         {{evento.giornoInizio}} {{evento.dataInizio}} dalle ore {{evento.oraInizio}} alle {{evento.oraFine}}
                     </div>
                     <div ng-if="evento.tipo == 'range'">
-                        <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i>
+                        <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i> - Presenti: {{evento.presenti}}
                         <br>
                         Da {{evento.giornoInizio}} {{evento.dataInizio}} a {{evento.giornoFine}} {{evento.dataFine}}
                     </div>
