@@ -17,7 +17,7 @@ var app = angular.module('myApp', [
         'ngRoute',
         "firebase",
         'myAppSentiero',
-        'myAppProfilo',
+        'myAppHomeRagazzo',
         'myAppFiamma',
         'myAppLogin',
         'myAppAuthentication',
@@ -30,10 +30,9 @@ var app = angular.module('myApp', [
         'myAppFormaSquadriglie',
         'myAppStaff',
         'myAppEvento',
-        'myAppAssegnaTappa'
-    /*,
+        'myAppAssegnaTappa',
         'myAppSpecialita'
-        */
+
     ]);
 
 

@@ -18,16 +18,12 @@ app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 
 
 
     $scope.showAlert = function (ev) {
-        $mdDialog.show(
-            $mdDialog.alert()
-                .parent(angular.element(document.querySelector('#popupContainer')))
-                .clickOutsideToClose(true)
-                .title('Descrizione')
-                .textContent(descrizione)
-                .ariaLabel('Alert Dialog Demo')
-                .ok('Scegli!')
-                .targetEvent(ev)
-        );
+        $mdDialog.show({
+            templateUrl:'ragazzo/sentiero/listaSpecialita/specialita/allevatore.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true
+        });
     };
 }]);
 
