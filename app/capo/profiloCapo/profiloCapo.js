@@ -18,7 +18,12 @@ app.config(['$routeProvider', function($routeProvider) {
           "currentAuth": ["Auth", function(Auth) {
               // $requireSignIn returns a promise so the resolve waits for it to complete
               // If the promise is rejected, it will throw a $routeChangeError (see above)
+
+              console.log("Questo e'  Auth: "+Auth);
+              console.log("requireSignIn e' : "+ Auth.$requireSignIn());
               return Auth.$requireSignIn();
+
+
           }]
 
       }

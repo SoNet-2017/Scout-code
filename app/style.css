@@ -136,15 +136,6 @@ height: 100%;
 /****
     STILE RADIO BUTTONS
  */
-md-radio-group.md-default-theme:not([disabled]) .md-primary .md-on, md-radio-group:not([disabled]) .md-primary .md-on, md-radio-group.md-default-theme:not([disabled]).md-primary .md-on, md-radio-group:not([disabled]).md-primary .md-on, md-radio-button.md-default-theme:not([disabled]) .md-primary .md-on, md-radio-button:not([disabled]) .md-primary .md-on, md-radio-button.md-default-theme:not([disabled]).md-primary .md-on, md-radio-button:not([disabled]).md-primary .md-on {
-    background-color: #4CAF50;
-}
-md-radio-group.md-default-theme:not([disabled]) .md-primary .md-checked .md-off, md-radio-group:not([disabled]) .md-primary .md-checked .md-off, md-radio-group.md-default-theme:not([disabled]) .md-primary.md-checked .md-off, md-radio-group:not([disabled]) .md-primary.md-checked .md-off, md-radio-group.md-default-theme:not([disabled]).md-primary .md-checked .md-off, md-radio-group:not([disabled]).md-primary .md-checked .md-off, md-radio-group.md-default-theme:not([disabled]).md-primary.md-checked .md-off, md-radio-group:not([disabled]).md-primary.md-checked .md-off, md-radio-button.md-default-theme:not([disabled]) .md-primary .md-checked .md-off, md-radio-button:not([disabled]) .md-primary .md-checked .md-off, md-radio-button.md-default-theme:not([disabled]) .md-primary.md-checked .md-off, md-radio-button:not([disabled]) .md-primary.md-checked .md-off, md-radio-button.md-default-theme:not([disabled]).md-primary .md-checked .md-off, md-radio-button:not([disabled]).md-primary .md-checked .md-off, md-radio-button.md-default-theme:not([disabled]).md-primary.md-checked .md-off, md-radio-button:not([disabled]).md-primary.md-checked .md-off {
-    border-color: #4CAF50;
-}
-
-
-
 .radioButtondemoBasicUsage body {
     padding: 20px; }
 
@@ -228,12 +219,7 @@ md-switch {
     margin: 0!important;
     height: 1em!important;
 }
-md-switch.md-default-theme.md-checked.md-primary .md-thumb, md-switch.md-checked.md-primary .md-thumb {
-    background-color: #4CAF50;
-}
-md-switch.md-default-theme.md-checked.md-primary .md-bar, md-switch.md-checked.md-primary .md-bar {
-    background-color: rgba(76,175,80,0.5);
-}
+
 
 
 

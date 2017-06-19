@@ -48,8 +48,10 @@ app.config(['$locationProvider', '$routeProvider', '$mdThemingProvider', functio
 }]);
 
 
+
+
 app.run(["$rootScope", "$location", function($rootScope, $location){
-    $rootScope.$on("$routeChangeEttor",function(event, next, previous, error){
+    $rootScope.$on("$routeChangeError",function(event, next, previous, error){
         if(error==="AUTH_REQUIRED"){
             $location.path("/login");
         }
