@@ -80,7 +80,7 @@
 
     <header ng-cloak>
         <md-content>
-            <md-toolbar class="md-hue-2">
+            <md-toolbar class="md-primary">
                 <div class="md-toolbar-tools">
                     <md-button ng-click="toggleLeft()" class="md-icon-button" aria-label="Settings">
                         <md-icon aria-label="Menu" class="material-icons">menu</md-icon>
@@ -115,7 +115,7 @@
         <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
 
             <!-- toolbar della sidenav -->
-            <md-toolbar class="md-theme-indigo">
+            <md-toolbar class="md-primary">
 
                 <div class="md-toolbar-tools">
 
@@ -138,6 +138,8 @@
                 </div>
             </md-toolbar>
 
+            <br><br>
+
             <!-- Voci del menu laterale -->
             <md-content layout-padding>
 
@@ -154,9 +156,8 @@
                                 Sanfilippo
                             </h4>
                             <h4 ng-if="isLogged()">
-                                LOGGATO
+                                LOGGATO {{loggato.nome}} {{user.email}}
                             </h4>
-                            <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
                         </div>
                     </div>
 
@@ -249,7 +250,7 @@
         <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
 
 
-            <md-toolbar class="md-theme-indigo">
+            <md-toolbar class="md-primary">
                 <div class="md-toolbar-tools">
 
                     <!-- TOOLBAR SE SI APRONO LE NOTIFICHE -->
@@ -265,6 +266,8 @@
                     </div>
                 </div>
             </md-toolbar>
+
+            <br><br><br>
 
             <md-content ng-controller="RightCtrl" layout-padding>
 

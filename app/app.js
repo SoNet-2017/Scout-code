@@ -36,7 +36,13 @@ var app = angular.module('myApp', [
     ]);
 
 
-app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+app.config(['$locationProvider', '$routeProvider', '$mdThemingProvider', function($locationProvider, $routeProvider, $mdThemingProvider) {
+
+    //TEMA DELL'APP
+    $mdThemingProvider.theme('default')
+        .primaryPalette('green')
+        .accentPalette('light-green');
+
     $locationProvider.hashPrefix('!');
     $routeProvider.otherwise({redirectTo: '/login'});
 }]);

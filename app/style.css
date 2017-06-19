@@ -108,17 +108,11 @@ body {
     color: white;
 }
 
-md-toolbar.md-default-theme.md-hue-2:not(.md-menu-toolbar), md-toolbar.md-hue-2:not(.md-menu-toolbar) {
-    background-color: #4CAF50;
-    color: rgba(255,255,255,0.87);
+md-toolbar.md-primary {
     position:fixed !important;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
-md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
-    background-color: #4CAF50;
-    color: rgba(255,255,255,0.87);
-}
 
 /*
 PREVENIRE SCROLLING PAGINA QUANDO SIDENAV APERTA
