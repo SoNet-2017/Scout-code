@@ -35,10 +35,12 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
 
 
             console.log("Login avvenuto");
-            /**QUI DEVO CONTROLLARE DOVE VIENE FATTO IL REDIRECT, SE HOME CAPO O HOME RAGAZZO**/
 
 
             $scope.dati={};
+            $scope.loggato = {
+                home : "nessunahome"
+            }
             $scope.dati.utenti = Utente.getData();
             $scope.dati.utenti.$loaded().then(function () {
 
@@ -48,6 +50,9 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
 
                         if ($scope.dati.utenti[i].ruolo == 'capo') {
                             $scope.loggato.home = "homecapo";
+
+                            $scope.loggato.nome = $scope.dati.utenti[i].nome;
+                            console.log("Si e' loggato: " +  $scope.loggato.nome);
 
                             $location.path("/homeCapo");
                             console.log("Redirect su home capo");

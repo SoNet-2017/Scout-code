@@ -70,16 +70,17 @@
     <script src="capo/assegnaTappa/assegnaTappa.js"></script>
     <script src="components/specialita/specialita.js"></script>
     <script src="components/specialita/specialita-service.js"></script>
+    <script src="capo/profiloCapo/profiloCapo.js"></script>
 
 </head>
 <body ng-app="myApp" ng-controller="AppCtrl1">
-<!--
+
 <div ng-controller="LogCtrl">
--->
+
 
     <header ng-cloak>
         <md-content>
-            <md-toolbar class="md-hue-2">
+            <md-toolbar class="md-primary">
                 <div class="md-toolbar-tools">
                     <md-button ng-click="toggleLeft()" class="md-icon-button" aria-label="Settings">
                         <md-icon aria-label="Menu" class="material-icons">menu</md-icon>
@@ -114,7 +115,7 @@
         <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
 
             <!-- toolbar della sidenav -->
-            <md-toolbar class="md-theme-indigo">
+            <md-toolbar class="md-primary">
 
                 <div class="md-toolbar-tools">
 
@@ -137,26 +138,30 @@
                 </div>
             </md-toolbar>
 
+            <br><br>
+
             <!-- Voci del menu laterale -->
             <md-content layout-padding>
 
+                <a href="#!/profiloCapo" ng-click="close()">
 
-                <div layout="row">
-                    <div flex="none">
-                        <img class="user-img" src="../images/1239822.jpg">
+                    <div layout="row">
+                        <div flex="none">
+                            <img class="user-img" src="../images/1239822.jpg">
+                        </div>
+                        <div flex>
+                            <h4 class="user-name">
+                                Federico
+                                <br>
+                                Sanfilippo
+                            </h4>
+                            <h4 ng-if="isLogged()">
+                                LOGGATO {{loggato.nome}} {{user.email}}
+                            </h4>
+                        </div>
                     </div>
-                    <div flex>
-                        <h4 class="user-name">
-                            Federico
-                            <br>
-                            Sanfilippo
-                        </h4>
-                        <h4 ng-if="isLogged()">
-                            LOGGATO
-                        </h4>
-                        <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
-                    </div>
-                </div>
+
+                </a>
 
 
                 <div class="menu-laterale">
@@ -246,7 +251,7 @@
         <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
 
 
-            <md-toolbar class="md-theme-indigo">
+            <md-toolbar class="md-primary">
                 <div class="md-toolbar-tools">
 
                     <!-- TOOLBAR SE SI APRONO LE NOTIFICHE -->
@@ -262,6 +267,8 @@
                     </div>
                 </div>
             </md-toolbar>
+
+            <br><br><br>
 
             <md-content ng-controller="RightCtrl" layout-padding>
 
@@ -296,8 +303,7 @@
         </md-sidenav>
     </section>
 
-<!--
 </div>
--->
+
 </body>
 </html>

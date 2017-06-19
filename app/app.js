@@ -30,9 +30,10 @@ var app = angular.module('myApp', [
         'myAppFormaSquadriglie',
         'myAppStaff',
         'myAppEvento',
-        'myAppAssegnaTappa',
+        'myAppAssegnaTappa'
+    /*,
         'myAppSpecialita'
-
+        */
     ]);
 
 

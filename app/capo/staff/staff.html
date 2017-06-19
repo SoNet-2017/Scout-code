@@ -29,6 +29,9 @@
                     <br>
 
                     <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.codice == modulo.codice">
+
+                        <!-- TODO perche' compare una riga vuota col toogle visibile quando non c'è niente nel campo codice? -->
+
                         <div flex="50">
                             <b>{{utente.nome}}</b> {{utente.cognome}}
                         </div>
@@ -36,7 +39,7 @@
                             <i>{{utente.codice}}</i>
                         </div>
                         <div flex>
-                            <md-switch class="md-primary" md-no-ink ng-model="utente.staff" id="{{utente.codice}}" aria-label="{{utente.codice}}" >
+                            <md-switch name="toggle problematico" class="md-primary" md-no-ink ng-model="utente.staff" id="{{utente.codice}}" aria-label="{{utente.codice}}" >
                             </md-switch>
                         </div>
                         <br><br>
