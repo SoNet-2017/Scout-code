@@ -70,12 +70,13 @@
     <script src="capo/assegnaTappa/assegnaTappa.js"></script>
     <script src="components/specialita/specialita.js"></script>
     <script src="components/specialita/specialita-service.js"></script>
+    <script src="capo/profiloCapo/profiloCapo.js"></script>
 
 </head>
 <body ng-app="myApp" ng-controller="AppCtrl1">
-<!--
+
 <div ng-controller="LogCtrl">
--->
+
 
     <header ng-cloak>
         <md-content>
@@ -140,23 +141,26 @@
             <!-- Voci del menu laterale -->
             <md-content layout-padding>
 
+                <a href="#!/profiloCapo" ng-click="close()">
 
-                <div layout="row">
-                    <div flex="none">
-                        <img class="user-img" src="../images/1239822.jpg">
+                    <div layout="row">
+                        <div flex="none">
+                            <img class="user-img" src="../images/1239822.jpg">
+                        </div>
+                        <div flex>
+                            <h4 class="user-name">
+                                Federico
+                                <br>
+                                Sanfilippo
+                            </h4>
+                            <h4 ng-if="isLogged()">
+                                LOGGATO
+                            </h4>
+                            <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
+                        </div>
                     </div>
-                    <div flex>
-                        <h4 class="user-name">
-                            Federico
-                            <br>
-                            Sanfilippo
-                        </h4>
-                        <h4 ng-if="isLogged()">
-                            LOGGATO
-                        </h4>
-                        <button class="center-block btn btn-danger" ng-click="logout();">Logout</button>
-                    </div>
-                </div>
+
+                </a>
 
 
                 <div class="menu-laterale">
@@ -295,8 +299,7 @@
         </md-sidenav>
     </section>
 
-<!--
 </div>
--->
+
 </body>
 </html>

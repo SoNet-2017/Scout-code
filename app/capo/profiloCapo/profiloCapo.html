@@ -1,0 +1,41 @@
+<div  ng-controller="profiloCapoCtrl" >
+    <md-content class="md-padding" layout-xs="column" layout="row">
+
+        <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">{{ error.message }}</div>
+        <div class="alert alert-success alert-dismissible inset" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
+
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+
+
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Profilo personale</span>
+                        <span class="md-subhead">di <b>{{dati.user.nome}} {{dati.user.cognome}}</b></span>
+                    </md-card-title-text>
+                    <hr>
+                </md-card-title>
+
+                <div class="card-content">
+                    <div>
+                        Codice socio: {{dati.user.codice}}
+                    </div>
+                    <div ng-if="dati.user.staff == true">
+                        Staff: Stella Polare
+                    </div>
+                    <div>
+                        Email: {{dati.user.email}}
+                    </div>
+
+
+                </div>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-click="logout()" class="md-raised md-warn">LOGOUT</md-button>
+                </md-card-actions>
+
+            </md-card>
+        </div>
+    </md-content>
+</div>
+
+

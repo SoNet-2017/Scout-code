@@ -10,8 +10,7 @@ angular.module('myAppUtente.utentiService', [])
                 var userRef = firebase.database().ref().child("utenti").child(userId);
                 return $firebaseObject(userRef);
             },
-
-
+            
 
             getData: function () {
                 var ref = firebase.database().ref().child("utenti");

@@ -46,6 +46,4 @@ app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebase
             return false;
     }
 
-
-
 }]);

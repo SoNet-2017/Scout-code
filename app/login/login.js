@@ -39,6 +39,9 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
 
 
             $scope.dati={};
+            $scope.loggato = {
+                home : "nessunahome"
+            }
             $scope.dati.utenti = Utente.getData();
             $scope.dati.utenti.$loaded().then(function () {
 
