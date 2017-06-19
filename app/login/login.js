@@ -37,7 +37,7 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
             console.log("Login avvenuto");
             /**QUI DEVO CONTROLLARE DOVE VIENE FATTO IL REDIRECT, SE HOME CAPO O HOME RAGAZZO**/
 
-            var home = "";
+
             $scope.dati={};
             $scope.dati.utenti = Utente.getData();
             $scope.dati.utenti.$loaded().then(function () {
@@ -47,34 +47,22 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
                         console.log("Sono entrato nell'if che prende i dati dell'utente loggato");
 
                         if ($scope.dati.utenti[i].ruolo == 'capo') {
-                            var home = "homecapo";
-                            console.log("L'utente loggato e' un capo. Home vale: " + home);
+                            $scope.loggato.home = "homecapo";
+
+                            $location.path("/homeCapo");
+                            console.log("Redirect su home capo");
                         }
                         else if ($scope.dati.utenti[i].ruolo == 'ragazzo') {
-                            var home = "homeragazzo";
-                            console.log("L'utente loggato e' un ragazzo. Home vale: " + home);
+                            $scope.loggato.home = "homeragazzo";
+
+                            //TODO CORREGGERE IL REDIRECT SU HOME RAGAZZO
+                            $location.path("/fiamma");
+                            console.log("Redirect su fiamma");
                         }
 
                     }
                 }
             });
-
-
-
-            if (home == 'homecapo') {
-                console.log("Nell'if, home vale: " + home);
-                $location.path("/homeCapo");
-                console.log("Redirect su home capo");
-            }
-            else if (home == 'homeragazzo') {
-                console.log("Nell'if, home vale: " + home);
-                $location.path("/fiamma");
-                console.log("Redirect su fiamma");
-            }
-            else {
-                console.log("ELSE: " + home);
-            }
-
 
 
 
