@@ -39,8 +39,58 @@ var app = angular.module('myApp', [
 
 app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
-    $routeProvider.otherwise({redirectTo: '/homeCapo'});
+    $routeProvider.otherwise({redirectTo: '/login'});
 }]);
+
+
+app.run(["$rootScope", "$location", function($rootScope, $location){
+    $rootScope.$on("$routeChangeEttor",function(event, next, previous, error){
+        if(error==="AUTH_REQUIRED"){
+            $location.path("/login");
+        }
+    })
+}]);
+
+/****
+app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', 'currentAuth', '$firebaseAuth', '$location', function($scope, $rootScope, Utente, currentAuth, $firebaseAuth, $location) {
+    //this controller only declares a function to get information about the user status (logged in / out)
+    //it is used to show menu buttons only when the user is logged
+
+    //set the variable that is used in the main template to show the active button
+    $rootScope.dati = {};
+    $scope.isLogged = function()
+    {
+        if ($firebaseAuth().$getAuth())
+            return true;
+        else
+            return false;
+    }
+
+
+    $scope.dati.user = Utente.getUserInfo(currentAuth.uid);
+
+
+    // function called when the "logout" button will be pressed
+    $scope.logout = function () {
+
+        //save the new status in the database (we do it before the actual logout because we can write in the database only if the user is logged in)
+        Utente.registerLogout(currentAuth.uid);
+        //sign out
+        $firebaseAuth().$signOut();
+        $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
+            if (firebaseUser) {
+                console.log("User is yet signed in as:", firebaseUser.uid);
+            } else {
+                $location.path("/login");
+            }
+        });
+
+
+    };
+}]);
+
+***/
+
 
 
 app.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
@@ -165,10 +215,3 @@ app.controller('EventCtrl', ['$scope','$rootScope', 'Evento', function($scope,$r
 
 
 
-app.run(["$rootScope", "$location", function($rootScope, $location){
-    $rootScope.$on("$routeChangeEttor",function(event, next, previous, error){
-        if(error==="AUTH_REQUIRED"){
-            $location.path("/login");
-        }
-    })
-}]);

@@ -59,7 +59,6 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
                             $location.path("/fiamma");
                             console.log("Redirect su fiamma");
                         }
-
                     }
                 }
             });
