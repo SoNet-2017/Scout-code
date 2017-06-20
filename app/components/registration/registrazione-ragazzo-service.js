@@ -20,7 +20,8 @@ angular.module('myAppUtente.registrazioneRagazzoService', [])
                     ruolo: "ragazzo",
                     sq: "",
                     email: "",
-                    logged: false
+                    logged: false,
+                    img: false
                 });
             }
         };

@@ -15,7 +15,16 @@
                         <span class="md-headline">Profilo personale</span>
                         <span class="md-subhead">di <b>{{dati.user.nome}} {{dati.user.cognome}}</b></span>
                     </md-card-title-text>
-                    <hr>
+                    <md-card-title-media ng-if="dati.user.img == true">
+                        <div class="md-media-lg card-media">
+                            <img  ng-src="../images/{{dati.user.codice}}.jpg">
+                        </div>
+                    </md-card-title-media>
+                    <md-card-title-media ng-if="dati.user.img == false">
+                        <div class="md-media-lg card-media">
+                            <img  ng-src="../images/default_profile.png">
+                        </div>
+                    </md-card-title-media>
                 </md-card-title>
 
                 <div class="card-content">

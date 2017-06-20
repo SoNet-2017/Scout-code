@@ -21,10 +21,7 @@ app.config(['$routeProvider', function($routeProvider) {
 
               console.log("Questo e'  Auth: "+Auth);
               return Auth.$requireSignIn();
-
-
           }]
-
       }
   })
 }])
@@ -35,6 +32,7 @@ app.config(['$routeProvider', function($routeProvider) {
 app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAuth', '$firebaseAuth', '$location', function($scope, $rootScope, Utente, currentAuth, $firebaseAuth, $location) {
     $scope.dati={};
 
+    console.log("Questo e' l'id del loggato nel profilo capo: " + $firebaseAuth().$getAuth().uid);
     $scope.dati.user = Utente.getUserInfo(currentAuth.uid);
 
     // function called when the "logout" button will be pressed
