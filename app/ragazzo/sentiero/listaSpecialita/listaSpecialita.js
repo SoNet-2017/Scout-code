@@ -17,13 +17,27 @@ app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 
     $scope.customFullscreen = false;
 
 
-    $scope.showAlert = function (ev) {
-        $mdDialog.show({
-            templateUrl:'ragazzo/sentiero/listaSpecialita/specialita/specialita-alert.html',
-            parent: angular.element(document.body),
-            targetEvent: ev,
-            clickOutsideToClose: true
-        });
+    $scope.showAlert = function (ev,nome) {
+        console.log('clicco')
+        for(var i=0;i<$scope.dati.specialita.length;i++) {
+            console.log('clicco 1')
+            console.log(nome)
+            if ($scope.dati.specialita[i].nome == nome) {
+                console.log('siamo dentro if');
+                var descrizione = $scope.dati.specialita[i].descrizione;
+            }
+        }
+        console.log(descrizione)
+        $mdDialog.show(
+            $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('This is an alert title')
+                .textContent(descrizione)
+                .ariaLabel('Alert Dialog Demo')
+                .ok('Got it!')
+                .targetEvent(ev)
+        );
     };
 }]);
 
