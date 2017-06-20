@@ -19,7 +19,7 @@ app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 
 
     $scope.showAlert = function (ev) {
         $mdDialog.show({
-            templateUrl:'ragazzo/sentiero/listaSpecialita/specialita/allevatore.html',
+            templateUrl:'ragazzo/sentiero/listaSpecialita/specialita/specialita-alert.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true

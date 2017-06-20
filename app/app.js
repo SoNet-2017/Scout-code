@@ -31,7 +31,8 @@ var app = angular.module('myApp', [
         'myAppStaff',
         'myAppEvento',
         'myAppAssegnaTappa',
-        'myAppSpecialita'
+        'myAppSpecialita',
+        'myAppSpecialitaAlert'
     ]);
 
 
