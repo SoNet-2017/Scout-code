@@ -9,16 +9,16 @@
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="none">
-                    <div class="md-media-lg card-media">
+                    <div class="md-media-lg card-media" id="popupContainer">
                                 <ul class="media-list">
                                     <li class="media" ng-repeat="specialita in dati.specialita">
                                         <b><h3>{{specialita.nome}}</h3></b>
                                             <div class="col media-left">
                                                 <img class="media-object img-responsive listaSpecialita" ng-src="../{{specialita.img_url}}">
                                             </div>
-                                            <div class="col media-left">
+                                            <div class="col media-left" >
                                                 <div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
-                                                    <md-button class="md-primary md-raised" ng-click="showAlert($event)" id="../{{specialita.nome}}" aria-label="{{specialita.nome}}">
+                                                    <md-button class="md-primary md-raised" ng-click="showAlert($event,specialita.nome)" aria-label="{{specialita.nome}}">
                                                         Approfondisci <md-icon aria-label="Settings" class="material-icons" >menu</md-icon>
                                                     </md-button>
                                                 </div>
@@ -30,4 +30,5 @@
             </md-card>
         </div>
     </md-content>
+
 </div>

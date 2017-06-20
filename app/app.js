@@ -32,7 +32,6 @@ var app = angular.module('myApp', [
         'myAppEvento',
         'myAppAssegnaTappa',
         'myAppSpecialita',
-        'myAppSpecialitaAlert',
         'myAppProfiloCapo'
     ]);
 

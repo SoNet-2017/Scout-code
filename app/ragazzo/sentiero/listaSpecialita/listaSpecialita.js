@@ -14,7 +14,7 @@ app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 
     $scope.dati={};
     $scope.dati.specialita=Specialita.getData();
     $scope.status = '  ';
-    $scope.customFullscreen = false;
+    $scope.customFullscreen = false
 
 
     $scope.showAlert = function (ev,nome) {
