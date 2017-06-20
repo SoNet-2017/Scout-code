@@ -32,7 +32,8 @@ var app = angular.module('myApp', [
         'myAppEvento',
         'myAppAssegnaTappa',
         'myAppSpecialita',
-        'myAppProfiloCapo'
+        'myAppProfiloCapo',
+        'myAppUtente'
     ]);
 
 
@@ -66,17 +67,18 @@ app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$
 
     //set the variable that is used in the main template to show the active button
     $rootScope.dati = {};
+    $scope.dati = {};
+    //$scope.dati.user = Utente.getUserInfo($firebaseAuth().$getAuth().uid);
 
     //PRENDE I DATI DELL'UTENTE LOGGATO
 
-    //console.log("Questo e' l'id del loggato nell'index: " + $firebaseAuth().$getAuth().uid);
-    //$scope.dati.user = Utente.getUserInfo($firebaseAuth().$getAuth().uid);
 
 
     $scope.isLogged = function()
     {
-        if ($firebaseAuth().$getAuth())
+        if ($firebaseAuth().$getAuth()) {
             return true;
+        }
         else
             return false;
     }
@@ -86,7 +88,7 @@ app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$
 
 
 
-app.controller('AppCtrl1', function ($scope, $timeout, $mdSidenav, $log) {
+app.controller('AppCtrl1', function ($scope, $rootScope, $timeout, $mdSidenav, $log) {
         $scope.toggleLeft = buildDelayedToggler('left');
 
         $scope.notifiche = function() {

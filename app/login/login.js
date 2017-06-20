@@ -33,11 +33,13 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
             Utente.registerLogin(userId, $scope.user.email);
             // login successful: redirect
 
-
-            console.log("Login avvenuto");
-
-
             $scope.dati={};
+            $rootScope.dati={};
+            console.log("Login avvenuto. Fatto da: "+ userId);
+
+
+
+
             $scope.loggato = {
                 home : "nessunahome"
             }
@@ -51,8 +53,8 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
                         if ($scope.dati.utenti[i].ruolo == 'capo') {
                             $scope.loggato.home = "homecapo";
 
-                            $scope.loggato.nome = $scope.dati.utenti[i].nome;
-                            console.log("Si e' loggato: " +  $scope.loggato.nome);
+                            $rootScope.dati.user = $scope.dati.utenti[i];
+                            console.log("L'utente loggato si chiama: " + $rootScope.dati.user.nome + " " + $rootScope.dati.user.cognome);
 
                             $location.path("/homeCapo");
                             console.log("Redirect su home capo");
