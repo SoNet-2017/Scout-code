@@ -230,9 +230,9 @@ md-switch {
 
 
 /******
-    IMMAGINI
+    IMMAGINI-LISTA SPECIALITA
  */
-img{
+img.listaSpecialita{
     width: 75px;
     height: 75px;
 }
