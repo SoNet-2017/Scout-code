@@ -1,52 +1,46 @@
-<!--
-<div  ng-controller="profiloCapoCtrl" >
--->
-    <md-content class="md-padding" layout-xs="column" layout="row">
+<md-content class="md-padding" layout-xs="column" layout="row">
 
-        <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">{{ error.message }}</div>
-        <div class="alert alert-success alert-dismissible inset" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
+    <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">{{ error.message }}</div>
+    <div class="alert alert-success alert-dismissible inset" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
 
-        <div flex-xs flex-gt-xs="50" layout="column">
-            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
 
 
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Profilo personale</span>
-                        <span class="md-subhead">di <b>{{dati.user.nome}} {{dati.user.cognome}}</b></span>
-                    </md-card-title-text>
-                    <md-card-title-media ng-if="dati.user.img == true">
-                        <div class="md-media-lg card-media">
-                            <img  ng-src="../images/{{dati.user.codice}}.jpg">
-                        </div>
-                    </md-card-title-media>
-                    <md-card-title-media ng-if="dati.user.img == false">
-                        <div class="md-media-lg card-media">
-                            <img  ng-src="../images/default_profile.png">
-                        </div>
-                    </md-card-title-media>
-                </md-card-title>
-
-                <div class="card-content">
-                    <div>
-                        Codice socio: {{dati.user.codice}}
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Profilo personale</span>
+                    <span class="md-subhead">di <b>{{dati.user.nome}} {{dati.user.cognome}}</b></span>
+                </md-card-title-text>
+                <md-card-title-media ng-if="dati.user.img == true">
+                    <div class="md-media-lg card-media">
+                        <img  ng-src="../images/{{dati.user.codice}}.jpg">
                     </div>
-                    <div ng-if="dati.user.staff == true">
-                        Staff: Stella Polare
+                </md-card-title-media>
+                <md-card-title-media ng-if="dati.user.img == false">
+                    <div class="md-media-lg card-media">
+                        <img  ng-src="../images/default_profile.png">
                     </div>
-                    <div>
-                        Email: {{dati.user.email}}
-                    </div>
+                </md-card-title-media>
+            </md-card-title>
 
-
+            <div class="card-content">
+                <div>
+                    Codice socio: {{dati.user.codice}}
                 </div>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-click="logout()" class="md-raised md-warn">LOGOUT</md-button>
-                </md-card-actions>
+                <div ng-if="dati.user.staff == true">
+                    Staff: Stella Polare
+                </div>
+                <div>
+                    Email: {{dati.user.email}}
+                </div>
 
-            </md-card>
-        </div>
-    </md-content>
-<!--
-</div>
--->
+
+            </div>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="logout()" class="md-raised md-warn">LOGOUT</md-button>
+            </md-card-actions>
+
+        </md-card>
+    </div>
+</md-content>
