@@ -239,3 +239,30 @@ img.listaSpecialita{
 
 
 
+/*******
+    PROFILO
+ */
+.img-profile {
+    width:50%;
+    position: relative;
+    left: 25%;
+    margin: 30px 0;
+    border-radius: 4px;
+    box-shadow:
+            0 0 0 4px #ffd600,
+            0 0 0 8px #03a9f4,
+            0 0 0 12px #0d47a1;
+}
+ .knot {
+     width: 20px;
+     height: 20px;
+     position: relative;
+     top: 15px;
+     left: 45%;
+     transform: rotate(45deg);
+     /*z-index: -1;*/
+     box-shadow:
+             0 0 0 4px #ffd600,
+             0 0 0 8px #03a9f4,
+             0 0 0 12px #0d47a1;
+ }

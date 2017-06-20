@@ -8,20 +8,20 @@ var app = angular.module('myAppProfiloCapo', [
 ]);
 
 app.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/profiloCapo', {
-    templateUrl: 'capo/profiloCapo/profiloCapo.html',
-    controller: 'profiloCapoCtrl',
-      resolve: {
-          // controller will not be loaded until $requireSignIn resolves
-          // Auth refers to our $firebaseAuth wrapper in the factory below
+    $routeProvider.when('/profiloCapo', {
+        templateUrl: 'capo/profiloCapo/profiloCapo.html',
+        controller: 'profiloCapoCtrl',
+        resolve: {
+            // controller will not be loaded until $requireSignIn resolves
+            // Auth refers to our $firebaseAuth wrapper in the factory below
 
-          "currentAuth": ["Auth", function(Auth) {
-              // $requireSignIn returns a promise so the resolve waits for it to complete
-              // If the promise is rejected, it will throw a $routeChangeError (see above)
-              return Auth.$requireSignIn();
-          }]
-      }
-  })
+            "currentAuth": ["Auth", function(Auth) {
+                // $requireSignIn returns a promise so the resolve waits for it to complete
+                // If the promise is rejected, it will throw a $routeChangeError (see above)
+                return Auth.$requireSignIn();
+            }]
+        }
+    })
 }])
 
 
@@ -29,7 +29,12 @@ app.config(['$routeProvider', function($routeProvider) {
 
 app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAuth', '$firebaseAuth', '$location', function($scope, $rootScope, Utente, currentAuth, $firebaseAuth, $location) {
 
-    console.log("Contenuto di $rootScope.dati.user.nome : " + $rootScope.dati.user.nome);
+    //console.log("Contenuto di $rootScope.dati.user.nome : " + $rootScope.dati.user.nome);
+
+    $scope.dati={};
+
+    console.log("Questo e' l'id del loggato nel profilo capo: " + $firebaseAuth().$getAuth().uid);
+    $scope.dati.user = Utente.getUserInfo(currentAuth.uid);
 
 
     // function called when the "logout" button will be pressed
@@ -49,5 +54,3 @@ app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAut
         });
     };
 }]);
-
-
