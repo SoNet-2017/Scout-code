@@ -20,7 +20,6 @@ app.config(['$routeProvider', function($routeProvider) {
               // If the promise is rejected, it will throw a $routeChangeError (see above)
 
               console.log("Questo e'  Auth: "+Auth);
-              console.log("requireSignIn e' : "+ Auth.$requireSignIn());
               return Auth.$requireSignIn();
 
 
@@ -29,6 +28,8 @@ app.config(['$routeProvider', function($routeProvider) {
       }
   })
 }])
+
+
 
 
 app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAuth', '$firebaseAuth', '$location', function($scope, $rootScope, Utente, currentAuth, $firebaseAuth, $location) {
@@ -53,3 +54,29 @@ app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAut
         });
     };
 }]);
+
+
+/****
+ app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$location', function($scope, $rootScope, Utente, $firebaseAuth, $location) {
+    $scope.dati={};
+
+    $scope.dati.user = Utente.getUserInfo($firebaseAuth().$getAuth().uid);
+
+    // function called when the "logout" button will be pressed
+    $scope.logout = function () {
+
+        //save the new status in the database (we do it before the actual logout because we can write in the database only if the user is logged in)
+        Utente.registerLogout($firebaseAuth().$getAuth().uid);
+        //sign out
+        $firebaseAuth().$signOut();
+        console.log("loout avvenuto");
+        $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
+            if (firebaseUser) {
+                console.log("User is yet signed in as:", firebaseUser.uid);
+            } else {
+                $location.path("/login");
+            }
+        });
+    };
+}]);
+ ***/
