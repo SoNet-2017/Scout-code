@@ -60,9 +60,8 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
                         else if ($scope.dati.utenti[i].ruolo == 'ragazzo') {
                             $scope.loggato.home = "homeragazzo";
 
-                            //TODO CORREGGERE IL REDIRECT SU HOME RAGAZZO
-                            $location.path("/fiamma");
-                            console.log("Redirect su fiamma");
+                            $location.path("/homeRagazzo");
+                            console.log("Redirect su home ragazzo");
                         }
                     }
                 }

@@ -32,7 +32,7 @@ var app = angular.module('myApp', [
         'myAppEvento',
         'myAppAssegnaTappa',
         'myAppSpecialita',
-        'myAppProfiloCapo'
+        'myAppSpecialitaAlert'
     ]);
 
 
@@ -47,8 +47,6 @@ app.config(['$locationProvider', '$routeProvider', '$mdThemingProvider', functio
     $locationProvider.hashPrefix('!');
     $routeProvider.otherwise({redirectTo: '/login'});
 }]);
-
-
 
 
 app.run(["$rootScope", "$location", function($rootScope, $location){

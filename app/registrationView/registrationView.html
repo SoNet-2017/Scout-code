@@ -1,3 +1,31 @@
-<div>
-registration view
+<div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Login failed! {{ error.message }}</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <form id="frmRegister" role="form" ng-submit="signUp()">
+            <h2>Register</h2>
+
+            <div class="form-group">
+                <label for="txtName">Nome</label>
+                <input type="text" class="form-control" id="txtName" name="nome" ng-model="user.nome" />
+            </div>
+            <div class="form-group">
+                <label for="txtSurname">Cognome</label>
+                <input type="text" class="form-control" id="txtSurname" name="cognome" ng-model="user.cognome" />
+            </div>
+            <div class="form-group">
+                <label for="txtEmail">Email</label>
+                <input type="email" class="form-control" id="txtEmail" name="email" ng-model="user.email" />
+            </div>
+            <div class="form-group">
+                <label for="txtPass">Password</label>
+                <input type="password" class="form-control" id="txtPass" name="password" ng-model="user.password" />
+            </div>
+            <div class="form-group">
+                <label for="txtPass2">Conferma Password</label>
+                <input type="password" class="form-control" id="txtPass2" name="password2" ng-model="user.password2" />
+            </div>
+            <button type="submit" class="btn btn-success center-block">Register</button>
+        </form>
+    </div>
 </div>
