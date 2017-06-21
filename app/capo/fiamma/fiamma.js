@@ -12,9 +12,11 @@ app.config(['$routeProvider', function($routeProvider){
     $routeProvider.when('/fiamma',{
         templateUrl: 'capo/fiamma/fiamma.html',
         controller: 'myAppFiammaCtrl',
-        /* IN ATTESA DEL LOGIN
-
-         */
+        resolve: {
+            "currentAuth":["Auth",function(Auth) {
+                return Auth.$requireSignIn();
+            }]
+        }
     })
 }]);
 

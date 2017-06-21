@@ -90,14 +90,19 @@ angular.module('myAppUtente.utentiService', [])
              * REGISTRAZIONE NUOVO CAPO
              *
              * **/
-            registerNewUserInfo: function (userId, name, surname, email) {
+            registerNewUserInfo: function (userId, nome, cognome, email, codice) {
                 //add the user to list of users and set the logged value to true
-                var ref = firebase.database().ref().child("users").child(userId);
+                var ref = firebase.database().ref().child("utenti").child(userId);
                 // create a synchronized array
                 ref.set({
-                    nome: name,
-                    cognome: surname,
-                    email: email
+                    nome: nome,
+                    cognome: cognome,
+                    email: email,
+                    codice: codice,
+                    logged: false,
+                    staff : false,
+                    img : false,
+                    ruolo : "capo"
                 });
             }
 

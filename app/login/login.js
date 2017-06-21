@@ -34,8 +34,11 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
             // login successful: redirect
 
             $scope.dati={};
-            $rootScope.dati={};
+            $rootScope.dati={
+                uidLogged : userId
+            };
             console.log("Login avvenuto. Fatto da: "+ userId);
+
 
 
 

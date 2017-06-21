@@ -10,7 +10,12 @@ var app = angular.module('myAppRegistrazioneRagazzo', [
 app.config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/registrazioneRagazzo', {
             templateUrl: 'capo/registrazioneRagazzo/registrazioneRagazzo.html',
-            controller: 'RegistrazioneRagazzoCtrl'
+            controller: 'RegistrazioneRagazzoCtrl',
+            resolve: {
+                "currentAuth":["Auth",function(Auth) {
+                    return Auth.$requireSignIn();
+                }]
+            }
         });
     }]);
 

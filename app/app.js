@@ -46,7 +46,9 @@ app.config(['$locationProvider', '$routeProvider', '$mdThemingProvider', functio
 
 
     $locationProvider.hashPrefix('!');
-    $routeProvider.otherwise({redirectTo: '/login'});
+    $routeProvider.otherwise({
+        redirectTo: '/index.html'
+    });
 }]);
 
 
