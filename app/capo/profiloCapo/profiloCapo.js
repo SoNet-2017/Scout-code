@@ -34,7 +34,7 @@ app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAut
 
     $scope.dati={};
 
-    console.log("Questo e' l'id del loggato nel profilo capo: " + $firebaseAuth().$getAuth().uid);
+    console.log("Questo e' l'id del loggato nel profilo capo: " + currentAuth.uid);
     $scope.dati.user = Utente.getUserInfo(currentAuth.uid);
 
 

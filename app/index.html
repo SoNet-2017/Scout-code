@@ -121,12 +121,12 @@
 
 
                     <md-button ng-click="close()" class="md-icon-button" aria-label="Home">
-                        <a href="#/index.html">
+                        <a href="#!/homeCapo">
                             <md-icon aria-label="Home" class="material-icons">home</md-icon>
                         </a>
                     </md-button>
 
-                    <h1 flex md-truncate><a class="logotype" href="#/index.html" ng-click="close()">SCRAPBOOK</a></h1>
+                    <h1 flex md-truncate><a class="logotype" href="#!/homeCapo" ng-click="close()">SCRAPBOOK</a></h1>
 
                     <md-button ng-click="close()" class="md-icon-button" aria-label="Home">
                         <a href="#!/login">
@@ -138,32 +138,38 @@
                 </div>
             </md-toolbar>
 
-            <br><br>
 
-            <!-- Voci del menu laterale -->
+
+
+            <!-- Box personale -->
+            <a href="#!/profiloCapo" ng-click="close()">
+                <div layout="row"  class="personal-box">
+                    <div flex="none">
+                        <img class="user-img" src="../images/1239822.jpg">
+                    </div>
+                    <div flex>
+
+                        <h4 class="user-name">
+                            <b>
+                            Federico
+                            <br>
+                            Sanfilippo
+                            </b>
+                            <br>
+                            Sq. Tori
+                        </h4>
+
+                    </div>
+                </div>
+                <h4 ng-if="isLogged()">
+                    LOGGATO {{dati.user.nome}}
+                </h4>
+            </a>
+
+
             <md-content layout-padding>
 
-                <a href="#!/profiloCapo" ng-click="close()">
-
-                    <div layout="row">
-                        <div flex="none">
-                            <img class="user-img" src="../images/1239822.jpg">
-                        </div>
-                        <div flex>
-                            <h4 class="user-name">
-                                Federico
-                                <br>
-                                Sanfilippo
-                            </h4>
-                            <h4 ng-if="isLogged()">
-                                LOGGATO {{dati.user.nome}}
-                            </h4>
-                        </div>
-                    </div>
-
-                </a>
-
-
+                <!-- Voci del menu laterale -->
                 <div class="menu-laterale">
 
 

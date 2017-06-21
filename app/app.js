@@ -62,16 +62,16 @@ app.run(["$rootScope", "$location", function($rootScope, $location){
 
 
 app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$location', function($scope, $rootScope, Utente, $firebaseAuth, $location) {
-    //this controller only declares a function to get information about the user status (logged in / out)
-    //it is used to show menu buttons only when the user is logged
 
-    //set the variable that is used in the main template to show the active button
-    $rootScope.dati = {};
+
     $scope.dati = {};
     //$scope.dati.user = Utente.getUserInfo($firebaseAuth().$getAuth().uid);
 
-    //PRENDE I DATI DELL'UTENTE LOGGATO
 
+    /*** MI DICE CHE UID E' NULL
+    var uidLogged = $rootScope.dati.user.uid;
+    console.log("Questo e' l'id del loggato nel LogCtrl della sidenav: " + uidLogged);
+     */
 
 
     $scope.isLogged = function()
