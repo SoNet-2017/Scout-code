@@ -31,10 +31,12 @@ app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAut
 
     //console.log("Contenuto di $rootScope.dati.user.nome : " + $rootScope.dati.user.nome);
 
+
     $scope.dati={};
 
     console.log("Questo e' l'id del loggato nel profilo capo: " + $firebaseAuth().$getAuth().uid);
     $scope.dati.user = Utente.getUserInfo(currentAuth.uid);
+
 
 
     // function called when the "logout" button will be pressed
@@ -44,10 +46,10 @@ app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAut
         Utente.registerLogout(currentAuth.uid);
         //sign out
         $firebaseAuth().$signOut();
-        console.log("loout avvenuto");
+        console.log("logout avvenuto");
         $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
             if (firebaseUser) {
-                console.log("L'utente che ha fatto il logout era: ", firebaseUser.uid);
+                console.log("L'utente che che si è riloggato e': ", firebaseUser.uid);
             } else {
                 $location.path("/login");
             }

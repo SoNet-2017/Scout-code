@@ -246,23 +246,34 @@ img.listaSpecialita{
     width:50%;
     position: relative;
     left: 25%;
-    margin: 30px 0;
+    margin-top: 20px;
+    margin-bottom: 50px;
     border-radius: 4px;
     box-shadow:
             0 0 0 4px #ffd600,
             0 0 0 8px #03a9f4,
             0 0 0 12px #0d47a1;
+    z-index: 1;
 }
  .knot {
      width: 20px;
      height: 20px;
      position: relative;
-     top: 15px;
-     left: 45%;
-     transform: rotate(45deg);
-     /*z-index: -1;*/
      box-shadow:
-             0 0 0 4px #ffd600,
-             0 0 0 8px #03a9f4,
-             0 0 0 12px #0d47a1;
+             -10px 0 0 14px white,
+             -4px 0 0 12px #ffd600,
+             0px 0 0 12px #03a9f4,
+             4px 0 0 12px #0d47a1;
  }
+
+.rot-dx{
+    top: -25px;
+    left: 45%;
+    transform: rotate(-25deg);
+}
+
+.rot-sx{
+    top: -62px;
+    left: 36%;
+    transform: rotate(25deg);
+}
