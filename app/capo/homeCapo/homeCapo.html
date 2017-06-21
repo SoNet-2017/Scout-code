@@ -1,155 +1,150 @@
-<!--
-<div ng-controller="myAppHomeCapoCtrl" ng-if="isLogged()">
--->
-<div >
-    <md-content class="md-padding" layout-xs="column" layout="row">
-        <div flex-xs flex-gt-xs="50" layout="column">
-            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Prossimo evento</span>
-                    </md-card-title-text>
-                </md-card-title>
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Prossimo evento</span>
+                </md-card-title-text>
+            </md-card-title>
 
-                <div class="card-content">
-                        <div ng-repeat="evento in dati.eventi  | orderBy:'id'" ng-if="$first">
-                            <div ng-if="evento.tipo == 'single'">
-                                <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i> - Presenti: {{evento.presenti}}
-                                <br>
-                                {{evento.giornoInizio}} {{evento.dataInizio}} dalle ore {{evento.oraInizio}} alle {{evento.oraFine}}
-                            </div>
-                            <div ng-if="evento.tipo == 'range'">
-                                <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i> - Presenti: {{evento.presenti}}
-                                <br>
-                                Da {{evento.giornoInizio}} {{evento.dataInizio}} a {{evento.giornoFine}} {{evento.dataFine}}
-                            </div>
+            <div class="card-content">
+                    <div ng-repeat="evento in dati.eventi  | orderBy:'id'" ng-if="$first">
+                        <div ng-if="evento.tipo == 'single'">
+                            <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i> - Presenti: {{evento.presenti}}
                             <br>
+                            {{evento.giornoInizio}} {{evento.dataInizio}} dalle ore {{evento.oraInizio}} alle {{evento.oraFine}}
                         </div>
-                </div>
+                        <div ng-if="evento.tipo == 'range'">
+                            <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i> - Presenti: {{evento.presenti}}
+                            <br>
+                            Da {{evento.giornoInizio}} {{evento.dataInizio}} a {{evento.giornoFine}} {{evento.dataFine}}
+                        </div>
+                        <br>
+                    </div>
+            </div>
 
-            </md-card>
-
-
-            <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Prossime scadenze</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button>Vedi tutte</md-button>
-                </md-card-actions>
-            </md-card>
+        </md-card>
 
 
-            <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Newsfeed capo</span>
-                    </md-card-title-text>
-                </md-card-title>
+        <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Prossime scadenze</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>Vedi tutte</md-button>
+            </md-card-actions>
+        </md-card>
+
+
+        <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Newsfeed capo</span>
+                </md-card-title-text>
+            </md-card-title>
 
 
 
-                <!-- POST 1 -->
-                <md-card-header>
-                    <md-card-avatar>
-                        <img src="../images/default_profile.png"/>
-                    </md-card-avatar>
-                    <md-card-header-text>
-                        <span class="md-title">Federico</span>
-                        <span class="md-subhead">3 ore fa</span>
-                    </md-card-header-text>
-                </md-card-header>
-                    <img src="https://material.angularjs.org/latest/img/washedout.png" class="md-card-image" alt="Washed Out">
-                <md-card-content>
-                    <p>
-                        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-                        two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-                    </p>
-                </md-card-content>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button" aria-label="Favorite">
-                        <md-icon aria-label="Favorite" class="material-icons" >favorite</md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Chat">
-                        <md-icon aria-label="Chat" class="material-icons" >chat</md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Share">
-                        <md-icon aria-label="Share" class="material-icons" >share</md-icon>
-                    </md-button>
-                </md-card-actions>
-                <md-divider ng-if="!$last"></md-divider>
-
-
-                <!-- POST 2 -->
-                <md-card-header>
-                    <md-card-avatar>
-                        <img src="../images/default_profile.png"/>
-                    </md-card-avatar>
-                    <md-card-header-text>
-                        <span class="md-title">Lorenzo</span>
-                        <span class="md-subhead">4 ore fa</span>
-                    </md-card-header-text>
-                </md-card-header>
+            <!-- POST 1 -->
+            <md-card-header>
+                <md-card-avatar>
+                    <img src="../images/default_profile.png"/>
+                </md-card-avatar>
+                <md-card-header-text>
+                    <span class="md-title">Federico</span>
+                    <span class="md-subhead">3 ore fa</span>
+                </md-card-header-text>
+            </md-card-header>
                 <img src="https://material.angularjs.org/latest/img/washedout.png" class="md-card-image" alt="Washed Out">
-                <md-card-content>
-                    <p>
-                        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-                        two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-                    </p>
-                </md-card-content>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button" aria-label="Favorite">
-                        <md-icon aria-label="Favorite" class="material-icons" >favorite</md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Chat">
-                        <md-icon aria-label="Chat" class="material-icons" >chat</md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Share">
-                        <md-icon aria-label="Share" class="material-icons" >share</md-icon>
-                    </md-button>
-                </md-card-actions>
-                <md-divider ng-if="!$last"></md-divider>
+            <md-card-content>
+                <p>
+                    The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+                    two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                </p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-icon-button" aria-label="Favorite">
+                    <md-icon aria-label="Favorite" class="material-icons" >favorite</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Chat">
+                    <md-icon aria-label="Chat" class="material-icons" >chat</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Share">
+                    <md-icon aria-label="Share" class="material-icons" >share</md-icon>
+                </md-button>
+            </md-card-actions>
+            <md-divider ng-if="!$last"></md-divider>
 
 
-                <!-- POST 3 -->
-                <md-card-header>
-                    <md-card-avatar>
-                        <img src="../images/default_profile.png"/>
-                    </md-card-avatar>
-                    <md-card-header-text>
-                        <span class="md-title">Sara</span>
-                        <span class="md-subhead">1 giorno fa</span>
-                    </md-card-header-text>
-                </md-card-header>
-                <img src="https://material.angularjs.org/latest/img/washedout.png" class="md-card-image" alt="Washed Out">
-                <md-card-content>
-                    <p>
-                        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-                        two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-                    </p>
-                </md-card-content>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button" aria-label="Favorite">
-                        <md-icon aria-label="Favorite" class="material-icons" >favorite</md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Chat">
-                        <md-icon aria-label="Chat" class="material-icons" >chat</md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="Share">
-                        <md-icon aria-label="Share" class="material-icons" >share</md-icon>
-                    </md-button>
-                </md-card-actions>
-                <md-divider ng-if="!$last"></md-divider>
+            <!-- POST 2 -->
+            <md-card-header>
+                <md-card-avatar>
+                    <img src="../images/default_profile.png"/>
+                </md-card-avatar>
+                <md-card-header-text>
+                    <span class="md-title">Lorenzo</span>
+                    <span class="md-subhead">4 ore fa</span>
+                </md-card-header-text>
+            </md-card-header>
+            <img src="https://material.angularjs.org/latest/img/washedout.png" class="md-card-image" alt="Washed Out">
+            <md-card-content>
+                <p>
+                    The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+                    two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                </p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-icon-button" aria-label="Favorite">
+                    <md-icon aria-label="Favorite" class="material-icons" >favorite</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Chat">
+                    <md-icon aria-label="Chat" class="material-icons" >chat</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Share">
+                    <md-icon aria-label="Share" class="material-icons" >share</md-icon>
+                </md-button>
+            </md-card-actions>
+            <md-divider ng-if="!$last"></md-divider>
+
+
+            <!-- POST 3 -->
+            <md-card-header>
+                <md-card-avatar>
+                    <img src="../images/default_profile.png"/>
+                </md-card-avatar>
+                <md-card-header-text>
+                    <span class="md-title">Sara</span>
+                    <span class="md-subhead">1 giorno fa</span>
+                </md-card-header-text>
+            </md-card-header>
+            <img src="https://material.angularjs.org/latest/img/washedout.png" class="md-card-image" alt="Washed Out">
+            <md-card-content>
+                <p>
+                    The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+                    two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                </p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-icon-button" aria-label="Favorite">
+                    <md-icon aria-label="Favorite" class="material-icons" >favorite</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Chat">
+                    <md-icon aria-label="Chat" class="material-icons" >chat</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Share">
+                    <md-icon aria-label="Share" class="material-icons" >share</md-icon>
+                </md-button>
+            </md-card-actions>
+            <md-divider ng-if="!$last"></md-divider>
 
 
 
-            </md-card>
+        </md-card>
 
-        </div>
-    </md-content>
-</div>
+    </div>
+</md-content>
 
 
 

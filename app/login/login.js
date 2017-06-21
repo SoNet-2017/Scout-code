@@ -34,9 +34,7 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
             // login successful: redirect
 
             $scope.dati={};
-            $rootScope.dati={
-                uidLogged : userId
-            };
+            $rootScope.info={};
             console.log("Login avvenuto. Fatto da: "+ userId);
 
 
@@ -46,6 +44,7 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
             $scope.loggato = {
                 home : "nessunahome"
             }
+
             $scope.dati.utenti = Utente.getData();
             $scope.dati.utenti.$loaded().then(function () {
 
@@ -56,14 +55,15 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
                         if ($scope.dati.utenti[i].ruolo == 'capo') {
                             $scope.loggato.home = "homecapo";
 
-                            $rootScope.dati.user = $scope.dati.utenti[i];
-                            console.log("L'utente loggato si chiama: " + $rootScope.dati.user.nome + " " + $rootScope.dati.user.cognome);
+                            $rootScope.info.user = $scope.dati.utenti[i];
 
                             $location.path("/homeCapo");
                             console.log("Redirect su home capo");
                         }
                         else if ($scope.dati.utenti[i].ruolo == 'ragazzo') {
                             $scope.loggato.home = "homeragazzo";
+
+                            $rootScope.info.user = $scope.dati.utenti[i];
 
                             $location.path("/homeRagazzo");
                             console.log("Redirect su home ragazzo");

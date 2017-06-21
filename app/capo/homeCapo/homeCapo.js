@@ -25,6 +25,19 @@ app.config(['$routeProvider', function($routeProvider){
 
 app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebaseAuth', function($scope,$rootScope, Evento, $firebaseAuth) {
 
+    //CONTROLLO PER VEDERE SE E' CAPO, ALTRIMENTI REINDIRIZZA SU HOME RAGAZZO
+    /*
+
+
+    if ($rootScope.info.user.ruolo != "capo")
+    {
+        $location.path("/homeRagazzo");
+    }
+
+     */
+
+
+
     console.log("e' entrato nel ctrl evento");
 
 

@@ -146,26 +146,31 @@
             <!-- Box personale -->
             <a href="#!/profiloCapo" ng-click="close()">
                 <div layout="row"  class="personal-box">
-                    <div flex="none">
-                        <img class="user-img" src="../images/1239822.jpg">
+                    <div flex="none" ng-if="info.user.img == true">
+                        <img class="user-img" src="../images/{{info.user.codice}}.jpg">
+                    </div >
+                    <div flex="none" ng-if="info.user.img == false">
+                        <img class="user-img" src="../images/default_profile.png">
                     </div>
                     <div flex>
 
-                        <h4 class="user-name">
+                        <div class="user-name">
                             <b>
-                            Federico
+                                {{info.user.nome}}
                             <br>
-                            Sanfilippo
+                                {{info.user.cognome}}
                             </b>
                             <br>
-                            Sq. Tori
-                        </h4>
+                            <h5 ng-if="info.user.staff == true">
+                                Staff Stella Polare
+                            </h5>
+                            <h5 ng-if="info.user.ruolo == 'ragazzo'">
+                                Sq. {{info.user.sq}}
+                            </h5>
+                        </div>
 
                     </div>
                 </div>
-                <h4 ng-if="isLogged()">
-                    LOGGATO {{dati.user.nome}}
-                </h4>
             </a>
 
 

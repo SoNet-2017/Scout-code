@@ -48,17 +48,32 @@ app.config(['$locationProvider', '$routeProvider', '$mdThemingProvider', functio
 
     $locationProvider.hashPrefix('!');
     $routeProvider.otherwise({
-        redirectTo: '/index.html'
+        redirectTo: '/homeCapo'
     });
 }]);
 
 
-app.run(["$rootScope", "$location", function($rootScope, $location){
-    $rootScope.$on("$routeChangeEttor",function(event, next, previous, error){
+app.run(["$rootScope", "$location", '$firebaseAuth', 'Utente', function($rootScope, $location, $firebaseAuth, Utente){
+    console.log("sono nel run del app.js")
+    $rootScope.$on("$routeChangeError",function(event, next, previous, error){
+        console.log("sono nel on change route error del run del app.js")
         if(error==="AUTH_REQUIRED"){
             $location.path("/login");
         }
-    })
+    });
+
+
+    /*** MI DICE CHE E' NULL SEMPRE**/
+    console.log("Ora firebaseauth e': " + $firebaseAuth().$getAuth());
+
+    /*** QUINDI NON PUO' CARICARE I DATI DELL'UTENTE **/
+    if($firebaseAuth().$getAuth()) {
+        console.log("sono entrato nell'if del firebase auth' ");
+        $rootScope.info={};
+        $rootScope.info.user = Utente.getUserInfo($firebaseAuth().$getAuth().uid);
+    }
+
+
 }]);
 
 

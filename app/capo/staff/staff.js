@@ -11,7 +11,7 @@ app.config(['$routeProvider', function($routeProvider){
     $routeProvider.when('/staff',{
         templateUrl: 'capo/staff/staff.html',
         controller: 'myAppStaffCtrl',
-        /* IN ATTESA DEL LOGIN
+        /* TODO IN ATTESA DEL LOGIN
          resolve: {
          "currentAuth":["Auth",function(auth) {
          return Auth.$requireSignIn();

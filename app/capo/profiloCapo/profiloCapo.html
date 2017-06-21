@@ -10,29 +10,28 @@
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">Profilo personale</span>
-                    <!--<span class="md-headline">dati.user.nome vale: {{dati.user.nome}}</span>-->
-                    <span class="md-subhead">di <b>{{dati.user.nome}} {{dati.user.cognome}}</b></span>
+                    <span class="md-subhead">di <b>{{info.user.nome}} {{info.user.cognome}}</b></span>
                 </md-card-title-text>
 
             </md-card-title>
 
             <div class="card-content">
-                <div class="md-media-lg card-media " ng-if="dati.user.img == true">
-                    <img class="img-profile" ng-src="../images/{{dati.user.codice}}.jpg">
+                <div class="md-media-lg card-media " ng-if="info.user.img == true">
+                    <img class="img-profile" ng-src="../images/{{info.user.codice}}.jpg">
                 </div>
-                <div class="md-media-lg card-media " ng-if="dati.user.img == false">
+                <div class="md-media-lg card-media " ng-if="info.user.img == false">
                     <img class="img-profile" ng-src="../images/default_profile.png">
                 </div>
                 <div class="knot rot-dx"></div>
                 <div class="knot rot-sx"></div>
                 <div>
-                    Codice socio: {{dati.user.codice}}
+                    Codice socio: {{info.user.codice}}
                 </div>
-                <div ng-if="dati.user.staff == true">
+                <div ng-if="info.user.staff == true">
                     Staff: Stella Polare
                 </div>
                 <div>
-                    Email: {{dati.user.email}}
+                    Email: {{info.user.email}}
                 </div>
 
 
