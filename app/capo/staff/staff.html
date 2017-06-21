@@ -1,75 +1,73 @@
-<div ng-controller="myAppStaffCtrl"  >
-    <md-content class="md-padding" layout-xs="column" layout="row">
+<md-content class="md-padding" layout-xs="column" layout="row">
 
-        <div class="alert alert-success alert-dismissible inset" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
+    <div class="alert alert-success alert-dismissible inset" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
 
-        <div flex-xs flex-gt-xs="50" layout="column">
-            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Forma staff</span>
-                        <span class="md-subhead">del Reparto Stella Polare</span>
-                    </md-card-title-text>
-                    <hr>
-                </md-card-title>
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Forma staff</span>
+                    <span class="md-subhead">del Reparto Stella Polare</span>
+                </md-card-title-text>
+                <hr>
+            </md-card-title>
 
 
-                <!-- FORMAZIONE STAFF -->
-                <div class="card-content">
-                    <div>Puoi decidere quali capi facciano parte o meno dello staf, abilitandoli o disabilitandoli</div>
-                    <br>
+            <!-- FORMAZIONE STAFF -->
+            <div class="card-content">
+                <div>Puoi decidere quali capi facciano parte o meno dello staf, abilitandoli o disabilitandoli</div>
+                <br>
 
-                    <div>Inserisci il codice socio del singolo capo che vuoi abilitare o disabilitare (copia i codici sotto) oppure vedi la lista completa.</div>
+                <div>Inserisci il codice socio del singolo capo che vuoi abilitare o disabilitare (copia i codici sotto) oppure vedi la lista completa.</div>
+                <br><br>
+
+                <md-input-container  md-no-float class="md-block">
+                    <label>Codice socio del capo</label>
+                    <input id="codice" ng-model="modulo.codice" name="codice" type="number">
+                </md-input-container>
+                <br>
+
+                <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.codice == modulo.codice">
+
+                    <!-- TODO perche' compare una riga vuota col toogle visibile quando non c'è niente nel campo codice? -->
+
+                    <div flex="50">
+                        <b>{{utente.nome}}</b> {{utente.cognome}}
+                    </div>
+                    <div flex="40">
+                        <i>{{utente.codice}}</i>
+                    </div>
+                    <div flex>
+                        <md-switch name="toggle problematico" class="md-primary" md-no-ink ng-model="utente.staff" id="{{utente.codice}}" aria-label="{{utente.codice}}" >
+                        </md-switch>
+                    </div>
                     <br><br>
-
-                    <md-input-container  md-no-float class="md-block">
-                        <label>Codice socio del capo</label>
-                        <input id="codice" ng-model="modulo.codice" name="codice" type="number">
-                    </md-input-container>
-                    <br>
-
-                    <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.codice == modulo.codice">
-
-                        <!-- TODO perche' compare una riga vuota col toogle visibile quando non c'è niente nel campo codice? -->
-
-                        <div flex="50">
-                            <b>{{utente.nome}}</b> {{utente.cognome}}
-                        </div>
-                        <div flex="40">
-                            <i>{{utente.codice}}</i>
-                        </div>
-                        <div flex>
-                            <md-switch name="toggle problematico" class="md-primary" md-no-ink ng-model="utente.staff" id="{{utente.codice}}" aria-label="{{utente.codice}}" >
-                            </md-switch>
-                        </div>
-                        <br><br>
-                    </div>
-
-                    <md-divider ng-if="!$last"></md-divider>
-                    <br>
-
-                    <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.ruolo == 'capo'">
-                        <div flex="50">
-                            <b>{{utente.nome}}</b> {{utente.cognome}}
-                        </div>
-                        <div flex="40">
-                            <i>{{utente.codice}}</i>
-                        </div>
-                        <div flex>
-                            <md-switch class="md-primary" md-no-ink ng-model="utente.staff" id="{{utente.codice}}" aria-label="{{utente.codice}}" >
-                            </md-switch>
-                        </div>
-                        <br><br>
-                    </div>
-
-
-
                 </div>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-click="salvaStaff()" class="md-raised md-primary" id="btn-salva">Salva</md-button>
-                </md-card-actions>
-            </md-card>
-        </div>
-    </md-content>
-</div>
+
+                <md-divider ng-if="!$last"></md-divider>
+                <br>
+
+                <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.ruolo == 'capo'">
+                    <div flex="50">
+                        <b>{{utente.nome}}</b> {{utente.cognome}}
+                    </div>
+                    <div flex="40">
+                        <i>{{utente.codice}}</i>
+                    </div>
+                    <div flex>
+                        <md-switch class="md-primary" md-no-ink ng-model="utente.staff" id="{{utente.codice}}" aria-label="{{utente.codice}}" >
+                        </md-switch>
+                    </div>
+                    <br><br>
+                </div>
+
+
+
+            </div>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="salvaStaff()" class="md-raised md-primary" id="btn-salva">Salva</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</md-content>
 

@@ -33,7 +33,8 @@ var app = angular.module('myApp', [
         'myAppAssegnaTappa',
         'myAppSpecialita',
         'myAppProfiloCapo',
-        'myAppUtente'
+        'myAppUtente',
+        'myAppConfermaScadenze'
     ]);
 
 

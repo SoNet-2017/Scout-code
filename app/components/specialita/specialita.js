@@ -1,7 +1,8 @@
 'use strict';
 
 var app=angular.module('myAppSpecialita', [
-    'myAppSpecialitaService'
+    'myAppSpecialitaService',
+    'myAppScadenzeService'
 ]);
 
 app.value('version', '0.1');

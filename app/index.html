@@ -71,6 +71,8 @@
     <script src="components/specialita/specialita.js"></script>
     <script src="components/specialita/specialita-service.js"></script>
     <script src="capo/profiloCapo/profiloCapo.js"></script>
+    <script src="capo/confermaScadenze/confermaScadenze.js"></script>
+    <script src="components/specialita/scadenze-service.js"></script>
 
 </head>
 <body ng-app="myApp" ng-controller="AppCtrl1">
@@ -182,9 +184,9 @@
                         </li>
                         <md-divider ng-if="!$last"></md-divider>
                         <li>
-                            <a href="#!/" ng-click="close()">
+                            <a href="#!/confermaScadenze" ng-click="close()">
                                 <md-icon aria-label="Beenhere" class="material-icons">beenhere</md-icon>
-                                Conferma Obiettivi</a>
+                                Conferma Scadenze</a>
                         </li>
                         <md-divider ng-if="!$last"></md-divider>
                         <li>
