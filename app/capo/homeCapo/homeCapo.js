@@ -38,9 +38,6 @@ app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebase
 
 
 
-    console.log("e' entrato nel ctrl evento");
-
-
     //initialize variables
     $scope.dati={};
     $scope.dati.feedback = "";

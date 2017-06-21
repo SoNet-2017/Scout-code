@@ -31,50 +31,13 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
         $scope.auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
             var userId = firebaseUser.uid;
             Utente.registerLogin(userId, $scope.user.email);
+
+            $rootScope.info.info == false;
+
             // login successful: redirect
+            $location.path("/homeCapo");
 
-            $scope.dati={};
-            $rootScope.info={};
             console.log("Login avvenuto. Fatto da: "+ userId);
-
-
-
-
-
-            $scope.loggato = {
-                home : "nessunahome"
-            }
-
-            $scope.dati.utenti = Utente.getData();
-            $scope.dati.utenti.$loaded().then(function () {
-
-                for (var i = 0; i < $scope.dati.utenti.length; i++) {
-                    if ($scope.dati.utenti[i].$id == userId) {
-                        console.log("Sono entrato nell'if che prende i dati dell'utente loggato");
-
-                        if ($scope.dati.utenti[i].ruolo == 'capo') {
-                            $scope.loggato.home = "homecapo";
-
-                            $rootScope.info.user = $scope.dati.utenti[i];
-
-                            $location.path("/homeCapo");
-                            console.log("Redirect su home capo");
-                        }
-                        else if ($scope.dati.utenti[i].ruolo == 'ragazzo') {
-                            $scope.loggato.home = "homeragazzo";
-
-                            $rootScope.info.user = $scope.dati.utenti[i];
-
-                            $location.path("/homeRagazzo");
-                            console.log("Redirect su home ragazzo");
-                        }
-                    }
-                }
-            });
-
-
-
-
 
         }).catch(function(error) {
             $scope.error = error;

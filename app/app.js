@@ -53,25 +53,16 @@ app.config(['$locationProvider', '$routeProvider', '$mdThemingProvider', functio
 }]);
 
 
-app.run(["$rootScope", "$location", '$firebaseAuth', 'Utente', function($rootScope, $location, $firebaseAuth, Utente){
+app.run(["$rootScope", "$location", function($rootScope, $location){
+
     console.log("sono nel run del app.js")
+
     $rootScope.$on("$routeChangeError",function(event, next, previous, error){
         console.log("sono nel on change route error del run del app.js")
         if(error==="AUTH_REQUIRED"){
             $location.path("/login");
         }
     });
-
-
-    /*** MI DICE CHE E' NULL SEMPRE**/
-    console.log("Ora firebaseauth e': " + $firebaseAuth().$getAuth());
-
-    /*** QUINDI NON PUO' CARICARE I DATI DELL'UTENTE **/
-    if($firebaseAuth().$getAuth()) {
-        console.log("sono entrato nell'if del firebase auth' ");
-        $rootScope.info={};
-        $rootScope.info.user = Utente.getUserInfo($firebaseAuth().$getAuth().uid);
-    }
 
 
 }]);
@@ -81,24 +72,29 @@ app.run(["$rootScope", "$location", '$firebaseAuth', 'Utente', function($rootSco
 
 app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$location', function($scope, $rootScope, Utente, $firebaseAuth, $location) {
 
-
-    $scope.dati = {};
-    //$scope.dati.user = Utente.getUserInfo($firebaseAuth().$getAuth().uid);
-
-
-    /*** MI DICE CHE UID E' NULL
-    var uidLogged = $rootScope.dati.user.uid;
-    console.log("Questo e' l'id del loggato nel LogCtrl della sidenav: " + uidLogged);
-     */
+    //variabile che permette di scaricare i dati dell'utente loggato solo una volta all'avvio dell'app
+    $rootScope.info.info = false;
 
 
     $scope.isLogged = function()
     {
         if ($firebaseAuth().$getAuth()) {
+            if ($rootScope.info.info == false) {
+                $scope.InfoUserLogged();
+            }
+
             return true;
         }
         else
             return false;
+    }
+
+
+    $scope.InfoUserLogged = function() {
+        $rootScope.info.info == true;
+        console.log("sono entrato nella funzione InfoUserLogged ");
+        $rootScope.info={};
+        $rootScope.info.user = Utente.getUserInfo($firebaseAuth().$getAuth().uid);
     }
 }]);
 
@@ -107,6 +103,10 @@ app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$
 
 
 app.controller('AppCtrl1', function ($scope, $rootScope, $timeout, $mdSidenav, $log) {
+
+    $rootScope.info={};
+
+
         $scope.toggleLeft = buildDelayedToggler('left');
 
         $scope.notifiche = function() {

@@ -29,15 +29,6 @@ app.config(['$routeProvider', function($routeProvider) {
 
 app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAuth', '$firebaseAuth', '$location', function($scope, $rootScope, Utente, currentAuth, $firebaseAuth, $location) {
 
-    //console.log("Contenuto di $rootScope.dati.user.nome : " + $rootScope.dati.user.nome);
-
-    /* NON SERVE PIU'
-    $scope.dati={};
-
-    console.log("Questo e' l'id del loggato nel profilo capo: " + currentAuth.uid);
-    $scope.dati.user = Utente.getUserInfo(currentAuth.uid);
-    */
-
 
     // function called when the "logout" button will be pressed
     $scope.logout = function () {
@@ -47,7 +38,7 @@ app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAut
         //sign out
         $firebaseAuth().$signOut();
         console.log("logout avvenuto");
-        $rootScope.info={};
+        $rootScope.info.info == false;
         $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
             if (firebaseUser) {
                 console.log("L'utente che che si è riloggato e': ", firebaseUser.uid);

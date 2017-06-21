@@ -144,7 +144,7 @@
 
 
             <!-- Box personale -->
-            <a href="#!/profiloCapo" ng-click="close()">
+            <a href="#!/profiloCapo" ng-click="close()" ng-if="isLogged()">
                 <div layout="row"  class="personal-box">
                     <div flex="none" ng-if="info.user.img == true">
                         <img class="user-img" src="../images/{{info.user.codice}}.jpg">
@@ -174,7 +174,7 @@
             </a>
 
 
-            <md-content layout-padding>
+            <md-content layout-padding ng-if="isLogged()">
 
                 <!-- Voci del menu laterale -->
                 <div class="menu-laterale">
