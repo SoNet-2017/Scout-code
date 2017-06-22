@@ -32,7 +32,8 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log'
             var userId = firebaseUser.uid;
             Utente.registerLogin(userId, $scope.user.email);
 
-            $rootScope.info.info == false;
+            $rootScope.info.info = false;
+            console.log("Nel Login setto info a false, e vale: " +  $rootScope.info.info);
 
             // login successful: redirect
             $location.path("/homeCapo");

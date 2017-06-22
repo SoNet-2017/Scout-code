@@ -73,7 +73,9 @@ app.run(["$rootScope", "$location", function($rootScope, $location){
 app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$location', function($scope, $rootScope, Utente, $firebaseAuth, $location) {
 
     //variabile che permette di scaricare i dati dell'utente loggato solo una volta all'avvio dell'app
+    $rootScope.info={};
     $rootScope.info.info = false;
+    console.log("Nel LogCtrl setto info a false, e vale: " +  $rootScope.info.info);
 
 
     $scope.isLogged = function()
@@ -91,8 +93,8 @@ app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$
 
 
     $scope.InfoUserLogged = function() {
-        $rootScope.info.info == true;
-        console.log("sono entrato nella funzione InfoUserLogged ");
+        $rootScope.info.info = true;
+        console.log("Nel InfoUserLogged setto info a true, e vale: " +  $rootScope.info.info);
         $rootScope.info={};
         $rootScope.info.user = Utente.getUserInfo($firebaseAuth().$getAuth().uid);
     }
@@ -103,9 +105,6 @@ app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$
 
 
 app.controller('AppCtrl1', function ($scope, $rootScope, $timeout, $mdSidenav, $log) {
-
-    $rootScope.info={};
-
 
         $scope.toggleLeft = buildDelayedToggler('left');
 

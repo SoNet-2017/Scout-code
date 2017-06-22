@@ -38,7 +38,10 @@ app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAut
         //sign out
         $firebaseAuth().$signOut();
         console.log("logout avvenuto");
-        $rootScope.info.info == false;
+
+        $rootScope.info.info = false;
+        console.log("Nel Logout setto info a false, e vale: " +  $rootScope.info.info);
+
         $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
             if (firebaseUser) {
                 console.log("L'utente che che si è riloggato e': ", firebaseUser.uid);
