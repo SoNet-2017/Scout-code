@@ -76,6 +76,8 @@
     <script src="components/cartaSpecialita/cartaSpecialita.js"></script>
     <script src="components/cartaSpecialita/cartaSpecialita-service.js"></script>
     <script src="components/cartaSpecialita/registrazione-cartaSpecialita-service.js"></script>
+    <script src="capo/riepilogoScadenze/riepilogoScadenze.js"></script>
+    <script src="ragazzo/profiloRagazzo/profiloRagazzo.js"></script>
 
 
 </head>
@@ -185,7 +187,7 @@
                     <!-- MENU CAPO -->
                     <ul ng-if="info.user.ruolo == 'capo'" >
                         <li>
-                            <a href="#!/" ng-click="close()">
+                            <a href="#!/riepilogoScadenze" ng-click="close()">
                                 <md-icon aria-label="Event Range" class="material-icons">event_range</md-icon>
                                 Scadenze Ragazzi</a>
                         </li>

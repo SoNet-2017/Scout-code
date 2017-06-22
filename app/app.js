@@ -35,7 +35,9 @@ var app = angular.module('myApp', [
         'myAppCartaSpecialita',
         'myAppProfiloCapo',
         'myAppUtente',
-        'myAppConfermaScadenze'
+        'myAppConfermaScadenze',
+        'myAppRiepilogoScadenze',
+        'myAppProfiloRagazzo'
     ]);
 
 
@@ -78,9 +80,7 @@ app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$
     $rootScope.info.info = false;
     console.log("Nel LogCtrl setto info a false, e vale: " +  $rootScope.info.info);
 
-
-    $scope.isLogged = function()
-    {
+      $scope.isLogged = function() {
         if ($firebaseAuth().$getAuth()) {
             if ($rootScope.info.info == false) {
                 $scope.InfoUserLogged();

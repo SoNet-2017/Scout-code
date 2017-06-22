@@ -37,7 +37,7 @@
 
                 <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:['tappa','nome']" ng-if="utente.ruolo == 'ragazzo'">
                         <div flex="40">
-                            <b>{{utente.nome}}</b> {{utente.cognome[0]}}.
+                            <a href="#!/profiloRagazzo/{{utente.codice}}"><b>{{utente.nome}}</b> {{utente.cognome[0]}}.</a>
                         </div>
                         <div flex>
                             <md-radio-group ng-model="utente.tappa" id="{{utente.codice}}"><md-radio-button value="Scoperta" class="md-primary" aria-label="{{utente.codice}}"></md-radio-button></md-radio-group>

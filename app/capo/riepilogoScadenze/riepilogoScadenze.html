@@ -1,0 +1,52 @@
+<md-content class="md-padding" layout-xs="column" layout="row">
+
+    <div class="alert alert-success alert-dismissible inset" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
+
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Riepilogo scadenze</span>
+                    <span class="md-subhead">delle specialità dei ragazzi</span>
+                </md-card-title-text>
+                <hr>
+            </md-card-title>
+
+
+            <div class="card-content">
+                <div>Qui di seguito vedrai il riepilogo di tutte le scadenze di ciascun ragazzo.</div>
+                <br>
+                <div>Ogni box indica il numero di giorni che mancano alla scadenza oppure, se è già passata (negativa) e se è già stata confermata o meno dai capi.</div>
+                <br>
+
+
+                <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome_ragazzo'" ng-if="utente.ruolo == 'ragazzo'">
+                    <div flex="30">
+                        <a href="#!/profiloRagazzo/{{utente.codice}}"><b>{{utente.nome}}</b> {{utente.cognome[0]}}.</a>
+                    </div>
+                    <div layout="row"  layout-align="space-between start">
+                        <div flex ng-class="personalizzaBox({{scadenza.deadline}}, {{scadenza.conferma}})" ng-repeat="scadenza in dati.scadenze |  orderBy:'deadline'" ng-if="scadenza.ragazzo == utente.codice">
+                            {{scadenza.deadline}}
+                        </div>
+
+                        <!--
+                        <div flex class="personalizzaBox({{scadenza.deadline}}, {{scadenza.conferma}})" ng-repeat="scadenza in dati.scadenze |  orderBy:'deadline'" ng-if="scadenza.ragazzo == utente.codice">
+                            {{scadenza.deadline}}
+                        </div>
+                        -->
+                    </div>
+                    <br><br>
+                </div>
+
+
+
+
+
+            </div>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="salvaScadenze()" class="md-raised md-primary" id="btn-salva">Salva</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</md-content>
+

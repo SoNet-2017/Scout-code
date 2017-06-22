@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('myAppProfiloCapo', [
+var app = angular.module('myAppProfiloRagazzo', [
     'ngMaterial',
     'ngRoute',
     'myAppAuthentication',
@@ -8,9 +8,9 @@ var app = angular.module('myAppProfiloCapo', [
 ]);
 
 app.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/profiloCapo/:codiceCapo', {
-        templateUrl: 'capo/profiloCapo/profiloCapo.html',
-        controller: 'profiloCapoCtrl',
+    $routeProvider.when('/profiloRagazzo/:codiceRagazzo', {
+        templateUrl: 'ragazzo/profiloRagazzo/profiloRagazzo.html',
+        controller: 'profiloRagazzoCtrl',
         resolve: {
             // controller will not be loaded until $requireSignIn resolves
             // Auth refers to our $firebaseAuth wrapper in the factory below
@@ -26,7 +26,7 @@ app.config(['$routeProvider', function($routeProvider) {
 
 
 
-app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAuth', '$firebaseAuth', '$location', '$routeParams', function($scope, $rootScope, Utente, currentAuth, $firebaseAuth, $location, $routeParams) {
+app.controller('profiloRagazzoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAuth', '$firebaseAuth', '$location', '$routeParams', function($scope, $rootScope, Utente, currentAuth, $firebaseAuth, $location, $routeParams) {
 
 
 
@@ -34,21 +34,15 @@ app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAut
     $scope.dati = {};
     var uuidProfilo = "";
 
+    console.log("questo e' il route params che ricevo dal riderect: " + $routeParams.codiceRagazzo);
     $scope.dati.utenti = Utente.getData();
     $scope.dati.utenti.$loaded().then(function () {
         for (var i = 0; i < $scope.dati.utenti.length; i++) {
-            console.log("INIZIO A SCORRERE GLI UTENTI")
-            if($scope.dati.utenti[i].codice == $routeParams.codiceCapo && $scope.dati.utenti[i].ruolo == 'ragazzo'){
-                console.log("scopro che voglio vedere il profilo di un ragazzo")
-                //REDIRECT SU HOME RAGAZZO SE SI E' LOGGATO UN RAGAZZO
-                $location.path("/profiloRagazzo/" + $routeParams.codiceCapo);
-            }
-            else if($scope.dati.utenti[i].codice == $routeParams.codiceCapo){
+            if($scope.dati.utenti[i].codice == $routeParams.codiceRagazzo){
                 $scope.dati.user = Utente.getUserInfo($scope.dati.utenti[i].$id);
             }
         }
     });
-
 
 
 

@@ -22,11 +22,6 @@ app.config(['$routeProvider', function($routeProvider){
 
 app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebaseAuth', '$location', function($scope,$rootScope, Evento, $firebaseAuth, $location) {
 
-    //REDIRECT SU HOME RAGAZZO SE SI E' LOGGATO UN RAGAZZO
-    if ($rootScope.info.user.ruolo != 'capo') {
-        $location.path("/homeRagazzo");
-     }
-
     //initialize variables
     $scope.dati={};
     $scope.dati.feedback = "";
@@ -37,10 +32,14 @@ app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebase
     });
 
 
-    $scope.isLogged = function()
-    {
-        if ($firebaseAuth().$getAuth())
+    $scope.isLogged = function() {
+        if ($firebaseAuth().$getAuth()) {
+            if ($rootScope.info.user.ruolo == 'ragazzo') {
+                //REDIRECT SU HOME RAGAZZO SE SI E' LOGGATO UN RAGAZZO
+                $location.path("/homeRagazzo");
+            }
             return true;
+        }
         else
             return false;
     }
