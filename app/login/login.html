@@ -67,7 +67,7 @@
 
 
 
-            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch ng-if="!isLogged()">
                     <md-card-title>
                         <md-card-title-text>
                             <span class="md-headline">Oppure</span>
