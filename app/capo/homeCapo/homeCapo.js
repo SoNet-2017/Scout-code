@@ -20,8 +20,12 @@ app.config(['$routeProvider', function($routeProvider){
 }]);
 
 
-app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebaseAuth', function($scope,$rootScope, Evento, $firebaseAuth) {
+app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebaseAuth', '$location', function($scope,$rootScope, Evento, $firebaseAuth, $location) {
 
+    //REDIRECT SU HOME RAGAZZO SE SI E' LOGGATO UN RAGAZZO
+    if ($rootScope.info.user.ruolo != 'capo') {
+        $location.path("/homeRagazzo");
+     }
 
     //initialize variables
     $scope.dati={};

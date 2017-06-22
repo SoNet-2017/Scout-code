@@ -2,10 +2,21 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo&subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic');
 
+a {
+ text-decoration: none!important;
+    color: #4CAF50!important;
+}
+a:hover {
+    text-decoration: none!important;
+    color: #B2FF59!important;
+}
+a:visited {
+    text-decoration: none!important;
+}
+
 a.logotype, a.logotype:visited, a.logotype:active, a.logotype:hover {
     font-family: 'Baloo', cursive;
-    text-decoration: none;
-    color: #f7f7f7;
+    color: #f7f7f7!important;
     font-size: 1.5em;
 }
 

@@ -35,7 +35,9 @@
                     <!-- TODO perche' compare una riga vuota col toogle visibile quando non c'è niente nel campo codice? -->
 
                     <div flex="50">
-                        <b>{{utente.nome}}</b> {{utente.cognome}}
+                        <a href="#!/profiloCapo/{{utente.codice}}">
+                            <b>{{utente.nome}}</b> {{utente.cognome}}
+                        </a>
                     </div>
                     <div flex="40">
                         <i>{{utente.codice}}</i>
@@ -53,7 +55,9 @@
                 <!--  REPEAT PER MOSTRARE TUTTI I CAPI NELL'APP -->
                 <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.ruolo == 'capo'">
                     <div flex="50">
-                        <b>{{utente.nome}}</b> {{utente.cognome}}
+                        <a href="#!/profiloCapo/{{utente.codice}}">
+                            <b>{{utente.nome}}</b> {{utente.cognome}}
+                        </a>
                     </div>
                     <div flex="40">
                         <i>{{utente.codice}}</i>

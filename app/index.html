@@ -142,7 +142,7 @@
 
 
             <!-- Box personale -->
-            <a href="#!/profiloCapo" ng-click="close()" ng-if="isLogged()">
+            <a href="#!/profiloCapo/{{info.user.codice}}" ng-click="close()" ng-if="isLogged()">
                 <div layout="row"  class="personal-box">
                     <div flex="none" ng-if="info.user.img == true">
                         <img class="user-img" src="../images/{{info.user.codice}}.jpg">

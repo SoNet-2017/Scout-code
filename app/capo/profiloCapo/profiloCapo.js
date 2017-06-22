@@ -8,7 +8,7 @@ var app = angular.module('myAppProfiloCapo', [
 ]);
 
 app.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/profiloCapo', {
+    $routeProvider.when('/profiloCapo/:codiceCapo', {
         templateUrl: 'capo/profiloCapo/profiloCapo.html',
         controller: 'profiloCapoCtrl',
         resolve: {
@@ -26,7 +26,24 @@ app.config(['$routeProvider', function($routeProvider) {
 
 
 
-app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAuth', '$firebaseAuth', '$location', function($scope, $rootScope, Utente, currentAuth, $firebaseAuth, $location) {
+app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAuth', '$firebaseAuth', '$location', '$routeParams', function($scope, $rootScope, Utente, currentAuth, $firebaseAuth, $location, $routeParams) {
+
+
+
+    //CARICO IL PROFILO CON I DATI DELL'UTENTE SELEZIONATO
+    $scope.dati = {};
+    var uuidProfilo = "";
+
+    $scope.dati.utenti = Utente.getData();
+    $scope.dati.utenti.$loaded().then(function () {
+        for (var i = 0; i < $scope.dati.utenti.length; i++) {
+            if($scope.dati.utenti[i].codice == $routeParams.codiceCapo){
+                $scope.dati.user = Utente.getUserInfo($scope.dati.utenti[i].$id);
+            }
+        }
+    });
+
+
 
 
     // function called when the "logout" button will be pressed
