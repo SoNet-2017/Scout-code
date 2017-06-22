@@ -209,6 +209,11 @@ height: 100%;
 md-switch {
     margin: 0!important;
     height: 1em!important;
+    position: relative;
+    top: 4px;
+}
+md-switch.toggle-scadenza {
+    top: 8px;
 }
 
 
@@ -226,6 +231,14 @@ md-switch {
 img.listaSpecialita{
     width: 75px;
     height: 75px;
+}
+img.img-scadenze{
+    position: relative;
+    top: 4px;
+}
+
+.scadenze-content{
+    line-height: 2em;
 }
 
 
