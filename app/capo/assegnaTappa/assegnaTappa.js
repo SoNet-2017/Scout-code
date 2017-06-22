@@ -11,13 +11,11 @@ app.config(['$routeProvider', function($routeProvider){
     $routeProvider.when('/assegnaTappa',{
         templateUrl: 'capo/assegnaTappa/assegnaTappa.html',
         controller: 'myAppAssegnaTappaCtrl',
-        /* IN ATTESA DEL LOGIN
-         resolve: {
-         "currentAuth":["Auth",function(auth) {
-         return Auth.$requireSignIn();
-         }]
-         }
-         */
+        resolve: {
+            "currentAuth":["Auth",function(Auth) {
+                return Auth.$requireSignIn();
+            }]
+        }
     })
 }]);
 

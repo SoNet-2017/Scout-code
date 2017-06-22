@@ -11,14 +11,11 @@ app.config(['$routeProvider', function($routeProvider){
     $routeProvider.when('/homeCapo',{
         templateUrl: 'capo/homeCapo/homeCapo.html',
         controller: 'myAppHomeCapoCtrl',
-
-        /**/
         resolve: {
             "currentAuth":["Auth",function(Auth) {
                 return Auth.$requireSignIn();
             }]
         }
-
     })
 }]);
 
