@@ -11,13 +11,11 @@ app.config(['$routeProvider', function($routeProvider){
     $routeProvider.when('/staff',{
         templateUrl: 'capo/staff/staff.html',
         controller: 'myAppStaffCtrl',
-        /* TODO IN ATTESA DEL LOGIN
-         resolve: {
-         "currentAuth":["Auth",function(auth) {
-         return Auth.$requireSignIn();
-         }]
-         }
-         */
+        resolve: {
+            "currentAuth":["Auth",function(Auth) {
+                return Auth.$requireSignIn();
+            }]
+        }
     })
 }]);
 
@@ -31,7 +29,8 @@ app.controller('myAppStaffCtrl', ['$scope','$rootScope', 'Utente', function($sco
     //initialize variables
     $scope.dati={};
     $scope.dati.feedback = "";
-    $scope.modulo = "";
+    $scope.modulo = {};
+    console.log("All'inizio il codice ricerca e': " + $scope.modulo.codice);
     //get the list of available sq
     $scope.dati.utenti = Utente.getData();
     $scope.dati.utenti.$loaded().then(function () {

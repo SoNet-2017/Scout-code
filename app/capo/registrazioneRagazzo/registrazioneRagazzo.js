@@ -19,25 +19,41 @@ app.config(['$routeProvider', function($routeProvider) {
         });
     }]);
 
-app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'RegistrazioneRagazzoService', '$firebaseStorage',
-        function($scope, $rootScope, RegistrazioneRagazzoService, $firebaseStorage) {
-
+app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'RegistrazioneRagazzoService', '$firebaseStorage', 'Utente',
+        function($scope, $rootScope, RegistrazioneRagazzoService, $firebaseStorage, Utente) {
 
             //initialize variables
             $scope.dati = {};
-            $scope.dati.feedback = "";
 
             //define the function that will actually create a new record in the database
             $scope.registrazioneRagazzo = function() {
+
+                $scope.dati.feedback = "";
+                $scope.dati.error = "";
 
                 console.log("ho premuto su REGISTRA");
 
                 //check if the user inserted all the required information
                 if ($scope.dati.codice!= undefined && $scope.dati.codice!="" && $scope.dati.nome!= undefined && $scope.dati.nome!="" && $scope.dati.cognome!=undefined && $scope.dati.cognome!="") {
 
-                    console.log("entra nell'if che controlla se dati inseriti");
+                    //CONTROLLO CHE L'UTENTE NON ESISTA GIA'
+                    var esistente = false;
+                    $scope.control={};
+                    $scope.control.utenti = Utente.getData();
+                    $scope.control.utenti.$loaded().then(function () {
+                        for (var i = 0; i < $scope.control.utenti.length; i++) {
+                            if ($scope.control.utenti[i].ruolo == 'ragazzo' && $scope.control.utenti[i].codice == $scope.dati.codice) {
+                                $scope.dati.error = "UTENTE GIA' ESISTENTE!";
+                                esistente = true;
+                            }
+                        }
+                        if (esistente == false) {
+                            $scope.aggiuntaRagazzoFinale();
+                        }
+                    });
 
-                    $scope.aggiuntaRagazzoFinale();
+
+
                 }
                 else
                 {

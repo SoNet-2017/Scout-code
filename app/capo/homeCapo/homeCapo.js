@@ -11,32 +11,21 @@ app.config(['$routeProvider', function($routeProvider){
     $routeProvider.when('/homeCapo',{
         templateUrl: 'capo/homeCapo/homeCapo.html',
         controller: 'myAppHomeCapoCtrl',
-
-        /**/
         resolve: {
             "currentAuth":["Auth",function(Auth) {
                 return Auth.$requireSignIn();
             }]
         }
-
     })
 }]);
 
 
-app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebaseAuth', function($scope,$rootScope, Evento, $firebaseAuth) {
+app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebaseAuth', '$location', function($scope,$rootScope, Evento, $firebaseAuth, $location) {
 
-    //CONTROLLO PER VEDERE SE E' CAPO, ALTRIMENTI REINDIRIZZA SU HOME RAGAZZO
-    /*
-
-
-    if ($rootScope.info.user.ruolo != "capo")
-    {
+    //REDIRECT SU HOME RAGAZZO SE SI E' LOGGATO UN RAGAZZO
+    if ($rootScope.info.user.ruolo != 'capo') {
         $location.path("/homeRagazzo");
-    }
-
-     */
-
-
+     }
 
     //initialize variables
     $scope.dati={};

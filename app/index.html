@@ -96,13 +96,11 @@
                         <input type="text" placeholder="Cerca" class="search">
                     </md-input-container>
 
-                    <md-button class="md-icon-button" aria-label="Events" ng-click="eventi()" ng-hide="isOpenRight()"
-                               class="md-primary">
+                    <md-button class="md-icon-button" aria-label="Events" ng-click="eventi()" ng-hide="isOpenRight()" class="md-primary" ng-if="isLogged()" >
                         <md-icon aria-label="Event" class="material-icons">event</md-icon>
                     </md-button>
 
-                    <md-button class="md-icon-button" aria-label="Notifications" ng-click="notifiche()"
-                               ng-hide="isOpenRight()" class="md-primary">
+                    <md-button class="md-icon-button" aria-label="Notifications" ng-click="notifiche()" ng-hide="isOpenRight()" class="md-primary" ng-if="isLogged()" >
                         <md-icon aria-label="Notifications" class="material-icons">notifications</md-icon>
                     </md-button>
                 </div>
@@ -148,7 +146,7 @@
 
 
             <!-- Box personale -->
-            <a href="#!/profiloCapo" ng-click="close()" ng-if="isLogged()">
+            <a href="#!/profiloCapo/{{info.user.codice}}" ng-click="close()" ng-if="isLogged()">
                 <div layout="row"  class="personal-box">
                     <div flex="none" ng-if="info.user.img == true">
                         <img class="user-img" src="../images/{{info.user.codice}}.jpg">
@@ -185,7 +183,7 @@
 
 
                     <!-- MENU CAPO -->
-                    <ul>
+                    <ul ng-if="info.user.ruolo == 'capo'" >
                         <li>
                             <a href="#!/" ng-click="close()">
                                 <md-icon aria-label="Event Range" class="material-icons">event_range</md-icon>
@@ -243,12 +241,13 @@
 
 
                     <!-- MENU RAGAZZO -->
-                    <ul>
+                    <ul ng-if="info.user.ruolo == 'ragazzo'" >
                         <li>
                             <a href="#!/sentiero" ng-click="close()">
                                 <md-icon aria-label="Beenhere" class="material-icons">beenhere</md-icon>
                                 Sentiero</a>
                         </li>
+                        <md-divider ng-if="!$last"></md-divider>
                         <li>
                             <a href="#!/homeRagazzo" ng-click="close()">
                                 <md-icon aria-label="Person" class="material-icons">person</md-icon>
@@ -265,10 +264,10 @@
         </md-sidenav>
 
 
-        <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+        <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right" >
 
 
-            <md-toolbar class="md-primary">
+            <md-toolbar class="md-primary" >
                 <div class="md-toolbar-tools">
 
                     <!-- TOOLBAR SE SI APRONO LE NOTIFICHE -->
@@ -287,16 +286,16 @@
 
             <br><br><br>
 
-            <md-content ng-controller="RightCtrl" layout-padding>
+            <md-content ng-controller="RightCtrl" layout-padding >
 
                 <!-- CONTENUTO SE SI APRONO LE NOTIFICHE -->
-                <div ng-if="data.menu == 'notifications'">
+                <div ng-if="data.menu == 'notifications' && isLogged()" >
                     <p>qui ci saranno le notifiche</p>
                 </div>
 
 
                 <!-- CONTENUTO SE SI APRONO GLI EVENTI -->
-                <div ng-controller="EventCtrl" ng-if="data.menu == 'events'">
+                <div ng-controller="EventCtrl" ng-if="data.menu == 'events' && isLogged() ">
                     <div ng-repeat="evento in dati.eventi  | orderBy:'id'">
                         <div ng-if="evento.tipo == 'single'">
                             <b>{{evento.titolo}}</b> - <i>{{evento.luogo}}</i> - Presenti: {{evento.presenti}}

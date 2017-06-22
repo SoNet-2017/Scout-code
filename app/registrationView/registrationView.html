@@ -3,6 +3,8 @@
 <md-content class="md-padding" layout-xs="column" layout="row">
 
     <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Registration failed! {{ error.message }}</div>
+    <div class="alert alert-danger alert-dismissible" role="alert" ng-if="dati.error">{{ dati.error }}</div>
+    <div class="alert alert-success alert-dismissible inset" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
 
     <div flex-xs flex-gt-xs="50" layout="column">
         <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
