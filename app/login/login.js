@@ -17,7 +17,39 @@ app.config(['$routeProvider', function($routeProvider) {
 
 
 
-app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log', 'Utente', function($scope, $rootScope, Auth, $location, $log, Utente) {
+app.controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log', 'Utente', '$firebaseAuth', function($scope, $rootScope, Auth, $location, $log, Utente, $firebaseAuth) {
+
+    $scope.isLogged = function()
+    {
+        if ($firebaseAuth().$getAuth())
+            return true;
+        else
+            return false;
+    };
+
+
+    // function called when the "logout" button will be pressed
+    $scope.logout = function () {
+
+        //save the new status in the database (we do it before the actual logout because we can write in the database only if the user is logged in)
+        Utente.registerLogout($firebaseAuth().$getAuth().uid);
+        //sign out
+        $firebaseAuth().$signOut();
+        console.log("logout avvenuto");
+
+        $rootScope.info.info = false;
+        console.log("Nel Logout setto info a false, e vale: " +  $rootScope.info.info);
+
+        $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
+            if (firebaseUser) {
+                console.log("L'utente e' già loggato con l'id: ", firebaseUser.uid);
+            } else {
+                $location.path("/login");
+            }
+        });
+    };
+
+
     $scope.user={};
     $scope.auth = Auth; //acquires authentication from app.js (if it was done)
 

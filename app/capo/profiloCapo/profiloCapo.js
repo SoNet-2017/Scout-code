@@ -44,7 +44,7 @@ app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAut
 
         $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
             if (firebaseUser) {
-                console.log("L'utente che che si è riloggato e': ", firebaseUser.uid);
+                console.log("L'utente e' già loggato con l'id:  ", firebaseUser.uid);
             } else {
                 $location.path("/login");
             }
