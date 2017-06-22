@@ -10,9 +10,11 @@ app.config(['$routeProvider',function($routeProvider) {
     })
 }]);
 
-app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', '$mdDialog', function($scope,$rootScope,Specialita,$mdDialog){
+app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 'Utente', 'CartaSpecialita', 'RegistrazioneCartaSpecialitaService', '$mdDialog', function($scope,$rootScope,Specialita, Utente, CartaSpecialita, RegistrazioneCartaSpecialitaService, $mdDialog){
     $scope.dati={};
     $scope.dati.specialita=Specialita.getData();
+    $scope.dati.utente=Utente.getData();
+    $scope.dati.carte_specialita=CartaSpecialita.getData();
     $scope.status = '  ';
     $scope.customFullscreen = false
 
@@ -25,6 +27,7 @@ app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 
             if ($scope.dati.specialita[i].nome == nome) {
                 console.log('siamo dentro if');
                 var descrizione = $scope.dati.specialita[i].descrizione;
+                var nomeSpec=$scope.dati.specialita[i].nome;
             }
         }
         console.log(descrizione)
@@ -32,12 +35,29 @@ app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 
             $mdDialog.alert()
                 .parent(angular.element(document.querySelector('#popupContainer')))
                 .clickOutsideToClose(true)
-                .title('This is an alert title')
+                .title(nomeSpec)
                 .textContent(descrizione)
                 .ariaLabel('Alert Dialog Demo')
                 .ok('Got it!')
                 .targetEvent(ev)
         );
     };
+
+    $scope.salvaCartaSpecialita=function(params){
+        for (var i = 0; i < $scope.dati.utente.length; i++) {
+            console.log('Stiamo salvando la carta di specialita')
+            if($scope.dati.utente[i].nome == true){
+                console.log('sono entrato nellif')
+                for(var i = 0; i < $scope.dati.specialita.length; i++){
+                    console.log('Attiva Specialita')
+                }
+
+            }
+        }
+        $scope.dati.feedback = "Salvataggio avvenuto con successo";
+    }
+
+
+
 }]);
 

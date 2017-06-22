@@ -1,4 +1,4 @@
-<div>
+<div id="popupContainer">
     <md-content class="md-padding" layout-xs="column" layout="row">
         <div flex-xs flex-gt-xs="50" layout="column">
             <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
@@ -6,10 +6,17 @@
                     <md-card-title-text>
                         <span class="md-headline">Scegli Specialità</span>
                         <span class="md-subhead">Specialità correlate ai tuoi hobby</span>
+                        <h4>Scegli Maestro</h4>
+                        <md-radio-group ng-model="dati.utente.codice" >
+                            <md-radio-button class="md-primary" ng-repeat="ragazzo in dati.utente" value="{{ragazzo}}" ng-if="ragazzo.ruolo == 'ragazzo'">
+                                <b>{{ragazzo.nome}}</b> {{ragazzo.cognome}}
+                            </md-radio-button>
+                        </md-radio-group>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="none">
-                    <div class="md-media-lg card-media" id="popupContainer">
+                    <div class="md-media-lg card-media" >
+                        <form>
                                 <ul class="media-list">
                                     <li class="media" ng-repeat="specialita in dati.specialita">
                                         <b><h3>{{specialita.nome}}</h3></b>
@@ -22,9 +29,15 @@
                                                         Approfondisci <md-icon aria-label="Settings" class="material-icons" >menu</md-icon>
                                                     </md-button>
                                                 </div>
+                                                <div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
+                                                    <md-card-actions layout="row" layout-align="end center">
+                                                        <md-button ng-click="salvaCartaSpecialita()" class="md-raised md-primary" id="btn-salva">Salva</md-button>
+                                                    </md-card-actions>
+                                                </div>
                                             </div>
                                     </li>
                                 </ul>
+                        </form>
                     </div>
                 </md-card-actions>
             </md-card>

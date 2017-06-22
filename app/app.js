@@ -32,6 +32,7 @@ var app = angular.module('myApp', [
         'myAppEvento',
         'myAppAssegnaTappa',
         'myAppSpecialita',
+        'myAppCartaSpecialita',
         'myAppProfiloCapo',
         'myAppUtente',
         'myAppConfermaScadenze'
