@@ -30,7 +30,7 @@ app.controller('myAppStaffCtrl', ['$scope','$rootScope', 'Utente', function($sco
     $scope.dati={};
     $scope.dati.feedback = "";
     $scope.modulo = {};
-    console.log("All'inizio il codice ricerca e': " + $scope.modulo.codice);
+    console.log("All'inizio il codice ricerca e': " + $scope.modulo.ricerca);
     //get the list of available sq
     $scope.dati.utenti = Utente.getData();
     $scope.dati.utenti.$loaded().then(function () {
@@ -40,7 +40,7 @@ app.controller('myAppStaffCtrl', ['$scope','$rootScope', 'Utente', function($sco
 
                 var uuid = $scope.dati.utenti[i].$id;
                 var checkedOld =  $scope.dati.utenti[i].staff;
-                console.log("All'inizio " + $scope.dati.utenti[i].nome + " ha il toggle " + checkedOld);
+                //console.log("All'inizio " + $scope.dati.utenti[i].nome + " ha il toggle " + checkedOld);
             }
         }
     });

@@ -4,8 +4,11 @@
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">Prossimo evento</span>
+                    <span class="md-subhead">Per vedere tutti i prossimi eventi, cliccare sull'icona del calendario nella toolbar.</span>
                 </md-card-title-text>
             </md-card-title>
+
+            <br>
 
             <div class="card-content">
                     <div ng-repeat="evento in dati.eventi  | orderBy:'id'" ng-if="$first">
@@ -30,10 +33,44 @@
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">Prossime scadenze</span>
+                    <span class="md-subhead">Qui vedrai solo quelle future.</span>
                 </md-card-title-text>
             </md-card-title>
+
+            <br>
+
+            <div class="card-content">
+                <div layout="row" layout-wrap ng-repeat="scadenza in dati.scadenze  | orderBy:['nome_ragazzo','deadline']" ng-if="scadenza.deadline >= 0 && scadenza.conferma != true">
+                    <div flex="30" ng-repeat="specialita in dati.specialita" ng-if="specialita.nome == scadenza.nome_specialita">
+                        <img class="media-object img-responsive listaSpecialita img-scadenze" ng-src="../{{specialita.img_url}}">
+                    </div>
+                    <div flex="70" class="scadenze-content">
+                        <div >
+                            <a href="#!/profiloRagazzo/{{utente.codice}}"><b>{{scadenza.nome_ragazzo}}</b></a> - {{scadenza.nome_specialita}}
+                        </div>
+
+                        <div >
+                            <i>{{scadenza.azione}}</i>
+                        </div>
+                        <div layout="row" flex="100" layout-align="space-between">
+                            <div>
+                                Scadenza: tra {{scadenza.deadline}} giorni.
+                            </div>
+                            <!--
+                            <div>
+                                <md-switch class="md-primary toggle-scadenza" md-no-ink ng-model="scadenza.confermaNew" id="{{scadenza.uid}}" aria-label="{{scadenza.uid}}" ></md-switch>
+                            </div>
+                            -->
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
             <md-card-actions layout="row" layout-align="end center">
-                <md-button>Vedi tutte</md-button>
+                <a href="#!/riepilogoScadenze">
+                    <md-button>Vedi tutte</md-button>
+                </a>
             </md-card-actions>
         </md-card>
 
@@ -41,7 +78,7 @@
         <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">Newsfeed capo</span>
+                    <span class="md-headline">Newsfeed home capo</span>
                 </md-card-title-text>
             </md-card-title>
 
@@ -50,7 +87,7 @@
             <!-- POST 1 -->
             <md-card-header>
                 <md-card-avatar>
-                    <img src="../images/default_profile.png"/>
+                    <img  class="img-profile-card" src="../images/default_profile.png"/>
                 </md-card-avatar>
                 <md-card-header-text>
                     <span class="md-title">Federico</span>
@@ -81,7 +118,7 @@
             <!-- POST 2 -->
             <md-card-header>
                 <md-card-avatar>
-                    <img src="../images/default_profile.png"/>
+                    <img class="img-profile-card" src="../images/default_profile.png"/>
                 </md-card-avatar>
                 <md-card-header-text>
                     <span class="md-title">Lorenzo</span>
@@ -112,7 +149,7 @@
             <!-- POST 3 -->
             <md-card-header>
                 <md-card-avatar>
-                    <img src="../images/default_profile.png"/>
+                    <img  class="img-profile-card" src="../images/default_profile.png"/>
                 </md-card-avatar>
                 <md-card-header-text>
                     <span class="md-title">Sara</span>

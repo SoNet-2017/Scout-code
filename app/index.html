@@ -292,7 +292,112 @@
 
                 <!-- CONTENUTO SE SI APRONO LE NOTIFICHE -->
                 <div ng-if="data.menu == 'notifications' && isLogged()" >
-                    <p>qui ci saranno le notifiche</p>
+
+
+
+                    <!-- NOTOFICHE RAGAZZO -->
+                    <div ng-if="info.user.ruolo == 'ragazzo'">
+                        <div layout="row" layout-wrap >
+                            <div flex="30" >
+                                <img class="media-object img-responsive listaSpecialita img-scadenze" ng-src="../images/Allevatore.jpg">
+                            </div>
+                            <div flex="70" class="scadenze-content">
+                                <div >
+                                    Specialità di Allevatore
+                                </div>
+
+                                <div >
+                                    <i>Dare da mangiare al cane</i>
+                                </div>
+                                <div layout="row" flex="100" layout-align="space-between">
+                                    <div>
+                                        Scadenza: tra 18 giorni.
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <md-divider ng-if="!$last"></md-divider>
+                        <br>
+                        <div layout="row" layout-wrap >
+                            <div flex="100" class="scadenze-content">
+                                <div >
+                                    <a href="#!/profiloCapo/962192"><b>Simone</b></a>
+                                    ti ha inviato un sollecito per la tua scadenza della specialità di <i>Allevatore</i>
+                                </div>
+                                <div>
+                                    <md-icon aria-label="Warning" class="material-icons">warning</md-icon>
+                                    Scadenza: tra 18 giorni.
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <md-divider ng-if="!$last"></md-divider>
+                        <br>
+                        <div layout="row" layout-wrap >
+                            <div flex="100" class="scadenze-content">
+                                <div >
+                                    <a href="#!/profiloCapo/996139"><b>Luca</b></a>
+                                    ha confermato la tua scadenza per la specialità di <i>Allevatore</i>
+                                </div>
+                                <div>
+                                    <md-icon aria-label="Check" class="material-icons">check_box</md-icon>
+                                    Dare da mangiare al gatto
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- NOTOFICHE CAPO -->
+                    <div ng-if="info.user.ruolo == 'capo'">
+                        <div layout="row" layout-wrap >
+                            <div flex="30" >
+                                <img class="media-object img-responsive listaSpecialita img-scadenze" ng-src="../images/Musicista.jpg">
+                            </div>
+                            <div flex="70" class="scadenze-content">
+                                <div >
+                                    <a href="#!/profiloRagazzo/1337952"><b>Lorenzo</b></a>
+                                    ha conquistato la specialità di <i>Musicista</i>
+                                </div>
+                                <div>
+                                    2 giorni fa
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <md-divider ng-if="!$last"></md-divider>
+                        <br>
+                        <div layout="row" layout-wrap >
+                            <div flex="100" class="scadenze-content">
+                                <div >
+                                    <a href="#!/profiloRagazzo/1239822"><b>Federico</b></a>
+                                    ha mancato la sua scadenza per la specialità di <i>Allevatore</i>
+                                </div>
+                                <div>
+                                    <md-icon aria-label="Warning" class="material-icons">warning</md-icon>
+                                    Dare da mangiare al coniglio
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
 
 

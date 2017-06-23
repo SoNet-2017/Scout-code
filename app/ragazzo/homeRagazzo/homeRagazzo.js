@@ -18,14 +18,15 @@ app.config(['$routeProvider', function($routeProvider){
     })
 }]);
 
-app.controller('myAppHomeRagazzoCtrl', ['$scope', '$rootScope', 'Evento', '$firebaseAuth',function($scope, $rootScope, Evento, $firebaseAuth){
+app.controller('myAppHomeRagazzoCtrl', ['$scope', '$rootScope', 'Evento', '$firebaseAuth', 'Utente', 'Scadenza', 'Specialita', function($scope, $rootScope, Evento, $firebaseAuth,  Utente, Scadenza, Specialita){
     $scope.dati={}
     $scope.dati.feedback=""
-    $scope.dati.eventi = Evento.getData()
-    $scope.dati.eventi.$loaded().then(function(){
 
-        })
+    //SCARICO TUTTI I DATI
+    $scope.dati.utenti = Utente.getData();
+    $scope.dati.scadenze = Scadenza.getData();
+    $scope.dati.specialita = Specialita.getData();
+    $scope.dati.eventi = Evento.getData();
 
-    }]
 
-);
+}]);

@@ -18,19 +18,23 @@
                 <div>Puoi decidere quali capi facciano parte o meno dello staf, abilitandoli o disabilitandoli</div>
                 <br>
 
-                <div>Inserisci il codice socio del singolo capo che vuoi abilitare o disabilitare (copia i codici sotto) oppure vedi la lista completa.</div>
+                <div>Inserisci il codice socio, il nome o il cognome del singolo capo che vuoi abilitare o disabilitare (copia i codici sotto) oppure vedi la lista completa.</div>
                 <br><br>
 
                 <!--  INPUT PER CERCARE UN CAPO -->
                 <md-input-container  md-no-float class="md-block">
-                    <label>Codice socio del capo</label>
-                    <input id="codice" ng-model="modulo.codice" name="codice" type="number" value="0000">
+                    <label>Codice socio, nome o cognome del capo</label>
+                    <input id="ricerca" ng-model="modulo.ricerca" name="ricerca" >
                 </md-input-container>
                 <br>
 
 
                 <!--  REPEAT PER MOSTRARE SOLO IL CAPO CON CODICE DIGITATO -->
-                <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.codice === modulo.codice">
+                <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="modulo.ricerca != ''
+                                                                                                        && utente.ruolo == 'capo'
+                                                                                                        && (utente.codice.indexOf(modulo.ricerca) !== - 1
+                                                                                                        || utente.nome.indexOf(modulo.ricerca) !== -1
+                                                                                                        || utente.cognome.indexOf(modulo.ricerca) !== -1)">
 
                     <!-- TODO perche' compare una riga vuota col toogle visibile quando non c'è niente nel campo codice? -->
 

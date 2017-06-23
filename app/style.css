@@ -85,6 +85,10 @@ md-toolbar.md-primary {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
+.img-profile-card {
+    margin-right: 10px;
+}
+
 
 /*
     SIDENAV

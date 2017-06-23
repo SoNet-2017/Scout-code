@@ -4,7 +4,9 @@ var app=angular.module('myAppHomeCapo', [
     'ngMaterial',
     'ngRoute',
     'myAppEvento',
-    'myAppAuthentication'
+    'myAppAuthentication',
+    'myAppUtente',
+    'myAppSpecialita'
 ]);
 
 app.config(['$routeProvider', function($routeProvider){
@@ -20,16 +22,18 @@ app.config(['$routeProvider', function($routeProvider){
 }]);
 
 
-app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebaseAuth', '$location', function($scope,$rootScope, Evento, $firebaseAuth, $location) {
+app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebaseAuth', '$location', 'Utente', 'Scadenza', 'Specialita', function($scope,$rootScope, Evento, $firebaseAuth, $location,  Utente, Scadenza, Specialita) {
 
     //initialize variables
     $scope.dati={};
     $scope.dati.feedback = "";
-    //get the list of available sq
-    $scope.dati.eventi = Evento.getData();
-    $scope.dati.eventi.$loaded().then(function () {
 
-    });
+    //SCARICO TUTTI I DATI
+    $scope.dati.utenti = Utente.getData();
+    $scope.dati.scadenze = Scadenza.getData();
+    $scope.dati.specialita = Specialita.getData();
+    $scope.dati.eventi = Evento.getData();
+
 
 
     $scope.isLogged = function() {
