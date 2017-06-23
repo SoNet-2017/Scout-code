@@ -30,6 +30,7 @@ app.controller('myAppStaffCtrl', ['$scope','$rootScope', 'Utente', function($sco
     $scope.dati={};
     $scope.dati.feedback = "";
     $scope.modulo = {};
+    $scope.modulo.ricerca = "";
     console.log("All'inizio il codice ricerca e': " + $scope.modulo.ricerca);
     //get the list of available sq
     $scope.dati.utenti = Utente.getData();

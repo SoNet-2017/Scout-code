@@ -39,16 +39,13 @@ app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', '
     /**** FUNZIONE PER ASSEGNARE CLASSI PERSONALIZZATE ****/
     $scope.personalizzaBox = function(deadline, conferma) {
         if (conferma == true) {
-            console.log("La scadenza " + deadline + "e' confermata");
             return "box-scadenza scadenza-confermata";
 
         } else if (conferma == false && deadline < 0 ) {
-            console.log("La scadenza " + deadline + "e' mancata");
             return "box-scadenza scadenza-mancata";
         }
 
         else {
-            console.log("La scadenza " + deadline + "e' futura");
             return "box-scadenza";
         }
     }

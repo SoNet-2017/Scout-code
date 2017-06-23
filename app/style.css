@@ -47,6 +47,10 @@ body {
     color: #4CAF50;
 }
 
+.menu-laterale > ul > li > a.not-active {
+    color: lightgray!important;
+}
+
 
 
 .menu-laterale {

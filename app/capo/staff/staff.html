@@ -32,11 +32,9 @@
                 <!--  REPEAT PER MOSTRARE SOLO IL CAPO CON CODICE DIGITATO -->
                 <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="modulo.ricerca != ''
                                                                                                         && utente.ruolo == 'capo'
-                                                                                                        && (utente.codice.indexOf(modulo.ricerca) !== - 1
-                                                                                                        || utente.nome.indexOf(modulo.ricerca) !== -1
-                                                                                                        || utente.cognome.indexOf(modulo.ricerca) !== -1)">
-
-                    <!-- TODO perche' compare una riga vuota col toogle visibile quando non c'è niente nel campo codice? -->
+                                                                                                        && (utente.codice.includes(modulo.ricerca)
+                                                                                                        ||  utente.nome.includes(modulo.ricerca)
+                                                                                                        ||  utente.cognome.includes(modulo.ricerca)    )">
 
                     <div flex="50">
                         <a href="#!/profiloCapo/{{utente.codice}}">
