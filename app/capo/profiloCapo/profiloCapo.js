@@ -37,7 +37,6 @@ app.controller('profiloCapoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAut
     $scope.dati.utenti = Utente.getData();
     $scope.dati.utenti.$loaded().then(function () {
         for (var i = 0; i < $scope.dati.utenti.length; i++) {
-            console.log("INIZIO A SCORRERE GLI UTENTI")
             if($scope.dati.utenti[i].codice == $routeParams.codiceCapo && $scope.dati.utenti[i].ruolo == 'ragazzo'){
                 console.log("scopro che voglio vedere il profilo di un ragazzo")
                 //REDIRECT SU HOME RAGAZZO SE SI E' LOGGATO UN RAGAZZO

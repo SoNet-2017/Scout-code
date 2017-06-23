@@ -75,6 +75,10 @@ app.run(["$rootScope", "$location", function($rootScope, $location){
 
 app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$location', function($scope, $rootScope, Utente, $firebaseAuth, $location) {
 
+    //PER LA RICERCA
+    $rootScope.search = {};
+    $rootScope.search.ricerca = "";
+
     //variabile che permette di scaricare i dati dell'utente loggato solo una volta all'avvio dell'app
     $rootScope.info={};
     $rootScope.info.info = false;
@@ -215,7 +219,7 @@ app.controller('EventCtrl', ['$scope','$rootScope', 'Evento', function($scope,$r
     //initialize variables
     $scope.dati={};
     $scope.dati.feedback = "";
-    //get the list of available sq
+
     $scope.dati.eventi = Evento.getData();
     $scope.dati.eventi.$loaded().then(function () {
     });
@@ -225,6 +229,18 @@ app.controller('EventCtrl', ['$scope','$rootScope', 'Evento', function($scope,$r
 
 
 
+app.controller('SearchCtrl', ['$scope','$rootScope', 'Utente', '$location', function($scope,$rootScope, Utente, $location) {
 
+    //initialize variables
+    $scope.dati={};
+    $scope.dati.utenti = Utente.getData();
+
+    $scope.vediProfilo = function(codice) {
+        $rootScope.search.ricerca = "";
+        $location.path("/profiloCapo/" + codice);
+    };
+
+
+}]);
 
 

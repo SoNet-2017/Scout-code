@@ -94,9 +94,10 @@
                         <md-icon aria-label="Menu" class="material-icons">menu</md-icon>
                     </md-button>
 
-                    <md-input-container md-no-float class="md-block">
-                        <input type="text" placeholder="Cerca" class="search">
-                    </md-input-container>
+                    <!-- RICERCA -->
+                        <md-input-container md-no-float class="md-block">
+                            <input id="ricerca" ng-model="search.ricerca" name="ricerca" placeholder="Cerca utenti" class="search">
+                        </md-input-container>
 
                     <md-button class="md-icon-button" aria-label="Events" ng-click="eventi()" ng-hide="isOpenRight()" class="md-primary" ng-if="isLogged()" >
                         <md-icon aria-label="Event" class="material-icons">event</md-icon>
@@ -111,8 +112,58 @@
     </header>
 
 
-    <br><br><br>
-    <div ng-view>
+
+    <!-- MOSTRA RISULTATI RICERCA -->
+    <div ng-controller="SearchCtrl" class="risultati-ricerca" ng-if="search.ricerca != ''">
+        <div  layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.codice.includes(search.ricerca)
+                                                                                                ||  utente.nome.toLowerCase().includes(search.ricerca.toLowerCase())
+                                                                                                ||  utente.cognome.toLowerCase().includes(search.ricerca.toLowerCase())"
+                                                                                                                                                        ng-click="vediProfilo(utente.codice)">
+
+            <div flex="30" ng-if="utente.img == true">
+                <img class="result-img" src="../images/{{utente.codice}}.jpg">
+            </div >
+            <div flex="30" ng-if="utente.img == false">
+                <img class="result-img" src="../images/default_profile.png">
+            </div>
+
+            <div flex="40" class="result-text">
+                    <b>{{utente.nome}}</b>
+                    <br>
+                    {{utente.cognome}}
+            </div>
+            <div flex="30" ng-if="utente.ruolo == 'capo' && utente.staff == true">
+                <b>Staff</b>
+                <br>
+                <i>{{utente.codice}}</i>
+            </div>
+            <div flex="30" ng-if="utente.ruolo == 'capo' && utente.staff == false">
+                <b></b>
+                <br>
+                <i>{{utente.codice}}</i>
+            </div>
+            <div flex="30" ng-if="utente.ruolo == 'ragazzo'">
+                <b>{{utente.sq}}</b>
+                <br>
+                <i>{{utente.codice}}</i>
+            </div>
+
+            <br>
+            <hr>
+            <br>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div ng-view class="main-view">
         <!-- QUI DENTRO CI SONO LE VIEW CARICATE DINAMICAMENTE SE E' STATO FATTO IL LOGIN-->
     </div>
 

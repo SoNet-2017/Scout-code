@@ -28,6 +28,11 @@ h1 {
 body {
     background-color: #fafafa!important;
 }
+
+.main-view{
+    margin-top: 56px;
+}
+
 .md-block {
     margin-top: 0;
     margin-bottom: 15px;
@@ -268,6 +273,7 @@ img.img-scadenze{
 .img-profile {
     width:50%;
     position: relative;
+    top: -50px;
     left: 25%;
     margin-top: 20px;
     margin-bottom: 50px;
@@ -276,7 +282,6 @@ img.img-scadenze{
             0 0 0 4px #ffd600,
             0 0 0 8px #03a9f4,
             0 0 0 12px #0d47a1;
-    z-index: 1;
 }
  .knot {
      width: 20px;
@@ -290,13 +295,13 @@ img.img-scadenze{
  }
 
 .rot-dx{
-    top: -25px;
+    top: 190px;
     left: 45%;
     transform: rotate(-25deg);
 }
 
 .rot-sx{
-    top: -62px;
+    top: 153px;
     left: 36%;
     transform: rotate(25deg);
 }
@@ -323,4 +328,34 @@ img.img-scadenze{
 .scadenza-mancata {
     background-color: #ff5722;
     color: #fff;
+}
+
+
+
+/*****
+    RISULTATI RICERCA
+ */
+.risultati-ricerca {
+    width: 240px;
+    position: absolute;
+    top: 56px;
+    left: 44px;
+    z-index: 1;
+    padding-top: 16px;
+
+    background: #B2FF59; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, #4CAF50, #B2FF59); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #4CAF50, #B2FF59); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #4CAF50, #B2FF59); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #4CAF50, #B2FF59); /* Standard syntax (must be last) */
+}
+
+.result-img{
+    width: 40px;
+    height: 40px;
+    margin: 0 6px 16px 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.result-text{
+    color: #1B5E20;
 }
