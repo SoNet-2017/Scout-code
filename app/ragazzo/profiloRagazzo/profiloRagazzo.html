@@ -16,6 +16,17 @@
             </md-card-title>
 
             <div class="card-content">
+                <div>
+                    Codice socio: {{dati.user.codice}}
+                </div>
+                <div ng-if="dati.user.staff == true">
+                    Staff: Stella Polare
+                </div>
+                <div ng-if="dati.user.email != ''">
+                    Email: {{dati.user.email}}
+                </div>
+                <br><br>
+
                 <div class="knot rot-dx"></div>
                 <div class="knot rot-sx"></div>
 
@@ -26,15 +37,40 @@
                     <img class="img-profile" ng-src="../images/default_profile.png">
                 </div>
 
-                <div>
-                    Codice socio: {{dati.user.codice}}
+                <div layout="row" layout-wrap class="camicia">
+                    <div flex="100">
+                        <img src="../images/fis.jpg" class="fis">
+                    </div>
+                    <div flex="50">
+                        <img src="../images/wosm.png" class="internazionale" ng-if="dati.user.sesso == 'M'">
+                        <img src="../images/wagggs.png" class="internazionale" ng-if="dati.user.sesso == 'F'">
+                    </div>
+                    <div flex="50">
+                        <img src="../images/promessa.png" class="promessa">
+                    </div>
+                    <div flex="50">
+                        <!-- EVENTUALI BREVETTI -->
+                        <img src="../{{distintivo.img_url}}" class="brevetto"
+                             ng-repeat="distintivo in dati.distintivi | orderBy:'nome'"  ng-if="distintivo.tipo == 'Brevetto' && distintivo.ragazzo == dati.user.codice" >
+
+                        <!-- EVENTUALI SPECIALITA' -->
+                        <img src="../{{distintivo.img_url}}" class="specialita"
+                             ng-repeat="distintivo in dati.distintivi | orderBy:'nome'"  ng-if="distintivo.tipo == 'Specialità' && distintivo.ragazzo == dati.user.codice" >
+                    </div>
+                    <div flex="50">
+                        <div ng-repeat="squadriglia in dati.squadriglie"
+                             ng-if="dati.user.sq != '' && squadriglia.nome == dati.user.sq" class="omerale"
+                             ng-style="{ 'background-color': squadriglia.primary, 'color': squadriglia.accent }">
+                            <b>Sq. {{dati.user.sq}}</b>
+                        </div>
+
+                        <img src="../images/scoperta.jpg" class="tappa" ng-if="dati.user.tappa != '' && dati.user.tappa == 'Scoperta'">
+                        <img src="../images/competenza.jpg" class="tappa" ng-if="dati.user.tappa != '' && dati.user.tappa == 'Competenza'">
+                        <img src="../images/responsabilita.jpg" class="tappa" ng-if="dati.user.tappa != '' && dati.user.tappa == 'Responsabilità'">
+                    </div>
                 </div>
-                <div ng-if="dati.user.staff == true">
-                    Staff: Stella Polare
-                </div>
-                <div>
-                    Email: {{dati.user.email}}
-                </div>
+
+
 
 
             </div>

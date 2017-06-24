@@ -19,7 +19,7 @@
 
                     <md-radio-group ng-model="data.newFiamma">
                         <md-radio-button class="md-primary" ng-repeat="squadriglia in dati.squadriglie | orderBy:'nome'" value="{{squadriglia.nome}}">
-                            <b>{{squadriglia.nome}}
+                            <b ng-style="{ 'background-color': squadriglia.primary, 'color': squadriglia.accent, 'padding' : '8px', 'border-radius' : '2px'}">{{squadriglia.nome}}
                                 <md-icon aria-label="Flag" class="material-icons" ng-if="squadriglia.fiamma == true">flag</md-icon>
                             </b></md-radio-button>
                     </md-radio-group>

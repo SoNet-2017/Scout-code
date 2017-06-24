@@ -4,7 +4,9 @@ var app = angular.module('myAppProfiloRagazzo', [
     'ngMaterial',
     'ngRoute',
     'myAppAuthentication',
-    'myAppUtente'
+    'myAppUtente',
+    'myAppDistintivi',
+    'myAppSquadriglia'
 ]);
 
 app.config(['$routeProvider', function($routeProvider) {
@@ -26,7 +28,8 @@ app.config(['$routeProvider', function($routeProvider) {
 
 
 
-app.controller('profiloRagazzoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAuth', '$firebaseAuth', '$location', '$routeParams', function($scope, $rootScope, Utente, currentAuth, $firebaseAuth, $location, $routeParams) {
+app.controller('profiloRagazzoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAuth', '$firebaseAuth', '$location', '$routeParams', 'Distintivo', 'Squadriglia',
+                function($scope, $rootScope, Utente, currentAuth, $firebaseAuth, $location, $routeParams, Distintivo, Squadriglia) {
 
 
 
@@ -43,6 +46,10 @@ app.controller('profiloRagazzoCtrl', ['$scope', '$rootScope', 'Utente', 'current
             }
         }
     });
+
+
+    $scope.dati.distintivi = Distintivo.getData();
+     $scope.dati.squadriglie = Squadriglia.getData();
 
 
 

@@ -6,7 +6,7 @@ angular.module('myAppUtente.registrazioneRagazzoService', [])
     .factory('RegistrazioneRagazzoService', function($firebaseArray) {
 
         var NuovoRagazzoService = {
-            aggiungiRagazzo: function (codice, nome, cognome) {
+            aggiungiRagazzo: function (codice, nome, cognome, sesso) {
                 console.log("entra nella function che aggiunge un ragazzo");
 
 
@@ -21,7 +21,8 @@ angular.module('myAppUtente.registrazioneRagazzoService', [])
                     sq: "",
                     email: "",
                     logged: false,
-                    img: false
+                    img: false,
+                    sesso: sesso
                 });
             }
         };

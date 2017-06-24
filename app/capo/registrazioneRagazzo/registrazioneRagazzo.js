@@ -24,6 +24,7 @@ app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'Registrazio
 
             //initialize variables
             $scope.dati = {};
+            $scope.dati.sesso = "M";
 
             //define the function that will actually create a new record in the database
             $scope.registrazioneRagazzo = function() {
@@ -68,7 +69,7 @@ app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'Registrazio
             {
                 console.log("entro in aggiunta ragazzo finale");
 
-                RegistrazioneRagazzoService.aggiungiRagazzo($scope.dati.codice, $scope.dati.nome, $scope.dati.cognome).then(function(ref) {
+                RegistrazioneRagazzoService.aggiungiRagazzo($scope.dati.codice, $scope.dati.nome, $scope.dati.cognome, $scope.dati.sesso).then(function(ref) {
 
                     console.log("uscito dal factory aggiungi ragazzo");
 

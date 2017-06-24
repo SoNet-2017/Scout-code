@@ -416,3 +416,55 @@ img.img-scadenze{
     color: #1B5E20;
 }
 
+
+
+/****
+    DISTINTIVI
+ */
+.camicia {
+    background-color: #93b4d7;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+.fis {
+    width: 100%;
+}
+
+.internazionale {
+    width: 100%;
+    padding-right: 4px;
+    padding-top: 8px;
+}
+
+.promessa {
+    width: 100%;
+    padding-left: 4px;
+    padding-top: 8px;
+}
+
+.tappa {
+    width: 100%;
+    padding-left: 4px;
+    padding-top: 8px;
+}
+
+.specialita {
+    width: 50%;
+    padding-right: 8px;
+    padding-top: 8px;
+}
+
+.brevetto {
+    width: 100%;
+    padding-right: 8px;
+    padding-top: 8px;
+}
+
+/* OMERALE */
+.omerale {
+    border-radius: 0 4px 4px 0;
+    padding: 4px;
+    text-align: center;
+    margin: 8px 0 4px 4px;
+}

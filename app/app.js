@@ -37,7 +37,8 @@ var app = angular.module('myApp', [
         'myAppUtente',
         'myAppConfermaScadenze',
         'myAppRiepilogoScadenze',
-        'myAppProfiloRagazzo'
+        'myAppProfiloRagazzo',
+        'myAppDistintivi'
     ]);
 
 
