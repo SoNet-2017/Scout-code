@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic');
+
+
+html {
+    height: 100%;
+    overflow: hidden;
+    padding: 5%;
+    background: #4caf4f;
+    background: -moz-linear-gradient(45deg, #b2ff59 0%, #4caf4f 75%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, #b2ff59), color-stop(75%, #4caf4f));
+    background: -webkit-linear-gradient(45deg, #b2ff59 0%, #4caf4f 75%);
+    background: -o-linear-gradient(45deg, #b2ff59 0%, #4caf4f 75%);
+    background: -ms-linear-gradient(45deg, #b2ff59 0%, #4caf4f 75%);
+    background: linear-gradient(45deg, #b2ff59 0%, #4caf4f 75%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2ff59', endColorstr='#4caf4f', GradientType=1 );
+}
+
+
+.logo {
+    text-align: center;
+    position: relative;
+    top: 2em;
+}
+.titolo {
+    font-family: 'Baloo', cursive;
+    color: #f7f7f7;
+    font-size: 2.5em;
+    text-align: center;
+    position: relative;
+    top: 2em;
+}
+
+.sottotitolo {
+    font-family: 'Roboto', sans-serif;
+    color: #f7f7f7;
+    font-size: 1.5em;
+    text-align: center;
+    position: relative;
+    top: 3em;
+}
+
+.paragrafo {
+    font-family: 'Roboto', sans-serif;
+    color: #1B5E20;
+    font-size: 1em;
+    line-height: 2em;
+    text-align: center;
+    position: relative;
+    top: 9em;
+}
+
+.bottone {
+    font-family: 'Roboto', sans-serif;
+    color: #f7f7f7!important;
+    font-size: 1.5em;
+    position: absolute;
+    bottom: 1em;
+    left: 33%;
+}
+
+.btn {
+    display: block;
+    margin: 30px auto;
+    padding: 0;
+
+    overflow: hidden;
+
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+
+    background-color: #4CAF50;
+    color: #ecf0f1;
+
+    transition: background-color .3s;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #4CAF50;
+}
+
+
+.btn span {
+    display: block;
+    padding: 12px 24px;
+}
+
+.btn:before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+    width: 0;
+    padding-top: 0;
+
+    border-radius: 100%;
+
+    background-color: rgba(236, 240, 241, .3);
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+    width: 120%;
+    padding-top: 120%;
+
+    transition: width .2s ease-out, padding-top .2s ease-out;
+}
