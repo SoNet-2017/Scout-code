@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo&subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic');
 
+
+
 @media screen and (min-width: 350px) {
     ._md {
         overflow: hidden;
@@ -81,12 +83,17 @@
         background: -moz-linear-gradient(bottom right, #4CAF50, #B2FF59); /* For Firefox 3.6 to 15 */
         background: linear-gradient(to bottom right, #4CAF50, #B2FF59); /* Standard syntax (must be last) */
     }
+}
 
 @media screen and (min-width: 700px) {
     ._md {
         /*overflow: hidden;*/
     }
 }
+
+
+
+
 
 a {
  text-decoration: none!important;
@@ -416,3 +423,4 @@ img.img-scadenze{
 .result-text{
     color: #1B5E20;
 }
+
