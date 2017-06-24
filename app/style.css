@@ -82,9 +82,10 @@
         background: linear-gradient(to bottom right, #4CAF50, #B2FF59); /* Standard syntax (must be last) */
     }
 
-
-
-
+@media screen and (min-width: 700px) {
+    ._md {
+        /*overflow: hidden;*/
+    }
 }
 
 a {
