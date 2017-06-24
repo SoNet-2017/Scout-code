@@ -3,15 +3,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic');
 
 
-
 @media screen and (min-width: 350px) {
-    ._md {
-        overflow: hidden;
-    }
 
     .menu-laterale {
         line-height: 2.25em;
-        font-size: 1.5em;
+        font-size: 1.45em;
+        overflow-y: auto!important;
     }
 
     .user-name{
@@ -46,13 +43,11 @@
 }
 
 @media screen and (max-width: 350px) {
-    ._md {
-        overflow: hidden;
-    }
 
     .menu-laterale {
         line-height: 2.2em;
-        font-size: 1.3em;
+        font-size: 1.25em;
+        overflow-y: auto!important;
     }
 
     .user-name{
@@ -85,14 +80,11 @@
     }
 }
 
-@media screen and (min-width: 700px) {
-    ._md {
-        /*overflow: hidden;*/
-    }
+
+
+._md {
+    /*overflow: hidden;*/
 }
-
-
-
 
 
 a {
