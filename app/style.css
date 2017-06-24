@@ -391,7 +391,11 @@ img.img-scadenze{
 /*****
     RISULTATI RICERCA
  */
+.risultati-ricerca:before{
+    border-top: solid red 6px;
+}
 .risultati-ricerca {
+    border-top: solid #2E7D32 1px;
     width: 240px;
     position: absolute;
     top: 56px;
@@ -413,9 +417,14 @@ img.img-scadenze{
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .result-text{
-    color: #1B5E20;
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 0.75em;
 }
 
+.result-text-dx{
+    color: rgba(0, 0, 0, 0.66);
+    font-size: 0.75em;
+}
 
 
 /****
