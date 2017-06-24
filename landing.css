@@ -20,7 +20,7 @@ html {
 .logo {
     text-align: center;
     position: relative;
-    top: 2em;
+    top: 1.5em;
 }
 .titolo {
     font-family: 'Baloo', cursive;
@@ -28,7 +28,7 @@ html {
     font-size: 2.5em;
     text-align: center;
     position: relative;
-    top: 2em;
+    top: 1.5em;
 }
 
 .sottotitolo {
@@ -37,7 +37,7 @@ html {
     font-size: 1.5em;
     text-align: center;
     position: relative;
-    top: 3em;
+    top: 2.5em;
 }
 
 .paragrafo {
@@ -47,7 +47,7 @@ html {
     line-height: 2em;
     text-align: center;
     position: relative;
-    top: 9em;
+    top: 6em;
 }
 
 .bottone {
