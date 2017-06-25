@@ -16,7 +16,7 @@
             <div class="card-content">
                 <div>Qui di seguito vedrai il riepilogo di tutte le scadenze (se ne ha) di ciascun ragazzo.</div>
                 <br>
-                <div>Ogni box indica il numero di giorni che mancano alla scadenza oppure, se è già passata (negativa) e se è già stata confermata o meno dai capi.</div>
+                <div>Ogni box indica il numero di giorni che mancano alla scadenza oppure, se è già passata (negativa) e se è già stata confermata (verde) o meno (arancione) dai capi.</div>
                 <br>
 
                 <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome_ragazzo'" ng-if="utente.ruolo == 'ragazzo'">

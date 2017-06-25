@@ -395,7 +395,7 @@ img.img-scadenze{
     border-top: solid red 6px;
 }
 .risultati-ricerca {
-    border-top: solid #2E7D32 1px;
+    border-top: solid #388E3C 1px;
     width: 240px;
     position: absolute;
     top: 56px;
@@ -409,6 +409,13 @@ img.img-scadenze{
     background: -moz-linear-gradient(bottom right, #4CAF50, #B2FF59); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to bottom right, #4CAF50, #B2FF59); /* Standard syntax (must be last) */
 }
+
+@media screen and (min-width: 538px) {
+    .risultati-ricerca {
+        top: 48px!important;
+    }
+}
+
 
 .result-img{
     width: 40px;
@@ -426,23 +433,7 @@ img.img-scadenze{
     font-size: 0.75em;
 }
 
-@media screen and (min-width: 350px) {
-    .risultati-ricerca {
-        border-top: solid #2E7D32 1px;
-        width: 240px;
-        position: absolute;
-        top: 48px!important;
-        left: 44px;
-        z-index: 1;
-        padding-top: 16px;
 
-        background: #B2FF59; /* For browsers that do not support gradients */
-        background: -webkit-linear-gradient(left top, #4CAF50, #B2FF59); /* For Safari 5.1 to 6.0 */
-        background: -o-linear-gradient(bottom right, #4CAF50, #B2FF59); /* For Opera 11.1 to 12.0 */
-        background: -moz-linear-gradient(bottom right, #4CAF50, #B2FF59); /* For Firefox 3.6 to 15 */
-        background: linear-gradient(to bottom right, #4CAF50, #B2FF59); /* Standard syntax (must be last) */
-    }
-}
 
 
 

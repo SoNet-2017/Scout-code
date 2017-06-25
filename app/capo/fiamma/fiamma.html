@@ -12,9 +12,8 @@
 
 
                 <!-- ASSEGNAZIONE FIAMMA -->
-                <br>
                 <div class="card-content">
-                    <div>Puoi decidere a quale squadriglia assegnare la fiamma (premio alla migliore squadriglia) selezionandola e salvando</div>
+                    <div>Puoi decidere a quale squadriglia assegnare la fiamma (premio alla migliore squadriglia) selezionandola e salvando.</div>
                     <br>
 
                     <md-radio-group ng-model="data.newFiamma">
@@ -23,7 +22,8 @@
                                 <md-icon aria-label="Flag" class="material-icons" ng-if="squadriglia.fiamma == true">flag</md-icon>
                             </b></md-radio-button>
                     </md-radio-group>
-                    <span class="md-subhead">Fiamma assegnata alla Sq: <b><span class="radioValue">{{data.newFiamma}}</span></b></span>
+                    <span class="md-subhead">Assegna la fiamma alla Sq: <b><span class="radioValue">{{data.newFiamma}}</span></b></span>
+                    <br>
                 </div>
                 <md-card-actions layout="row" layout-align="end center">
                     <md-button ng-click="salvaFiamma()" class="md-raised md-primary">Salva</md-button>

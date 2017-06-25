@@ -73,11 +73,11 @@ app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', '
         }
 
         $scope.dati.verbo = "doveva:";
-        $scope.dati.quando = $scope.dati.deadline + " giorni fa.";
+        $scope.dati.quando = $scope.dati.deadline + " giorni fa";
         $scope.dati.button = "SOLLECITA";
         if (deadline >= 0) {
             $scope.dati.verbo = "deve:";
-            $scope.dati.quando = "tra " + $scope.dati.deadline + " giorni.";
+            $scope.dati.quando = "tra " + $scope.dati.deadline + " giorni";
         }
         if (conferma == true ) {
             $scope.dati.verbo = "ha portato a termine:";
@@ -90,7 +90,7 @@ app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', '
                 .parent(angular.element(document.querySelector('#popupContainer')))
                 .clickOutsideToClose(true)
                 .title("Specialità di " + specialita)
-                .textContent(ragazzo + " " + $scope.dati.verbo + " " + azione + " " + $scope.dati.quando)
+                .textContent(ragazzo + " " + $scope.dati.verbo + " " + azione + ". (" + $scope.dati.quando + ").")
                 .ariaLabel('Alert Dialog Scadenza')
                 .ok($scope.dati.button)
                 .targetEvent(ev)
