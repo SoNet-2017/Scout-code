@@ -49,8 +49,12 @@ html {
     text-align: center;
     position: relative;
     top: 1.5em;
-
 }
+
+.logo-img {
+    width:50%;
+}
+
 .titolo {
     font-family: 'Baloo', cursive;
     color: #f7f7f7;
