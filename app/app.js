@@ -238,6 +238,7 @@ app.controller('SearchCtrl', ['$scope','$rootScope', 'Utente', '$location', func
 
     $scope.vediProfilo = function(codice) {
         $rootScope.search.ricerca = "";
+        document.activeElement.blur();
         $location.path("/profiloCapo/" + codice);
     };
 

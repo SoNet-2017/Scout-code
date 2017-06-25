@@ -351,13 +351,13 @@ img.img-scadenze{
  }
 
 .rot-dx{
-    top: 190px;
+    top: 185px;
     left: 45%;
     transform: rotate(-25deg);
 }
 
 .rot-sx{
-    top: 153px;
+    top: 148px;
     left: 36%;
     transform: rotate(25deg);
 }
