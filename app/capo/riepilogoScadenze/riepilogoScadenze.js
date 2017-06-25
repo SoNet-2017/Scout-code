@@ -23,7 +23,7 @@ app.config(['$routeProvider', function($routeProvider){
 
 
 
-app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', 'Scadenza', function($scope,$rootScope, Utente, Scadenza) {
+app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', 'Scadenza', '$mdDialog', function($scope,$rootScope, Utente, Scadenza, $mdDialog) {
     console.log("e' entrato nel ctrl riepilogo scadenze");
 
 
@@ -48,6 +48,54 @@ app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', '
         else {
             return "box-scadenza";
         }
-    }
+    };
+
+
+    $scope.customFullscreen = false
+
+    $scope.showAlert = function (ev,azione, ragazzo, specialita, deadline, conferma) {
+        console.log('clicco sul bottone dialog')
+
+        /** FORSE NON SERVE
+        for(var i=0;i<$scope.dati.specialita.length;i++) {
+            console.log('clicco 1')
+            console.log(nome)
+            if ($scope.dati.specialita[i].nome == nome) {
+                console.log('siamo dentro if');
+                var descrizione = $scope.dati.specialita[i].descrizione;
+                var nomeSpec=$scope.dati.specialita[i].nome;
+            }
+        }
+         **/
+        $scope.dati.deadline = deadline;
+        if (deadline < 0) {
+            $scope.dati.deadline = (!!deadline) ?  deadline.substr(1) : '';
+        }
+
+        $scope.dati.verbo = "doveva:";
+        $scope.dati.quando = $scope.dati.deadline + " giorni fa.";
+        $scope.dati.button = "SOLLECITA";
+        if (deadline >= 0) {
+            $scope.dati.verbo = "deve:";
+            $scope.dati.quando = "tra " + $scope.dati.deadline + " giorni.";
+        }
+        if (conferma == true ) {
+            $scope.dati.verbo = "ha portato a termine:";
+            $scope.dati.button = "CONGRATULATI";
+        }
+
+
+        $mdDialog.show(
+            $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title("Specialità di " + specialita)
+                .textContent(ragazzo + " " + $scope.dati.verbo + " " + azione + " " + $scope.dati.quando)
+                .ariaLabel('Alert Dialog Scadenza')
+                .ok($scope.dati.button)
+                .targetEvent(ev)
+        );
+
+    };
 
 }]);
