@@ -12,13 +12,14 @@ app.config(['$routeProvider',function($routeProvider) {
     })
 }]);
 
-app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 'Utente', 'CartaSpecialita', 'RegistrazioneCartaSpecialitaService', '$mdDialog', '$firebaseStorage', function($scope,$rootScope,Specialita, Utente, CartaSpecialita, RegistrazioneCartaSpecialitaService, $mdDialog, $firebaseStorage){
+app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 'Utente', 'CartaSpecialita', 'RegistrazioneCartaSpecialitaService', '$mdDialog', '$firebaseStorage', '$location', function($scope,$rootScope,Specialita, Utente, CartaSpecialita, RegistrazioneCartaSpecialitaService, $mdDialog, $firebaseStorage, $location){
     $scope.dati={};
     $scope.dati.specialita=Specialita.getData();
     $scope.dati.utente=Utente.getData();
     $scope.dati.carte_specialita=CartaSpecialita.getData();
     $scope.status = '  ';
     $scope.customFullscreen = false
+
 
 
     $scope.showAlert = function (ev,nome) {
@@ -45,6 +46,10 @@ app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 
                 .ok('Got it!')
                 .targetEvent(ev)
         );
+    };
+
+    $scope.scegliSpecialita = function(nomeSpecialita) {
+        $location.path("/sceltaMaestro/" + nomeSpecialita);
     };
 
 }]);
