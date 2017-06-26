@@ -1,0 +1,95 @@
+<md-content class="md-padding" layout-xs="column" layout="row">
+
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+
+            <form id="frmCarta" role="form" ng-submit="registrazioneMotivazione()" name="moduloRegistrazioneCarta">
+
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Aggiungi Azioni e data di Scadenza</span>
+                    </md-card-title-text>
+                    <hr>
+                </md-card-title>
+                <br/>
+
+
+
+                <div class="card-content">
+
+                    <md-input-container class="md-block">
+                        <label>Cosa Vuoi fare?</label>
+                        <input required id="azione1" ng-model="dati.azione1" name="azione1">
+                    </md-input-container>
+
+                    <br>
+
+                    <div layout-gt-xs="row">
+                        <div flex-gt-xs>
+                            <h4>Entro quando vuoi farlo?</h4>
+                            <md-datepicker ng-model="dati.myDate1" md-placeholder="Scadenza"></md-datepicker>
+                        </div>
+                    </div>
+
+                    <br><br><br><br>
+
+                    <md-input-container class="md-block">
+                        <label>Cosa Vuoi fare?</label>
+                        <input required id="azione2" ng-model="dati.azione2" name="azione2">
+                    </md-input-container>
+
+                    <br>
+
+                    <div layout-gt-xs="row">
+                        <div flex-gt-xs>
+                            <h4>Entro quando vuoi farlo?</h4>
+                            <md-datepicker ng-model="dati.myDate2" md-placeholder="Scadenza"></md-datepicker>
+                        </div>
+                    </div>
+
+                    <br><br><br><br>
+
+                    <md-input-container class="md-block">
+                        <label>Cosa Vuoi fare?</label>
+                        <input required id="azione3" ng-model="dati.azione3" name="azione3">
+                    </md-input-container>
+
+                    <br>
+
+                    <div layout-gt-xs="row">
+                        <div flex-gt-xs>
+                            <h4>Entro quando vuoi farlo?</h4>
+                            <md-datepicker ng-model="dati.myDate3" md-placeholder="Scadenza"></md-datepicker>
+                        </div>
+                    </div>
+
+                    <br><br><br><br>
+
+                    <md-input-container class="md-block">
+                        <label>Cosa Vuoi fare?</label>
+                        <input required id="azione4" ng-model="dati.azione4" name="azione4">
+                    </md-input-container>
+
+                    <br>
+
+                    <div layout-gt-xs="row">
+                        <div flex-gt-xs>
+                            <h4>Entro quando vuoi farlo?</h4>
+                            <md-datepicker ng-model="dati.myDate4" md-placeholder="Scadenza"></md-datepicker>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button type=submit" class="md-raised md-primary">SALVA</md-button>
+                </md-card-actions>
+            </form>
+
+        </md-card>
+    </div>
+
+
+</md-content>

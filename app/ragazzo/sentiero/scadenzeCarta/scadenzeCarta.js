@@ -1,6 +1,6 @@
 'use strict';
 
-var app=angular.module('myAppeScadenzeCarta', [
+var app=angular.module('myAppScadenzeCarta', [
     'ngMaterial',
     'ngRoute'
 
@@ -9,7 +9,11 @@ var app=angular.module('myAppeScadenzeCarta', [
 app.config(['$routeProvider',function($routeProvider) {
     console.log('siamo nel config');
     $routeProvider.when('/scadenzeCarta/:cartaSpecialitaId', {
-        templateUrl: 'ragazzo/sentiero/sceltaMaestro/sceltaMaestro.html',
-        controller: 'myAppSceltaMaestroCtrl'
+        templateUrl: 'ragazzo/sentiero/scadenzeCarta/scadenzeCarta.html',
+        controller: 'myAppScadenzeCartaCtrl'
     })
 }]);
+
+app.controller('myAppScadenzeCartaCtrl', function($scope){
+
+})
