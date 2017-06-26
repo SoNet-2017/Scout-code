@@ -22,7 +22,29 @@ app.factory('Scadenza', function($firebaseArray) {
                         conferma: true
                     });
                 }
-            }
+            },
+
+            creaScadenze:function (azione, carta_specialita, data, deadline, nomeRagazzo, nomeSpecialita, ragazzo, specialita) {
+                console.log("entra nella function che aggiunge una scadenza");
+
+
+                //add the user to list of users and set the logged value to true
+                var ref = firebase.database().ref().child("scadenze");
+                // create a synchronized array
+                return $firebaseArray(ref).$add({
+                    azione:azione,
+                    carta_spec:carta_specialita,
+                    conferma:false,
+                    data:data,
+                    deadline:deadline,
+                    nome_ragazzo:nomeRagazzo,
+                    nome_specialita:nomeSpecialita,
+                    ragazzo:ragazzo,
+                    specialita:specialita
+                });
+    }
+
         };
         return scadenzeService;
     });
+
