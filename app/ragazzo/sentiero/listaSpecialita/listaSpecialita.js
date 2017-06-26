@@ -1,3 +1,5 @@
+'use strict';
+
 var app=angular.module('myAppListaSpecialita',[
     'ngMaterial',
     'ngRoute'
@@ -10,7 +12,7 @@ app.config(['$routeProvider',function($routeProvider) {
     })
 }]);
 
-app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 'Utente', 'CartaSpecialita', 'RegistrazioneCartaSpecialitaService', '$mdDialog', function($scope,$rootScope,Specialita, Utente, CartaSpecialita, RegistrazioneCartaSpecialitaService, $mdDialog){
+app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 'Utente', 'CartaSpecialita', 'RegistrazioneCartaSpecialitaService', '$mdDialog', '$firebaseStorage', function($scope,$rootScope,Specialita, Utente, CartaSpecialita, RegistrazioneCartaSpecialitaService, $mdDialog, $firebaseStorage){
     $scope.dati={};
     $scope.dati.specialita=Specialita.getData();
     $scope.dati.utente=Utente.getData();
@@ -28,8 +30,10 @@ app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 
                 console.log('siamo dentro if');
                 var descrizione = $scope.dati.specialita[i].descrizione;
                 var nomeSpec=$scope.dati.specialita[i].nome;
+                var spec=$scope.dati.specialita[i];
             }
         }
+
         console.log(descrizione)
         $mdDialog.show(
             $mdDialog.alert()
@@ -42,22 +46,6 @@ app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 
                 .targetEvent(ev)
         );
     };
-
-    $scope.salvaCartaSpecialita=function(params){
-        for (var i = 0; i < $scope.dati.utente.length; i++) {
-            console.log('Stiamo salvando la carta di specialita')
-            if($scope.dati.utente[i].nome == true){
-                console.log('sono entrato nellif')
-                for(var i = 0; i < $scope.dati.specialita.length; i++){
-                    console.log('Attiva Specialita')
-                }
-
-            }
-        }
-        $scope.dati.feedback = "Salvataggio avvenuto con successo";
-    }
-
-
 
 }]);
 

@@ -7,7 +7,7 @@ var app=angular.module('myAppRegistrazioneCartaSpecialitaService',[]);
 app.factory('RegistrazioneCartaSpecialitaService', function($firebaseArray) {
 
         var NuovaCartaSpecialita = {
-            aggiungiRagazzo: function (specialita, maestro, ragazzo) {
+            aggiungiCarta: function (img_url, specialitaNome, codiceMaestro, codiceRagazzo, specialitaCodice) {
                 console.log("entra nella function che aggiunge un ragazzo");
 
 
@@ -15,12 +15,12 @@ app.factory('RegistrazioneCartaSpecialitaService', function($firebaseArray) {
                 var ref = firebase.database().ref().child("carta_specialita");
                 // create a synchronized array
                 return $firebaseArray(ref).$add({
-                    img_url:specialita.img_url,
-                    maestro:maestro,
+                    img_url:img_url,
+                    maestro:""+codiceMaestro+"",
                     motivazione:"",
-                    nome:specialita.nome,
-                    ragazzo:ragazzo,
-                    specialita:specialita
+                    nome:specialitaNome,
+                    ragazzo:""+codiceRagazzo+"",
+                    specialita:specialitaCodice
                 });
             }
         };
