@@ -2,14 +2,13 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo&subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic');
 
-
+/*
 @media (min-width: 0) and (max-width: 959px) and (orientation: landscape) {
     md-toolbar {
         min-height: 56px; }
-    .md-toolbar-tools {
-        height: 56px;
-        max-height: 56px; }
+
 }
+*/
 
 
 
@@ -183,11 +182,16 @@ md-toolbar {
     min-height: 56px !important;
 }
 
+/*
 .md-toolbar-tools {
     height: 56px !important;
     max-height: 56px !important;
 }
 
+.md-input-has-value {
+    width: inherit;!important;
+}
+*/
 
 md-toolbar.md-primary {
     position:fixed !important;
