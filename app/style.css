@@ -182,16 +182,12 @@ md-toolbar {
     min-height: 56px !important;
 }
 
-/*
+
 .md-toolbar-tools {
     height: 56px !important;
     max-height: 56px !important;
 }
 
-.md-input-has-value {
-    width: inherit;!important;
-}
-*/
 
 md-toolbar.md-primary {
     position:fixed !important;
