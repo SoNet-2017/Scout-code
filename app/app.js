@@ -48,7 +48,11 @@ app.config(['$locationProvider', '$routeProvider', '$mdThemingProvider', functio
 
     //TEMA DELL'APP
     $mdThemingProvider.theme('default')
-    .primaryPalette('green')
+    .primaryPalette('green', {
+        'default': '500', // by default use shade 500 from the green palette for primary intentions
+        'hue-1': '700', // use shade 700 for the <code>md-hue-1</code> class
+        'hue-2': '800' // use shade 800 for the <code>md-hue-2</code> class
+    })
     .accentPalette('light-green');
 
 
