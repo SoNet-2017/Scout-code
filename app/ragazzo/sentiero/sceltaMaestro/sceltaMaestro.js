@@ -62,6 +62,12 @@ app.controller('myAppSceltaMaestroCtrl',['$scope','$rootScope', '$routeParams', 
             var cartaSpecialitaId = ref.key
             console.log("Questo è il uuid delal carta: "+ cartaSpecialitaId);
 
+            $rootScope.info.cartaSpec={};
+
+            $rootScope.info.cartaSpec=CartaSpecialita.getCartaInfo(cartaSpecialitaId);
+
+
+
             $scope.dati.feedback = "Registrazione avvenuta con successo";
             $location.path("/scadenzeCarta/" + cartaSpecialitaId);
 

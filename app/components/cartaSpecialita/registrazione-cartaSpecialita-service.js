@@ -18,7 +18,7 @@ app.factory('RegistrazioneCartaSpecialitaService', function($firebaseArray) {
                     img_url:img_url,
                     maestro:""+codiceMaestro+"",
                     motivazione:""+motivazione+"",
-                    nome:specialitaNome,
+                    nome:""+specialitaNome,
                     ragazzo:""+codiceRagazzo+"",
                     specialita:specialitaCodice
                 });

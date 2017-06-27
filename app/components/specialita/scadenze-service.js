@@ -24,7 +24,7 @@ app.factory('Scadenza', function($firebaseArray) {
                 }
             },
 
-            creaScadenze:function (azione, carta_specialita, data, deadline, nomeRagazzo, nomeSpecialita, ragazzo, specialita) {
+            creaScadenza:function (azione, carta_specialita, data, deadline, nomeRagazzo, nomeSpecialita, ragazzo, specialita) {
                 console.log("entra nella function che aggiunge una scadenza");
 
 
@@ -35,7 +35,7 @@ app.factory('Scadenza', function($firebaseArray) {
                     azione:azione,
                     carta_spec:carta_specialita,
                     conferma:false,
-                    data:data,
+                    data:""+data+"",
                     deadline:deadline,
                     nome_ragazzo:nomeRagazzo,
                     nome_specialita:nomeSpecialita,
