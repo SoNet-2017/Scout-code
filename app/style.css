@@ -341,6 +341,15 @@ img.img-scadenze{
     line-height: 2em;
 }
 
+/******
+    IMMAGINI-SENTIERO
+ */
+img.listaSentiero {
+    width: 75px;
+    height: 75px;
+    padding: 2px;
+}
+
 
 
 /*******

@@ -8,10 +8,6 @@
                     </md-card-title-text>
 
                 </md-card-title>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button>Action 1</md-button>
-                    <md-button>Action 2</md-button>
-                </md-card-actions>
             </md-card>
 
 
@@ -23,17 +19,17 @@
                 </md-card-title>
 
                 <div class="card-content">
-                    <img src="../{{carta.img_url}}" class="specialita" ng-repeat="carta in dati.cartaSpec"  ng-if="carta.ragazzo == info.user.codice && carta.attiva == true"></img>
+                    <a href="#"><img src="../{{carta.img_url}}" class="listaSentiero" ng-repeat="carta in dati.cartaSpec"  ng-if="carta.ragazzo == info.user.codice && carta.attiva == true"></img></a>
                 </div>
 
-
+                <br>
 
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button class="md-icon-button" aria-label="Settings">
-                        <a href="#!/listaSpecialita" >
-                            <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
-                        </a>
-                    </md-button>
+                    <a href="#!/listaSpecialita" >
+                        <md-button class="md-primary md-raised" ng-click="showAlert($event,specialita.nome)" aria-label="{{specialita.nome}}">
+                            Aggiungi Specialita <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
+                        </md-button>
+                    </a>
 
                 </md-card-actions>
             </md-card>
