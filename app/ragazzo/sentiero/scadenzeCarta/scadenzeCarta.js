@@ -26,8 +26,16 @@ app.controller('myAppScadenzeCartaCtrl', ['$scope','$rootScope', '$routeParams',
     $scope.dati.myDate4=new Date()
     $scope.dati.today=new Date()
 
-    $scope.dati.nomeRagazzo=$rootScope.info.user.nome
+    $scope.dati.nomeRagazzo=$rootScope.info.user
     $scope.dati.deadline="50";
+
+    /*$scope.dati.nomeSpec.$loaded().then(function () {
+        for (var i = 0; i < $scope.dati.cartaSpec.length; i++) {
+            if ($scope.dati.cartaSpec[i].$id == $routeParams.cartaSpecialitaId) {
+                $scope.dati.nomeSpec = CartaSpecialita.getCartaInfo($scope.dati.cartaSpec[i].$id);
+            }
+        }
+    })*/
 
 
 
@@ -52,12 +60,11 @@ app.controller('myAppScadenzeCartaCtrl', ['$scope','$rootScope', '$routeParams',
             $scope.registraScadenza($scope.dati.azione4, $scope.dati.myDate4);
         }
 
-        /*$location.path("/mostraCarta/" + $routeParamas.cartaSpecialitaId);
-        *         $scope.dati.feedback = "Registrazione avvenuta con successo";
-         */
+        $location.path("/visualizzaCartaSpecialita/" + $routeParams.cartaSpecialitaId);
+                 $scope.dati.feedback = "Registrazione avvenuta con successo";
+
 
     }
-/*azione, carta_specialita, data, deadline, nomeRagazzo, nomeSpecialita, ragazzo, specialita*/
 
     $scope.registraScadenza=function(azione, data){
         console.log("vediamo cosa c'è:" + azione + " "+ $rootScope.info.cartaSpec.$id+ " "+data+ " "+$scope.dati.deadline+ $rootScope.info.user.nome+ " "+$rootScope.info.cartaSpec.nome_specialita+ " "+$rootScope.info.user.codice+" "+$rootScope.info.cartaSpec.specialita)

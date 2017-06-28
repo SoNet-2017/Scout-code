@@ -1,0 +1,35 @@
+<div>
+    <md-content class="md-padding" layout-xs="column" layout="row" >
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Riassunto Carta Specialita <b>{{dati.carteSpec.nome}}</b></span>
+                    </md-card-title-text>
+                </md-card-title>
+                <div class="card-content">
+                        <br><br>
+                        <div class="md-media-lg card-media ">
+                            <img class="img-profile" ng-src="../{{dati.carteSpec.img_url}}">
+                        </div>
+
+                    <div>
+                        Motivazione: {{dati.carteSpec.motivazione}}
+                    </div>
+                    <div>
+                        Maestro: {{dati.maestro.nome}} {{dati.maestro.cognome}}
+                    </div>
+                    <div >
+                        Azione 1:
+                    </div>
+
+
+                </div>
+
+                <md-card-actions layout="row" layout-align="end center">
+
+                </md-card-actions>
+            </md-card>
+        </div>
+    </md-content>
+</div>

@@ -40,7 +40,8 @@ var app = angular.module('myApp', [
         'myAppProfiloRagazzo',
         'myAppDistintivi',
         'myAppSceltaMaestro',
-        'myAppScadenzeCarta'
+        'myAppScadenzeCarta',
+        'myAppVisualizzaCartaSpecialita'
     ]);
 
 

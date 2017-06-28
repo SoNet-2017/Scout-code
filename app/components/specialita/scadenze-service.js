@@ -42,9 +42,13 @@ app.factory('Scadenza', function($firebaseArray) {
                     ragazzo:ragazzo,
                     specialita:specialita
                 });
-    }
+            },
+            getScadenzaInfo: function(scadenzaId) {
+                var scadenzaRef = firebase.database().ref().child("scadenze").child(scadenzaId);
+                return $firebaseObject(scadenzaRef);
+            }
 
-        };
+        }
         return scadenzeService;
     });
 
