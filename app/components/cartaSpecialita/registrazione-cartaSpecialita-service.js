@@ -20,7 +20,8 @@ app.factory('RegistrazioneCartaSpecialitaService', function($firebaseArray) {
                     motivazione:""+motivazione+"",
                     nome:""+specialitaNome,
                     ragazzo:""+codiceRagazzo+"",
-                    specialita:specialitaCodice
+                    specialita:specialitaCodice,
+                    attiva : false
                 });
             }
         };

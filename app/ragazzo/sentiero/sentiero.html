@@ -21,6 +21,13 @@
                         <span class="md-headline">Specialità</span>
                     </md-card-title-text>
                 </md-card-title>
+
+                <div class="card-content">
+                    <img src="../{{carta.img_url}}" class="specialita" ng-repeat="carta in dati.cartaSpec"  ng-if="carta.ragazzo == info.user.codice && carta.attiva == true"></img>
+                </div>
+
+
+
                 <md-card-actions layout="row" layout-align="end center">
                     <md-button class="md-icon-button" aria-label="Settings">
                         <a href="#!/listaSpecialita" >

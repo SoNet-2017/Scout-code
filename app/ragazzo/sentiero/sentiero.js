@@ -27,18 +27,18 @@ app.controller('myAppSentieroCtrl', ['$scope','$rootScope', 'Scadenza', 'Utente'
     $scope.dati.cartaSpec.$loaded().then(function(){
         for(var i = 0; i<$scope.dati.cartaSpec.length; i++){
             console.log("entro nel for 1")
+            console.log("La carta " + $scope.dati.cartaSpec[i].$id + " è non attiva");
             for(var j = 0; j<$scope.dati.scadenze.length; j++){
                 console.log("entro nel for 2")
-                for(var z =0; z<$scope.dati.utente.length; z++) {
-                    if ($scope.dati.scadenze[j].conferma == false && $scope.dati.utente[z].codice == $rootScope.info.user.codice && $scope.dati.scadenze[j].carta_spec == $scope.dati.cartaSpec[i].$id) {
-                        console.log("entro nellif")
-                        $scope.dati.visualizzaCarta = CartaSpecialita.getCartaInfo($scope.dati.cartaSpec[i].$id);
-                        console.log("" + $scope.dati.visualizzaCarta.img_url)
-
+                if ($scope.dati.scadenze[j].carta_spec == $scope.dati.cartaSpec[i].$id) {
+                    console.log("entro nel if scadenza appartiene a carta attuale")
+                    if ($scope.dati.scadenze[j].conferma == false) {
+                        console.log("trovo una scadenza non confermata")
+                        $scope.dati.cartaSpec[i].attiva = true;
+                        console.log("La carta " + $scope.dati.cartaSpec[i].$id + " è attiva");
                     }
                 }
             }
-
         }
         /*console.log(""+$scope.dati.visualizzaCarta.img_url)*/
     })
