@@ -38,7 +38,8 @@ app.controller('myAppScadenzeCartaCtrl', ['$scope','$rootScope', '$routeParams',
     })
 
     $scope.dati.nomeRagazzo=$rootScope.info.user
-    $scope.dati.deadline="50";
+    $scope.dati.deadline=Math.floor(Math.random()*50);
+    console.log(""+$scope.dati.deadline)
 
 
 
