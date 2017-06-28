@@ -16,7 +16,6 @@ app.config(['$routeProvider',function($routeProvider) {
 
 app.controller('myAppScadenzeCartaCtrl', ['$scope','$rootScope', '$routeParams', 'Scadenza', '$location', 'CartaSpecialita', function($scope, $rootScope, $routeParams, Scadenza, $location, CartaSpecialita){
     $scope.dati={};
-    $scope.dati.cartaSpec=$routeParams.cartaSpecialitaId
     $scope.status = '  ';
     $scope.dati.carteSpec=CartaSpecialita.getData();
     $scope.customFullscreen = false
@@ -26,16 +25,22 @@ app.controller('myAppScadenzeCartaCtrl', ['$scope','$rootScope', '$routeParams',
     $scope.dati.myDate4=new Date()
     $scope.dati.today=new Date()
 
+    $scope.dati.carteSpec.$loaded().then(function () {
+        for (var i = 0; i < $scope.dati.carteSpec.length; i++) {
+            console.log("sono nel for di aggiungi azione e scadenza")
+            console.log(""+$scope.dati.carteSpec[i].$id)
+            if ($scope.dati.carteSpec[i].$id == $routeParams.cartaSpecialitaId) {
+                console.log("sono nel if di aggiungi azione e scadenza ")
+                $scope.dati.nomeSpec = CartaSpecialita.getCartaInfo($scope.dati.carteSpec[i].$id);
+                console.log(""+$scope.dati.nomeSpec.nome)
+            }
+        }
+    })
+
     $scope.dati.nomeRagazzo=$rootScope.info.user
     $scope.dati.deadline="50";
 
-    /*$scope.dati.nomeSpec.$loaded().then(function () {
-        for (var i = 0; i < $scope.dati.cartaSpec.length; i++) {
-            if ($scope.dati.cartaSpec[i].$id == $routeParams.cartaSpecialitaId) {
-                $scope.dati.nomeSpec = CartaSpecialita.getCartaInfo($scope.dati.cartaSpec[i].$id);
-            }
-        }
-    })*/
+
 
 
 
