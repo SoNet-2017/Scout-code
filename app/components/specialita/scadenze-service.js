@@ -3,7 +3,7 @@
 var app=angular.module('myAppScadenzeService', []);
 
 
-app.factory('Scadenza', function($firebaseArray) {
+app.factory('Scadenza', function($firebaseArray, $firebaseObject) {
         var scadenzeService = {
             getData: function () {
                 var ref = firebase.database().ref().child("scadenze");
