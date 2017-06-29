@@ -33,19 +33,9 @@ app.controller('myAppVisualizzaCartaSpecialita',['$scope','$rootScope', '$routeP
     })
 
 
-
-
-
+    $scope.dati.valoreIdCarta=$routeParams.cartaSpecialitaId
     $scope.dati.scadenze=Scadenza.getData()
-    $scope.dati.scadenze.$loaded().then(function(){
-        for(var i = 0; i<$scope.dati.scadenze.length; i++){
-            console.log("Ma questo è il for delle scadenze")
-            if($scope.dati.scadenze[i].carta_spec==$routeParams.cartaSpecialitaId){
-                console.log("Riusciranno i nostri eroi ad entrare all'interno dell'if")
-                $scope.dati.scadenza=Scadenza.getScadenzaInfo($scope.dati.scadenze[i].carta_spec)
-            }
-        }
-    })
+
 
 
 

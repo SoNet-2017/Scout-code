@@ -19,8 +19,9 @@
                     <div>
                         Maestro: {{dati.maestro.nome}} {{dati.maestro.cognome}}
                     </div>
-                    <div ng-repeat="azioniScadenze in dati.scadenza" ng-if="azioniScadenze.carta_spec==cartaSpecialitaId">
-                        <p>Azione: {{azioniScadenze.azione}}</p>
+                    <div ng-repeat="azioniScadenze in dati.scadenze" ng-if="azioniScadenze.carta_spec==dati.valoreIdCarta">
+                        Azione: {{azioniScadenze.azione}}
+                        Scadenza:{{azioniScadenze.deadline}}
                     </div>
 
 

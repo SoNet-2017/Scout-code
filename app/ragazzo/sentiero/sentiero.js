@@ -23,7 +23,6 @@ app.controller('myAppSentieroCtrl', ['$scope','$rootScope', 'Scadenza', 'Utente'
     $scope.dati.utente=$rootScope.info.user
     $scope.dati.cartaSpec=CartaSpecialita.getData()
     $scope.dati.scadenze=Scadenza.getData()
-    $scope.dati.utente=Utente.getData()
     $scope.dati.cartaSpec.$loaded().then(function(){
         for(var i = 0; i<$scope.dati.cartaSpec.length; i++){
             console.log("entro nel for 1")
@@ -40,7 +39,12 @@ app.controller('myAppSentieroCtrl', ['$scope','$rootScope', 'Scadenza', 'Utente'
                 }
             }
         }
-        /*console.log(""+$scope.dati.visualizzaCarta.img_url)*/
+
+        $scope.dati.utenti=Utente.getData()
+
+
     })
+
+
 
 }]);
