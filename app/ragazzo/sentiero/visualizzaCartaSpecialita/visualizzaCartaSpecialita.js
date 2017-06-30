@@ -3,7 +3,6 @@
 var app=angular.module('myAppVisualizzaCartaSpecialita',['ngMaterial', 'ngRoute'])
 
 app.config(['$routeProvider',function($routeProvider) {
-    console.log('siamo nel config');
     $routeProvider.when('/visualizzaCartaSpecialita/:cartaSpecialitaId', {
         templateUrl: 'ragazzo/sentiero/visualizzaCartaSpecialita/visualizzaCartaSpecialita.html',
         controller: 'myAppVisualizzaCartaSpecialita'

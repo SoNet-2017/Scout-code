@@ -68,17 +68,12 @@ app.config(['$locationProvider', '$routeProvider', '$mdThemingProvider', functio
 
 
 app.run(["$rootScope", "$location", function($rootScope, $location){
-
-    console.log("sono nel run del app.js")
-
-    $rootScope.$on("$routeChangeError",function(event, next, previous, error){
+        $rootScope.$on("$routeChangeError",function(event, next, previous, error){
         console.log("sono nel on change route error del run del app.js")
         if(error==="AUTH_REQUIRED"){
             $location.path("/login");
         }
     });
-
-
 }]);
 
 
@@ -93,7 +88,7 @@ app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$
     //variabile che permette di scaricare i dati dell'utente loggato solo una volta all'avvio dell'app
     $rootScope.info={};
     $rootScope.info.info = false;
-    console.log("Nel LogCtrl setto info a false, e vale: " +  $rootScope.info.info);
+    //console.log("Nel LogCtrl setto info a false, e vale: " +  $rootScope.info.info);
 
       $scope.isLogged = function() {
         if ($firebaseAuth().$getAuth()) {
@@ -110,7 +105,7 @@ app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$
 
     $scope.InfoUserLogged = function() {
         $rootScope.info.info = true;
-        console.log("Nel InfoUserLogged setto info a true, e vale: " +  $rootScope.info.info);
+        //console.log("Nel InfoUserLogged setto info a true, e vale: " +  $rootScope.info.info);
         $rootScope.info={};
         $rootScope.info.user = Utente.getUserInfo($firebaseAuth().$getAuth().uid);
     }

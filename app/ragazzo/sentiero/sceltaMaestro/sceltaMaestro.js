@@ -6,7 +6,6 @@ var app=angular.module('myAppSceltaMaestro',[
 ]);
 
 app.config(['$routeProvider',function($routeProvider) {
-    console.log('siamo nel config');
     $routeProvider.when('/sceltaMaestro/:nomeSpecialita', {
         templateUrl: 'ragazzo/sentiero/sceltaMaestro/sceltaMaestro.html',
         controller: 'myAppSceltaMaestroCtrl'

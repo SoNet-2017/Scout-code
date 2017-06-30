@@ -5,7 +5,6 @@ var app=angular.module('myAppListaSpecialita',[
     'ngRoute'
 ]);
 app.config(['$routeProvider',function($routeProvider) {
-    console.log('siamo nel config');
     $routeProvider.when('/listaSpecialita', {
         templateUrl: 'ragazzo/sentiero/listaSpecialita/listaSpecialita.html',
         controller: 'myAppListaSpecialitaCtrl'

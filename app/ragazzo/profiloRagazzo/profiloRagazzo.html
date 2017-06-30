@@ -39,22 +39,22 @@
 
                 <div layout="row" layout-wrap class="camicia">
                     <div flex="100">
-                        <img src="../images/fis.jpg" class="fis">
+                        <img ng-src="../images/fis.jpg" class="fis">
                     </div>
                     <div flex="50">
-                        <img src="../images/wosm.png" class="internazionale" ng-if="dati.user.sesso == 'M'">
-                        <img src="../images/wagggs.png" class="internazionale" ng-if="dati.user.sesso == 'F'">
+                        <img ng-src="../images/wosm.png" class="internazionale" ng-if="dati.user.sesso == 'M'">
+                        <img ng-src="../images/wagggs.png" class="internazionale" ng-if="dati.user.sesso == 'F'">
                     </div>
                     <div flex="50">
-                        <img src="../images/promessa.png" class="promessa">
+                        <img ng-src="../images/promessa.png" class="promessa">
                     </div>
                     <div flex="50">
                         <!-- EVENTUALI BREVETTI -->
-                        <img src="../{{distintivo.img_url}}" class="brevetto"
+                        <img ng-src="../{{distintivo.img_url}}" class="brevetto"
                              ng-repeat="distintivo in dati.distintivi | orderBy:'nome'"  ng-if="distintivo.tipo == 'Brevetto' && distintivo.ragazzo == dati.user.codice" >
 
                         <!-- EVENTUALI SPECIALITA' -->
-                        <img src="../{{distintivo.img_url}}" class="specialita"
+                        <img ng-src="../{{distintivo.img_url}}" class="specialita"
                              ng-repeat="distintivo in dati.distintivi | orderBy:'nome'"  ng-if="distintivo.tipo == 'Specialità' && distintivo.ragazzo == dati.user.codice" >
                     </div>
                     <div flex="50">
@@ -64,9 +64,9 @@
                             <b>Sq. {{dati.user.sq}}</b>
                         </div>
 
-                        <img src="../images/scoperta.jpg" class="tappa" ng-if="dati.user.tappa != '' && dati.user.tappa == 'Scoperta'">
-                        <img src="../images/competenza.jpg" class="tappa" ng-if="dati.user.tappa != '' && dati.user.tappa == 'Competenza'">
-                        <img src="../images/responsabilita.jpg" class="tappa" ng-if="dati.user.tappa != '' && dati.user.tappa == 'Responsabilità'">
+                        <img ng-src="../images/scoperta.jpg" class="tappa" ng-if="dati.user.tappa != '' && dati.user.tappa == 'Scoperta'">
+                        <img ng-src="../images/competenza.jpg" class="tappa" ng-if="dati.user.tappa != '' && dati.user.tappa == 'Competenza'">
+                        <img ng-src="../images/responsabilita.jpg" class="tappa" ng-if="dati.user.tappa != '' && dati.user.tappa == 'Responsabilità'">
                     </div>
                 </div>
 

@@ -150,10 +150,10 @@
                           ng-click="vediProfilo(utente.codice)">
 
                         <div flex="30" ng-if="utente.img == true">
-                            <img class="result-img" src="../images/{{utente.codice}}.jpg">
+                            <img class="result-img" ng-src="../images/{{utente.codice}}.jpg">
                         </div >
                         <div flex="30" ng-if="utente.img == false">
-                            <img class="result-img" src="../images/default_profile.png">
+                            <img class="result-img" ng-src="../images/default_profile.png">
                         </div>
 
                         <div flex="40" class="result-text">
@@ -238,10 +238,10 @@
             <a href="#!/profiloCapo/{{info.user.codice}}" ng-click="close()" ng-if="isLogged()">
                 <div layout="row"  class="personal-box">
                     <div flex="none" ng-if="info.user.img == true">
-                        <img class="user-img" src="../images/{{info.user.codice}}.jpg">
+                        <img class="user-img" ng-src="../images/{{info.user.codice}}.jpg">
                     </div >
                     <div flex="none" ng-if="info.user.img == false">
-                        <img class="user-img" src="../images/default_profile.png">
+                        <img class="user-img" ng-src="../images/default_profile.png">
                     </div>
                     <div flex>
 
