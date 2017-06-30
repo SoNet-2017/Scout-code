@@ -10,7 +10,7 @@ app.config(['$routeProvider',function($routeProvider) {
     })
 }])
 
-app.controller('myAppVisualizzaCartaSpecialita',['$scope','$rootScope', '$routeParams', 'Scadenza', '$location', 'CartaSpecialita', 'Utente', function($scope, $rootScope, $routeParams, Scadenza, $location, CartaSpecialita, Utente){
+app.controller('myAppVisualizzaCartaSpecialita',['$scope','$rootScope', '$routeParams', 'Scadenza', '$location', 'CartaSpecialita', 'Utente', function($scope, $rootScope, $routeParams, Scadenza, $location, CartaSpecialita, Utente ){
     $scope.dati={}
     $scope.dati.cartaSpec = CartaSpecialita.getData();
 
@@ -35,6 +35,8 @@ app.controller('myAppVisualizzaCartaSpecialita',['$scope','$rootScope', '$routeP
 
     $scope.dati.valoreIdCarta=$routeParams.cartaSpecialitaId
     $scope.dati.scadenze=Scadenza.getData()
+
+
 
 
 

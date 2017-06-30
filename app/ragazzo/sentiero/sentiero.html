@@ -24,7 +24,9 @@
                 </md-card-title>
 
                 <div class="card-content">
-                    <a href="#"><img src="../{{carta.img_url}}" class="listaSentiero" ng-repeat="carta in dati.cartaSpec"  ng-if="carta.ragazzo == info.user.codice && carta.attiva == true"></img></a>
+                    <a href="#!/visualizzaCartaSpecialita/{{carta.$id}}" ng-repeat="carta in dati.cartaSpec"
+                       ng-if="carta.ragazzo == info.user.codice && carta.attiva == true">
+                        <img src="../{{carta.img_url}}" class="listaSentiero" ></img></a>
                 </div>
 
                 <br>
