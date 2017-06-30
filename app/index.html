@@ -101,6 +101,14 @@
     <script src="ragazzo/sentiero/sceltaMaestro/sceltaMaestro.js"></script>
     <script src="ragazzo/sentiero/scadenzeCarta/scadenzeCarta.js"></script>
     <script src="ragazzo/sentiero/visualizzaCartaSpecialita/visualizzaCartaSpecialita.js"></script>
+    <script src="ragazzo/profiloRagazzo/aggiornaProfilo.js"></script>
+    <script src="components/impegni/impegni.js"></script>
+    <script src="components/impegni/impegni-service.js"></script>
+    <script src="components/mete/mete.js"></script>
+    <script src="components/mete/mete-service.js"></script>
+
+
+
 
 
 
@@ -324,9 +332,9 @@
                     <!-- MENU RAGAZZO -->
                     <ul ng-if="info.user.ruolo == 'ragazzo'" >
                         <li>
-                            <a href="#!/homeRagazzo" ng-click="close()">
+                            <a href="#!/aggiornaProfiloRagazzo/{{info.user.codice}}" ng-click="close()">
                                 <md-icon aria-label="Person" class="material-icons">person</md-icon>
-                                Profilo</a>
+                                Aggiorna Profilo</a>
                         </li>
                         <md-divider ng-if="!$last"></md-divider>
                         <li>

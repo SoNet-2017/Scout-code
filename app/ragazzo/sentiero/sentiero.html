@@ -1,18 +1,27 @@
 <div ng-controller="myAppSentieroCtrl" ng-cloak >
     <md-content class="md-padding" layout-xs="column" layout="row">
         <div flex-xs flex-gt-xs="50" layout="column">
-            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-                <md-card-title>
-                    <md-card-title-text >
-                                <span class="sm-headline">Sei in cammino sulla tappa della Competenza</span>
-                    </md-card-title-text>
-                </md-card-title>
+            <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Sentiero</span>
+                    <span class="sm-headline">Sei in cammino sulla tappa della Competenza</span>
+                </md-card-title-text>
+            </md-card-title>
+
                 <div class="card-content">
                     <img  class="listaSentiero" ng-if="dati.utente.tappa=='Responsabilità'" ng-src="../images/responsabilita.jpg">
                     <img  class="listaSentiero" ng-if="dati.utente.tappa=='Scoperta'" ng-src="../images/scoperta.jpg">
                     <img  class="listaSentiero" ng-if="dati.utente.tappa=='Competenza'" ng-src="../images/competenza.jpg">
 
                 </div>
+                <a href="#!/meteImpegni" >
+                <md-button class="md-primary md-raised" ng-click="" aria-label="{{}}">
+                    Aggiorna Impegni e Mete <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
+                </md-button>
+                </a>
+
+
             </md-card>
 
 
