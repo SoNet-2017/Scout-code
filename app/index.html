@@ -324,16 +324,29 @@
                     <!-- MENU RAGAZZO -->
                     <ul ng-if="info.user.ruolo == 'ragazzo'" >
                         <li>
+                            <a href="#!/homeRagazzo" ng-click="close()">
+                                <md-icon aria-label="Person" class="material-icons">person</md-icon>
+                                Profilo</a>
+                        </li>
+                        <md-divider ng-if="!$last"></md-divider>
+                        <li>
                             <a href="#!/sentiero" ng-click="close()">
                                 <md-icon aria-label="Beenhere" class="material-icons">beenhere</md-icon>
                                 Sentiero</a>
                         </li>
                         <md-divider ng-if="!$last"></md-divider>
                         <li>
-                            <a href="#!/homeRagazzo" ng-click="close()">
-                                <md-icon aria-label="Person" class="material-icons">person</md-icon>
-                                Profilo</a>
+                            <a href="#" ng-click="close()" class="not-active">
+                                <md-icon aria-label="Forum" class="material-icons not-active">forum</md-icon>
+                                Conversazioni</a>
                         </li>
+                        <md-divider ng-if="!$last"></md-divider>
+                        <li>
+                            <a href="#" ng-click="close()" class="not-active">
+                                <md-icon aria-label="Flag" class="material-icons not-active">flag</md-icon>
+                                Angolo di Squadriglia</a>
+                        </li>
+
 
                     </ul>
 
