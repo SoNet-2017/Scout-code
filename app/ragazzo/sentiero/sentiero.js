@@ -18,7 +18,7 @@ app.config(['$routeProvider', function($routeProvider){
 }]);
 
 
-app.controller('myAppSentieroCtrl', ['$scope','$rootScope', 'Scadenza', 'Utente', 'CartaSpecialita', 'RegistrazioneCartaSpecialitaService', '$mdDialog', '$firebaseStorage', '$location', function($scope,$rootScope, Scadenza, Utente, CartaSpecialita, RegistrazioneCartaSpecialitaService, $mdDialog, $firebaseStorage, $location){
+app.controller('myAppSentieroCtrl', ['$scope','$rootScope', 'Mete', 'Impegni', 'Scadenza', 'Utente', 'CartaSpecialita', 'RegistrazioneCartaSpecialitaService', '$mdDialog', '$firebaseStorage', '$location', function($scope,$rootScope, Mete, Impegni, Scadenza, Utente, CartaSpecialita, RegistrazioneCartaSpecialitaService, $mdDialog, $firebaseStorage, $location){
     $scope.dati={}
     $scope.dati.utente=$rootScope.info.user
     $scope.dati.cartaSpec=CartaSpecialita.getData()
@@ -41,6 +41,8 @@ app.controller('myAppSentieroCtrl', ['$scope','$rootScope', 'Scadenza', 'Utente'
         }
 
         $scope.dati.utenti=Utente.getData()
+        $scope.dati.mete=Mete.getData();
+        $scope.dati.impegni=Impegni.getData();
 
 
     })

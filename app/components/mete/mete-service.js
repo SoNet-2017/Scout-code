@@ -25,7 +25,16 @@ app.factory('Mete', function($firebaseArray, $firebaseObject) {
                     codice: codiceRagazzo,
                     tappa: tappa
                 });
+            },
+            aggiornaMeta: function(codice, nuovaMeta) {
+                var ref = firebase.database().ref().child("mete").child(codice);
+                // create a synchronized array
+                ref.update({
+                    azione: nuovaMeta
+                });
+
             }
+
     }
     return meteService;
 })
