@@ -9,7 +9,7 @@ app.factory('Impegni', function($firebaseArray, $firebaseObject) {
             // download the data into a local object
             return $firebaseArray(ref);
         },
-        getCartaInfo: function(impegniId) {
+        getImpegniInfo: function(impegniId) {
             var impegniRef = firebase.database().ref().child("impegni").child(impegniId);
             return $firebaseObject(impegniRef);
         },

@@ -11,7 +11,7 @@ var app = angular.module('myAppAggiornaProfiloRagazzo', [
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/aggiornaProfiloRagazzo/:codiceRagazzo', {
-        templateUrl: 'ragazzo/profiloRagazzo/aggiornaProfilo.html',
+        templateUrl: 'ragazzo/aggiornaProfilo/aggiornaProfilo.html',
         controller: 'aggiornaProfiloRagazzoCtrl',
         resolve: {
             // controller will not be loaded until $requireSignIn resolves

@@ -44,7 +44,8 @@ var app = angular.module('myApp', [
         'myAppVisualizzaCartaSpecialita',
         'myAppAggiornaProfiloRagazzo',
         'myAppMete',
-        'myAppImpegni'
+        'myAppImpegni',
+        'myAppMeteImpegni'
     ]);
 
 

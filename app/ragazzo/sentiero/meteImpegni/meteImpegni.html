@@ -1,25 +1,37 @@
-<md-dialog aria-label="Mango (Fruit)">
-    <form>
-        <md-content class="md-padding" layout-xs="column" layout="row" >
-            <div flex-xs flex-gt-xs="50" layout="column">
-                <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+<div>
+    <form id="frmMeteImpegni" role="form" ng-submit="salvaMeteImpegni()" name="mete_impegni">
+            <md-content class="md-padding" layout-xs="column" layout="row" >
+                <div flex-xs flex-gt-xs="50" layout="column">
+                    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
 
 
-                    <md-card-title>
-                        <md-card-title-text>
+                        <md-card-title>
+                            <md-card-title-text>
 
-                        </md-card-title-text>
-                    </md-card-title>
-                    <div>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <div class="card-content">
+                            <md-input-container class="md-block">
+                                <label>Inserisci Meta</label>
+                                <input required id="mete" ng-model="dati.mete.azione" name="mete">
+                            </md-input-container>
 
-                    </div>
+                            <br>
+                            <br>
+                            <br>
 
-                    <md-card-actions>
+                            <md-input-container class="md-block">
+                                <label>Inserisci Impegni</label>
+                                <input required id="impegni" ng-model="dati.impegni.azione" name="impegni">
+                            </md-input-container>
+                        </div>
 
-                    </md-card-actions>
+                        <md-card-actions>
+                                <md-button type=submit" class="md-raised md-primary">SALVA</md-button>
+                        </md-card-actions>
 
-                </md-card>
-            </div>
-        </md-content>
-    </form>
-</md-dialog>
+                    </md-card>
+                </div>
+            </md-content>
+       </form>
+</div>
