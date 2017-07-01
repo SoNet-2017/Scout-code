@@ -15,10 +15,13 @@
                     <img  class="listaSentiero" ng-if="dati.utente.tappa=='Competenza'" ng-src="../images/competenza.jpg">
 
                 </div>
-                <a href="#!/meteImpegni" >
-                <md-button class="md-primary md-raised" ng-click="" aria-label="{{}}">
-                    Aggiorna Impegni e Mete <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
-                </md-button>
+                <a href="#!/meteImpegni/{{dati.utente.codice}}" >
+                    <md-button class="md-primary md-raised" ng-click="salvaMeteImpegni()">
+                        Salva Impegni e Mete <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
+                    </md-button>
+                    <md-button class="md-primary md-raised" ng-click="aggiornaMeteImpegni()">
+                        Aggiorna Impegni e Mete <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
+                    </md-button>
                 </a>
 
 
