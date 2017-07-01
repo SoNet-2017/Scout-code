@@ -10,7 +10,7 @@ app.factory('Mete', function($firebaseArray, $firebaseObject) {
                 return $firebaseArray(ref);
             },
             getMeteInfo: function(meteId) {
-                var meteRef = firebase.database().ref().child("carte_specialita").child(meteId);
+                var meteRef = firebase.database().ref().child("mete").child(meteId);
                 return $firebaseObject(meteRef);
             },
             aggiungiMete: function (azione, codiceRagazzo, tappa) {
