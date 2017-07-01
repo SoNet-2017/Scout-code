@@ -22,7 +22,7 @@ app.config(['$routeProvider', function($routeProvider){
 
 
 
-app.controller('myAppAssegnaTappaCtrl', ['$scope','$rootScope', 'Utente', function($scope,$rootScope, Utente) {
+app.controller('myAppAssegnaTappaCtrl', ['$scope','$rootScope', 'Mete', 'Impegni', 'Utente', function($scope,$rootScope, Mete, Impegni, Utente) {
         console.log("e' entrato nel ctrl assegna tappa");
 
 
@@ -53,8 +53,10 @@ app.controller('myAppAssegnaTappaCtrl', ['$scope','$rootScope', 'Utente', functi
                 var uuid = $scope.dati.utenti[i].$id;
                 var newTappa = $scope.dati.utenti[i].tappa;
                 console.log("Alla fine " + $scope.dati.utenti[i].nome + " ha la tappa " + newTappa);
-
+                $scope.dati.vuoto=""
                 Utente.aggiornaTappa(uuid, newTappa);
+                Mete.aggiungiMete($scope.dati.vuoto, $scope.dati.utenti[i].codice, newTappa)
+                Impegni.aggiungiImpegni($scope.dati.vuoto, $scope.dati.utenti[i].codice, newTappa)
 
             }
         }

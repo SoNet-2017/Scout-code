@@ -25,6 +25,13 @@ app.factory('Impegni', function($firebaseArray, $firebaseObject) {
                 codice: codiceRagazzo,
                 tappa: tappa
             });
+        },
+        aggiornaImpegni: function(codice, nuovoImpegno) {
+            var ref = firebase.database().ref().child("impegni").child(codice);
+            // create a synchronized array
+            ref.update({
+                azione: nuovoImpegno
+            });
         }
     }
     return impegniService;

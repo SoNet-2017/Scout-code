@@ -53,9 +53,30 @@ app.controller('myAppMeteImpegniCtr', ['$scope', '$rootScope', 'Utente', 'Mete',
 
             console.log("ho premuto su salva");
 
-            if($scope.dati.mete != undefined && $scope.dati.mete != "" && $scope.dati.impegni != undefined && $scope.dati.impegni != ""){
-                Mete.aggiungiMete($scope.dati.mete.azione,$scope.dati.utente,$scope.dati.tappa)
-                Impegni.aggiungiImpegni($scope.dati.impegni.azione,$scope.dati.utente,$scope.dati.tappa)
+
+            for(var i = 0; i<$scope.dati.mete.length;i++) {
+
+                console.log("vediamo se riesco a salvare o aggiornare le mete e gli impegni 1")
+                for(var j = 0; j<$scope.dati.impegni.length;j++) {
+                    console.log("vediamo se riesco a salvare o aggiornare le mete e gli impegni 2 ")
+                    if ($scope.dati.mete[i].codice == $scope.dati.utente) {
+                        console.log("vediamo se riesco a salvare o aggiornare le mete e gli impegni 3 ")
+
+                        if ($scope.dati.impegni[j].codice == $scope.dati.utente) {
+                            console.log("vediamo se riesco a salvare o aggiornare le mete e gli impegni 4 ")
+
+
+                            if ($scope.dati.mete == undefined || $scope.dati.mete == "" || $scope.dati.impegni == undefined || $scope.dati.impegni == "") {
+                                Mete.aggiungiMete($scope.dati.mete.azione, $scope.dati.utente, $scope.dati.utente.tappa)
+                                Impegni.aggiungiImpegni($scope.dati.impegni.azione, $scope.dati.utente, $scope.dati.utente.tappa)
+                            }
+                            else if ($scope.dati.mete != undefined && $scope.dati.mete != "" && $scope.dati.impegni != undefined && $scope.dati.impegni != "") {
+                                Mete.aggiornaMeta($scope.dati.mete[i].$id, $scope.dati.mete.azione)
+                                Impegni.aggiornaImpegni($scope.dati.impegni[j].$id, $scope.dati.impegni.azione)
+                            }
+                        }
+                    }
+                }
             }
 
         $location.path("/sentiero/");

@@ -24,6 +24,7 @@ angular.module('myAppUtente.registrazioneRagazzoService', [])
                     img: false,
                     sesso: sesso
                 });
+
             }
         };
         return NuovoRagazzoService;
