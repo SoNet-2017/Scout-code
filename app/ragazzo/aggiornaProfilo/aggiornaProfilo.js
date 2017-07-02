@@ -4,9 +4,7 @@ var app = angular.module('myAppAggiornaProfiloRagazzo', [
     'ngMaterial',
     'ngRoute',
     'myAppAuthentication',
-    'myAppUtente',
-    'myAppDistintivi',
-    'myAppSquadriglia'
+    'myAppUtente'
 ]);
 
 app.config(['$routeProvider', function($routeProvider) {
@@ -25,9 +23,8 @@ app.config(['$routeProvider', function($routeProvider) {
     })
 }])
 
-app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Utente', 'currentAuth', '$firebaseAuth', '$location', '$routeParams', 'Distintivo', 'Squadriglia',
-    function($scope, $rootScope, Utente, currentAuth, $firebaseAuth, $location, $routeParams, Distintivo, Squadriglia) {
+app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$location', '$routeParams', function($scope, $rootScope, Utente,$firebaseAuth, $location, $routeParams) {
+    $scope.dati={}
 
-
-    }])
+}])
 

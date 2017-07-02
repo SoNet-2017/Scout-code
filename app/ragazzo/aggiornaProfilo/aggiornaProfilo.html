@@ -1,19 +1,33 @@
 <md-content class="md-padding" layout-xs="column" layout="row" >
-    <div flex-xs flex-gt-xs="50" layout="column">
+    <div flex-xs flex-gt-xs="50" layout="column" ng-controller="aggiornaProfiloRagazzoCtrl as ctrl">
         <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
 
 
             <md-card-title>
                 <md-card-title-text>
+                    <span class="md-headline">Inserisci le tue informazioni</span>
 
                 </md-card-title-text>
             </md-card-title>
-            <div>
+            <br>
+            <div class="card-content">
+                <md-input-container class="md-block">
+                    <label>Inserisci la tua descrizione</label>
+                    <input required id="descrizione" name="descrizione">
+                </md-input-container>
+
+                <br/>
+
+                <md-input-container class="md-block">
+                    <label>Inserisci ti piace fare</label>
+                    <input required id="hobby" name="hobby">
+                </md-input-container>
 
             </div>
-
             <md-card-actions>
-
+                <md-button class="md-primary md-raised" ng-click="" aria-label="">
+                    I miei Impegni Settimanali <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
+                </md-button>
             </md-card-actions>
 
         </md-card>
