@@ -103,7 +103,6 @@ angular.module('myAppUtente.utentiService', [])
                     staff : false,
                     img : false,
                     ruolo : "capo",
-                    tappa:""
                 });
             }
 

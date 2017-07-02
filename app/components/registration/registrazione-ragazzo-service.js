@@ -22,7 +22,8 @@ angular.module('myAppUtente.registrazioneRagazzoService', [])
                     email: "",
                     logged: false,
                     img: false,
-                    sesso: sesso
+                    sesso: sesso,
+                    tappa:""
                 });
 
             }

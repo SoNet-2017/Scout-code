@@ -71,8 +71,8 @@ app.controller('myAppMeteImpegniCtr', ['$scope', '$rootScope', 'Utente', 'Mete',
                                 Impegni.aggiungiImpegni($scope.dati.impegni.azione, $scope.dati.utente, $scope.dati.utente.tappa)
                             }
                             else if ($scope.dati.mete != undefined && $scope.dati.mete != "" && $scope.dati.impegni != undefined && $scope.dati.impegni != "") {
-                                Mete.aggiornaMeta($scope.dati.mete[i].$id, $scope.dati.mete.azione)
-                                Impegni.aggiornaImpegni($scope.dati.impegni[j].$id, $scope.dati.impegni.azione)
+                                Mete.aggiornaMetaAzione($scope.dati.mete[i].$id, $scope.dati.mete.azione)
+                                Impegni.aggiornaImpegniAzione($scope.dati.impegni[j].$id, $scope.dati.impegni.azione)
                             }
                         }
                     }

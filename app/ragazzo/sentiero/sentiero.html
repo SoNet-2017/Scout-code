@@ -23,10 +23,10 @@
                 </div>
                 <div class="card-content" layout="row">
                     <a href="#!/meteImpegni/{{dati.utente.codice}}" >
-                        <md-button class="md-primary md-raised" ng-if="dati.metaAttuale=='' ||  dati.impegnoAttuale==''">
+                        <md-button class="md-primary md-raised" ng-if="dati.metaAttuale.azione=='' ||  dati.impegnoAttuale.azione==''">
                             Salva Impegni e Mete <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
                         </md-button>
-                        <md-button class="md-primary md-raised" ng-if="dati.metaAttuale!='' && dati.impegnoAttuale!=''">
+                        <md-button class="md-primary md-raised" ng-if="dati.metaAttuale.azione!='' && dati.impegnoAttuale.azione!=''">
                             Aggiorna Impegni e Mete <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
                         </md-button>
                     </a>

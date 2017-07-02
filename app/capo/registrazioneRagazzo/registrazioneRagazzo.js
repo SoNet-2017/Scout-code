@@ -19,8 +19,8 @@ app.config(['$routeProvider', function($routeProvider) {
         });
     }]);
 
-app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'RegistrazioneRagazzoService', '$firebaseStorage', 'Utente',
-        function($scope, $rootScope, RegistrazioneRagazzoService, $firebaseStorage, Utente) {
+app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'Mete', 'Impegni', 'RegistrazioneRagazzoService', '$firebaseStorage', 'Utente',
+        function($scope, $rootScope, Mete, Impegni, RegistrazioneRagazzoService, $firebaseStorage, Utente) {
 
             //initialize variables
             $scope.dati = {};
@@ -79,6 +79,10 @@ app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'Registrazio
                     $scope.dati.feedback = "Registrazione avvenuta con successo";
 
                 });
+                $scope.dati.vuoto=""
+                $scope.dati.tappa=""
+                Mete.aggiungiMete($scope.dati.vuoto,$scope.dati.codice, $scope.dati.tappa)
+                Impegni.aggiungiImpegni($scope.dati.vuoto, $scope.dati.codice, $scope.dati.tappa)
             }
 
 
