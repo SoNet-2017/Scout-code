@@ -26,5 +26,24 @@ app.config(['$routeProvider', function($routeProvider) {
 app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$location', '$routeParams', function($scope, $rootScope, Utente,$firebaseAuth, $location, $routeParams) {
     $scope.dati={}
 
+
+
+    /*---CREAZIONE DELL'UPLOAD DELL'IMMAGINE DEL PROFILO---*/
+    $scope.fileToUpload = null;
+    if ($scope.fileToUpload != null) {
+        //get the name of the file
+        var fileName = $scope.fileToUpload.name;
+        //specify the path in which the file should be saved on firebase
+        var storageRef = firebase.storage().ref("profiloImg/" + fileName);
+        $scope.storage = $firebaseStorage(storageRef);
+        var uploadTask = $scope.storage.$put($scope.fileToUpload);
+        uploadTask.$complete(function (snapshot) {
+            $scope.imgPath = snapshot.downloadURL;
+
+            //--BISOGNA CAMBIARE IL METODO E CAPIRE COME INSERIRE L'AGGIORNA PITTOSTO CHE IL CREA! --
+            $scope.finalPizzaAddition();
+        });
+    }
+
 }])
 
