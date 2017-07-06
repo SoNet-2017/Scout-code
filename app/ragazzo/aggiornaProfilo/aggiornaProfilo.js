@@ -27,7 +27,6 @@ app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Bio', 'Re
     $scope.dati={}
     $scope.dati.bio=Bio.getData();
     $scope.dati.utente=$routeParams.codiceRagazzo;
-    $scope.dati.vuoto="";
     $scope.dati.bio.impegni="";
     var ctrl = this;
     $scope.fileToUpload=null;
@@ -40,12 +39,7 @@ app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Bio', 'Re
 
         console.log("ho premuto su salva");
         for(var i = 0; i<$scope.dati.bio.length; i++){
-            if($scope.dati.bio[i].codice!=$scope.dati.utente){
-                console.log("sto salvando un nuovo bio")
-                RegistrazioneBioService.aggiungiBio($scope.dati.utente, $scope.dati.bio.descrizione, $scope.dati.vuoto, $scope.dati.bio.hobby, $scope.dati.bio.impegni);
-
-            }
-            else{
+            if($scope.dati.bio[i].codice==$scope.dati.utente){
                 console.log("sto aggiornando...")
                 if( $scope.dati.bio.descrizione!=""){
                     console.log("sto aggiornando la descrizione")

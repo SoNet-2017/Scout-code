@@ -19,8 +19,8 @@ app.config(['$routeProvider', function($routeProvider) {
         });
     }]);
 
-app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'Mete', 'Impegni', 'RegistrazioneRagazzoService', '$firebaseStorage', 'Utente',
-        function($scope, $rootScope, Mete, Impegni, RegistrazioneRagazzoService, $firebaseStorage, Utente) {
+app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'Bio', 'Mete', 'Impegni', 'RegistrazioneRagazzoService', '$firebaseStorage', 'Utente',
+        function($scope, $rootScope, Bio, Mete, Impegni, RegistrazioneRagazzoService, $firebaseStorage, Utente) {
 
             //initialize variables
             $scope.dati = {};
@@ -83,6 +83,7 @@ app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'Mete', 'Imp
                 $scope.dati.tappa=""
                 Mete.aggiungiMete($scope.dati.vuoto,$scope.dati.codice, $scope.dati.tappa)
                 Impegni.aggiungiImpegni($scope.dati.vuoto, $scope.dati.codice, $scope.dati.tappa)
+                Bio.aggiungiBio($scope.dati.codice, $scope.dati.vuoto, $scope.dati.vuoto, $scope.dati.vuoto, $scope.dati.vuoto)
             }
 
 
