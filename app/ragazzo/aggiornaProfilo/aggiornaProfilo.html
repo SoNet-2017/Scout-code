@@ -1,5 +1,5 @@
 <md-content class="md-padding" layout-xs="column" layout="row" >
-    <div flex-xs flex-gt-xs="50" layout="column" ng-controller="aggiornaProfiloRagazzoCtrl as ctrl">
+    <div flex-xs flex-gt-xs="50" layout="column" ng-controller="aggiornaProfiloRagazzoCtrl as $ctrl">
         <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
             <md-card-title>
                 <md-card-title-text>
@@ -29,24 +29,29 @@
             </md-card-actions>
         </md-card>
 
-        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Carica Foto</span>
-                </md-card-title-text>
-            </md-card-title>
-            <br>
-            <div>
+        <form id="frmFoto" role="form" ng-submit="fotoProfilo()">
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Carica Foto</span>
 
-            </div>
-            <br>
-            <md-card-actions>
-                <md-button class="md-primary md-raised" ng-click="" aria-label="">
-                    Scegli File
-                </md-button>
-            </md-card-actions>
-
-
-        </md-card>
+                    </md-card-title-text>
+                </md-card-title>
+                <br>
+                <div class="media-left">
+                    <!--<img class="img-profile"  ng-src="">-->
+                </div>
+                <br>
+                <md-card-actions>
+                    <b>Descriptive image:</b>
+                    <file-upload on-change="$ctrl.onChange">
+                    </file-upload>
+                    <br>
+                    <md-button type="submit" class="md-primary md-raised">
+                        Salva
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+        </form>
     </div>
 </md-content>

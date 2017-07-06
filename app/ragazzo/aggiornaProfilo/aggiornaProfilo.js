@@ -23,12 +23,18 @@ app.config(['$routeProvider', function($routeProvider) {
     })
 }])
 
-app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Bio', 'RegistrazioneBioService', 'Utente', '$firebaseAuth', '$location', '$routeParams', function($scope, $rootScope, Bio, RegistrazioneBioService, Utente,$firebaseAuth, $location, $routeParams) {
+app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Bio', 'RegistrazioneBioService', 'Utente', '$firebaseAuth', '$location', '$routeParams', '$firebaseStorage', function($scope, $rootScope, Bio, RegistrazioneBioService, Utente,$firebaseAuth, $location, $routeParams,$firebaseStorage) {
     $scope.dati={}
     $scope.dati.bio=Bio.getData();
     $scope.dati.utente=$routeParams.codiceRagazzo;
-    $scope.dati.bio.foto_url="";
+    $scope.dati.vuoto="";
     $scope.dati.bio.impegni="";
+    var ctrl = this;
+    $scope.fileToUpload=null;
+    $scope.imgPath="";
+    $scope.dati.utenteCorrente=$rootScope.info.user;
+    console.log(""+$scope.dati.utenteCorrente.codice)
+
 
     $scope.salvaBio=function(){
 
@@ -36,7 +42,7 @@ app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Bio', 'Re
         for(var i = 0; i<$scope.dati.bio.length; i++){
             if($scope.dati.bio[i].codice!=$scope.dati.utente){
                 console.log("sto salvando un nuovo bio")
-                RegistrazioneBioService.aggiungiBio($scope.dati.utente, $scope.dati.bio.descrizione, $scope.dati.bio.foto_url, $scope.dati.bio.hobby, $scope.dati.bio.impegni);
+                RegistrazioneBioService.aggiungiBio($scope.dati.utente, $scope.dati.bio.descrizione, $scope.dati.vuoto, $scope.dati.bio.hobby, $scope.dati.bio.impegni);
 
             }
             else{
@@ -52,6 +58,35 @@ app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Bio', 'Re
             }
         }
 
+        $location.path("/profiloRagazzo/");
+
+    }
+    $scope.fotoProfilo= function() {
+        if ($scope.fileToUpload != null) {
+            var fileName = $scope.fileToUpload.name;
+            var storageRef = firebase.storage().ref("fotoProfilo/" + fileName);
+            console.log("Sono dentro l'immissione di una foto")
+            $scope.storage = $firebaseStorage(storageRef);
+            var uploadTask = $scope.storage.$put($scope.fileToUpload);
+            uploadTask.$complete(function (snapshot) {
+                $scope.imgPath = snapshot.downloadURL;
+                $scope.immettiFoto();
+            });
+        }
+    }
+
+    ctrl.onChange = function onChange(fileList) {
+        $scope.fileToUpload = fileList[0];
+        console.log($scope.fileToUpload.name);
+            }
+    $scope.immettiFoto=function(){
+        for(var i = 0; i<$scope.dati.bio.length; i++) {
+            if ($scope.dati.bio[i].codice == $scope.dati.utente) {
+                console.log("sono dentro al for di immettiFoto")
+                console.log("richiamo la funzione che agiorna il path" + $scope.dati.bio[i].$id)
+                Bio.aggiornaBioFoto($scope.dati.bio[i].$id, $scope.imgPath)
+            }
+        }
         $location.path("/profiloRagazzo/");
 
     }
