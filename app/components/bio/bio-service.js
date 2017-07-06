@@ -1,7 +1,7 @@
 'use strict';
 
 
-var app=angular.module('myBioService',[])
+var app=angular.module('myAppBioService',[])
 app.factory('Bio', function($firebaseArray, $firebaseObject) {
     var bioService= {
         getData: function () {

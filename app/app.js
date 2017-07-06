@@ -45,7 +45,9 @@ var app = angular.module('myApp', [
         'myAppAggiornaProfiloRagazzo',
         'myAppMete',
         'myAppImpegni',
-        'myAppMeteImpegni'
+        'myAppMeteImpegni',
+        'myAppBio',
+        'myApp.fileUpload'
     ]);
 
 

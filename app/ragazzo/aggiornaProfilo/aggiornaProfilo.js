@@ -23,26 +23,37 @@ app.config(['$routeProvider', function($routeProvider) {
     })
 }])
 
-app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$location', '$routeParams', function($scope, $rootScope, Utente,$firebaseAuth, $location, $routeParams) {
+app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Bio', 'RegistrazioneBioService', 'Utente', '$firebaseAuth', '$location', '$routeParams', function($scope, $rootScope, Bio, RegistrazioneBioService, Utente,$firebaseAuth, $location, $routeParams) {
     $scope.dati={}
+    $scope.dati.bio=Bio.getData();
+    $scope.dati.utente=$routeParams.codiceRagazzo;
+    $scope.dati.bio.foto_url="";
+    $scope.dati.bio.impegni="";
 
+    $scope.salvaBio=function(){
 
+        console.log("ho premuto su salva");
+        for(var i = 0; i<$scope.dati.bio.length; i++){
+            if($scope.dati.bio[i].codice!=$scope.dati.utente){
+                console.log("sto salvando un nuovo bio")
+                RegistrazioneBioService.aggiungiBio($scope.dati.utente, $scope.dati.bio.descrizione, $scope.dati.bio.foto_url, $scope.dati.bio.hobby, $scope.dati.bio.impegni);
 
-    /*---CREAZIONE DELL'UPLOAD DELL'IMMAGINE DEL PROFILO---*/
-    $scope.fileToUpload = null;
-    if ($scope.fileToUpload != null) {
-        //get the name of the file
-        var fileName = $scope.fileToUpload.name;
-        //specify the path in which the file should be saved on firebase
-        var storageRef = firebase.storage().ref("profiloImg/" + fileName);
-        $scope.storage = $firebaseStorage(storageRef);
-        var uploadTask = $scope.storage.$put($scope.fileToUpload);
-        uploadTask.$complete(function (snapshot) {
-            $scope.imgPath = snapshot.downloadURL;
+            }
+            else{
+                console.log("sto aggiornando...")
+                if( $scope.dati.bio.descrizione!=""){
+                    console.log("sto aggiornando la descrizione")
+                    Bio.aggiornaBioDescrizione($scope.dati.bio[i].$id,$scope.dati.bio.descrizione)
+                }
+                else if($scope.dati.bio.hobby!=""){
+                    console.log("sto aggiornando gli hobby")
+                    Bio.aggiornaBioHobby($scope.dati.bio[i].$id,$scope.dati.bio.hobby)
+                }
+            }
+        }
 
-            //--BISOGNA CAMBIARE IL METODO E CAPIRE COME INSERIRE L'AGGIORNA PITTOSTO CHE IL CREA! --
-            $scope.finalPizzaAddition();
-        });
+        $location.path("/profiloRagazzo/");
+
     }
 
 }])

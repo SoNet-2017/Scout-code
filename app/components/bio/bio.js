@@ -2,7 +2,7 @@
 
 var app=angular.module('myAppBio', [
     'myAppBioService',
-    'myAppRegistrazioneBio'
+    'myAppRegistrazioneBioService'
 ]);
 
 app.value('version', '0.1');
