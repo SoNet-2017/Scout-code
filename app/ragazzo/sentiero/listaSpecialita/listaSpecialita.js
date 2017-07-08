@@ -11,7 +11,7 @@ app.config(['$routeProvider',function($routeProvider) {
     })
 }]);
 
-app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 'Utente', 'CartaSpecialita', 'RegistrazioneCartaSpecialitaService', '$mdDialog', '$firebaseStorage', '$location', function($scope,$rootScope,Specialita, Utente, CartaSpecialita, RegistrazioneCartaSpecialitaService, $mdDialog, $firebaseStorage, $location){
+app.controller('myAppListaSpecialitaCtrl',['$scope',  'RegistrazioneCartaSpecialitaService', '$mdDialog', '$firebaseStorage', '$location', function($scope,$rootScope,Specialita, Utente, CartaSpecialita, RegistrazioneCartaSpecialitaService, $mdDialog, $firebaseStorage, $location){
     $scope.dati={};
     $scope.dati.specialita=Specialita.getData();
     $scope.dati.utente=Utente.getData();
@@ -42,7 +42,7 @@ app.controller('myAppListaSpecialitaCtrl',['$scope','$rootScope', 'Specialita', 
                 .title(nomeSpec)
                 .textContent(descrizione)
                 .ariaLabel('Alert Dialog Demo')
-                .ok('Got it!')
+                .ok('Ho Capito!')
                 .targetEvent(ev)
         );
     };
