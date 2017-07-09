@@ -516,3 +516,11 @@ img.listaSentiero {
     text-align: center;
     margin: 8px 0 4px 4px;
 }
+
+/* STYLE DI UN DIV IN LISTA BREVETTI */
+#myDiv {
+    display:none;
+    width: 100%;
+    padding: 50px 0;
+    margin-top:20px;
+}

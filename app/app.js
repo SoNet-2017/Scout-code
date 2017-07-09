@@ -50,7 +50,9 @@ var app = angular.module('myApp', [
         'myApp.fileUpload',
         'myAppBrevetti',
         'myAppListaBrevetti',
-        'myAppCartaCompetenza'
+        'myAppCartaCompetenza',
+        'myAppSceltaMaestroBrev',
+        'myAppVisualizzaCartaCompetenza'
     ]);
 
 

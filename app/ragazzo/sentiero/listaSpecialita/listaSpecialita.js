@@ -11,7 +11,8 @@ app.config(['$routeProvider',function($routeProvider) {
     })
 }]);
 
-app.controller('myAppListaSpecialitaCtrl',['$scope',  'RegistrazioneCartaSpecialitaService', '$mdDialog', '$firebaseStorage', '$location', function($scope,$rootScope,Specialita, Utente, CartaSpecialita, RegistrazioneCartaSpecialitaService, $mdDialog, $firebaseStorage, $location){
+app.controller('myAppListaSpecialitaCtrl',['$scope', '$rootScope', 'Specialita', 'Utente', 'CartaSpecialita', 'RegistrazioneCartaSpecialitaService', '$mdDialog', '$firebaseStorage', '$location',
+    function($scope,$rootScope, Specialita, Utente, CartaSpecialita, RegistrazioneCartaSpecialitaService, $mdDialog, $firebaseStorage, $location){
     $scope.dati={};
     $scope.dati.specialita=Specialita.getData();
     $scope.dati.utente=Utente.getData();
@@ -24,13 +25,12 @@ app.controller('myAppListaSpecialitaCtrl',['$scope',  'RegistrazioneCartaSpecial
     $scope.showAlert = function (ev,nome) {
         console.log('clicco')
         for(var i=0;i<$scope.dati.specialita.length;i++) {
-            console.log('clicco 1')
-            console.log(nome)
             if ($scope.dati.specialita[i].nome == nome) {
                 console.log('siamo dentro if');
                 var descrizione = $scope.dati.specialita[i].descrizione;
                 var nomeSpec=$scope.dati.specialita[i].nome;
                 var spec=$scope.dati.specialita[i];
+
             }
         }
 

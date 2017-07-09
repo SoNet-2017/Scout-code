@@ -12,12 +12,13 @@ app.config(['$routeProvider',function($routeProvider) {
     })
 }]);
 
-app.controller('myAppSceltaMaestroCtrl',['$scope','$rootScope', '$routeParams', 'Specialita', 'Utente', 'CartaSpecialita', 'RegistrazioneCartaSpecialitaService', '$mdDialog', '$location', function($scope, $rootScope, $routeParams, Specialita, Utente, CartaSpecialita, RegistrazioneCartaSpecialitaService, $mdDialog, $location){
+app.controller('myAppSceltaMaestroCtrl',['$scope','$rootScope', '$routeParams', 'Specialita', 'Utente', 'CartaSpecialita', 'RegistrazioneCartaSpecialitaService', '$mdDialog', '$location',
+    function($scope, $rootScope, $routeParams, Specialita, Utente, CartaSpecialita, RegistrazioneCartaSpecialitaService, $mdDialog, $location){
     $scope.dati={};
     $scope.dati.utenti=Utente.getData();
     $scope.dati.specialita=Specialita.getData();
     $scope.dati.carte_specialita=CartaSpecialita.getData();
-    $scope.status = '  ';
+    $scope.status = '';
     $scope.customFullscreen = false
     $scope.dati.nomeSpec=$routeParams.nomeSpecialita
 

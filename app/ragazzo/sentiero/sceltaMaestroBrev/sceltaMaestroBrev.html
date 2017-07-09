@@ -1,0 +1,35 @@
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Scegli Maestro per il Brevetto</span>
+                    <span class="md-subhead">per il brevetto {{dati.nomeBrev}}</span>
+                    <br/>
+
+                </md-card-title-text>
+            </md-card-title>
+            <div class="card-content">
+                <md-radio-group ng-model="dati.maestro" >
+                    <md-radio-button class="md-primary" ng-repeat="ragazzo in dati.utenti" value="{{ragazzo.codice}}" ng-if="ragazzo.ruolo == 'ragazzo' && ragazzo.logged==false">
+                        <b>{{ragazzo.nome}}</b> {{ragazzo.cognome}}
+                    </md-radio-button>
+                </md-radio-group>
+                <br/>
+                <md-input-container class="md-block">
+                    <label>Perchè hai scelto questo Brevetto</label>
+                    <input required id="motivazione" ng-model="dati.motivazione" name="motivazione">
+                    <!--<div ng-messages="moduloRegistrazione.codice.$error">
+                        <div ng-message="required">Questo campo è obbligatorio e deve essere numerico.</div>
+                    </div>-->
+                </md-input-container>
+
+            </div>
+            <md-card-action>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-click="salvaCartaCompetenza()" class="md-raised md-primary" id="btn-salva">Salva</md-button>
+                </md-card-actions>
+            </md-card-action>
+        </md-card>
+    </div>
+</md-content>

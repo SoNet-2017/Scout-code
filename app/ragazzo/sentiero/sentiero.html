@@ -68,6 +68,12 @@
                         <span class="md-headline">Brevetti</span>
                     </md-card-title-text>
                 </md-card-title>
+                <div class="card-content">
+                    <a href="#!/visualizzaCartaCompetenza/{{cartaComp.$id}}" ng-repeat="cartaComp in dati.cartaComp"
+                       ng-if="carta.ragazzo == info.user.codice">
+                        <img src="../{{cartaComp.img_url}}" class="listaSentiero" ></img></a>
+                </div>
+                <br>
                 <md-card-actions layout="row" layout-align="end center">
                     <a href="#!/listaBrevetti" >
                         <md-button class="md-primary md-raised" ng-click="" aria-label="">

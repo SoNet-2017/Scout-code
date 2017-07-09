@@ -18,20 +18,30 @@
                                     <img class="media-object img-responsive listaSpecialita" ng-src="../{{brevetti.img_url}}">
                                 </div>
                                 <div class="col media-left" >
-                                    <div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
+                                    <div class="dialog-demo-content" layout="col" layout-wrap layout-margin layout-align="center end">
                                         <md-button class="md-primary md-raised" ng-click="showAlert($event,brevetti.nome)" aria-label="{{brevetti.nome}}">
                                             Approfondisci <md-icon aria-label="Settings" class="material-icons" >menu</md-icon>
                                         </md-button>
                                     </div>
-                                    <div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
+                                    <div class="dialog-demo-content" layout="col" layout-wrap layout-margin layout-align="center end">
                                         <md-card-actions layout="row" layout-align="end center">
-                                            <md-button ng-click="scegliSpecialita(specialita.nome)" class="md-raised md-primary" id="btn-salva">Scegli</md-button>
+                                            <md-button ng-click="scegliBrevetto(brevetti.nome)" class="md-raised md-primary" id="btn-salva">Scegli</md-button>
                                         </md-card-actions>
                                     </div>
                                 </div>
+                                <div class="dialog-demo-content" layout="col" layout-wrap layout-margin layout-align="center none">
+                                    <md-card-actions layout="row" layout-align="end center">
+                                        <md-button ng-click="showDiv()" class="md-raised md-primary">Guarda specialità collegate <md-icon aria-label="Settings" class="material-icons" >menu</md-icon></md-button>
+                                    </md-card-actions>
+                                </div>
+                                <div id="myDiv">
+                                    ciao
+                                </div>
                             </li>
                         </ul>
-                        
+
+
+
                     </div>
                 </md-card-actions>
             </md-card>
