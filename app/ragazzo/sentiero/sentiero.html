@@ -53,7 +53,7 @@
 
                 <md-card-actions layout="row" layout-align="end center">
                     <a href="#!/listaSpecialita" >
-                        <md-button class="md-primary md-raised" ng-click="showAlert($event,specialita.nome)" aria-label="{{specialita.nome}}">
+                        <md-button class="md-primary md-raised">
                             Aggiungi Specialita <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
                         </md-button>
                     </a>
@@ -70,13 +70,13 @@
                 </md-card-title>
                 <div class="card-content">
                     <a href="#!/visualizzaCartaCompetenza/{{cartaComp.$id}}" ng-repeat="cartaComp in dati.cartaComp"
-                       ng-if="carta.ragazzo == info.user.codice">
+                       ng-if="cartaComp.ragazzo == dati.utente.codice  && cartaComp.attiva==true">
                         <img src="../{{cartaComp.img_url}}" class="listaSentiero" ></img></a>
                 </div>
                 <br>
                 <md-card-actions layout="row" layout-align="end center">
                     <a href="#!/listaBrevetti" >
-                        <md-button class="md-primary md-raised" ng-click="" aria-label="">
+                        <md-button class="md-primary md-raised">
                             Aggiungi Brevetti <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
                         </md-button>
                     </a>

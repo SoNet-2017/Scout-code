@@ -30,6 +30,13 @@ app.factory('CartaCompetenza', function($firebaseArray, $firebaseObject) {
                 elenco_spec_scelte:elenco_specialita,
                 attiva : false
             });
+        },
+        aggiornaCompetenzaElenco: function(codice, elencoSpec) {
+            var ref = firebase.database().ref().child("carta_competenza").child(codice);
+            // create a synchronized array
+            ref.update({
+                elenco_spec_scelte: elencoSpec
+            })
         }
     }
     return cartaCompetenzaService;

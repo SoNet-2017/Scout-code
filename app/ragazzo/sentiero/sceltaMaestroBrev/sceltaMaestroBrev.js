@@ -69,7 +69,7 @@ app.controller('myAppSceltaMaestroBrevCtrl',['$scope','$rootScope', '$routeParam
 
 
                 $scope.dati.feedback = "Registrazione avvenuta con successo";
-                $location.path("/visualizzaCartaCompetenza/" + cartaCompetenzaId);
+                $location.path("/elencoSpecCorrelate/" + cartaCompetenzaId);
 
             });
 

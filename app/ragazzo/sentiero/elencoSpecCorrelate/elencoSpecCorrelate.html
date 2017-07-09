@@ -1,0 +1,28 @@
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Scegli le specialita che vuoi conquistare</span>
+                    <br/>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="none">
+                <div class="md-media-lg card-media">
+                    <ul class="media-list">
+                        <li class="media" ng-repeat="specialita in dati.specialitaCollegate">
+                            <b><h3>{{dati.specialitaCollegate.nome}}</h3></b>
+                            <div class="col media-left">
+                                <img class="media-object img-responsive listaSpecialita" ng-src="../{{dati.specialitaCollegate.img_url}}">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </md-card-actions>
+            <md-button class="md-primary md-raised" ng-click="myFunction()" aria-label="{{specialita.nome}}">Specialita Collegate
+            </md-button>
+        </md-card>
+
+
+    </div>
+</md-content>

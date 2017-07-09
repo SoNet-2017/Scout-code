@@ -52,7 +52,8 @@ var app = angular.module('myApp', [
         'myAppListaBrevetti',
         'myAppCartaCompetenza',
         'myAppSceltaMaestroBrev',
-        'myAppVisualizzaCartaCompetenza'
+        'myAppVisualizzaCartaCompetenza',
+        'myAppElencoSpecCorrelate'
     ]);
 
 
