@@ -101,3 +101,12 @@ app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', '
     };
 
 }]);
+
+
+
+/**** FILTRO CREATO CUSTOM PER RIMUOVERE IL "meno" DAVANTI AL NUMERO ****/
+app.filter('removeDash', function() {
+    return function(input) {
+        return (""+input).replace("-", "");
+    }
+});

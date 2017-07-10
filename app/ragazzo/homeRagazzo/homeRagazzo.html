@@ -41,7 +41,9 @@
             <div class="card-content">
                 <div layout="row" layout-wrap ng-repeat="scadenza in dati.scadenze  | orderBy:['nome_ragazzo','deadline']" ng-if="scadenza.deadline >= 0 && scadenza.conferma != true && scadenza.ragazzo == info.user.codice">
                     <div flex="30" ng-repeat="specialita in dati.specialita" ng-if="specialita.nome == scadenza.nome_specialita">
-                        <img class="media-object img-responsive listaSpecialita img-scadenze" ng-src="../{{specialita.img_url}}">
+                        <a href="#!/visualizzaCartaSpecialita/{{scadenza.carta_spec}}">
+                            <img class="media-object img-responsive listaSpecialita img-scadenze" ng-src="../{{specialita.img_url}}">
+                        </a>
                     </div>
                     <div flex="70" class="scadenze-content">
                         <div >

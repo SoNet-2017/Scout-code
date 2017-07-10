@@ -41,8 +41,11 @@
                             <div ng-if="scadenza.conferma == true">
                                 <b>Scadenza</b> <b md-primary>confermata</b>
                             </div>
-                            <div ng-if="scadenza.conferma == false">
+                            <div ng-if="scadenza.conferma == false && scadenza.deadline >= 0">
                                 <b>Scadenza</b>: tra {{scadenza.deadline}} giorni
+                            </div>
+                            <div ng-if="scadenza.conferma == false && scadenza.deadline < 0">
+                                <b>Scadenza</b>: {{scadenza.deadline | removeDash}} giorni fa
                             </div>
                             <br>
 
