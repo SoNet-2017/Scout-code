@@ -22,7 +22,7 @@ app.config(['$routeProvider', function($routeProvider){
 
 
 
-app.controller('myAppAssegnaTappaCtrl', ['$scope','$rootScope', 'Mete', 'Impegni', 'Utente', function($scope,$rootScope, Mete, Impegni, Utente) {
+app.controller('myAppAssegnaTappaCtrl', ['$scope','$rootScope', 'Utente', function($scope,$rootScope, Utente) {
         console.log("e' entrato nel ctrl assegna tappa");
 
 
@@ -44,8 +44,6 @@ app.controller('myAppAssegnaTappaCtrl', ['$scope','$rootScope', 'Mete', 'Impegni
         }
     });
 
-    $scope.dati.mete=Mete.getData()
-    $scope.dati.impegni=Impegni.getData()
     $scope.salvaTappe = function(params) {
         for (var i = 0; i < $scope.dati.utenti.length; i++) {
             console.log("ENTRO NEL salva tappe");
@@ -55,20 +53,6 @@ app.controller('myAppAssegnaTappaCtrl', ['$scope','$rootScope', 'Mete', 'Impegni
                 var newTappa = $scope.dati.utenti[i].tappa;
                 console.log("Alla fine " + $scope.dati.utenti[i].nome + " ha la tappa " + newTappa);
                 Utente.aggiornaTappa(uuid, newTappa);
-                for(var j = 0; j<$scope.dati.mete.length;j++) {
-                    for( var z = 0; z<$scope.dati.impegni.length;z++) {
-                        var oldTappa = $scope.dati.utenti[i].tappa;
-                        if($scope.dati.utenti[i].codice==$scope.dati.mete[j].codice && $scope.dati.utenti[i].codice==$scope.dati.impegni[z].codice) {
-                            if (($scope.dati.mete[j].tappa == "" && $scope.dati.impegni[z].tappa == "") || oldTappa=="Responsabilità" || oldTappa=="Scoperta" || oldTappa=="Competenza") {
-                                console.log("entriamo qui dentro")
-                                Mete.aggiornaMetaTappa($scope.dati.mete[j].$id, newTappa)
-                                Impegni.aggiornaImpegniTappa($scope.dati.impegni[z].$id, newTappa)
-
-                            }
-                        }
-                    }
-                }
-
             }
         }
         $scope.dati.feedback = "Salvataggio avvenuto con successo";

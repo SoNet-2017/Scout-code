@@ -44,32 +44,59 @@
                 <div class="bio" ng-if="dati.user.hobby != ''">
                     Mi piace: {{dati.user.hobby}}
                 </div>
+                <br>
+            </div>
+            <md-card-actions layout="row" layout-align="end center" >
+                <!--
+                <md-button ng-click="logout()" class="md-raised md-warn" ng-if="dati.user.codice == info.user.codice">LOGOUT</md-button>
+                -->
+            </md-card-actions>
+
+        </md-card>
 
 
-                <div flex="100" ng-if="dati.user.codice == info.user.codice">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch ng-if="dati.user.codice == info.user.codice">
 
-                    <br><br>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">I Miei impegni</span>
+                </md-card-title-text>
+            </md-card-title>
 
-                    <md-divider ng-if="!$last"></md-divider>
-
-                    <h3 class="bio" >I Miei impegni</h3>
+            <div class="card-content">
+                <div flex="100" >
+                    <h3 class="bio" ></h3>
                     <img class="img-impegni" ng-src="{{info.user.img_impegni}}" ng-if="info.user.img_impegni != ''">
-                    <br>
-                    <br>
-                    <md-divider ng-if="!$last"></md-divider>
-                    <br>
-
                 </div>
+            </div>
+
+            <md-card-actions layout="row" layout-align="end center" >
+                <!--
+                <md-button ng-click="logout()" class="md-raised md-warn" ng-if="dati.user.codice == info.user.codice">LOGOUT</md-button>
+                -->
+            </md-card-actions>
+
+        </md-card>
 
 
 
 
-                <div layout="row" layout-wrap class="camicia">
-                    <div flex="100">
-                        <h3 class="bio" >La mia camicia</h3>
-                        <br>
-                    </div>
 
+
+
+
+
+
+        <md-card  class="camicia">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">La mia camicia</span>
+
+                </md-card-title-text>
+            </md-card-title>
+            <br>
+            <div class="card-content">
+                <div layout="row" layout-wrap >
                     <div flex="100">
                         <img ng-src="../images/fis.jpg" class="fis">
                     </div>
@@ -102,14 +129,10 @@
                     </div>
                 </div>
 
-
-
-
             </div>
-            <md-card-actions layout="row" layout-align="end center" >
-                <md-button ng-click="logout()" class="md-raised md-warn" ng-if="dati.user.codice == info.user.codice">LOGOUT</md-button>
+            <md-card-actions layout="row" layout-align="end center">
             </md-card-actions>
-
         </md-card>
+
     </div>
 </md-content>

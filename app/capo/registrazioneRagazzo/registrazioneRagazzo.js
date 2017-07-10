@@ -19,8 +19,8 @@ app.config(['$routeProvider', function($routeProvider) {
         });
     }]);
 
-app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'RegistrazioneBioService', 'Mete', 'Impegni', 'RegistrazioneRagazzoService', '$firebaseStorage', 'Utente',
-        function($scope, $rootScope, RegistrazioneBioService, Mete, Impegni, RegistrazioneRagazzoService, $firebaseStorage, Utente) {
+app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'Mete', 'Impegni', 'RegistrazioneRagazzoService', '$firebaseStorage', 'Utente',
+        function($scope, $rootScope, Mete, Impegni, RegistrazioneRagazzoService, $firebaseStorage, Utente) {
 
             //initialize variables
             $scope.dati = {};
@@ -79,15 +79,22 @@ app.controller('RegistrazioneRagazzoCtrl', ['$scope', '$rootScope', 'Registrazio
                     $scope.dati.feedback = "Registrazione avvenuta con successo";
 
                 });
-                $scope.dati.vuoto=""
-                $scope.dati.tappa=""
-                Mete.aggiungiMete($scope.dati.vuoto,$scope.dati.codice, $scope.dati.tappa)
-                Impegni.aggiungiImpegni($scope.dati.vuoto, $scope.dati.codice, $scope.dati.tappa)
-                RegistrazioneBioService.aggiungiBio($scope.dati.codice, $scope.dati.vuoto, $scope.dati.vuoto, $scope.dati.vuoto, $scope.dati.vuoto)
+
+                $scope.dati.scoperta="Scoperta";
+                $scope.dati.competenza="Competenza";
+                $scope.dati.responsabilita="Responsabilità";
+
+                Mete.aggiungiMete($scope.dati.codice,$scope.dati.scoperta);
+                Mete.aggiungiMete($scope.dati.codice,$scope.dati.competenza);
+                Mete.aggiungiMete($scope.dati.codice,$scope.dati.responsabilita);
+
+                for(var i = 0; i < 3; i++){
+                    Impegni.aggiungiImpegni($scope.dati.codice, $scope.dati.scoperta)
+                    Impegni.aggiungiImpegni($scope.dati.codice, $scope.dati.competenza)
+                    Impegni.aggiungiImpegni($scope.dati.codice, $scope.dati.responsabilita)
+                }
+
             }
-
-
-
 
 
         }]);

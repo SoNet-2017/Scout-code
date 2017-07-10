@@ -33,13 +33,31 @@
                 <div class="md-media-lg card-media " >
                     <img class="img-profile" ng-src="{{dati.user.img}}">
                 </div>
+            </div>
+            <md-card-actions layout="row" layout-align="end center" >
+                <!--
+                <md-button ng-click="logout()" class="md-raised md-warn" ng-if="dati.user.codice == info.user.codice">LOGOUT</md-button>
+                -->
+            </md-card-actions>
+
+        </md-card>
 
 
+
+
+
+
+
+        <md-card  class="camicia">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">La mia camicia</span>
+
+                </md-card-title-text>
+            </md-card-title>
+            <br>
+            <div class="card-content">
                 <div layout="row" layout-wrap class="camicia">
-                    <div flex="100">
-                        <h3 class="bio" >La mia camicia</h3>
-                        <br>
-                    </div>
 
                     <div flex="100">
                         <img ng-src="../images/fis.jpg" class="fis">
@@ -51,14 +69,31 @@
                     <div flex="50">
                         <img ng-src="../images/promessa.png" class="promessa">
                     </div>
+                    <div flex="50">
+                        <!-- EVENTUALI BREVETTI -->
+                        <img ng-src="../{{distintivo.img_url}}" class="brevetto"
+                             ng-repeat="distintivo in dati.distintivi | orderBy:'nome'"  ng-if="distintivo.tipo == 'Brevetto' && distintivo.ragazzo == dati.user.codice" >
+
+                        <!-- EVENTUALI SPECIALITA' -->
+                        <img ng-src="../{{distintivo.img_url}}" class="specialita"
+                             ng-repeat="distintivo in dati.distintivi | orderBy:'nome'"  ng-if="distintivo.tipo == 'Specialità' && distintivo.ragazzo == dati.user.codice" >
+                    </div>
+                    <div flex="50">
+                        <div ng-repeat="squadriglia in dati.squadriglie"
+                             ng-if="dati.user.sq != '' && squadriglia.nome == dati.user.sq" class="omerale"
+                             ng-style="{ 'background-color': squadriglia.primary, 'color': squadriglia.accent }">
+                            <b>Sq. {{dati.user.sq}}</b>
+                        </div>
+
+                        <img ng-src="../images/scoperta.jpg" class="tappa" ng-if="dati.user.tappa != '' && dati.user.tappa == 'Scoperta'">
+                        <img ng-src="../images/competenza.jpg" class="tappa" ng-if="dati.user.tappa != '' && dati.user.tappa == 'Competenza'">
+                        <img ng-src="../images/responsabilita.jpg" class="tappa" ng-if="dati.user.tappa != '' && dati.user.tappa == 'Responsabilità'">
+                    </div>
                 </div>
 
-            <br>
             </div>
-            <md-card-actions layout="row" layout-align="end center" >
-                <md-button ng-click="logout()" class="md-raised md-warn" ng-if="dati.user.codice == info.user.codice">LOGOUT</md-button>
+            <md-card-actions layout="row" layout-align="end center">
             </md-card-actions>
-
         </md-card>
     </div>
 </md-content>

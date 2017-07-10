@@ -7,14 +7,15 @@
 
                         <md-card-title>
                             <md-card-title-text>
-                                <span class="md-headline"><b>Mete e Impegni</b></span>
+                                <span class="md-headline"><b>Meta e Impegni</b></span>
+                                <span class="sm-headline">Per la tappa della {{info.user.tappa}}</span>
                             </md-card-title-text>
                         </md-card-title>
                         <br/>
                         <div class="card-content">
                             <md-input-container class="md-block">
                                 <label>Inserisci Meta</label>
-                                <input required id="mete" ng-model="dati.mete.azione" name="mete">
+                                <input required id="meta" ng-model="dati.meta.azione" name="meta">
                             </md-input-container>
 
                             <br>
@@ -22,12 +23,29 @@
                             <br>
 
                             <md-input-container class="md-block">
-                                <label>Inserisci Impegni</label>
-                                <input required id="impegni" ng-model="dati.impegni.azione" name="impegni">
+                                <label>Inserisci il primo impegno</label>
+                                <input required id="impegno1" ng-model="dati.impegno1.azione" name="impegno1">
+                            </md-input-container>
+
+                            <br>
+                            <br>
+
+                            <md-input-container class="md-block">
+                                <label>Inserisci il secondo impegno</label>
+                                <input id="impegno2" ng-model="dati.impegno2.azione" name="impegno2">
+                            </md-input-container>
+
+                            <br>
+                            <br>
+
+                            <md-input-container class="md-block">
+                                <label>Inserisci il terzo impegno</label>
+                                <input  id="impegno3" ng-model="dati.impegno3.azione" name="impegno3">
                             </md-input-container>
                         </div>
 
-                        <md-card-actions>
+
+                        <md-card-actions layout="row" layout-align="end center">
                                 <md-button type=submit" class="md-raised md-primary">SALVA</md-button>
                         </md-card-actions>
 

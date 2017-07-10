@@ -8,13 +8,11 @@ app.config(['$routeProvider', function($routeProvider){
     $routeProvider.when('/homeRagazzo',{
         templateUrl: 'ragazzo/homeRagazzo/homeRagazzo.html',
         controller: 'myAppHomeRagazzoCtrl',
-
-        /*resolve: {
+        resolve: {
             "currentAuth":["Auth",function(Auth) {
                 return Auth.$requireSignIn();
             }]
-        }*/
-
+        }
     })
 }]);
 

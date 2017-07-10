@@ -32,19 +32,55 @@ app.controller('myAppMeteImpegniCtr', ['$scope', '$rootScope', 'Utente', 'Mete',
     $scope.dati.mete=Mete.getData();
     $scope.dati.impegni=Impegni.getData();
 
-    $scope.dati.utente=$routeParams.codiceRagazzo;
+    $scope.dati.meta={};
+    $scope.dati.impegno1={};
+    $scope.dati.impegno2={};
+    $scope.dati.impegno3={};
+    var count = 0;
 
-    $scope.dati.utenti=Utente.getData()
-    $scope.dati.utenti.$loaded().then(function () {
-        for(var i = 0; i<$scope.dati.utenti.length; i++){
-            console.log("sono dentro al for per la tappa");
-            if($scope.dati.utenti[i].codice==$routeParams.codiceRagazzo){
-                console.log("ALEEEEEEE EEEEE EEEE ");
-                $scope.dati.tappa=Utente.getData($scope.dati.utenti[i].tappa)
+    console.log("inizializzo tutto");
+
+    $scope.dati.mete.$loaded().then(function () {
+        for (var i = 0; i < $scope.dati.mete.length; i++) {
+            console.log("inizio a cercare le mete");
+            console.log("mete i codice: "+ $scope.dati.mete[i].codice);
+            console.log("mete i tappa: "+ $scope.dati.mete[i].tappa);
+            console.log("mete i tappa: "+ $scope.dati.mete[i].azione);
+
+            if ($scope.dati.mete[i].codice == $rootScope.info.user.codice && $scope.dati.mete[i].tappa == $rootScope.info.user.tappa) {
+                console.log("ho trovato la meta");
+                $scope.dati.meta = $scope.dati.mete[i];
+
             }
         }
+    });
 
-    })
+    $scope.dati.mete.$loaded().then(function () {
+        for(var i = 0; i<$scope.dati.impegni.length;i++) {
+            if ($scope.dati.impegni[i].codice == $rootScope.info.user.codice && $scope.dati.impegni[i].tappa == $rootScope.info.user.tappa){
+
+                count++;
+
+                if (count==1){
+                    console.log("ho trovato il primo impegno");
+                    $scope.dati.impegno1 = $scope.dati.impegni[i];
+                }
+                else if(count==2){
+                    console.log("ho trovato il secondo impegno");
+                    $scope.dati.impegno2 = $scope.dati.impegni[i];
+                }
+                else if(count==3){
+                    console.log("ho trovato il terzo impegno");
+                    $scope.dati.impegno3 = $scope.dati.impegni[i];
+                }
+            }
+        }
+    });
+
+
+
+
+
 
     $scope.salvaMeteImpegni=function(){
 
@@ -54,33 +90,16 @@ app.controller('myAppMeteImpegniCtr', ['$scope', '$rootScope', 'Utente', 'Mete',
             console.log("ho premuto su salva");
 
 
-            for(var i = 0; i<$scope.dati.mete.length;i++) {
-
-                console.log("vediamo se riesco a salvare o aggiornare le mete e gli impegni 1")
-                for(var j = 0; j<$scope.dati.impegni.length;j++) {
-                    console.log("vediamo se riesco a salvare o aggiornare le mete e gli impegni 2 ")
-                    if ($scope.dati.mete[i].codice == $scope.dati.utente) {
-                        console.log("vediamo se riesco a salvare o aggiornare le mete e gli impegni 3 ")
-
-                        if ($scope.dati.impegni[j].codice == $scope.dati.utente) {
-                            console.log("vediamo se riesco a salvare o aggiornare le mete e gli impegni 4 ")
+            Mete.aggiornaMetaAzione($scope.dati.meta.$id, $scope.dati.meta.azione);
+            Impegni.aggiornaImpegnoAzione($scope.dati.impegno1.$id, $scope.dati.impegno1.azione);
+            Impegni.aggiornaImpegnoAzione($scope.dati.impegno2.$id, $scope.dati.impegno2.azione);
+            Impegni.aggiornaImpegnoAzione($scope.dati.impegno3.$id, $scope.dati.impegno3.azione);
 
 
-                            if ($scope.dati.mete == undefined || $scope.dati.mete == "" || $scope.dati.impegni == undefined || $scope.dati.impegni == "") {
-                                Mete.aggiungiMete($scope.dati.mete.azione, $scope.dati.utente, $scope.dati.utente.tappa)
-                                Impegni.aggiungiImpegni($scope.dati.impegni.azione, $scope.dati.utente, $scope.dati.utente.tappa)
-                            }
-                            else if ($scope.dati.mete != undefined && $scope.dati.mete != "" && $scope.dati.impegni != undefined && $scope.dati.impegni != "") {
-                                Mete.aggiornaMetaAzione($scope.dati.mete[i].$id, $scope.dati.mete.azione)
-                                Impegni.aggiornaImpegniAzione($scope.dati.impegni[j].$id, $scope.dati.impegni.azione)
-                            }
-                        }
-                    }
-                }
-            }
 
-        $location.path("/sentiero/");
-        $scope.dati.feedback = "Registrazione avvenuta con successo";
+
+        //$location.path("/sentiero/");
+        $scope.dati.feedback = "Aggiornamento avvenuto con successo";
 
         }
 

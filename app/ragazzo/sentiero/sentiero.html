@@ -5,34 +5,33 @@
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">Sentiero</span>
-                    <span class="sm-headline">Sei in cammino sulla tappa della Competenza</span>
+                    <span class="sm-headline">Sei in cammino sulla tappa della {{info.user.tappa}}</span>
                 </md-card-title-text>
             </md-card-title>
-                <div class="card-content" layout="row">
-                    <div class="col-sm-6 " layout="col">
-                        <img  class="listaSentiero" ng-if="dati.utente.tappa=='Responsabilità'" ng-src="../images/responsabilita.jpg">
-                        <img  class="listaSentiero" ng-if="dati.utente.tappa=='Scoperta'" ng-src="../images/scoperta.jpg">
-                        <img  class="listaSentiero" ng-if="dati.utente.tappa=='Competenza'" ng-src="../images/competenza.jpg">
+                <div class="card-content" layout="row" layout-wrap>
+                    <div flex="30">
+                        <img  class="sentiero" ng-if="info.user.tappa=='Responsabilità'" ng-src="../images/responsabilita.jpg">
+                        <img  class="sentiero" ng-if="info.user.tappa=='Scoperta'" ng-src="../images/scoperta.jpg">
+                        <img  class="sentiero" ng-if="info.user.tappa=='Competenza'" ng-src="../images/competenza.jpg">
+                    </div>
 
+                    <div flex="70">
+                        <b>Meta:</b> <span ng-repeat="meta in dati.mete" ng-if="meta.codice == info.user.codice && meta.tappa == info.user.tappa">
+                                {{meta.azione}}
+                              </span>
+                        <br><br>
+                        <b>Impegni:</b> <span ng-repeat="impegno in dati.impegni" ng-if="impegno.codice == info.user.codice && impegno.tappa == info.user.tappa">
+                                    {{impegno.azione}}<span ng-if="$last">.</span><span ng-if="!$last">; </span>
+                                 </span>
                     </div>
-                    <div class="card-content" layout="col">
-                        Meta: {{dati.metaAttuale.azione}}
-                        <br>
-                        Impegno: {{dati.impegnoAttuale.azione}}
-                    </div>
+
                 </div>
-                <div class="card-content" layout="row">
-                    <a href="#!/meteImpegni/{{dati.utente.codice}}" >
-                        <md-button class="md-primary md-raised" ng-if="dati.metaAttuale.azione=='' ||  dati.impegnoAttuale.azione==''">
-                            Salva Impegni e Mete <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
-                        </md-button>
-                        <md-button class="md-primary md-raised" ng-if="dati.metaAttuale.azione!='' && dati.impegnoAttuale.azione!=''">
-                            Aggiorna Impegni e Mete <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
-                        </md-button>
+
+                <md-card-actions layout="row" layout-align="end center">
+                    <a href="#!/meteImpegni/{{info.user.codice}}" >
+                        <md-button class="md-primary md-raised">Aggiorna</md-button>
                     </a>
-                </div>
-
-
+                </md-card-actions>
             </md-card>
 
 
@@ -53,9 +52,7 @@
 
                 <md-card-actions layout="row" layout-align="end center">
                     <a href="#!/listaSpecialita" >
-                        <md-button class="md-primary md-raised">
-                            Aggiungi Specialita <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
-                        </md-button>
+                        <md-button class="md-primary md-raised">Nuova</md-button>
                     </a>
 
                 </md-card-actions>
@@ -76,9 +73,7 @@
                 <br>
                 <md-card-actions layout="row" layout-align="end center">
                     <a href="#!/listaBrevetti" >
-                        <md-button class="md-primary md-raised">
-                            Aggiungi Brevetti <md-icon aria-label="Settings" class="material-icons" >add_box</md-icon>
-                        </md-button>
+                        <md-button class="md-primary md-raised">Nuovo</md-button>
                     </a>
 
                 </md-card-actions>

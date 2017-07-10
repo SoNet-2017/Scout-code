@@ -8,19 +8,29 @@ app.config(['$routeProvider', function($routeProvider){
     $routeProvider.when('/sentiero',{
         templateUrl: 'ragazzo/sentiero/sentiero.html',
         controller: 'myAppSentieroCtrl',
-        /*resolve: {
-            "currentAuth":["Auth",function(auth) {
+        resolve: {
+            "currentAuth":["Auth",function(Auth) {
                 return Auth.$requireSignIn();
             }]
-        }*/
-
+        }
     })
 }]);
 
 
 app.controller('myAppSentieroCtrl', ['$scope','$rootScope', 'Brevetti', 'CartaCompetenza', 'Mete', 'Impegni', 'Scadenza', 'Utente', 'CartaSpecialita', '$mdDialog', '$firebaseStorage', '$location',
     function($scope,$rootScope, Brevetti, CartaCompetenza, Mete, Impegni, Scadenza, Utente, CartaSpecialita, $mdDialog, $firebaseStorage, $location){
+
     $scope.dati={}
+    $scope.dati.utenti = Utente.getData();
+    $scope.dati.mete = Mete.getData();
+    $scope.dati.impegni = Impegni.getData();
+
+
+
+
+
+
+
     $scope.dati.utente=$rootScope.info.user
     $scope.dati.cartaSpec=CartaSpecialita.getData()
     $scope.dati.scadenze=Scadenza.getData()
@@ -47,34 +57,6 @@ app.controller('myAppSentieroCtrl', ['$scope','$rootScope', 'Brevetti', 'CartaCo
             }
         }
     })
-
-
-
-
-
-    $scope.dati.utenti = Utente.getData()
-        $scope.dati.mete = Mete.getData();
-        $scope.dati.impegni = Impegni.getData();
-
-        console.log("mostriamo gli impegni e le mete attuali")
-        $scope.dati.mete.$loaded().then(function() {
-            for (var i = 0; i < $scope.dati.mete.length; i++) {
-                for (var j = 0; j < $scope.dati.impegni.length; j++) {
-                    if ($scope.dati.mete[i].codice == $scope.dati.utente.codice) {
-                        console.log("vediamo se riesco a salvare o aggiornare le mete e gli impegni 3 ")
-                        if ($scope.dati.impegni[j].codice == $scope.dati.utente.codice) {
-                            console.log("vediamo se riesco a salvare o aggiornare le mete e gli impegni 4 ")
-                            $scope.dati.metaAttuale = Mete.getMeteInfo($scope.dati.mete[i].$id)
-                            $scope.dati.impegnoAttuale = Impegni.getImpegniInfo($scope.dati.impegni[j].$id)
-                        }
-                    }
-                }
-            }
-        })
-
-
-
-
 
 
 }]);

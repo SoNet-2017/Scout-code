@@ -480,8 +480,10 @@ img.listaSentiero {
  */
 .camicia {
     background-color: #93b4d7;
+    /*
     padding: 16px;
     border-radius: 4px;
+    */
 }
 
 .fis {
@@ -537,4 +539,9 @@ img.listaSentiero {
 
 .img-impegni {
     width:100%;
+}
+
+.sentiero{
+    width: 90%;
+    padding-top: 4px;
 }
