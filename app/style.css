@@ -542,6 +542,16 @@ img.listaSentiero {
 }
 
 .sentiero{
-    width: 90%;
-    padding-top: 4px;
+    width: 100%;
+}
+
+
+.nome-specialita {
+    font-size: 1.5em;
+    padding-left: 8px;
+}
+
+
+.specialita-carta{
+    width:100%;
 }

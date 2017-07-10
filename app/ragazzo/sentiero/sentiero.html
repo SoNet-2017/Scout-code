@@ -5,23 +5,28 @@
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">Sentiero</span>
-                    <span class="sm-headline">Sei in cammino sulla tappa della {{info.user.tappa}}</span>
+                    <span class="sm-headline">Sei in cammino sulla tappa della <b>{{info.user.tappa}}</b></span>
                 </md-card-title-text>
-            </md-card-title>
-                <div class="card-content" layout="row" layout-wrap>
-                    <div flex="30">
+
+                <md-card-title-media>
+                    <div class="md-media-sm card-media">
                         <img  class="sentiero" ng-if="info.user.tappa=='Responsabilità'" ng-src="../images/responsabilita.jpg">
                         <img  class="sentiero" ng-if="info.user.tappa=='Scoperta'" ng-src="../images/scoperta.jpg">
                         <img  class="sentiero" ng-if="info.user.tappa=='Competenza'" ng-src="../images/competenza.jpg">
                     </div>
+                </md-card-title-media>
 
-                    <div flex="70">
+
+            </md-card-title>
+                <div class="card-content" layout="row" layout-wrap>
+                       <div flex="100">
+                       <br>
                         <b>Meta:</b> <span ng-repeat="meta in dati.mete" ng-if="meta.codice == info.user.codice && meta.tappa == info.user.tappa">
                                 {{meta.azione}}
                               </span>
                         <br><br>
                         <b>Impegni:</b> <span ng-repeat="impegno in dati.impegni" ng-if="impegno.codice == info.user.codice && impegno.tappa == info.user.tappa">
-                                    {{impegno.azione}}<span ng-if="$last">.</span><span ng-if="!$last">; </span>
+                                    {{impegno.azione}}<span ng-if="!$last">; </span><br>
                                  </span>
                     </div>
 

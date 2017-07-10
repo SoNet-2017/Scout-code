@@ -7,14 +7,14 @@
 
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline">Aggiungi azioni e data di scadenza</span>
-                            <h4>{{dati.nomeSpec.nome}}</h4>
+                        <span class="md-headline">Aggiungi azioni e scadenze</span>
+                            <h4>Per la specialità di {{dati.nomeSpec.nome}}</h4>
                     </md-card-title-text>
                 </md-card-title>
 
 
                 <div class="card-content">
-                    <h3>Azione 1</h3>
+                    <h4>Azione 1</h4>
                     <br/>
                     <md-input-container class="md-block">
                         <label>Cosa uoi fare?</label>
@@ -25,14 +25,14 @@
 
                     <div layout-gt-xs="row">
                         <div flex-gt-xs>
-                            <h4>Entro quando vuoi farlo?</h4>
+                            <h5>Entro quando vuoi farlo?</h5>
                             <md-datepicker ng-model="dati.myDate1" md-placeholder="Scadenza"></md-datepicker>
                         </div>
                     </div>
 
-                    <br><br><br><br>
+                    <br><br><md-divider ng-if="!$last"></md-divider><br>
 
-                    <h3>Azione 2</h3>
+                    <h4>Azione 2</h4>
                     <br/>
                     <md-input-container class="md-block">
                         <label>Cosa vuoi fare?</label>
@@ -43,14 +43,14 @@
 
                     <div layout-gt-xs="row">
                         <div flex-gt-xs>
-                            <h4>Entro quando vuoi farlo?</h4>
+                            <h5>Entro quando vuoi farlo?</h5>
                             <md-datepicker ng-model="dati.myDate2" md-placeholder="Scadenza"></md-datepicker>
                         </div>
                     </div>
 
-                    <br><br><br><br>
+                    <br><br><md-divider ng-if="!$last"></md-divider><br>
 
-                    <h3>Azione 3</h3>
+                    <h4>Azione 3</h4>
                     <br/>
                     <md-input-container class="md-block">
                         <label>Cosa vuoi fare?</label>
@@ -61,14 +61,14 @@
 
                     <div layout-gt-xs="row">
                         <div flex-gt-xs>
-                            <h4>Entro quando vuoi farlo?</h4>
+                            <h5>Entro quando vuoi farlo?</h5>
                             <md-datepicker ng-model="dati.myDate3" md-placeholder="Scadenza"></md-datepicker>
                         </div>
                     </div>
 
-                    <br><br><br><br>
+                    <br><br><md-divider ng-if="!$last"></md-divider><br>
 
-                    <h3>Azione 4</h3>
+                    <h4>Azione 4</h4>
                     <br/>
                     <md-input-container class="md-block">
                         <label>Cosa vuoi fare?</label>
@@ -79,7 +79,7 @@
 
                     <div layout-gt-xs="row">
                         <div flex-gt-xs>
-                            <h4>Entro quando vuoi farlo?</h4>
+                            <h5>Entro quando vuoi farlo?</h5>
                             <md-datepicker ng-model="dati.myDate4" md-placeholder="Scadenza"></md-datepicker>
                         </div>
                     </div>

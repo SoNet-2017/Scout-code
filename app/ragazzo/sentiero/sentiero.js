@@ -38,11 +38,11 @@ app.controller('myAppSentieroCtrl', ['$scope','$rootScope', 'Brevetti', 'CartaCo
         for (var i = 0; i < $scope.dati.cartaSpec.length; i++) {
             for (var j = 0; j < $scope.dati.scadenze.length; j++) {
                 if ($scope.dati.scadenze[j].carta_spec == $scope.dati.cartaSpec[i].$id) {
-                    console.log("entro nel if scadenza appartiene a carta attuale")
+                    //console.log("entro nel if scadenza appartiene a carta attuale")
                     if ($scope.dati.scadenze[j].conferma == false) {
-                        console.log("trovo una scadenza non confermata")
+                        //console.log("trovo una scadenza non confermata")
                         $scope.dati.cartaSpec[i].attiva = true;
-                        console.log("La carta " + $scope.dati.cartaSpec[i].$id + " è attiva");
+                        //console.log("La carta " + $scope.dati.cartaSpec[i].$id + " è attiva");
                     }
                 }
             }

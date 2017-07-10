@@ -22,8 +22,9 @@ app.config(['$routeProvider', function($routeProvider){
 
 
 
-app.controller('myAppFormaSquadriglieCtrl', ['$scope','$rootScope', 'Utente', function($scope,$rootScope, Utente) {
+app.controller('myAppFormaSquadriglieCtrl', ['$scope','$rootScope', 'Utente', 'Squadriglia', function($scope,$rootScope, Utente, Squadriglia) {
         console.log("e' entrato nel ctrl forma sq");
+
 
 
     //initialize variables
@@ -31,6 +32,7 @@ app.controller('myAppFormaSquadriglieCtrl', ['$scope','$rootScope', 'Utente', fu
     $scope.dati.feedback = "";
 
     //get the list of available sq
+    //$scope.dati.squadriglie = Squadriglia.getData();
     $scope.dati.utenti = Utente.getData();
     $scope.dati.utenti.$loaded().then(function () {
 

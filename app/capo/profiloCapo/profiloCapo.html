@@ -35,9 +35,9 @@
                 </div>
             </div>
             <md-card-actions layout="row" layout-align="end center" >
-                <!--
-                <md-button ng-click="logout()" class="md-raised md-warn" ng-if="dati.user.codice == info.user.codice">LOGOUT</md-button>
-                -->
+                <a href="#!/aggiornaProfiloCapo/{{info.user.codice}}">
+                    <md-button class="md-raised md-primary" ng-if="dati.user.codice == info.user.codice">MODIFICA</md-button>
+                </a>
             </md-card-actions>
 
         </md-card>

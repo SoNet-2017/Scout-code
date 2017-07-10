@@ -23,10 +23,8 @@ app.controller('myAppListaSpecialitaCtrl',['$scope', '$rootScope', 'Specialita',
 
 
     $scope.showAlert = function (ev,nome) {
-        console.log('clicco')
         for(var i=0;i<$scope.dati.specialita.length;i++) {
             if ($scope.dati.specialita[i].nome == nome) {
-                console.log('siamo dentro if');
                 var descrizione = $scope.dati.specialita[i].descrizione;
                 var nomeSpec=$scope.dati.specialita[i].nome;
                 var spec=$scope.dati.specialita[i];
@@ -34,7 +32,6 @@ app.controller('myAppListaSpecialitaCtrl',['$scope', '$rootScope', 'Specialita',
             }
         }
 
-        console.log(descrizione)
         $mdDialog.show(
             $mdDialog.alert()
                 .parent(angular.element(document.querySelector('#popupContainer')))

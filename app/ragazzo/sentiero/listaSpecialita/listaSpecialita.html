@@ -8,31 +8,44 @@
                         <span class="md-subhead"></span>
                     </md-card-title-text>
                 </md-card-title>
-                <md-card-actions layout="row" layout-align="none">
-                    <div class="md-media-lg card-media" >
 
-                                <ul class="media-list">
-                                    <li class="media" ng-repeat="specialita in dati.specialita">
-                                        <b><h3>{{specialita.nome}}</h3></b>
-                                            <div class="col media-left">
-                                                <img class="media-object img-responsive listaSpecialita" ng-src="../{{specialita.img_url}}">
-                                            </div>
-                                            <div class="col media-left" >
-                                                <div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
-                                                    <md-button class="md-primary md-raised" ng-click="showAlert($event,specialita.nome)" aria-label="{{specialita.nome}}">
-                                                        Approfondisci <md-icon aria-label="Settings" class="material-icons" >menu</md-icon>
-                                                    </md-button>
-                                                </div>
-                                                <div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
-                                                    <md-card-actions layout="row" layout-align="end center">
-                                                        <md-button ng-click="scegliSpecialita(specialita.nome)" class="md-raised md-primary" id="btn-salva">Scegli</md-button>
-                                                    </md-card-actions>
-                                                </div>
-                                            </div>
-                                    </li>
-                                </ul>
 
+
+
+
+
+                <div class="card-content">
+                    <div  layout="row" layout-wrap ng-repeat="specialita in dati.specialita | orderBy:'nome'">
+
+                        <div flex="30">
+                            <img class="listaSpecialita" ng-src="../{{specialita.img_url}}">
+                        </div>
+
+                        <div flex="70">
+                            <span class="nome-specialita">{{specialita.nome}}</span>
+
+                            <div layout="row" layout-align="space-between center">
+                                    <md-button class="md-primary md-raised" ng-click="showAlert($event,specialita.nome)" aria-label="{{specialita.nome}}">Leggi</md-button>
+                                    <md-button ng-click="scegliSpecialita(specialita.nome)" class="md-raised md-primary" id="btn-salva">Scegli</md-button>
+                            </div>
+
+
+                         </div>
+
+                        <div flex="100">
+                            <br>
+                        </div>
+                        <div flex="100">
+                            <md-divider ng-if="!$last"></md-divider>
+                        </div>
+                        <br>
                     </div>
+
+                </div>
+
+
+                <md-card-actions layout="row" layout-align="none">
+
                 </md-card-actions>
             </md-card>
         </div>

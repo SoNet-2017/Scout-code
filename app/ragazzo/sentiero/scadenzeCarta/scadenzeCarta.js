@@ -72,7 +72,8 @@ app.controller('myAppScadenzeCartaCtrl', ['$scope','$rootScope', '$routeParams',
     }
 
     $scope.registraScadenza=function(azione, data){
-        console.log("vediamo cosa c'è:" + azione + " "+ $rootScope.info.cartaSpec.$id+ " "+data+ " "+$scope.dati.deadline+ $rootScope.info.user.nome+ " "+$rootScope.info.cartaSpec.nome_specialita+ " "+$rootScope.info.user.codice+" "+$rootScope.info.cartaSpec.specialita)
+        //console.log("vediamo cosa c'è:" + azione + " "+ $rootScope.info.cartaSpec.$id+ " "+data+ " "+$scope.dati.deadline+ $rootScope.info.user.nome+ " "+$rootScope.info.cartaSpec.nome_specialita+ " "+$rootScope.info.user.codice+" "+$rootScope.info.cartaSpec.specialita)
+        $scope.dati.deadline=Math.floor((Math.random()*50));
         Scadenza.creaScadenza(azione, $rootScope.info.cartaSpec.$id, data, $scope.dati.deadline, $rootScope.info.user.nome, $rootScope.info.cartaSpec.nome, $rootScope.info.user.codice, $rootScope.info.cartaSpec.specialita)
         console.log("Salvataggio avvenuto con successo")
     }

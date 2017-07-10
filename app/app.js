@@ -53,7 +53,8 @@ var app = angular.module('myApp', [
         'myAppCartaCompetenza',
         'myAppSceltaMaestroBrev',
         'myAppVisualizzaCartaCompetenza',
-        'myAppElencoSpecCorrelate'
+        'myAppElencoSpecCorrelate',
+        'myAppAggiornaProfiloCapo'
     ]);
 
 
