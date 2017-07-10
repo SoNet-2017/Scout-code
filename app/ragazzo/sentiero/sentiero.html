@@ -50,7 +50,7 @@
                 <div class="card-content">
                     <a href="#!/visualizzaCartaSpecialita/{{carta.$id}}" ng-repeat="carta in dati.cartaSpec"
                        ng-if="carta.ragazzo == info.user.codice && carta.attiva == true">
-                        <img src="../{{carta.img_url}}" class="listaSentiero" ></img></a>
+                        <img ng-src="../{{carta.img_url}}" class="listaSentiero" ></img></a>
                 </div>
 
                 <br>
@@ -73,7 +73,7 @@
                 <div class="card-content">
                     <a href="#!/visualizzaCartaCompetenza/{{cartaComp.$id}}" ng-repeat="cartaComp in dati.cartaComp"
                        ng-if="cartaComp.ragazzo == dati.utente.codice  && cartaComp.attiva==true">
-                        <img src="../{{cartaComp.img_url}}" class="listaSentiero" ></img></a>
+                        <img ng-src="../{{cartaComp.img_url}}" class="listaSentiero" ></img></a>
                 </div>
                 <br>
                 <md-card-actions layout="row" layout-align="end center">
