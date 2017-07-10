@@ -77,6 +77,6 @@ app.controller('myAppConfermaScadenzeCtrl', ['$scope','$rootScope', 'Utente', 'S
 /**** FILTRO CREATO CUSTOM PER RIMUOVERE IL "meno" DAVANTI AL NUMERO ****/
 app.filter('removeDash', function() {
     return function(input) {
-        return (!!input) ?  input.substr(1) : '';
+        return (""+input).replace("-", "");
     }
 });

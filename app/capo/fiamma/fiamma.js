@@ -24,7 +24,7 @@ app.config(['$routeProvider', function($routeProvider){
 
 
 app.controller('myAppFiammaCtrl', ['$scope','$rootScope', 'Squadriglia', 'Fiamma', function($scope,$rootScope, Squadriglia, Fiamma) {
-    console.log("e' entrato nel ctrl fiamma database");
+    //console.log("e' entrato nel ctrl fiamma database");
 
 
     //initialize variables
@@ -39,7 +39,7 @@ app.controller('myAppFiammaCtrl', ['$scope','$rootScope', 'Squadriglia', 'Fiamma
                 var oldFiamma = $scope.dati.squadriglie[i].nome;
 
                 var uuidOld = $scope.dati.squadriglie[i].$id;
-                console.log("nel for questo e' lo uuid di " +$scope.dati.squadriglie[i].nome +": "+ uuidOld);
+                //console.log("nel for questo e' lo uuid di " +$scope.dati.squadriglie[i].nome +": "+ uuidOld);
 
                 $scope.data = {
                     oldFiamma : oldFiamma,
@@ -59,16 +59,18 @@ app.controller('myAppFiammaCtrl', ['$scope','$rootScope', 'Squadriglia', 'Fiamma
         var newFiamma = $scope.data.newFiamma;
         var uuidOld = $scope.data.uuidOld;
 
+        /*
         console.log("hai premuto su salva");
         console.log("Vecchia fiamma:"+ oldFiamma);
         console.log("Nuova fiamma:"+ newFiamma);
+        */
 
         for (var i = 0; i < $scope.dati.squadriglie.length; i++) {
-        console.log("ENTRO NEL SECONDO FOR");
+        //console.log("ENTRO NEL SECONDO FOR");
             if ($scope.dati.squadriglie[i].nome == newFiamma) {
-                console.log("ENTRO NEL SECONDO IF");
+                //console.log("ENTRO NEL SECONDO IF");
                 var uuidNew = $scope.dati.squadriglie[i].$id;
-                console.log("nel secondo for questo e' il nuovo uuid: "+ uuidNew);
+                //console.log("nel secondo for questo e' il nuovo uuid: "+ uuidNew);
 
                 $scope.data = {
                     uuidOld : uuidOld,
@@ -95,7 +97,7 @@ app.controller('myAppFiammaCtrl', ['$scope','$rootScope', 'Squadriglia', 'Fiamma
                     var oldFiamma = $scope.dati.squadriglie[i].nome;
 
                     var uuidOld = $scope.dati.squadriglie[i].$id;
-                    console.log("nel for questo e' lo uuid di " +$scope.dati.squadriglie[i].nome +": "+ uuidOld);
+                    //console.log("nel for questo e' lo uuid di " +$scope.dati.squadriglie[i].nome +": "+ uuidOld);
 
                     $scope.data = {
                         oldFiamma : oldFiamma,

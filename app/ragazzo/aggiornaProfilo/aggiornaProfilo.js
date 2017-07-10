@@ -25,6 +25,7 @@ app.config(['$routeProvider', function($routeProvider) {
 
 app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'RegistrazioneRagazzoService', 'Utente', '$firebaseAuth', '$location', '$routeParams', '$firebaseStorage', function($scope, $rootScope, RegistrazioneRagazzoService, Utente,$firebaseAuth, $location, $routeParams,$firebaseStorage) {
     $scope.dati={};
+    $scope.dati.feedback = "";
     $scope.dati.descrizione = "";
     $scope.dati.hobby = "";
     $scope.dati.descrizione = $rootScope.info.user.descrizione;
@@ -40,6 +41,7 @@ app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Registraz
     $scope.salvaBio=function(){
         console.log("ho premuto su salva bio");
         RegistrazioneRagazzoService.aggiornaBio($rootScope.info.user.$id, $scope.dati.descrizione, $scope.dati.hobby);
+        $scope.dati.feedback = "Salvataggio avvenuto con successo";
 
     };
 

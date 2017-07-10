@@ -34,17 +34,21 @@
 
                         <md-divider ng-if="!$last"></md-divider>
 
-                        <div ng-repeat="azioniScadenze in dati.scadenze" ng-if="azioniScadenze.carta_spec==dati.valoreIdCarta">
+                        <div ng-repeat="scadenza in dati.scadenze" ng-if="scadenza.carta_spec==dati.valoreIdCarta">
                             <br>
-                            <b>Azione</b>: {{azioniScadenze.azione}}
+                            <b>Azione</b>: {{scadenza.azione}}
                             <br>
-                            <b>Scadenza</b>: tra {{azioniScadenze.deadline}} giorni
-                            <br><br>
+                            <div ng-if="scadenza.conferma == true">
+                                <b>Scadenza</b> <b md-primary>confermata</b>
+                            </div>
+                            <div ng-if="scadenza.conferma == false">
+                                <b>Scadenza</b>: tra {{scadenza.deadline}} giorni
+                            </div>
+                            <br>
 
                             <md-divider ng-if="!$last"></md-divider>
-                            <br>
                         </div>
-
+                    <br>
 
                     </div>
 

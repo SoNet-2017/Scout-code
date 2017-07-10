@@ -68,9 +68,11 @@ app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', '
         }
          **/
         $scope.dati.deadline = deadline;
-        if (deadline < 0) {
-            $scope.dati.deadline = (!!deadline) ?  deadline.substr(1) : '';
+                if (deadline < 0) {
+            $scope.dati.deadline = ("" + deadline).replace("-", "");
+            //$scope.dati.deadline = (!!deadline) ?  deadline.substr(1) : '';
         }
+
 
         $scope.dati.verbo = "doveva:";
         $scope.dati.quando = $scope.dati.deadline + " giorni fa";
