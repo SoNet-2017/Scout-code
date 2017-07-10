@@ -3,53 +3,92 @@
         <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">Inserisci le tue informazioni</span>
+                    <span class="md-headline">Parla di te</span>
 
                 </md-card-title-text>
             </md-card-title>
             <br>
             <div class="card-content">
                 <md-input-container class="md-block">
-                    <label>Inserisci la tua descrizione</label>
-                    <input required id="descrizione" name="descrizione" ng-model="dati.bio.descrizione">
+                    <label>Come ti descrivi?</label>
+                    <input id="descrizione" name="descrizione" ng-model="dati.descrizione" >
                 </md-input-container>
 
-                <br/>
+                <br><br>
 
                 <md-input-container class="md-block">
-                    <label>Inserisci ti piace fare</label>
-                    <input required id="hobby" name="hobby" ng-model="dati.bio.hobby">
+                    <label>Cosa ti piace fare?</label>
+                    <input id="hobby" name="hobby" ng-model="dati.hobby" >
                 </md-input-container>
 
             </div>
-            <md-card-actions>
-                <md-button class="md-primary md-raised" ng-click="salvaBio()" aria-label="">
-                    Salva
-                </md-button>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-primary md-raised" ng-click="salvaBio()" aria-label="">AGGIORNA</md-button>
             </md-card-actions>
         </md-card>
 
-        <form id="frmFoto" role="form" ng-submit="fotoProfilo()">
+
+
+
+        <form id="frmFoto" role="form" ng-submit="salvaFoto()">
             <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline">Carica Foto</span>
+                        <span class="md-headline">Foto profilo</span>
 
                     </md-card-title-text>
                 </md-card-title>
                 <br>
-                <div class="media-left">
-                    <!--<img class="img-profile"  ng-src="">-->
+                <div class="card-content">
+                    <div class="knot rot-dx"></div>
+                    <div class="knot rot-sx"></div>
+
+                    <div class="md-media-lg card-media " >
+                        <img class="img-profile" ng-src="{{info.user.img}}">
+                    </div>
+
+                    <file-upload on-change="$ctrl.onChange"></file-upload>
+                    <div class="bio">
+                        {{dati.uploading}}
+                    </div>
+
                 </div>
+                <md-card-actions layout="row" layout-align="end center">
+
+                    <md-button type="submit" class="md-primary md-raised">AGGIORNA</md-button>
+                </md-card-actions>
+            </md-card>
+        </form>
+
+
+
+        <form id="frmImpegni" role="form" ng-submit="salvaImpegni()">
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Foto impegni settimanali</span>
+
+                    </md-card-title-text>
+                </md-card-title>
                 <br>
-                <md-card-actions>
-                    <b>Descriptive image:</b>
-                    <file-upload on-change="$ctrl.onChange">
-                    </file-upload>
+                <div class="card-content">
+                    <div class="md-media-lg card-media " >
+                        <img class="img-impegni" ng-src="{{info.user.img_impegni}}" ng-if="info.user.img_impegni != ''">
+                        <div class="" ng-if="info.user.img_impegni == ''">
+                            Nessuna immagine presente, scrivi su un foglio la tabella dei tuoi impegni settimanali e
+                            caricala qui per averla sempre a portata di mano. Ricordati di aggiornarna di tanto in tanto.
+                        </div>
+                    </div>
+
                     <br>
-                    <md-button type="submit" class="md-primary md-raised">
-                        Salva
-                    </md-button>
+                    <file-upload on-change="$ctrl.onChange"></file-upload>
+                    <div class="bio">
+                        {{dati.uploading}}
+                    </div>
+
+                </div>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button type="submit" class="md-primary md-raised">AGGIORNA</md-button>
                 </md-card-actions>
             </md-card>
         </form>

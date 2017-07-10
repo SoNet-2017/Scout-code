@@ -30,15 +30,17 @@
                 <div class="knot rot-dx"></div>
                 <div class="knot rot-sx"></div>
 
-                <div class="md-media-lg card-media " ng-if="dati.user.img == true">
-                    <img class="img-profile" ng-src="../images/{{dati.user.codice}}.jpg">
-                </div>
-                <div class="md-media-lg card-media " ng-if="dati.user.img == false">
-                    <img class="img-profile" ng-src="../images/default_profile.png">
+                <div class="md-media-lg card-media " >
+                    <img class="img-profile" ng-src="{{dati.user.img}}">
                 </div>
 
 
                 <div layout="row" layout-wrap class="camicia">
+                    <div flex="100">
+                        <h3 class="bio" >La mia camicia</h3>
+                        <br>
+                    </div>
+
                     <div flex="100">
                         <img ng-src="../images/fis.jpg" class="fis">
                     </div>

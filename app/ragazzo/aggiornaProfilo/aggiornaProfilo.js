@@ -23,40 +23,37 @@ app.config(['$routeProvider', function($routeProvider) {
     })
 }])
 
-app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Bio', 'RegistrazioneBioService', 'Utente', '$firebaseAuth', '$location', '$routeParams', '$firebaseStorage', function($scope, $rootScope, Bio, RegistrazioneBioService, Utente,$firebaseAuth, $location, $routeParams,$firebaseStorage) {
-    $scope.dati={}
-    $scope.dati.bio=Bio.getData();
-    $scope.dati.utente=$routeParams.codiceRagazzo;
-    $scope.dati.bio.impegni="";
+app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'RegistrazioneRagazzoService', 'Utente', '$firebaseAuth', '$location', '$routeParams', '$firebaseStorage', function($scope, $rootScope, RegistrazioneRagazzoService, Utente,$firebaseAuth, $location, $routeParams,$firebaseStorage) {
+    $scope.dati={};
+    $scope.dati.descrizione = $rootScope.info.user.descrizione;
+    $scope.dati.hobby = $rootScope.info.user.hobby;
+    $scope.dati.uploading = "";
+
     var ctrl = this;
     $scope.fileToUpload=null;
     $scope.imgPath="";
-    $scope.dati.utenteCorrente=$rootScope.info.user;
-    console.log(""+$scope.dati.utenteCorrente.codice)
+
 
 
     $scope.salvaBio=function(){
+        console.log("ho premuto su salva bio");
+        RegistrazioneRagazzoService.aggiornaBio($rootScope.info.user.$id, $scope.dati.descrizione, $scope.dati.hobby);
 
-        console.log("ho premuto su salva");
-        for(var i = 0; i<$scope.dati.bio.length; i++){
-            if($scope.dati.bio[i].codice==$scope.dati.utente){
-                console.log("sto aggiornando...")
-                if( $scope.dati.bio.descrizione!=""){
-                    console.log("sto aggiornando la descrizione")
-                    Bio.aggiornaBioDescrizione($scope.dati.bio[i].$id,$scope.dati.bio.descrizione)
-                }
-                else if($scope.dati.bio.hobby!=""){
-                    console.log("sto aggiornando gli hobby")
-                    Bio.aggiornaBioHobby($scope.dati.bio[i].$id,$scope.dati.bio.hobby)
-                }
-            }
-        }
+    };
 
-        $location.path("/profiloRagazzo/");
+    ctrl.onChange = function onChange(fileList) {
+        $scope.fileToUpload = fileList[0];
+        //console.log($scope.fileToUpload.name);
+    };
 
-    }
-    $scope.fotoProfilo= function() {
+
+    $scope.salvaFoto= function() {
+        console.log("ho premuto su salva foto");
+
+
         if ($scope.fileToUpload != null) {
+            $scope.dati.uploading="Caricamento in corso...";
+
             var fileName = $scope.fileToUpload.name;
             var storageRef = firebase.storage().ref("fotoProfilo/" + fileName);
             console.log("Sono dentro l'immissione di una foto")
@@ -64,26 +61,43 @@ app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'Bio', 'Re
             var uploadTask = $scope.storage.$put($scope.fileToUpload);
             uploadTask.$complete(function (snapshot) {
                 $scope.imgPath = snapshot.downloadURL;
-                $scope.immettiFoto();
+                $scope.aggiornaImmagineProfilo();
             });
         }
-    }
+    };
 
-    ctrl.onChange = function onChange(fileList) {
-        $scope.fileToUpload = fileList[0];
-        console.log($scope.fileToUpload.name);
-            }
-    $scope.immettiFoto=function(){
-        for(var i = 0; i<$scope.dati.bio.length; i++) {
-            if ($scope.dati.bio[i].codice == $scope.dati.utente) {
-                console.log("sono dentro al for di immettiFoto")
-                console.log("richiamo la funzione che agiorna il path" + $scope.dati.bio[i].$id)
-                Bio.aggiornaBioFoto($scope.dati.bio[i].$id, $scope.imgPath)
-            }
+
+    $scope.aggiornaImmagineProfilo=function(){
+        console.log("aggiorno la foto nel databse");
+        RegistrazioneRagazzoService.aggiornaFoto($rootScope.info.user.$id, $scope.imgPath);
+        $scope.dati.uploading="";
+    };
+
+    $scope.salvaImpegni= function() {
+        console.log("ho premuto su salva impegni");
+
+
+        if ($scope.fileToUpload != null) {
+            $scope.dati.uploading="Caricamento in corso...";
+
+            var fileName = $scope.fileToUpload.name;
+            var storageRef = firebase.storage().ref("fotoImpegni/" + fileName);
+            console.log("Sono dentro l'immissione di una foto")
+            $scope.storage = $firebaseStorage(storageRef);
+            var uploadTask = $scope.storage.$put($scope.fileToUpload);
+            uploadTask.$complete(function (snapshot) {
+                $scope.imgPath = snapshot.downloadURL;
+                $scope.aggiornaImmagineImpegni();
+            });
         }
-        $location.path("/profiloRagazzo/");
+    };
 
-    }
 
-}])
+    $scope.aggiornaImmagineImpegni=function(){
+        console.log("aggiorno la foto nel databse");
+        RegistrazioneRagazzoService.aggiornaImpegni($rootScope.info.user.$id, $scope.imgPath);
+        $scope.dati.uploading="";
+    };
+
+}]);
 

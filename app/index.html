@@ -160,8 +160,8 @@
                                                                                                 ||  utente.cognome.toLowerCase().includes(search.ricerca.toLowerCase())"
                           ng-click="vediProfilo(utente.codice)">
 
-                        <div flex="30" ng-if="utente.img == true">
-                            <img class="result-img" ng-src="../images/{{utente.codice}}.jpg">
+                        <div flex="30">
+                            <img class="result-img" ng-src="{{utente.img}}">
                         </div >
                         <div flex="30" ng-if="utente.img == false">
                             <img class="result-img" ng-src="../images/default_profile.png">
@@ -248,8 +248,8 @@
             <!-- Box personale -->
             <a href="#!/profiloCapo/{{info.user.codice}}" ng-click="close()" ng-if="isLogged()">
                 <div layout="row"  class="personal-box">
-                    <div flex="none" ng-if="info.user.img == true">
-                        <img class="user-img" ng-src="../images/{{info.user.codice}}.jpg">
+                    <div flex="none">
+                        <img class="user-img" ng-src="{{info.user.img}}">
                     </div >
                     <div flex="none" ng-if="info.user.img == false">
                         <img class="user-img" ng-src="../images/default_profile.png">
@@ -266,7 +266,7 @@
                             <h5 ng-if="info.user.staff == true">
                                 Staff Stella Polare
                             </h5>
-                            <h5 ng-if="info.user.ruolo == 'ragazzo'">
+                            <h5 ng-if="info.user.ruolo == 'ragazzo' && info.user.sq != ''">
                                 Sq. {{info.user.sq}}
                             </h5>
                         </div>

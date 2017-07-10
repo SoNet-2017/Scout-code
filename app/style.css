@@ -199,6 +199,8 @@ md-toolbar.md-primary {
 }
 
 
+
+
 /*
     SIDENAV
  */
@@ -391,6 +393,13 @@ img.listaSentiero {
     transform: rotate(25deg);
 }
 
+.bio {
+    text-align: center;
+}
+
+
+
+
 /****
     SCADENZE
  */
@@ -522,4 +531,10 @@ img.listaSentiero {
     width: 100%;
     padding: 50px 0;
     margin-top:20px;
+}
+
+
+
+.img-impegni {
+    width:100%;
 }

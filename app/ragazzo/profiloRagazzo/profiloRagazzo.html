@@ -19,25 +19,57 @@
                 <div>
                     Codice socio: {{dati.user.codice}}
                 </div>
+                <!--
                 <div ng-if="dati.user.staff == true">
                     Staff: Stella Polare
                 </div>
                 <div ng-if="dati.user.email != ''">
                     Email: {{dati.user.email}}
                 </div>
+                -->
                 <br><br>
 
                 <div class="knot rot-dx"></div>
                 <div class="knot rot-sx"></div>
 
-                <div class="md-media-lg card-media " ng-if="dati.user.img == true">
-                    <img class="img-profile" ng-src="../images/{{dati.user.codice}}.jpg">
-                </div>
-                <div class="md-media-lg card-media " ng-if="dati.user.img == false">
-                    <img class="img-profile" ng-src="../images/default_profile.png">
+                <div class="md-media-lg card-media " >
+                    <img class="img-profile" ng-src="{{dati.user.img}}">
                 </div>
 
+
+                <div class="bio" ng-if="dati.user.descrizione != ''">
+                    Mi presento: {{dati.user.descrizione}}
+                </div>
+                <br>
+                <div class="bio" ng-if="dati.user.hobby != ''">
+                    Mi piace: {{dati.user.hobby}}
+                </div>
+
+
+                <div flex="100" ng-if="dati.user.codice == info.user.codice">
+
+                    <br><br>
+
+                    <md-divider ng-if="!$last"></md-divider>
+
+                    <h3 class="bio" >I Miei impegni</h3>
+                    <img class="img-impegni" ng-src="{{info.user.img_impegni}}" ng-if="info.user.img_impegni != ''">
+                    <br>
+                    <br>
+                    <md-divider ng-if="!$last"></md-divider>
+                    <br>
+
+                </div>
+
+
+
+
                 <div layout="row" layout-wrap class="camicia">
+                    <div flex="100">
+                        <h3 class="bio" >La mia camicia</h3>
+                        <br>
+                    </div>
+
                     <div flex="100">
                         <img ng-src="../images/fis.jpg" class="fis">
                     </div>

@@ -13,6 +13,9 @@ app.factory('Bio', function($firebaseArray, $firebaseObject) {
             var bioRef = firebase.database().ref().child("bio").child(bioId);
             return $firebaseObject(bioRef);
         },
+
+
+
         aggiornaBioDescrizione: function(codice, nuovaDescrizione) {
             var ref = firebase.database().ref().child("bio").child(codice);
             // create a synchronized array
@@ -21,6 +24,8 @@ app.factory('Bio', function($firebaseArray, $firebaseObject) {
             });
 
         },
+
+
         aggiornaBioFoto: function(codice, nuovaFoto) {
             var ref = firebase.database().ref().child("bio").child(codice);
             // create a synchronized array
@@ -29,6 +34,8 @@ app.factory('Bio', function($firebaseArray, $firebaseObject) {
             });
 
         },
+
+
         aggiornaBioHobby: function(codice, nuovoHobby) {
             var ref = firebase.database().ref().child("bio").child(codice);
             // create a synchronized array
