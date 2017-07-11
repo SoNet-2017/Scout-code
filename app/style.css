@@ -10,17 +10,15 @@
 }
 */
 
-
-
 @media screen and (min-width: 350px) {
 
     .menu-laterale {
         line-height: 2.25em;
         font-size: 1.35em;
-        overflow-y: auto!important;
+        overflow-y: auto !important;
     }
 
-    .user-name{
+    .user-name {
         font-size: 1.5em;
         margin: 0;
         margin-right: 16px;
@@ -35,7 +33,7 @@
         width: 120px;
         height: 120px;
         margin: 16px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     }
 
     .personal-box {
@@ -48,7 +46,6 @@
         background: linear-gradient(to bottom right, #4CAF50, #B2FF59); /* Standard syntax (must be last) */
     }
 
-
 }
 
 @media screen and (max-width: 350px) {
@@ -56,10 +53,10 @@
     .menu-laterale {
         line-height: 2.2em;
         font-size: 1.25em;
-        overflow-y: auto!important;
+        overflow-y: auto !important;
     }
 
-    .user-name{
+    .user-name {
         font-size: 1em;
         margin: 0;
         margin-right: 16px;
@@ -74,7 +71,7 @@
         width: 75px;
         height: 75px;
         margin: 16px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     }
 
     .personal-box {
@@ -89,28 +86,27 @@
     }
 }
 
-
-
 ._md {
     /*overflow: hidden;*/
 }
 
-
 a {
- text-decoration: none!important;
-    color: #4CAF50!important;
+    text-decoration: none !important;
+    color: #4CAF50 !important;
 }
+
 a:hover {
-    text-decoration: none!important;
-    color: #B2FF59!important;
+    text-decoration: none !important;
+    color: #B2FF59 !important;
 }
+
 a:visited {
-    text-decoration: none!important;
+    text-decoration: none !important;
 }
 
 a.logotype, a.logotype:visited, a.logotype:active, a.logotype:hover {
     font-family: 'Baloo', cursive;
-    color: #f7f7f7!important;
+    color: #f7f7f7 !important;
     font-size: 1.5em;
 }
 
@@ -118,12 +114,11 @@ h1 {
     text-align: center;
 }
 
-
 body {
-    background-color: #fafafa!important;
+    background-color: #fafafa !important;
 }
 
-.main-view{
+.main-view {
     margin-top: 56px;
 }
 
@@ -132,8 +127,6 @@ body {
     margin-bottom: 15px;
     height: 20px;
 }
-
-
 
 .menu-laterale > ul {
     padding-left: 0;
@@ -145,12 +138,8 @@ body {
 }
 
 .menu-laterale > ul > li > a.not-active {
-    color: lightgray!important;
+    color: lightgray !important;
 }
-
-
-
-
 
 .tappa-img {
     width: 50px;
@@ -172,8 +161,6 @@ body {
     color: #f7f7f7;
 }
 
-
-
 .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
     color: white;
 }
@@ -182,15 +169,13 @@ md-toolbar {
     min-height: 56px !important;
 }
 
-
 .md-toolbar-tools {
     height: 56px !important;
     max-height: 56px !important;
 }
 
-
 md-toolbar.md-primary {
-    position:fixed !important;
+    position: fixed !important;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
@@ -198,148 +183,145 @@ md-toolbar.md-primary {
     margin-right: 10px;
 }
 
-
-
-
 /*
     SIDENAV
  */
-
-
-
-
-
 
 md-backdrop {
     height: 100% !important;
     position: fixed !important;
 }
+
 .md-sidenav-left, .md-sidenav-right {
     position: fixed;
 }
 
-
-
-.ng-scope .layout-column{
-height: 100%;
+.ng-scope .layout-column {
+    height: 100%;
 }
-
-
 
 /****
     STILE RADIO BUTTONS
  */
 .radioButtondemoBasicUsage body {
-    padding: 20px; }
+    padding: 20px;
+}
 
 .radioButtondemoBasicUsage hr {
     margin-left: -20px;
-    opacity: 0.3; }
+    opacity: 0.3;
+}
 
 .radioButtondemoBasicUsage md-radio-group {
-    width: 150px; }
+    width: 150px;
+}
 
 .radioButtondemoBasicUsage p:last-child {
-    padding-bottom: 50px; }
+    padding-bottom: 50px;
+}
 
 .radioButtondemoBasicUsage [ng-controller] {
-    padding: 0 20px; }
+    padding: 0 20px;
+}
 
 .radioButtondemoBasicUsage .radioValue {
     margin-left: 5px;
     color: #0f9d58;
     font-weight: bold;
-    padding: 5px; }
+    padding: 5px;
+}
 
 .radioButtondemoBasicUsage md-icon {
     margin: 0 20px 20px;
     width: 128px;
-    height: 128px; }
+    height: 128px;
+}
 
 .radioButtondemoBasicUsage .ipsum {
     color: saddlebrown;
-    font-size: 0.9em; }
-
-
+    font-size: 0.9em;
+}
 
 /******
     BUTTONS
  */
 
-.md-button.md-primary.md-raised{
-    background-color: #4CAF50!important;
+.md-button.md-primary.md-raised {
+    background-color: #4CAF50 !important;
 }
+
 .buttondemoBasicUsage section {
     background: #f7f7f7;
     border-radius: 3px;
     text-align: center;
     margin: 1em;
     position: relative !important;
-    padding-bottom: 10px; }
+    padding-bottom: 10px;
+}
 
 .buttondemoBasicUsage md-content {
-    margin-right: 7px; }
+    margin-right: 7px;
+}
 
 .buttondemoBasicUsage section .md-button {
     margin-top: 16px;
-    margin-bottom: 16px; }
+    margin-bottom: 16px;
+}
 
 .buttondemoBasicUsage .label {
     position: absolute;
     bottom: 5px;
     left: 7px;
     font-size: 14px;
-    opacity: 0.54; }
+    opacity: 0.54;
+}
 
 /*********
     INPUT ERRORS
  */
 .inputdemoErrors .inputErrorsApp {
-    min-height: 48px; }
+    min-height: 48px;
+}
 
 .inputdemoErrors md-input-container > p {
     font-size: 0.8em;
     text-align: left;
-    width: 100%; }
-
-
+    width: 100%;
+}
 
 /******
     SWITCH
  */
 
 md-switch {
-    margin: 0!important;
-    height: 1em!important;
+    margin: 0 !important;
+    height: 1em !important;
     position: relative;
     top: 4px;
 }
+
 md-switch.toggle-scadenza {
     top: 8px;
 }
-
-
-
 
 /****
     INPUT REGISTRAZIONE
  */
 
-
-
 /******
     IMMAGINI-LISTA SPECIALITA
  */
-img.listaSpecialita{
+img.listaSpecialita {
     width: 75px;
     height: 75px;
 }
-img.img-scadenze{
+
+img.img-scadenze {
     position: relative;
     top: 4px;
 }
 
-.scadenze-content{
+.scadenze-content {
     line-height: 2em;
 }
 
@@ -352,42 +334,39 @@ img.listaSentiero {
     padding: 2px;
 }
 
-
-
 /*******
     PROFILO
  */
 .img-profile {
-    width:50%;
+    width: 50%;
     position: relative;
     top: -50px;
     left: 25%;
     margin-top: 20px;
     margin-bottom: 50px;
     border-radius: 4px;
-    box-shadow:
-            0 0 0 4px #ffd600,
-            0 0 0 8px #03a9f4,
-            0 0 0 12px #0d47a1;
+    box-shadow: 0 0 0 4px #ffd600,
+    0 0 0 8px #03a9f4,
+    0 0 0 12px #0d47a1;
 }
- .knot {
-     width: 20px;
-     height: 20px;
-     position: relative;
-     box-shadow:
-             -10px 0 0 14px white,
-             -4px 0 0 12px #ffd600,
-             0px 0 0 12px #03a9f4,
-             4px 0 0 12px #0d47a1;
- }
 
-.rot-dx{
+.knot {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    box-shadow: -10px 0 0 14px white,
+    -4px 0 0 12px #ffd600,
+    0px 0 0 12px #03a9f4,
+    4px 0 0 12px #0d47a1;
+}
+
+.rot-dx {
     top: 185px;
     left: 45%;
     transform: rotate(-25deg);
 }
 
-.rot-sx{
+.rot-sx {
     top: 148px;
     left: 36%;
     transform: rotate(25deg);
@@ -397,23 +376,21 @@ img.listaSentiero {
     text-align: center;
 }
 
-
-
-
 /****
     SCADENZE
  */
-.box-scadenza{
-    width: 40px;
+.box-scadenza {
+    /*width: 40px;*/
     text-align: center;
     padding: 4px;
-    margin-right: 10px;
+    margin: 0px 0px 8px 4px;
     min-width: inherit;
     position: relative;
     top: -4px;
     border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
+
 .scadenza-confermata {
     background-color: #4CAF50;
     color: rgb(255, 255, 255);
@@ -424,14 +401,25 @@ img.listaSentiero {
     color: #fff;
 }
 
+.border-scadenza {
+    border-right: 8px solid #f7f7f7;
+}
 
+.border-scadenza-confermata {
+    border-right: 8px solid #4CAF50;
+}
+
+.border-scadenza-mancata {
+    border-right: 8px solid #ff5722;
+}
 
 /*****
     RISULTATI RICERCA
  */
-.risultati-ricerca:before{
+.risultati-ricerca:before {
     border-top: solid red 6px;
 }
+
 .risultati-ricerca {
     border-top: solid #388E3C 1px;
     width: 240px;
@@ -450,30 +438,26 @@ img.listaSentiero {
 
 @media screen and (min-width: 538px) {
     .risultati-ricerca {
-        top: 56px!important;
+        top: 56px !important;
     }
 }
 
-
-.result-img{
+.result-img {
     width: 40px;
     height: 40px;
     margin: 0 6px 16px 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
-.result-text{
+
+.result-text {
     color: rgba(0, 0, 0, 0.75);
     font-size: 0.75em;
 }
 
-.result-text-dx{
+.result-text-dx {
     color: rgba(0, 0, 0, 0.66);
     font-size: 0.75em;
 }
-
-
-
-
 
 /****
     DISTINTIVI
@@ -532,26 +516,95 @@ img.listaSentiero {
 #myDiv {
     width: 100%;
     padding: 50px 0;
-    margin-top:20px;
+    margin-top: 20px;
 }
-
-
 
 .img-impegni {
-    width:100%;
-}
-
-.sentiero{
     width: 100%;
 }
 
+.sentiero {
+    width: 100%;
+}
 
 .nome-specialita {
     font-size: 1.5em;
     padding-left: 8px;
 }
 
+.specialita-carta {
+    width: 100%;
+}
 
-.specialita-carta{
-    width:100%;
+.feedback{
+    background-color: #4CAF50;
+    color: white;
+}
+.errore{
+    background-color: #f4511e;
+    color: white;
+}
+
+.notifica{
+    font-family: Roboto;
+    font-size: 1em;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    z-index: 1;
+    box-sizing: border-box;
+    cursor: default;
+    overflow: hidden;
+    padding: 20px;
+    margin: 4px;
+    border-radius: 2px;
+    opacity: 1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+
+    -webkit-animation:
+            entrata 1.0s forwards 0.0s,
+            uscita 1.0s forwards 5.0s;
+    -webkit-animation-iteration-count: 1;
+    animation:
+            entrata 1.0s forwards 0.0s,
+            uscita 1.0s forwards 5.0s;
+    animation-iteration-count: 1;
+}
+@-webkit-keyframes entrata {
+    0% {
+        opacity: 0;
+        top: -200px;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes entrata {
+    0% {
+        opacity: 0;
+        top: -200px;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes uscita {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        top: -200px;
+    }
+}
+@keyframes uscita {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        top: -200px;
+    }
 }

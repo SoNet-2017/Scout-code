@@ -54,7 +54,7 @@ app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', '
     $scope.customFullscreen = false
 
     $scope.showAlert = function (ev,azione, ragazzo, specialita, deadline, conferma) {
-        console.log('clicco sul bottone dialog')
+        //console.log('clicco sul bottone dialog')
 
         /** FORSE NON SERVE
         for(var i=0;i<$scope.dati.specialita.length;i++) {

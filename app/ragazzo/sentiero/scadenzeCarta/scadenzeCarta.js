@@ -15,6 +15,7 @@ app.config(['$routeProvider',function($routeProvider) {
 
 app.controller('myAppScadenzeCartaCtrl', ['$scope','$rootScope', '$routeParams', 'Scadenza', '$location', 'CartaSpecialita', function($scope, $rootScope, $routeParams, Scadenza, $location, CartaSpecialita){
     $scope.dati={};
+    $scope.dati.salvataggio = 0;
     $scope.status = '  ';
     $scope.dati.carteSpec=CartaSpecialita.getData();
     $scope.customFullscreen = false
@@ -47,28 +48,32 @@ app.controller('myAppScadenzeCartaCtrl', ['$scope','$rootScope', '$routeParams',
 
     $scope.salvaScadenze=function(){
 
-        $scope.dati.feedback = "";
-        $scope.dati.error = "";
+        if ($scope.dati.salvataggio == 0) {
 
-        console.log("ho premuto su salva");
+            $scope.dati.feedback = "";
+            $scope.dati.error = "";
+            $scope.dati.salvataggio = 1;
 
-        if($scope.dati.azione1 != undefined && $scope.dati.azione1 != "" && $scope.dati.myDate1 != $scope.dati.today){
-            $scope.registraScadenza($scope.dati.azione1, $scope.dati.myDate1);
+            console.log("ho premuto su salva");
+
+            if($scope.dati.azione1 != undefined && $scope.dati.azione1 != "" && $scope.dati.myDate1 != $scope.dati.today){
+                $scope.registraScadenza($scope.dati.azione1, $scope.dati.myDate1);
+            }
+            if($scope.dati.azione2 != undefined && $scope.dati.azione2 != "" && $scope.dati.myDate2 != $scope.dati.today){
+                $scope.registraScadenza($scope.dati.azione2, $scope.dati.myDate2);
+            }
+            if($scope.dati.azione3 != undefined && $scope.dati.azione3 != "" && $scope.dati.myDate3 != $scope.dati.today){
+                $scope.registraScadenza($scope.dati.azione3, $scope.dati.myDate3);
+            }
+            if($scope.dati.azione4 != undefined && $scope.dati.azione4 != "" && $scope.dati.myDate4 != $scope.dati.today){
+                $scope.registraScadenza($scope.dati.azione4, $scope.dati.myDate4);
+            }
+
+            $location.path("/visualizzaCartaSpecialita/" + $routeParams.cartaSpecialitaId);
+                $scope.dati.feedback = "Registrazione avvenuta con successo";
+                $scope.dati.salvataggio = 0;
+
         }
-        if($scope.dati.azione2 != undefined && $scope.dati.azione2 != "" && $scope.dati.myDate2 != $scope.dati.today){
-            $scope.registraScadenza($scope.dati.azione2, $scope.dati.myDate2);
-        }
-        if($scope.dati.azione3 != undefined && $scope.dati.azione3 != "" && $scope.dati.myDate3 != $scope.dati.today){
-            $scope.registraScadenza($scope.dati.azione3, $scope.dati.myDate3);
-        }
-        if($scope.dati.azione4 != undefined && $scope.dati.azione4 != "" && $scope.dati.myDate4 != $scope.dati.today){
-            $scope.registraScadenza($scope.dati.azione4, $scope.dati.myDate4);
-        }
-
-        $location.path("/visualizzaCartaSpecialita/" + $routeParams.cartaSpecialitaId);
-                 $scope.dati.feedback = "Registrazione avvenuta con successo";
-
-
     }
 
     $scope.registraScadenza=function(azione, data){

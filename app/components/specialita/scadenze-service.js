@@ -36,10 +36,10 @@ app.factory('Scadenza', function($firebaseArray, $firebaseObject) {
                     carta_spec:carta_specialita,
                     conferma:false,
                     data:""+data+"",
-                    deadline:deadline,
+                    deadline:""+deadline+"",
                     nome_ragazzo:nomeRagazzo,
                     nome_specialita:nomeSpecialita,
-                    ragazzo:ragazzo,
+                    ragazzo:""+ragazzo+"",
                     specialita:specialita
                 });
             },

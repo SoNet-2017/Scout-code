@@ -1,8 +1,10 @@
 <md-content class="md-padding" layout-xs="column" layout="row" >
 
-    <div class="alert alert-success alert-dismissible inset" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
+
 
     <div flex-xs flex-gt-xs="50" layout="column" ng-controller="aggiornaProfiloRagazzoCtrl as $ctrl">
+        <div class="notifica feedback" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
+
         <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
             <md-card-title>
                 <md-card-title-text>
@@ -76,11 +78,7 @@
                 <br>
                 <div class="card-content">
                     <div class="md-media-lg card-media " >
-                        <img class="img-impegni" ng-src="{{info.user.img_impegni}}" ng-if="info.user.img_impegni != ''">
-                        <div class="" ng-if="info.user.img_impegni == ''">
-                            Nessuna immagine presente, scrivi su un foglio la tabella dei tuoi impegni settimanali e
-                            caricala qui per averla sempre a portata di mano. Ricordati di aggiornarna di tanto in tanto.
-                        </div>
+                        <img class="img-impegni" ng-src="{{info.user.img_impegni}}">
                     </div>
 
                     <br>

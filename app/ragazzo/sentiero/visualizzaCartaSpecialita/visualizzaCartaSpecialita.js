@@ -36,7 +36,19 @@ app.controller('myAppVisualizzaCartaSpecialita',['$scope','$rootScope', '$routeP
     $scope.dati.scadenze=Scadenza.getData()
 
 
+    /**** FUNZIONE PER ASSEGNARE CLASSI PERSONALIZZATE ****/
+    $scope.personalizzaBox = function(deadline, conferma) {
+        if (conferma == true) {
+            return "border-scadenza-confermata";
 
+        } else if (conferma == false && deadline < 0 ) {
+            return "border-scadenza-mancata";
+        }
+
+        else {
+            return "border-scadenza";
+        }
+    };
 
 
 

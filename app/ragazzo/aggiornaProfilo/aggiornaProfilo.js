@@ -25,7 +25,6 @@ app.config(['$routeProvider', function($routeProvider) {
 
 app.controller('aggiornaProfiloRagazzoCtrl', ['$scope', '$rootScope', 'RegistrazioneRagazzoService', 'Utente', '$firebaseAuth', '$location', '$routeParams', '$firebaseStorage', function($scope, $rootScope, RegistrazioneRagazzoService, Utente,$firebaseAuth, $location, $routeParams,$firebaseStorage) {
     $scope.dati={};
-    $scope.dati.feedback = "";
     $scope.dati.descrizione = "";
     $scope.dati.hobby = "";
     $scope.dati.descrizione = $rootScope.info.user.descrizione;

@@ -1,7 +1,8 @@
 <md-content class="md-padding" layout-xs="column" layout="row" >
 
     <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">{{ error.message }}</div>
-    <div class="alert alert-success alert-dismissible inset" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
+
+    <div class="notifica feedback" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
 
     <div flex-xs flex-gt-xs="50" layout="column">
         <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
@@ -65,8 +66,7 @@
 
             <div class="card-content">
                 <div flex="100" >
-                    <h3 class="bio" ></h3>
-                    <img class="img-impegni" ng-src="{{info.user.img_impegni}}" ng-if="info.user.img_impegni != ''">
+                    <img class="img-impegni" ng-src="{{info.user.img_impegni}}">
                 </div>
             </div>
 
@@ -108,13 +108,27 @@
                         <img ng-src="../images/promessa.png" class="promessa">
                     </div>
                     <div flex="50">
+
+
+
+
                         <!-- EVENTUALI BREVETTI -->
                         <img ng-src="../{{distintivo.img_url}}" class="brevetto"
                              ng-repeat="distintivo in dati.distintivi | orderBy:'nome'"  ng-if="distintivo.tipo == 'Brevetto' && distintivo.ragazzo == dati.user.codice" >
 
                         <!-- EVENTUALI SPECIALITA' -->
-                        <img ng-src="../{{distintivo.img_url}}" class="specialita"
-                             ng-repeat="distintivo in dati.distintivi | orderBy:'nome'"  ng-if="distintivo.tipo == 'Specialità' && distintivo.ragazzo == dati.user.codice" >
+                        <a ng-repeat="carta in dati.cartaSpec | orderBy:'nome'" ng-if="carta.ragazzo == dati.user.codice && carta.attiva == false"
+                           ng-click="vediCarta(carta.$id, carta.ragazzo)" >
+                            <img ng-src="../{{carta.img_url}}" class="specialita">
+                        </a>
+
+
+
+
+
+
+
+
                     </div>
                     <div flex="50">
                         <div ng-repeat="squadriglia in dati.squadriglie"

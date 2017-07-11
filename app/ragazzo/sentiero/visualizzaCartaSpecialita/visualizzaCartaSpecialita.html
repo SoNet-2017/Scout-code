@@ -34,18 +34,16 @@
 
                         <md-divider ng-if="!$last"></md-divider>
 
-                        <div ng-repeat="scadenza in dati.scadenze" ng-if="scadenza.carta_spec==dati.valoreIdCarta">
+                        <div ng-repeat="scadenza in dati.scadenze" ng-if="scadenza.carta_spec==dati.valoreIdCarta"
+                             ng-class="personalizzaBox({{scadenza.deadline}}, {{scadenza.conferma}})">
                             <br>
                             <b>Azione</b>: {{scadenza.azione}}
                             <br>
-                            <div ng-if="scadenza.conferma == true">
-                                <b>Scadenza</b> <b md-primary>confermata</b>
-                            </div>
-                            <div ng-if="scadenza.conferma == false && scadenza.deadline >= 0">
+                            <div ng-if="scadenza.deadline >= 0">
                                 <b>Scadenza</b>: tra {{scadenza.deadline}} giorni
                             </div>
-                            <div ng-if="scadenza.conferma == false && scadenza.deadline < 0">
-                                <b>Scadenza</b>: {{scadenza.deadline | removeDash}} giorni fa
+                            <div ng-if="scadenza.deadline < 0">
+                                <b>Scadenza</b>: {{scadenza.deadline | removeDash}} giorni fa, <b ng-if="scadenza.conferma == true">confermata</b><b ng-if="scadenza.conferma == false">mancata</b>
                             </div>
                             <br>
 
@@ -55,8 +53,10 @@
 
                     </div>
 
-                    <md-card-actions layout="row" layout-align="end center">
-                        <a href="#!/sentiero"><md-button type=submit" class="md-raised md-primary">Sentiero</md-button></a>
+                    <md-card-actions layout="row" layout-align="end center" ng-if="info.user.codice == dati.carteSpec.ragazzo">
+                        <a href="#!/sentiero">
+                            <md-button type=submit" class="md-raised md-primary" >Sentiero</md-button>
+                        </a>
                     </md-card-actions>
                 </md-card>
             </div>

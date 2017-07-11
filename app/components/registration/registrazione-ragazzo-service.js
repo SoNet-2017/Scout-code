@@ -25,7 +25,7 @@ angular.module('myAppUtente.registrazioneRagazzoService', [])
                     tappa:"",
                     descrizione:"",
                     hobby:"",
-                    img_impegni:""
+                    img_impegni:"https://firebasestorage.googleapis.com/v0/b/scrapbook-5b34e.appspot.com/o/fotoImpegni%2Fcalendario-settimanale.jpg?alt=media&token=f76b1086-fc2b-43a6-a826-2e67f2ae3863"
                 });
             },
 

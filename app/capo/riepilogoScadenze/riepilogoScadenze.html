@@ -1,7 +1,7 @@
 <div id="popupContainer">
     <md-content class="md-padding" layout-xs="column" layout="row">
 
-    <div class="alert alert-success alert-dismissible inset" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
+        <div class="notifica feedback" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
 
     <div flex-xs flex-gt-xs="50" layout="column">
         <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
@@ -23,8 +23,8 @@
                     <div flex="30">
                         <a href="#!/profiloRagazzo/{{utente.codice}}"><b>{{utente.nome}}</b> {{utente.cognome[0]}}.</a>
                     </div>
-                    <div layout="row"  layout-align="space-between start">
-                        <div flex ng-class="personalizzaBox({{scadenza.deadline}}, {{scadenza.conferma}})"
+                    <div flex="70" layout="row"   layout-wrap layout-align="space-between start">
+                        <div flex="20" ng-class="personalizzaBox({{scadenza.deadline}}, {{scadenza.conferma}})"
                              ng-repeat="scadenza in dati.scadenze |  orderBy:'deadline'"
                              ng-if="scadenza.ragazzo == utente.codice"
                              ng-click="showAlert($event,scadenza.azione, scadenza.nome_ragazzo, scadenza.nome_specialita, scadenza.deadline, scadenza.conferma)">
