@@ -39,10 +39,10 @@ app.controller('myAppVisualizzaCartaSpecialita',['$scope','$rootScope', '$routeP
     /**** FUNZIONE PER ASSEGNARE CLASSI PERSONALIZZATE ****/
     $scope.personalizzaBox = function(deadline, conferma) {
         if (conferma == true) {
-            return "border-scadenza-confermata";
+            return "border-scadenza border-scadenza-confermata";
 
         } else if (conferma == false && deadline < 0 ) {
-            return "border-scadenza-mancata";
+            return "border-scadenza border-scadenza-mancata";
         }
 
         else {

@@ -32,7 +32,6 @@
                         </div>
                         <br>
 
-                        <md-divider ng-if="!$last"></md-divider>
 
                         <div ng-repeat="scadenza in dati.scadenze" ng-if="scadenza.carta_spec==dati.valoreIdCarta"
                              ng-class="personalizzaBox({{scadenza.deadline}}, {{scadenza.conferma}})">
@@ -47,7 +46,6 @@
                             </div>
                             <br>
 
-                            <md-divider ng-if="!$last"></md-divider>
                         </div>
                     <br>
 
