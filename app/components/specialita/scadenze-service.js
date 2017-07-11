@@ -24,6 +24,9 @@ app.factory('Scadenza', function($firebaseArray, $firebaseObject) {
                 }
             },
 
+
+
+
             creaScadenza:function (azione, carta_specialita, data, deadline, nomeRagazzo, nomeSpecialita, ragazzo, specialita) {
                 console.log("entra nella function che aggiunge una scadenza");
 
@@ -43,9 +46,20 @@ app.factory('Scadenza', function($firebaseArray, $firebaseObject) {
                     specialita:specialita
                 });
             },
+
             getScadenzaInfo: function(scadenzaId) {
                 var scadenzaRef = firebase.database().ref().child("scadenze").child(scadenzaId);
                 return $firebaseObject(scadenzaRef);
+            },
+
+
+
+            aggiornaDeadline: function (uuid, newDeadline) {
+                var ref = firebase.database().ref().child("scadenze").child(uuid);
+                // create a synchronized array
+                    ref.update({
+                        deadline: ""+newDeadline+""
+                    });
             }
 
         }
