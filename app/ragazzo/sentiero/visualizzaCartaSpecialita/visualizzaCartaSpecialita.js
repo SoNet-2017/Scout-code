@@ -53,3 +53,14 @@ app.controller('myAppVisualizzaCartaSpecialita',['$scope','$rootScope', '$routeP
 
 
 }])
+
+
+/**** FILTRO CREATO CUSTOM PER ordinare deadline negative ****/
+app.filter('stringToInteger', function() {
+    return function(input) {
+        angular.forEach(input, function(value) {
+            value.deadline =  parseInt(value.deadline);
+        })
+        return input;
+    };
+});

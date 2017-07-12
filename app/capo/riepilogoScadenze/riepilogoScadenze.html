@@ -14,7 +14,7 @@
             </md-card-title>
 
             <div class="card-content">
-                <div>Qui di seguito vedrai il riepilogo di tutte le scadenze (se ne ha) di ciascun ragazzo.</div>
+                <div>Qui di seguito vedrai il riepilogo di tutte le scadenze (se ne ha e se non più vecchie di 3 mesi) di ciascun ragazzo.</div>
                 <br>
                 <div>Ogni box indica il numero di giorni che mancano alla scadenza oppure, se è già passata (negativa) e se è già stata confermata (verde) o meno (arancione) dai capi.</div>
                 <br>
@@ -23,10 +23,10 @@
                     <div flex="30">
                         <a href="#!/profiloRagazzo/{{utente.codice}}"><b>{{utente.nome}}</b> {{utente.cognome[0]}}.</a>
                     </div>
-                    <div flex="70" layout="row"   layout-wrap layout-align="space-between start">
+                    <div flex="70" layout="row"   layout-wrap layout-align="start start">
                         <div flex="20" ng-class="personalizzaBox({{scadenza.deadline}}, {{scadenza.conferma}})"
-                             ng-repeat="scadenza in dati.scadenze |  orderBy:'deadline'"
-                             ng-if="scadenza.ragazzo == utente.codice"
+                             ng-repeat="scadenza in dati.scadenze |  stringToInteger | orderBy:'deadline'"
+                             ng-if="scadenza.ragazzo == utente.codice && scadenza.deadline > -90"
                              ng-click="showAlert($event,scadenza.azione, scadenza.nome_ragazzo, scadenza.nome_specialita, scadenza.deadline, scadenza.conferma)">
                             {{scadenza.deadline}}
                         </div>

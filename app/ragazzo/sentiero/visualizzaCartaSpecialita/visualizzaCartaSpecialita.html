@@ -33,7 +33,7 @@
                         <br>
 
 
-                        <div ng-repeat="scadenza in dati.scadenze" ng-if="scadenza.carta_spec==dati.valoreIdCarta"
+                        <div ng-repeat="scadenza in dati.scadenze |  stringToInteger  |  orderBy:'deadline'" ng-if="scadenza.carta_spec==dati.valoreIdCarta"
                              ng-class="personalizzaBox({{scadenza.deadline}}, {{scadenza.conferma}})">
                             <br>
                             <b>Azione</b>: {{scadenza.azione}}
