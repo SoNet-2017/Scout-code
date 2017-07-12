@@ -9,12 +9,10 @@
                     </md-card-title-text>
                 </md-card-title>
 
-
-
-
-
-
                 <div class="card-content">
+
+
+
                     <div  layout="row" layout-wrap ng-repeat="specialita in dati.specialita | orderBy:'nome'">
 
                         <div flex="30">
@@ -28,7 +26,6 @@
                                     <md-button class="md-primary md-raised" ng-click="showAlert($event,specialita.nome)" aria-label="{{specialita.nome}}">Leggi</md-button>
                                     <md-button ng-click="scegliSpecialita(specialita.nome)" class="md-raised md-primary" id="btn-salva">Scegli</md-button>
                             </div>
-
 
                          </div>
 

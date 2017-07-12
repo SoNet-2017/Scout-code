@@ -312,8 +312,11 @@ md-switch.toggle-scadenza {
     IMMAGINI-LISTA SPECIALITA
  */
 img.listaSpecialita {
-    width: 75px;
-    height: 75px;
+    width: 95%;
+}
+
+img.listaBrevetti {
+    width: 95%;
 }
 
 img.img-scadenze {
@@ -328,10 +331,16 @@ img.img-scadenze {
 /******
     IMMAGINI-SENTIERO
  */
-img.listaSentiero {
-    width: 75px;
-    height: 75px;
-    padding: 2px;
+img.listaSpecSentiero {
+    width: 74px;
+    height: 74px;
+    padding: 0px 1px 6px 1px;
+}
+
+img.listaBrevSentiero {
+    width: 100px;
+    height: 100px;
+    padding: 0px 1px 6px 1px;
 }
 
 /*******
@@ -536,8 +545,16 @@ img.listaSentiero {
 .nome-specialita {
     font-size: 1.5em;
     padding-left: 8px;
+    display: inline-block;
+ }
+
+.nome-brevetto {
+    font-size: 1.5em;
+    padding-left: 8px;
+    display: inline-block;
 }
 
+.brevetto-carta,
 .specialita-carta {
     width: 100%;
 }

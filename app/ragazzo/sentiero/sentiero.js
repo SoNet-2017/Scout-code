@@ -49,6 +49,7 @@ app.controller('myAppSentieroCtrl', ['$scope','$rootScope', 'Brevetti', 'CartaCo
         }
     });
 
+
     $scope.dati.cartaComp=CartaCompetenza.getData();
     $scope.dati.cartaComp.$loaded().then(function(){
         for(var i = 0; i<$scope.dati.cartaComp.length; i++){

@@ -8,33 +8,40 @@
                         <span class="md-subhead"></span>
                     </md-card-title-text>
                 </md-card-title>
-                <md-card-actions layout="row" layout-align="none">
-                    <div class="md-media-lg card-media" >
 
-                        <ul class="media-list">
-                            <li class="media" ng-repeat="brevetti in dati.brevetti">
-                                <b><h3>{{brevetti.nome}}</h3></b>
-                                <div class="col media-left">
-                                    <img class="media-object img-responsive listaSpecialita" ng-src="../{{brevetti.img_url}}">
-                                </div>
-                                <div class="col media-left" >
-                                    <div class="dialog-demo-content" layout="col" layout-wrap layout-margin layout-align="center end">
-                                        <md-button class="md-primary md-raised" ng-click="showAlert($event,brevetti.nome)" aria-label="{{brevetti.nome}}">
-                                            Approfondisci <md-icon aria-label="Settings" class="material-icons" >menu</md-icon>
-                                        </md-button>
-                                    </div>
-                                    <div class="dialog-demo-content" layout="col" layout-wrap layout-margin layout-align="center end">
-                                        <md-card-actions layout="row" layout-align="end center">
-                                            <md-button ng-click="scegliBrevetto(brevetti.nome)" class="md-raised md-primary" id="btn-salva">Scegli</md-button>
-                                        </md-card-actions>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                <div class="card-content">
 
+                    <div  layout="row" layout-wrap ng-repeat="brevetto in dati.brevetti | orderBy:'nome'">
 
+                        <div flex="35">
+                            <img class="listaBrevetti" ng-src="../{{brevetto.img_url}}">
+                        </div>
 
+                        <div flex="65">
+                            <span class="nome-brevetto">{{brevetto.nome}}</span>
+
+                            <div layout="row" layout-align="space-between center">
+                                <md-button class="md-primary md-raised" ng-click="showAlert($event,brevetto.nome)" aria-label="{{brevetto.nome}}">Leggi</md-button>
+                                <md-button ng-click="scegliBrevetto(brevetto.nome)" class="md-raised md-primary" id="btn-salva">Scegli</md-button>
+                            </div>
+
+                        </div>
+
+                        <div flex="100">
+                            <br>
+                        </div>
+                        <div flex="100">
+                            <md-divider ng-if="!$last"></md-divider>
+                        </div>
+                        <br>
                     </div>
+
+                </div>
+
+
+
+                <md-card-actions layout="row" layout-align="none">
+
                 </md-card-actions>
             </md-card>
         </div>

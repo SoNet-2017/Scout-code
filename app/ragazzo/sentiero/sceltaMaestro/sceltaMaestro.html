@@ -4,7 +4,7 @@
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">Scegli Maestro di Specialità</span>
-                    <span class="md-subhead">per la specialità {{dati.nomeSpec}}</span>
+                    <span class="md-subhead">per la specialità di {{dati.nomeSpec}}</span>
                     <br/>
 
                 </md-card-title-text>
@@ -35,7 +35,7 @@
 
 
 
-                <br><md-divider ng-if="!$last"></md-divider><br><br>
+                <br><br><md-divider ng-if="!$last"></md-divider><br><br>
                 <md-input-container class="md-block">
                     <label>Perchè hai scelto questa Specialita</label>
                     <input required id="motivazione" ng-model="dati.motivazione" name="motivazione">

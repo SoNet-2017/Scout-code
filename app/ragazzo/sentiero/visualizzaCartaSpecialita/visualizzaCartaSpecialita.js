@@ -9,20 +9,21 @@ app.config(['$routeProvider',function($routeProvider) {
     })
 }])
 
-app.controller('myAppVisualizzaCartaSpecialita',['$scope','$rootScope', '$routeParams', 'Scadenza', '$location', 'CartaSpecialita', 'Utente', function($scope, $rootScope, $routeParams, Scadenza, $location, CartaSpecialita, Utente ){
+app.controller('myAppVisualizzaCartaSpecialita',['$scope','$rootScope', '$routeParams', 'Scadenza', '$location', 'CartaSpecialita', 'Utente', 'CartaCompetenza', function($scope, $rootScope, $routeParams, Scadenza, $location, CartaSpecialita, Utente, CartaCompetenza ){
     $scope.dati={}
-    $scope.dati.cartaSpec = CartaSpecialita.getData();
+    $scope.dati.carteSpec = CartaSpecialita.getData();
+    $scope.dati.carteComp = CartaCompetenza.getData();
 
     console.log(""+$routeParams.cartaSpecialitaId)
 
     $scope.dati.utente=Utente.getData()
-    $scope.dati.cartaSpec.$loaded().then(function () {
-        for (var i = 0; i < $scope.dati.cartaSpec.length; i++) {
-            if ($scope.dati.cartaSpec[i].$id == $routeParams.cartaSpecialitaId) {
-                $scope.dati.carteSpec = CartaSpecialita.getCartaInfo($scope.dati.cartaSpec[i].$id);
-                console.log(""+$scope.dati.cartaSpec[i].maestro)
+    $scope.dati.carteSpec.$loaded().then(function () {
+        for (var i = 0; i < $scope.dati.carteSpec.length; i++) {
+            if ($scope.dati.carteSpec[i].$id == $routeParams.cartaSpecialitaId) {
+                $scope.dati.cartaSpec = CartaSpecialita.getCartaInfo($scope.dati.carteSpec[i].$id);
+                console.log(""+$scope.dati.carteSpec[i].maestro)
                 for(var j = 0; j<$scope.dati.utente.length; j++){
-                    if($scope.dati.utente[j].codice==$scope.dati.cartaSpec[i].maestro){
+                    if($scope.dati.utente[j].codice==$scope.dati.carteSpec[i].maestro){
                         console.log("ci siamo quasi" + $scope.dati.utente[j].nome)
                         $scope.dati.maestro=Utente.getUserInfo($scope.dati.utente[j].$id)
                     }

@@ -24,6 +24,28 @@ app.controller('myAppSceltaMaestroBrevCtrl',['$scope','$rootScope', '$routeParam
 
         $scope.dati.maestro="";
 
+        $scope.dati.maestroTemp = {};
+
+
+        $scope.trovaMaestro = function () {
+            $scope.dati.utenti = Utente.getData();
+            $scope.dati.utenti.$loaded().then(function () {
+                for (var i = 0; i < $scope.dati.utenti.length; i++) {
+                    if ($scope.dati.utenti[i].codice == $scope.dati.maestro) {
+                        $scope.dati.maestroTemp = $scope.dati.utenti[i];
+                    }
+                }
+            });
+        };
+
+
+
+
+
+
+
+
+
         $scope.salvaCartaCompetenza = function() {
 
             $scope.dati.feedback = "";
@@ -37,6 +59,7 @@ app.controller('myAppSceltaMaestroBrevCtrl',['$scope','$rootScope', '$routeParam
                     if($scope.dati.brevetto[i].nome==$routeParams.nomeBrevetto){
                         $scope.dati.url=$scope.dati.brevetto[i].img_url;
                         $scope.dati.id=$scope.dati.brevetto[i].$id;
+                        $scope.dati.collegate=$scope.dati.brevetto[i].spec_collegate;
                     }
                 }
                 $scope.registraCartaCompetenza();
@@ -55,12 +78,12 @@ app.controller('myAppSceltaMaestroBrevCtrl',['$scope','$rootScope', '$routeParam
             console.log("entra in registra");
 
 
-            CartaCompetenza.aggiungiCarta($scope.dati.vuoto, $scope.dati.url, $scope.dati.maestro, $scope.dati.motivazione, $routeParams.nomeBrevetto, $rootScope.info.user.codice, $scope.dati.id).then(function(ref) {
+            CartaCompetenza.aggiungiCarta($scope.dati.collegate, $scope.dati.url, $scope.dati.maestro, $scope.dati.motivazione, $routeParams.nomeBrevetto, $rootScope.info.user.codice, $scope.dati.id).then(function(ref) {
 
                 console.log("uscito dal factory aggiungi carta");
 
                 var cartaCompetenzaId = ref.key
-                console.log("Questo è il uuid delal carta: "+ cartaCompetenzaId);
+                console.log("Questo è il uuid della carta: "+ cartaCompetenzaId);
 
                 $rootScope.info.cartaCompetenza={};
 
@@ -69,12 +92,7 @@ app.controller('myAppSceltaMaestroBrevCtrl',['$scope','$rootScope', '$routeParam
 
 
                 $scope.dati.feedback = "Registrazione avvenuta con successo";
-                $location.path("/elencoSpecCorrelate/" + cartaCompetenzaId);
-
+                $location.path("/visualizzaCartaCompetenza/" + cartaCompetenzaId);
             });
-
-
         }
-
-
     }])

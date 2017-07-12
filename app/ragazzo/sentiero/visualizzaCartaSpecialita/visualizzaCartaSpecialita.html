@@ -6,7 +6,7 @@
                     <md-card-title>
                         <md-card-title-text>
                             <span class="md-headline">Carta di Specialità</span>
-                            <span class="md-subhead">di <b>{{dati.carteSpec.nome}}</b></span>
+                            <span class="md-subhead">di <b>{{dati.cartaSpec.nome}}</b></span>
                         </md-card-title-text>
                     </md-card-title>
                     <div class="card-content">
@@ -16,7 +16,7 @@
                             <div flex="30">
                             </div>
                             <div flex="40">
-                                <img class="specialita-carta" ng-src="../{{dati.carteSpec.img_url}}">
+                                <img class="specialita-carta" ng-src="../{{dati.cartaSpec.img_url}}">
                             </div>
                             <div flex="30">
                             </div>
@@ -25,7 +25,7 @@
                         <br>
 
                         <div>
-                            <b>Motivazione</b>: {{dati.carteSpec.motivazione}}
+                            <b>Motivazione</b>: {{dati.cartaSpec.motivazione}}
                         </div>
                         <div>
                             <b>Maestro di Specialità</b>: <a href="#!/profiloRagazzo/{{dati.maestro.codice}}"><b>{{dati.maestro.nome}}</b> {{dati.maestro.cognome}}</a>
@@ -51,9 +51,11 @@
 
                     </div>
 
-                    <md-card-actions layout="row" layout-align="end center" ng-if="info.user.codice == dati.carteSpec.ragazzo">
-                        <a href="#!/sentiero">
-                            <md-button type=submit" class="md-raised md-primary" >Sentiero</md-button>
+                    <md-card-actions layout="row" layout-align="end center" >
+                        <a href="#!/visualizzaCartaCompetenza/{{cartaComp.$id}}"
+                           ng-repeat="cartaComp in dati.carteComp"
+                            ng-if="cartaComp.elenco_spec_collegate.toLowerCase().includes(dati.cartaSpec.nome.toLowerCase())">
+                            <md-button type=submit" class="md-raised md-primary" >Brevetto</md-button>
                         </a>
                     </md-card-actions>
                 </md-card>

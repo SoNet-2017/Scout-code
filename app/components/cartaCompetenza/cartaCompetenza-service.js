@@ -27,7 +27,7 @@ app.factory('CartaCompetenza', function($firebaseArray, $firebaseObject) {
                 nome:""+brevettoNome,
                 ragazzo:""+codiceRagazzo+"",
                 brevetto:brevettoCodice,
-                elenco_spec_scelte:elenco_specialita,
+                elenco_spec_collegate:elenco_specialita,
                 attiva : false
             });
         },
