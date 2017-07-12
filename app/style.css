@@ -313,6 +313,8 @@ md-switch.toggle-scadenza {
  */
 img.listaSpecialita {
     width: 95%;
+    position: relative;
+    top: 4px;
 }
 
 img.listaBrevetti {

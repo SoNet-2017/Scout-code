@@ -21,6 +21,8 @@
 
                         <div flex="70">
                             <span class="nome-specialita">{{specialita.nome}}</span>
+                            <br>
+                            <br ng-if="specialita.nome.length <= 20">
 
                             <div layout="row" layout-align="space-between center">
                                     <md-button class="md-primary md-raised" ng-click="showAlert($event,specialita.nome)" aria-label="{{specialita.nome}}">Leggi</md-button>

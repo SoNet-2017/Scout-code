@@ -18,7 +18,9 @@
                         </div>
 
                         <div flex="65">
-                            <span class="nome-brevetto">{{brevetto.nome}}</span>
+                            <span class="nome-brevetto">{{brevetto.nome}}
+                                <br>
+                                <br ng-if="brevetto.nome.length <= 20"></span>
 
                             <div layout="row" layout-align="space-between center">
                                 <md-button class="md-primary md-raised" ng-click="showAlert($event,brevetto.nome)" aria-label="{{brevetto.nome}}">Leggi</md-button>
