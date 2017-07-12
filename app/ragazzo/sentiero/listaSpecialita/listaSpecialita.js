@@ -16,7 +16,6 @@ app.controller('myAppListaSpecialitaCtrl', ['$scope', '$rootScope', 'Specialita'
         $scope.dati = {};
         $scope.dati.specialita = Specialita.getData();
         $scope.dati.utente = Utente.getData();
-        $scope.dati.carte_specialita = CartaSpecialita.getData();
         $scope.status = '  ';
         $scope.customFullscreen = false
 
@@ -46,7 +45,28 @@ app.controller('myAppListaSpecialitaCtrl', ['$scope', '$rootScope', 'Specialita'
         });
 
 
+        $scope.dati.escludi = "";
+        var elencoEscludi = "";
+        $scope.dati.carte_specialita = CartaSpecialita.getData();
+        $scope.dati.carte_specialita.$loaded().then(function () {
+            for (var i = 0; i < $scope.dati.carte_specialita.length; i++) {
+                if ($scope.dati.carte_specialita[i].ragazzo == $rootScope.info.user.codice) {
+                    if (elencoEscludi == '') {
+                        elencoEscludi = $scope.dati.carte_specialita[i].nome;
+                    }
+                    else {
+                        elencoEscludi = elencoEscludi + ", " +  $scope.dati.carte_specialita[i].nome;
+                        //console.log("duplicati: " + elenco);
+                    }
+                }
+            }
+            var specSenzaDuplicati = elencoEscludi.split(', ').filter(function(item,i,allItems){
+                return i==allItems.indexOf(item);
+            }).sort().join(', ');
 
+            $scope.dati.escludi = specSenzaDuplicati;
+
+        });
 
 
 

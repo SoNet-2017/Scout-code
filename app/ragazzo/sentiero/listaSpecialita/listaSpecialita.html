@@ -5,7 +5,7 @@
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">Scegli Specialità</span>
-                        <span class="md-subhead"></span>
+                        <span class="md-subhead">Non vengono mostrate quelle per cui stai già lavorando</span>
                     </md-card-title-text>
                 </md-card-title>
 
@@ -14,8 +14,12 @@
                     <div ng-if="dati.correlate != ''">
                         <div>Per portare a termine i tuoi <b>Brevetti</b> puoi scegliere tra le seguenti <b>Specialità</b>.</div>
                         <br><br>
+
+
+
                         <div  layout="row" layout-wrap ng-repeat="specialita in dati.specialita | orderBy:'nome'"
-                             ng-if="dati.correlate.toLowerCase().includes(specialita.nome.toLowerCase())">
+                             ng-if="dati.correlate.toLowerCase().includes(specialita.nome.toLowerCase())
+                                    && !dati.escludi.toLowerCase().includes(specialita.nome.toLowerCase())">
 
                             <div flex="30">
                                 <img class="listaSpecialita" ng-src="../{{specialita.img_url}}">
@@ -51,7 +55,8 @@
 
 
                     <div  layout="row" layout-wrap ng-repeat="specialita in dati.specialita | orderBy:'nome'"
-                          ng-if="!dati.correlate.toLowerCase().includes(specialita.nome.toLowerCase())">
+                          ng-if="!dati.correlate.toLowerCase().includes(specialita.nome.toLowerCase())
+                          && !dati.escludi.toLowerCase().includes(specialita.nome.toLowerCase())">
 
                         <div flex="30">
                             <img class="listaSpecialita" ng-src="../{{specialita.img_url}}">

@@ -323,7 +323,8 @@ img.listaBrevetti {
 
 img.img-scadenze {
     position: relative;
-    top: 4px;
+    top: 2px;
+    width: 85%;
 }
 
 .scadenze-content {

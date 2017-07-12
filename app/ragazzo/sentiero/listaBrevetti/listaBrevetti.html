@@ -5,13 +5,14 @@
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">Scegli Brevetto</span>
-                        <span class="md-subhead"></span>
+                        <span class="md-subhead">Non vengono mostrati quelli per cui stai già lavorando</span>
                     </md-card-title-text>
                 </md-card-title>
 
                 <div class="card-content">
 
-                    <div  layout="row" layout-wrap ng-repeat="brevetto in dati.brevetti | orderBy:'nome'">
+                    <div  layout="row" layout-wrap ng-repeat="brevetto in dati.brevetti | orderBy:'nome'"
+                    ng-if="!dati.escludi.toLowerCase().includes(brevetto.nome.toLowerCase())">
 
                         <div flex="35">
                             <img class="listaBrevetti" ng-src="../{{brevetto.img_url}}">
