@@ -46,7 +46,7 @@ app.controller('profiloRagazzoCtrl', ['$scope', '$rootScope', 'Utente', 'current
             }
         });
 
-        $scope.dati.scadenze=Scadenza.getData();
+        $scope.dati.scadenze = Scadenza.getData();
         $scope.dati.cartaSpec = CartaSpecialita.getData();
         $scope.dati.cartaSpec.$loaded().then(function () {
             for (var i = 0; i < $scope.dati.cartaSpec.length; i++) {
@@ -66,11 +66,10 @@ app.controller('profiloRagazzoCtrl', ['$scope', '$rootScope', 'Utente', 'current
 
         $scope.vediCarta = function (idCarta, ragazzo) {
             // la carta è visualizzabile solo dai capi o dal ragazzo stesso
-            if ($rootScope.info.user.ruolo == 'capo' || $rootScope.info.user.codice == ragazzo){
-                $location.path("/visualizzaCartaSpecialita/"+ idCarta);
+            if ($rootScope.info.user.ruolo == 'capo' || $rootScope.info.user.codice == ragazzo) {
+                $location.path("/visualizzaCartaSpecialita/" + idCarta);
             }
         };
-
 
 
         // function called when the "logout" button will be pressed

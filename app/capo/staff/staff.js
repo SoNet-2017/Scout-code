@@ -7,12 +7,12 @@ var app = angular.module('myAppStaff', [
 ]);
 
 
-app.config(['$routeProvider', function($routeProvider){
-    $routeProvider.when('/staff',{
+app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/staff', {
         templateUrl: 'capo/staff/staff.html',
         controller: 'myAppStaffCtrl',
         resolve: {
-            "currentAuth":["Auth",function(Auth) {
+            "currentAuth": ["Auth", function (Auth) {
                 return Auth.$requireSignIn();
             }]
         }
@@ -20,14 +20,12 @@ app.config(['$routeProvider', function($routeProvider){
 }]);
 
 
-
-
-app.controller('myAppStaffCtrl', ['$scope','$rootScope', 'Utente', function($scope,$rootScope, Utente) {
+app.controller('myAppStaffCtrl', ['$scope', '$rootScope', 'Utente', function ($scope, $rootScope, Utente) {
     console.log("e' entrato nel ctrl staff");
 
 
     //initialize variables
-    $scope.dati={};
+    $scope.dati = {};
     $scope.dati.feedback = "";
     $scope.modulo = {};
     $scope.modulo.ricerca = "";
@@ -40,15 +38,14 @@ app.controller('myAppStaffCtrl', ['$scope','$rootScope', 'Utente', function($sco
             if ($scope.dati.utenti[i].ruolo == 'capo') {
 
                 var uuid = $scope.dati.utenti[i].$id;
-                var checkedOld =  $scope.dati.utenti[i].staff;
+                var checkedOld = $scope.dati.utenti[i].staff;
                 //console.log("All'inizio " + $scope.dati.utenti[i].nome + " ha il toggle " + checkedOld);
             }
         }
     });
 
 
-
-    $scope.salvaStaff = function(params) {
+    $scope.salvaStaff = function (params) {
         for (var i = 0; i < $scope.dati.utenti.length; i++) {
             console.log("ENTRO NEL salva staff");
 
@@ -56,7 +53,7 @@ app.controller('myAppStaffCtrl', ['$scope','$rootScope', 'Utente', function($sco
                 var uuid = $scope.dati.utenti[i].$id;
                 var codiceCicloi = $scope.dati.utenti[i].codice;
                 var switchCicloi = document.getElementById(codiceCicloi);
-                var checked =  switchCicloi.getAttribute("aria-checked");
+                var checked = switchCicloi.getAttribute("aria-checked");
                 console.log("Alla fine " + $scope.dati.utenti[i].nome + " ha il toggle " + checked);
 
 
@@ -68,8 +65,6 @@ app.controller('myAppStaffCtrl', ['$scope','$rootScope', 'Utente', function($sco
         $scope.dati.feedback = "Salvataggio avvenuto con successo";
 
     };
-
-
 
 
 }]);

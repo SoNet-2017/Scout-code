@@ -8,12 +8,12 @@ var app = angular.module('myAppConfermaScadenze', [
 ]);
 
 
-app.config(['$routeProvider', function($routeProvider){
-    $routeProvider.when('/confermaScadenze',{
+app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/confermaScadenze', {
         templateUrl: 'capo/confermaScadenze/confermaScadenze.html',
         controller: 'myAppConfermaScadenzeCtrl',
         resolve: {
-            "currentAuth":["Auth",function(Auth) {
+            "currentAuth": ["Auth", function (Auth) {
                 return Auth.$requireSignIn();
             }]
         }
@@ -21,14 +21,12 @@ app.config(['$routeProvider', function($routeProvider){
 }]);
 
 
-
-
-app.controller('myAppConfermaScadenzeCtrl', ['$scope','$rootScope', 'Utente', 'Scadenza', 'Specialita', function($scope,$rootScope, Utente, Scadenza, Specialita) {
+app.controller('myAppConfermaScadenzeCtrl', ['$scope', '$rootScope', 'Utente', 'Scadenza', 'Specialita', function ($scope, $rootScope, Utente, Scadenza, Specialita) {
     console.log("e' entrato nel ctrl conferma scadenze");
 
 
     //initialize variables
-    $scope.dati={};
+    $scope.dati = {};
     $scope.dati.feedback = "";
 
     //SCARICO TUTTI I DATI
@@ -39,28 +37,27 @@ app.controller('myAppConfermaScadenzeCtrl', ['$scope','$rootScope', 'Utente', 'S
     $scope.dati.scadenze.$loaded().then(function () {
 
         for (var i = 0; i < $scope.dati.scadenze.length; i++) {
-            if ($scope.dati.scadenze[i].conferma == false && $scope.dati.scadenze[i].deadline <= 0 ) {
+            if ($scope.dati.scadenze[i].conferma == false && $scope.dati.scadenze[i].deadline <= 0) {
 
-                var checkedOld =  $scope.dati.scadenze[i].conferma;
+                var checkedOld = $scope.dati.scadenze[i].conferma;
                 console.log("All'inizio " + $scope.dati.scadenze[i].azione + " ha il toggle " + checkedOld);
 
-                $scope.dati.scadenze[i].uid =  $scope.dati.scadenze[i].$id;
+                $scope.dati.scadenze[i].uid = $scope.dati.scadenze[i].$id;
             }
         }
     });
 
 
-
-    $scope.salvaScadenze = function(params) {
+    $scope.salvaScadenze = function (params) {
         for (var i = 0; i < $scope.dati.scadenze.length; i++) {
             console.log("ENTRO NEL salva scadenze");
 
-            if ($scope.dati.scadenze[i].conferma == false && $scope.dati.scadenze[i].deadline <= 0 ) {
+            if ($scope.dati.scadenze[i].conferma == false && $scope.dati.scadenze[i].deadline <= 0) {
                 console.log("Trovo una scadenza non confermata e con deadline minore di 0");
 
                 var uuid = $scope.dati.scadenze[i].$id;
                 var switchCicloi = document.getElementById(uuid);
-                var checked =  switchCicloi.getAttribute("aria-checked");
+                var checked = switchCicloi.getAttribute("aria-checked");
 
                 console.log("Alla fine " + $scope.dati.scadenze[i].azione + " ha il toggle " + checked);
 
@@ -73,10 +70,9 @@ app.controller('myAppConfermaScadenzeCtrl', ['$scope','$rootScope', 'Utente', 'S
 }]);
 
 
-
 /**** FILTRO CREATO CUSTOM PER RIMUOVERE IL "meno" DAVANTI AL NUMERO ****/
-app.filter('removeDash', function() {
-    return function(input) {
-        return (""+input).replace("-", "");
+app.filter('removeDash', function () {
+    return function (input) {
+        return ("" + input).replace("-", "");
     }
 });

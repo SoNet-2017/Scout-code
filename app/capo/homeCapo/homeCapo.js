@@ -1,6 +1,6 @@
 'use strict';
 
-var app=angular.module('myAppHomeCapo', [
+var app = angular.module('myAppHomeCapo', [
     'ngMaterial',
     'ngRoute',
     'myAppEvento',
@@ -9,12 +9,12 @@ var app=angular.module('myAppHomeCapo', [
     'myAppSpecialita'
 ]);
 
-app.config(['$routeProvider', function($routeProvider){
-    $routeProvider.when('/homeCapo',{
+app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/homeCapo', {
         templateUrl: 'capo/homeCapo/homeCapo.html',
         controller: 'myAppHomeCapoCtrl',
         resolve: {
-            "currentAuth":["Auth",function(Auth) {
+            "currentAuth": ["Auth", function (Auth) {
                 return Auth.$requireSignIn();
             }]
         }
@@ -22,10 +22,10 @@ app.config(['$routeProvider', function($routeProvider){
 }]);
 
 
-app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebaseAuth', '$location', 'Utente', 'Scadenza', 'Specialita', function($scope,$rootScope, Evento, $firebaseAuth, $location,  Utente, Scadenza, Specialita) {
+app.controller('myAppHomeCapoCtrl', ['$scope', '$rootScope', 'Evento', '$firebaseAuth', '$location', 'Utente', 'Scadenza', 'Specialita', function ($scope, $rootScope, Evento, $firebaseAuth, $location, Utente, Scadenza, Specialita) {
 
     //initialize variables
-    $scope.dati={};
+    $scope.dati = {};
     $scope.dati.feedback = "";
 
     //SCARICO TUTTI I DATI
@@ -35,8 +35,7 @@ app.controller('myAppHomeCapoCtrl', ['$scope','$rootScope', 'Evento', '$firebase
     $scope.dati.eventi = Evento.getData();
 
 
-
-    $scope.isLogged = function() {
+    $scope.isLogged = function () {
         if ($firebaseAuth().$getAuth()) {
             if ($rootScope.info.user.ruolo == 'ragazzo') {
                 //REDIRECT SU HOME RAGAZZO SE SI E' LOGGATO UN RAGAZZO

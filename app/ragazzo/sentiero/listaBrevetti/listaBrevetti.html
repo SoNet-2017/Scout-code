@@ -1,5 +1,5 @@
 <div id="popupContainer">
-<md-content class="md-padding" layout-xs="column" layout="row">
+    <md-content class="md-padding" layout-xs="column" layout="row">
         <div flex-xs flex-gt-xs="50" layout="column">
             <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
                 <md-card-title>
@@ -11,8 +11,8 @@
 
                 <div class="card-content">
 
-                    <div  layout="row" layout-wrap ng-repeat="brevetto in dati.brevetti | orderBy:'nome'"
-                    ng-if="!dati.escludi.toLowerCase().includes(brevetto.nome.toLowerCase())">
+                    <div layout="row" layout-wrap ng-repeat="brevetto in dati.brevetti | orderBy:'nome'"
+                         ng-if="!dati.escludi.toLowerCase().includes(brevetto.nome.toLowerCase())">
 
                         <div flex="35">
                             <img class="listaBrevetti" ng-src="../{{brevetto.img_url}}">
@@ -24,8 +24,12 @@
                                 <br ng-if="brevetto.nome.length <= 20"></span>
 
                             <div layout="row" layout-align="space-between center">
-                                <md-button class="md-primary md-raised" ng-click="showAlert($event,brevetto.nome)" aria-label="{{brevetto.nome}}">Leggi</md-button>
-                                <md-button ng-click="scegliBrevetto(brevetto.nome)" class="md-raised md-primary" id="btn-salva">Scegli</md-button>
+                                <md-button class="md-primary md-raised" ng-click="showAlert($event,brevetto.nome)"
+                                           aria-label="{{brevetto.nome}}">Leggi
+                                </md-button>
+                                <md-button ng-click="scegliBrevetto(brevetto.nome)" class="md-raised md-primary"
+                                           id="btn-salva">Scegli
+                                </md-button>
                             </div>
 
                         </div>
@@ -40,7 +44,6 @@
                     </div>
 
                 </div>
-
 
 
                 <md-card-actions layout="row" layout-align="none">

@@ -304,53 +304,12 @@ md-switch.toggle-scadenza {
     top: 8px;
 }
 
-/****
-    INPUT REGISTRAZIONE
- */
-
-/******
-    IMMAGINI-LISTA SPECIALITA
- */
-img.listaSpecialita {
-    width: 95%;
-    position: relative;
-    top: 4px;
-}
-
-img.listaBrevetti {
-    width: 95%;
-}
-
-img.img-scadenze {
-    position: relative;
-    top: 2px;
-    width: 85%;
-}
-
-.scadenze-content {
-    line-height: 2em;
-}
-
-/******
-    IMMAGINI-SENTIERO
- */
-img.listaSpecSentiero {
-    width: 74px;
-    height: 74px;
-    padding: 0px 1px 6px 1px;
-}
-
-img.listaBrevSentiero {
-    width: 100px;
-    height: 100px;
-    padding: 0px 1px 6px 1px;
-}
-
 /*******
     PROFILO
  */
 .img-profile {
-    width: 50%;
+    width: 155px;
+    height: 155px;
     position: relative;
     top: -50px;
     left: 25%;
@@ -530,7 +489,9 @@ img.listaBrevSentiero {
     margin: 8px 0 4px 4px;
 }
 
-/* STYLE DI UN DIV IN LISTA BREVETTI */
+/****
+    SPECIALITA' E BREVETTI
+ */
 #myDiv {
     width: 100%;
     padding: 50px 0;
@@ -549,7 +510,7 @@ img.listaBrevSentiero {
     font-size: 1.5em;
     padding-left: 8px;
     display: inline-block;
- }
+}
 
 .nome-brevetto {
     font-size: 1.5em;
@@ -562,16 +523,58 @@ img.listaBrevSentiero {
     width: 100%;
 }
 
-.feedback{
+/******
+    IMMAGINI-LISTA SPECIALITA
+ */
+img.listaSpecialita {
+    width: 95%;
+    position: relative;
+    top: 4px;
+}
+
+img.listaBrevetti {
+    width: 95%;
+}
+
+img.img-scadenze {
+    position: relative;
+    top: 2px;
+    width: 85%;
+}
+
+.scadenze-content {
+    line-height: 2em;
+}
+
+/******
+    IMMAGINI-SENTIERO
+ */
+img.listaSpecSentiero {
+    width: 74px;
+    height: 74px;
+    padding: 0px 1px 6px 1px;
+}
+
+img.listaBrevSentiero {
+    width: 100px;
+    height: 100px;
+    padding: 0px 1px 6px 1px;
+}
+
+/****
+    NOTIFICHE
+ */
+.feedback {
     background-color: #4CAF50;
     color: white;
 }
-.errore{
+
+.errore {
     background-color: #f4511e;
     color: white;
 }
 
-.notifica{
+.notifica {
     font-family: Roboto;
     font-size: 1em;
     position: absolute;
@@ -587,16 +590,14 @@ img.listaBrevSentiero {
     opacity: 1;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
-
-    -webkit-animation:
-            entrata 1.0s forwards 0.0s,
-            uscita 1.0s forwards 5.0s;
+    -webkit-animation: entrata 1.0s forwards 0.0s,
+    uscita 1.0s forwards 5.0s;
     -webkit-animation-iteration-count: 1;
-    animation:
-            entrata 1.0s forwards 0.0s,
-            uscita 1.0s forwards 5.0s;
+    animation: entrata 1.0s forwards 0.0s,
+    uscita 1.0s forwards 5.0s;
     animation-iteration-count: 1;
 }
+
 @-webkit-keyframes entrata {
     0% {
         opacity: 0;
@@ -606,6 +607,7 @@ img.listaBrevSentiero {
         opacity: 1;
     }
 }
+
 @keyframes entrata {
     0% {
         opacity: 0;
@@ -625,6 +627,7 @@ img.listaBrevSentiero {
         top: -200px;
     }
 }
+
 @keyframes uscita {
     0% {
         opacity: 1;

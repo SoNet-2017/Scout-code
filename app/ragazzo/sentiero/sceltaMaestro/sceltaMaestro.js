@@ -71,16 +71,12 @@ app.controller('myAppSceltaMaestroCtrl', ['$scope', '$rootScope', '$routeParams'
 
 
             RegistrazioneCartaSpecialitaService.aggiungiCarta($scope.dati.url, $scope.dati.maestro, $scope.dati.motivazione, $routeParams.nomeSpecialita, $rootScope.info.user.codice, $scope.dati.id).then(function (ref) {
-
                 console.log("uscito dal factory aggiungi carta");
-
                 var cartaSpecialitaId = ref.key
                 console.log("Questo è il uuid delal carta: " + cartaSpecialitaId);
 
                 $rootScope.info.cartaSpec = {};
-
                 $rootScope.info.cartaSpec = CartaSpecialita.getCartaInfo(cartaSpecialitaId);
-
 
                 $scope.dati.feedback = "Registrazione avvenuta con successo";
                 $location.path("/scadenzeCarta/" + cartaSpecialitaId);

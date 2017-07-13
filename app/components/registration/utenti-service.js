@@ -3,14 +3,14 @@
 //The service implemented in this module will get information about all the available pizzas
 angular.module('myAppUtente.utentiService', [])
 
-    .factory('Utente', function($firebaseArray, $firebaseObject) {
+    .factory('Utente', function ($firebaseArray, $firebaseObject) {
         var utentiService = {
 
-            getUserInfo: function(userId) {
+            getUserInfo: function (userId) {
                 var userRef = firebase.database().ref().child("utenti").child(userId);
                 return $firebaseObject(userRef);
             },
-            
+
 
             getData: function () {
                 var ref = firebase.database().ref().child("utenti");
@@ -25,12 +25,12 @@ angular.module('myAppUtente.utentiService', [])
 
                 var ref = firebase.database().ref().child("utenti").child(uuid);
                 // create a synchronized array
-                if (checked == 'true'){
+                if (checked == 'true') {
                     ref.update({
                         staff: true
                     });
                 }
-                else if (checked == 'false'){
+                else if (checked == 'false') {
                     ref.update({
                         staff: false
                     });
@@ -62,7 +62,6 @@ angular.module('myAppUtente.utentiService', [])
             },
 
 
-
             /**
              * GESTIONE LOGIN UTENTI
              *
@@ -76,8 +75,7 @@ angular.module('myAppUtente.utentiService', [])
                     logged: true
                 });
             },
-            registerLogout: function (userId)
-            {
+            registerLogout: function (userId) {
                 var ref = firebase.database().ref().child("utenti").child(userId);
                 // create a synchronized array
                 ref.update({
@@ -100,12 +98,11 @@ angular.module('myAppUtente.utentiService', [])
                     email: email,
                     codice: codice,
                     logged: false,
-                    staff : false,
-                    img : false,
-                    ruolo : "capo",
+                    staff: false,
+                    img: false,
+                    ruolo: "capo",
                 });
             }
-
 
 
         };

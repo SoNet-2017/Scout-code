@@ -8,12 +8,12 @@ var app = angular.module('myAppRiepilogoScadenze', [
 ]);
 
 
-app.config(['$routeProvider', function($routeProvider){
-    $routeProvider.when('/riepilogoScadenze',{
+app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/riepilogoScadenze', {
         templateUrl: 'capo/riepilogoScadenze/riepilogoScadenze.html',
         controller: 'myAppRiepilogoScadenzeCtrl',
         resolve: {
-            "currentAuth":["Auth",function(Auth) {
+            "currentAuth": ["Auth", function (Auth) {
                 return Auth.$requireSignIn();
             }]
         }
@@ -21,14 +21,12 @@ app.config(['$routeProvider', function($routeProvider){
 }]);
 
 
-
-
-app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', 'Scadenza', '$mdDialog', function($scope,$rootScope, Utente, Scadenza, $mdDialog) {
+app.controller('myAppRiepilogoScadenzeCtrl', ['$scope', '$rootScope', 'Utente', 'Scadenza', '$mdDialog', function ($scope, $rootScope, Utente, Scadenza, $mdDialog) {
     console.log("e' entrato nel ctrl riepilogo scadenze");
 
 
     //initialize variables
-    $scope.dati={};
+    $scope.dati = {};
     $scope.dati.feedback = "";
 
     //SCARICO TUTTI I DATI
@@ -37,11 +35,11 @@ app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', '
 
 
     /**** FUNZIONE PER ASSEGNARE CLASSI PERSONALIZZATE ****/
-    $scope.personalizzaBox = function(deadline, conferma) {
+    $scope.personalizzaBox = function (deadline, conferma) {
         if (conferma == true) {
             return "box-scadenza scadenza-confermata";
 
-        } else if (conferma == false && deadline < 0 ) {
+        } else if (conferma == false && deadline < 0) {
             return "box-scadenza scadenza-mancata";
         }
 
@@ -53,22 +51,11 @@ app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', '
 
     $scope.customFullscreen = false
 
-    $scope.showAlert = function (ev,azione, ragazzo, specialita, deadline, conferma) {
+    $scope.showAlert = function (ev, azione, ragazzo, specialita, deadline, conferma) {
         //console.log('clicco sul bottone dialog')
 
-        /** FORSE NON SERVE
-        for(var i=0;i<$scope.dati.specialita.length;i++) {
-            console.log('clicco 1')
-            console.log(nome)
-            if ($scope.dati.specialita[i].nome == nome) {
-                console.log('siamo dentro if');
-                var descrizione = $scope.dati.specialita[i].descrizione;
-                var nomeSpec=$scope.dati.specialita[i].nome;
-            }
-        }
-         **/
         $scope.dati.deadline = deadline;
-                if (deadline < 0) {
+        if (deadline < 0) {
             $scope.dati.deadline = ("" + deadline).replace("-", "");
             //$scope.dati.deadline = (!!deadline) ?  deadline.substr(1) : '';
         }
@@ -81,7 +68,7 @@ app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', '
             $scope.dati.verbo = "deve:";
             $scope.dati.quando = "tra " + $scope.dati.deadline + " giorni";
         }
-        if (conferma == true ) {
+        if (conferma == true) {
             $scope.dati.verbo = "ha portato a termine:";
             $scope.dati.button = "CONGRATULATI";
         }
@@ -103,19 +90,18 @@ app.controller('myAppRiepilogoScadenzeCtrl', ['$scope','$rootScope', 'Utente', '
 }]);
 
 
-
 /**** FILTRO CREATO CUSTOM PER RIMUOVERE IL "meno" DAVANTI AL NUMERO ****/
-app.filter('removeDash', function() {
-    return function(input) {
-        return (""+input).replace("-", "");
+app.filter('removeDash', function () {
+    return function (input) {
+        return ("" + input).replace("-", "");
     }
 });
 
 /**** FILTRO CREATO CUSTOM PER ordinare deadline negative ****/
-app.filter('stringToInteger', function() {
-    return function(input) {
-        angular.forEach(input, function(value) {
-            value.deadline =  parseInt(value.deadline);
+app.filter('stringToInteger', function () {
+    return function (input) {
+        angular.forEach(input, function (value) {
+            value.deadline = parseInt(value.deadline);
         })
         return input;
     };

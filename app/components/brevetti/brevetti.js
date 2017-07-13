@@ -1,6 +1,6 @@
 'use strict';
 
-var app=angular.module('myAppBrevetti', [
+var app = angular.module('myAppBrevetti', [
     'myAppBrevettiService',
     'myAppScadenzeService'
 ]);

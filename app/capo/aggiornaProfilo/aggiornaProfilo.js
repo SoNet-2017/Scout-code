@@ -7,14 +7,14 @@ var app = angular.module('myAppAggiornaProfiloCapo', [
     'myAppUtente'
 ]);
 
-app.config(['$routeProvider', function($routeProvider) {
+app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/aggiornaProfiloCapo/:codiceCapo', {
         templateUrl: 'capo/aggiornaProfilo/aggiornaProfilo.html',
         controller: 'aggiornaProfiloCapoCtrl',
         resolve: {
             // controller will not be loaded until $requireSignIn resolves
             // Auth refers to our $firebaseAuth wrapper in the factory below
-            "currentAuth": ["Auth", function(Auth) {
+            "currentAuth": ["Auth", function (Auth) {
                 // $requireSignIn returns a promise so the resolve waits for it to complete
                 // If the promise is rejected, it will throw a $routeChangeError (see above)
                 return Auth.$requireSignIn();
@@ -23,15 +23,13 @@ app.config(['$routeProvider', function($routeProvider) {
     })
 }])
 
-app.controller('aggiornaProfiloCapoCtrl', ['$scope', '$rootScope', 'RegistrazioneRagazzoService', 'Utente', '$firebaseAuth', '$location', '$routeParams', '$firebaseStorage', function($scope, $rootScope, RegistrazioneRagazzoService, Utente,$firebaseAuth, $location, $routeParams,$firebaseStorage) {
-    $scope.dati={};
+app.controller('aggiornaProfiloCapoCtrl', ['$scope', '$rootScope', 'RegistrazioneRagazzoService', 'Utente', '$firebaseAuth', '$location', '$routeParams', '$firebaseStorage', function ($scope, $rootScope, RegistrazioneRagazzoService, Utente, $firebaseAuth, $location, $routeParams, $firebaseStorage) {
+    $scope.dati = {};
     $scope.dati.uploading = "";
 
     var ctrl = this;
-    $scope.fileToUpload=null;
-    $scope.imgPath="";
-
-
+    $scope.fileToUpload = null;
+    $scope.imgPath = "";
 
 
     ctrl.onChange = function onChange(fileList) {
@@ -40,12 +38,12 @@ app.controller('aggiornaProfiloCapoCtrl', ['$scope', '$rootScope', 'Registrazion
     };
 
 
-    $scope.salvaFoto= function() {
+    $scope.salvaFoto = function () {
         console.log("ho premuto su salva foto");
 
 
         if ($scope.fileToUpload != null) {
-            $scope.dati.uploading="Caricamento in corso...";
+            $scope.dati.uploading = "Caricamento in corso...";
 
             var fileName = $scope.fileToUpload.name;
             var storageRef = firebase.storage().ref("fotoProfilo/" + fileName);
@@ -60,10 +58,10 @@ app.controller('aggiornaProfiloCapoCtrl', ['$scope', '$rootScope', 'Registrazion
     };
 
 
-    $scope.aggiornaImmagineProfilo=function(){
+    $scope.aggiornaImmagineProfilo = function () {
         console.log("aggiorno la foto nel databse");
         RegistrazioneRagazzoService.aggiornaFoto($rootScope.info.user.$id, $scope.imgPath);
-        $scope.dati.uploading="";
+        $scope.dati.uploading = "";
     };
 
 

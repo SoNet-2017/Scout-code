@@ -3,7 +3,7 @@
 //The service implemented in this module will get information about all the available pizzas
 angular.module('myAppSquadriglia.fiammaService', [])
 
-    .factory('Fiamma', function($firebaseArray) {
+    .factory('Fiamma', function ($firebaseArray) {
         var FiammaService = {
 
             aggiornaFiamma: function (uuidVecchiaSq, uuidNuovaSq) {

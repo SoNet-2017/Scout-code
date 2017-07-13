@@ -107,7 +107,7 @@ app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$
         for (var i = 0; i < $scope.dati.scadenze.length; i++) {
             var data = new Date($scope.dati.scadenze[i].data);
             var deadline = Math.abs((data.getTime() - oggi.getTime()) / (oneDay));
-            if (data < oggi){
+            if (data < oggi) {
                 deadline = "-" + deadline;
             }
             Scadenza.aggiornaDeadline($scope.dati.scadenze[i].$id, deadline);
@@ -115,8 +115,7 @@ app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$
     });
 
 
-
-
+    //MOSTRA ALCUNE PARTI SOLO SE SI E' LOGGATI
     $scope.isLogged = function () {
         if ($firebaseAuth().$getAuth()) {
             if ($rootScope.info.info == false) {
@@ -130,6 +129,7 @@ app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$
     }
 
 
+    //PRENDE TUTTI I DATI DELL'UTENTE LOGGATO
     $scope.InfoUserLogged = function () {
         $rootScope.info.info = true;
         //console.log("Nel InfoUserLogged setto info a true, e vale: " +  $rootScope.info.info);
@@ -141,6 +141,7 @@ app.controller('LogCtrl', ['$scope', '$rootScope', 'Utente', '$firebaseAuth', '$
 }]);
 
 
+//GESTISCE LE SIDENAV
 app.controller('AppCtrl1', function ($scope, $rootScope, $timeout, $mdSidenav, $log) {
 
     $scope.toggleLeft = buildDelayedToggler('left');
@@ -241,6 +242,7 @@ app.controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
 });
 
 
+//METTE TUTTI GLI EVENTI NELLA SIDENAV
 app.controller('EventCtrl', ['$scope', '$rootScope', 'Evento', function ($scope, $rootScope, Evento) {
 
     //initialize variables
@@ -253,6 +255,8 @@ app.controller('EventCtrl', ['$scope', '$rootScope', 'Evento', function ($scope,
 }]);
 
 
+
+//TROVA I RISULTATI DELLA RICERCA NELLA TOOLBAR
 app.controller('SearchCtrl', ['$scope', '$rootScope', 'Utente', '$location', function ($scope, $rootScope, Utente, $location) {
 
     //initialize variables

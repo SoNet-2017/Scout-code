@@ -1,6 +1,6 @@
 'use strict';
 
-var app=angular.module('myAppImpegni', [
+var app = angular.module('myAppImpegni', [
     'myAppImpegniService'
 ]);
 

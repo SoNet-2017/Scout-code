@@ -1,6 +1,6 @@
 'use strict';
 
-var app=angular.module('myAppSpecialita', [
+var app = angular.module('myAppSpecialita', [
     'myAppSpecialitaService',
     'myAppScadenzeService'
 ]);

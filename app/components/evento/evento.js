@@ -5,4 +5,4 @@ angular.module('myAppEvento', [
     'myAppEvento.eventiService'
 ])
 
-.value('version', '0.1');
+    .value('version', '0.1');

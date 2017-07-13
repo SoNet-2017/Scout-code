@@ -6,4 +6,4 @@ angular.module('myAppSquadriglia', [
     'myAppSquadriglia.fiammaService'
 ])
 
-.value('version', '0.1');
+    .value('version', '0.1');

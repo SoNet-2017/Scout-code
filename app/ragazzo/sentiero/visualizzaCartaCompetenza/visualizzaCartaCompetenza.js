@@ -16,7 +16,7 @@ app.controller('myAppVisualizzaCartaCompetenzaCtrl', ['$scope', '$rootScope', '$
 
         console.log("" + $routeParams.cartaCompetenzaId);
 
-        $scope.dati.cartaSpec=CartaSpecialita.getData();
+        $scope.dati.cartaSpec = CartaSpecialita.getData();
 
         $scope.dati.utente = Utente.getData()
         $scope.dati.cartaComp.$loaded().then(function () {
@@ -34,28 +34,4 @@ app.controller('myAppVisualizzaCartaCompetenzaCtrl', ['$scope', '$rootScope', '$
                 }
             }
         })
-
-
-
-        /*
-        $scope.dati.scadenze = Scadenza.getData()
-
-
-        $scope.dati.cartaSpec.$loaded().then(function () {
-            for (var i = 0; i < $scope.dati.cartaSpec.length; i++) {
-                for (var j = 0; j < $scope.dati.scadenze.length; j++) {
-                    if ($scope.dati.scadenze[j].carta_spec == $scope.dati.cartaSpec[i].$id) {
-                        //console.log("entro nel if scadenza appartiene a carta attuale")
-                        if ($scope.dati.scadenze[j].conferma == false) {
-                            //console.log("trovo una scadenza non confermata")
-                            $scope.dati.cartaSpec[i].attiva = true;
-                            //console.log("La carta " + $scope.dati.cartaSpec[i].$id + " è attiva");
-                        }
-                    }
-                }
-            }
-        });
-        */
-
-
     }])

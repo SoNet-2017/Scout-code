@@ -1,16 +1,16 @@
 'use strict';
 
 
-var app=angular.module('myAppImpegniService',[])
-app.factory('Impegni', function($firebaseArray, $firebaseObject) {
-    var impegniService= {
+var app = angular.module('myAppImpegniService', [])
+app.factory('Impegni', function ($firebaseArray, $firebaseObject) {
+    var impegniService = {
         getData: function () {
             var ref = firebase.database().ref().child("impegni");
             // download the data into a local object
             return $firebaseArray(ref);
         },
 
-        getImpegniInfo: function(impegniId) {
+        getImpegniInfo: function (impegniId) {
             var impegniRef = firebase.database().ref().child("impegni").child(impegniId);
             return $firebaseObject(impegniRef);
         },
@@ -21,7 +21,7 @@ app.factory('Impegni', function($firebaseArray, $firebaseObject) {
             // create a synchronized array
             return $firebaseArray(ref).$add({
                 azione: "",
-                codice: ""+codiceRagazzo+"",
+                codice: "" + codiceRagazzo + "",
                 tappa: tappa
             });
         },

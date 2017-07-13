@@ -7,7 +7,7 @@ angular.module('myAppSingleSpecialitaService', [
 
 ])
 
-    .factory('SingleSpecialita', function($firebaseObject) {
+    .factory('SingleSpecialita', function ($firebaseObject) {
         var singleSpecialitaService = {
             getSingleSpecialita: function (nome) {
                 var ref = firebase.database().ref().child("specialita").child(nome);

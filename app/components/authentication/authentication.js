@@ -1,6 +1,6 @@
 'use strict';
 
-var app=angular.module('myAppAuthentication', [
+var app = angular.module('myAppAuthentication', [
     'myAppAuthenticationService'
 ]);
 

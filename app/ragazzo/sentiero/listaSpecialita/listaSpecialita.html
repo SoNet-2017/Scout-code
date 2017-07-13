@@ -11,13 +11,16 @@
 
                 <div class="card-content">
 
+
+                    <!-- ELENCO SPECIALITA' CORRELATE AI BREVETTI DEL RAGAZZO SE NE HA -->
                     <div ng-if="dati.correlate != ''">
-                        <div>Per portare a termine i tuoi <b>Brevetti</b> puoi scegliere tra le seguenti <b>Specialità</b>.</div>
+                        <div>Per portare a termine i tuoi <b>Brevetti</b> puoi scegliere tra le seguenti
+                            <b>Specialità</b>.
+                        </div>
                         <br><br>
 
 
-
-                        <div  layout="row" layout-wrap ng-repeat="specialita in dati.specialita | orderBy:'nome'"
+                        <div layout="row" layout-wrap ng-repeat="specialita in dati.specialita | orderBy:'nome'"
                              ng-if="dati.correlate.toLowerCase().includes(specialita.nome.toLowerCase())
                                     && !dati.escludi.toLowerCase().includes(specialita.nome.toLowerCase())">
 
@@ -31,8 +34,12 @@
                                 <br ng-if="specialita.nome.length <= 20">
 
                                 <div layout="row" layout-align="space-between center">
-                                    <md-button class="md-primary md-raised" ng-click="showAlert($event,specialita.nome)" aria-label="{{specialita.nome}}">Leggi</md-button>
-                                    <md-button ng-click="scegliSpecialita(specialita.nome)" class="md-raised md-primary" id="btn-salva">Scegli</md-button>
+                                    <md-button class="md-primary md-raised" ng-click="showAlert($event,specialita.nome)"
+                                               aria-label="{{specialita.nome}}">Leggi
+                                    </md-button>
+                                    <md-button ng-click="scegliSpecialita(specialita.nome)" class="md-raised md-primary"
+                                               id="btn-salva">Scegli
+                                    </md-button>
                                 </div>
 
                             </div>
@@ -53,9 +60,9 @@
 
 
 
-
-                    <div  layout="row" layout-wrap ng-repeat="specialita in dati.specialita | orderBy:'nome'"
-                          ng-if="!dati.correlate.toLowerCase().includes(specialita.nome.toLowerCase())
+                    <!-- ELENCO SPECIALITA' NON CORRELATE AI BREVETTI DEL RAGAZZO SE NE HA -->
+                    <div layout="row" layout-wrap ng-repeat="specialita in dati.specialita | orderBy:'nome'"
+                         ng-if="!dati.correlate.toLowerCase().includes(specialita.nome.toLowerCase())
                           && !dati.escludi.toLowerCase().includes(specialita.nome.toLowerCase())">
 
                         <div flex="30">
@@ -68,11 +75,15 @@
                             <br ng-if="specialita.nome.length <= 20">
 
                             <div layout="row" layout-align="space-between center">
-                                    <md-button class="md-primary md-raised" ng-click="showAlert($event,specialita.nome)" aria-label="{{specialita.nome}}">Leggi</md-button>
-                                    <md-button ng-click="scegliSpecialita(specialita.nome)" class="md-raised md-primary" id="btn-salva">Scegli</md-button>
+                                <md-button class="md-primary md-raised" ng-click="showAlert($event,specialita.nome)"
+                                           aria-label="{{specialita.nome}}">Leggi
+                                </md-button>
+                                <md-button ng-click="scegliSpecialita(specialita.nome)" class="md-raised md-primary"
+                                           id="btn-salva">Scegli
+                                </md-button>
                             </div>
 
-                         </div>
+                        </div>
 
                         <div flex="100">
                             <br>

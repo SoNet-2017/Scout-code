@@ -8,14 +8,14 @@
 
     <!-- FULL SCREEN MODE -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <!-- ICONE -->
-    <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico"/>
     <link rel="apple-touch-icon" href="../images/home-icon.png">
-    <link rel="apple-touch-icon-precomposed" href="../images/home-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="../images/home-icon.png"/>
 
     <!-- BARRA INDIRIZZI COLORATA -->
     <!-- Chrome, Firefox OS and Opera -->
@@ -117,7 +117,6 @@
     <script src="ragazzo/sentiero/visualizzaCartaCompetenza/visualizzaCartaCompetenza.js"></script>
 
 
-
 </head>
 <body ng-app="myApp" ng-controller="AppCtrl1">
 
@@ -133,15 +132,18 @@
                     </md-button>
 
                     <!-- RICERCA -->
-                        <md-input-container md-no-float class="md-block md-hue-1">
-                            <input id="ricerca" ng-model="search.ricerca" name="ricerca" placeholder="Cerca utenti" class="search">
-                        </md-input-container>
+                    <md-input-container md-no-float class="md-block md-hue-1">
+                        <input id="ricerca" ng-model="search.ricerca" name="ricerca" placeholder="Cerca utenti"
+                               class="search">
+                    </md-input-container>
 
-                    <md-button class="md-icon-button" aria-label="Events" ng-click="eventi()" ng-hide="isOpenRight()" class="md-primary" ng-if="isLogged()" >
+                    <md-button class="md-icon-button" aria-label="Events" ng-click="eventi()" ng-hide="isOpenRight()"
+                               class="md-primary" ng-if="isLogged()">
                         <md-icon aria-label="Event" class="material-icons">event</md-icon>
                     </md-button>
 
-                    <md-button class="md-icon-button" aria-label="Notifications" ng-click="notifiche()" ng-hide="isOpenRight()" class="md-primary" ng-if="isLogged()" >
+                    <md-button class="md-icon-button" aria-label="Notifications" ng-click="notifiche()"
+                               ng-hide="isOpenRight()" class="md-primary" ng-if="isLogged()">
                         <md-icon aria-label="Notifications" class="material-icons">notifications</md-icon>
                     </md-button>
 
@@ -150,14 +152,14 @@
 
                 <!-- MOSTRA RISULTATI RICERCA -->
                 <div ng-controller="SearchCtrl" class="risultati-ricerca" ng-if="search.ricerca != ''">
-                    <div  layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.codice.includes(search.ricerca)
+                    <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.codice.includes(search.ricerca)
                                                                                                 ||  utente.nome.toLowerCase().includes(search.ricerca.toLowerCase())
                                                                                                 ||  utente.cognome.toLowerCase().includes(search.ricerca.toLowerCase())"
-                          ng-click="vediProfilo(utente.codice)">
+                         ng-click="vediProfilo(utente.codice)">
 
                         <div flex="30">
                             <img class="result-img" ng-src="{{utente.img}}">
-                        </div >
+                        </div>
                         <div flex="30" ng-if="utente.img == false">
                             <img class="result-img" ng-src="../images/default_profile.png">
                         </div>
@@ -193,18 +195,6 @@
     </header>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     <div ng-view class="main-view">
         <!-- QUI DENTRO CI SONO LE VIEW CARICATE DINAMICAMENTE SE E' STATO FATTO IL LOGIN-->
     </div>
@@ -238,14 +228,12 @@
             </md-toolbar>
 
 
-
-
             <!-- Box personale -->
             <a href="#!/profiloCapo/{{info.user.codice}}" ng-click="close()" ng-if="isLogged()">
-                <div layout="row"  class="personal-box">
+                <div layout="row" class="personal-box">
                     <div flex="none">
                         <img class="user-img" ng-src="{{info.user.img}}">
-                    </div >
+                    </div>
                     <div flex="none" ng-if="info.user.img == false">
                         <img class="user-img" ng-src="../images/default_profile.png">
                     </div>
@@ -254,7 +242,7 @@
                         <div class="user-name">
                             <b>
                                 {{info.user.nome}}
-                            <br>
+                                <br>
                                 {{info.user.cognome}}
                             </b>
                             <br>
@@ -278,7 +266,7 @@
 
 
                     <!-- MENU CAPO -->
-                    <ul ng-if="info.user.ruolo == 'capo'" >
+                    <ul ng-if="info.user.ruolo == 'capo'">
                         <li>
                             <a href="#!/riepilogoScadenze" ng-click="close()">
                                 <md-icon aria-label="Event Range" class="material-icons">event_range</md-icon>
@@ -336,7 +324,7 @@
 
 
                     <!-- MENU RAGAZZO -->
-                    <ul ng-if="info.user.ruolo == 'ragazzo'" >
+                    <ul ng-if="info.user.ruolo == 'ragazzo'">
                         <li>
                             <a href="#!/aggiornaProfiloRagazzo/{{info.user.codice}}" ng-click="close()">
                                 <md-icon aria-label="Person" class="material-icons">person</md-icon>
@@ -372,10 +360,10 @@
         </md-sidenav>
 
 
-        <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right" >
+        <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
 
 
-            <md-toolbar class="md-primary" >
+            <md-toolbar class="md-primary">
                 <div class="md-toolbar-tools">
 
                     <!-- TOOLBAR SE SI APRONO LE NOTIFICHE -->
@@ -394,25 +382,25 @@
 
             <br><br><br>
 
-            <md-content ng-controller="RightCtrl" layout-padding >
+            <md-content ng-controller="RightCtrl" layout-padding>
 
                 <!-- CONTENUTO SE SI APRONO LE NOTIFICHE -->
-                <div ng-if="data.menu == 'notifications' && isLogged()" >
-
+                <div ng-if="data.menu == 'notifications' && isLogged()">
 
 
                     <!-- NOTOFICHE RAGAZZO -->
                     <div ng-if="info.user.ruolo == 'ragazzo'">
-                        <div layout="row" layout-wrap >
-                            <div flex="30" >
-                                <img class="media-object img-responsive listaSpecialita img-scadenze" ng-src="../images/Allevatore.jpg">
+                        <div layout="row" layout-wrap>
+                            <div flex="30">
+                                <img class="media-object img-responsive listaSpecialita img-scadenze"
+                                     ng-src="../images/Allevatore.jpg">
                             </div>
                             <div flex="70" class="scadenze-content">
-                                <div >
+                                <div>
                                     Specialità di Allevatore
                                 </div>
 
-                                <div >
+                                <div>
                                     <i>Dare da mangiare al cane</i>
                                 </div>
                                 <div layout="row" flex="100" layout-align="space-between">
@@ -425,9 +413,9 @@
                         </div>
                         <md-divider ng-if="!$last"></md-divider>
                         <br>
-                        <div layout="row" layout-wrap >
+                        <div layout="row" layout-wrap>
                             <div flex="100" class="scadenze-content">
-                                <div >
+                                <div>
                                     <a href="#!/profiloCapo/962192"><b>Simone</b></a>
                                     ti ha inviato un sollecito per la tua scadenza della specialità di <i>Allevatore</i>
                                 </div>
@@ -440,9 +428,9 @@
                         </div>
                         <md-divider ng-if="!$last"></md-divider>
                         <br>
-                        <div layout="row" layout-wrap >
+                        <div layout="row" layout-wrap>
                             <div flex="100" class="scadenze-content">
-                                <div >
+                                <div>
                                     <a href="#!/profiloCapo/996139"><b>Luca</b></a>
                                     ha confermato la tua scadenza per la specialità di <i>Allevatore</i>
                                 </div>
@@ -456,15 +444,15 @@
                     </div>
 
 
-
                     <!-- NOTOFICHE CAPO -->
                     <div ng-if="info.user.ruolo == 'capo'">
-                        <div layout="row" layout-wrap >
-                            <div flex="30" >
-                                <img class="media-object img-responsive listaSpecialita img-scadenze" ng-src="../images/Musicista.jpg">
+                        <div layout="row" layout-wrap>
+                            <div flex="30">
+                                <img class="media-object img-responsive listaSpecialita img-scadenze"
+                                     ng-src="../images/Musicista.jpg">
                             </div>
                             <div flex="70" class="scadenze-content">
-                                <div >
+                                <div>
                                     <a href="#!/profiloRagazzo/1337952"><b>Lorenzo</b></a>
                                     ha conquistato la specialità di <i>Musicista</i>
                                 </div>
@@ -476,9 +464,9 @@
                         <br>
                         <md-divider ng-if="!$last"></md-divider>
                         <br>
-                        <div layout="row" layout-wrap >
+                        <div layout="row" layout-wrap>
                             <div flex="100" class="scadenze-content">
-                                <div >
+                                <div>
                                     <a href="#!/profiloRagazzo/1239822"><b>Federico</b></a>
                                     ha mancato la sua scadenza per la specialità di <i>Allevatore</i>
                                 </div>
@@ -490,18 +478,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                 </div>

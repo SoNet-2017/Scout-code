@@ -7,12 +7,12 @@ var app = angular.module('myAppAssegnaTappa', [
 ]);
 
 
-app.config(['$routeProvider', function($routeProvider){
-    $routeProvider.when('/assegnaTappa',{
+app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/assegnaTappa', {
         templateUrl: 'capo/assegnaTappa/assegnaTappa.html',
         controller: 'myAppAssegnaTappaCtrl',
         resolve: {
-            "currentAuth":["Auth",function(Auth) {
+            "currentAuth": ["Auth", function (Auth) {
                 return Auth.$requireSignIn();
             }]
         }
@@ -20,14 +20,12 @@ app.config(['$routeProvider', function($routeProvider){
 }]);
 
 
-
-
-app.controller('myAppAssegnaTappaCtrl', ['$scope','$rootScope', 'Utente', function($scope,$rootScope, Utente) {
-        console.log("e' entrato nel ctrl assegna tappa");
+app.controller('myAppAssegnaTappaCtrl', ['$scope', '$rootScope', 'Utente', function ($scope, $rootScope, Utente) {
+    console.log("e' entrato nel ctrl assegna tappa");
 
 
     //initialize variables
-    $scope.dati={};
+    $scope.dati = {};
     $scope.dati.feedback = "";
 
     //get the list of available sq
@@ -38,13 +36,16 @@ app.controller('myAppAssegnaTappaCtrl', ['$scope','$rootScope', 'Utente', functi
             if ($scope.dati.utenti[i].ruolo == 'ragazzo') {
 
                 var uuid = $scope.dati.utenti[i].$id;
-                var tappaOld =  $scope.dati.utenti[i].tappa;
+                var tappaOld = $scope.dati.utenti[i].tappa;
                 console.log("All'inizio " + $scope.dati.utenti[i].nome + " ha la tappa " + tappaOld);
             }
         }
     });
 
-    $scope.salvaTappe = function(params) {
+
+
+
+    $scope.salvaTappe = function (params) {
         for (var i = 0; i < $scope.dati.utenti.length; i++) {
             console.log("ENTRO NEL salva tappe");
 

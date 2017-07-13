@@ -1,6 +1,6 @@
 'use strict';
 
-var app=angular.module('myAppCartaCompetenza', [
+var app = angular.module('myAppCartaCompetenza', [
     'myAppCartaCompetenzaService'
 ]);
 

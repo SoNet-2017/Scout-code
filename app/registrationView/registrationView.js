@@ -1,34 +1,34 @@
 'use strict';
 
-var app= angular.module('myAppRegistration', ['ngMaterial', 'ngRoute']);
+var app = angular.module('myAppRegistration', ['ngMaterial', 'ngRoute']);
 
-app.config(['$routeProvider', function($routeProvider) {
+app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/registrationView', {
         templateUrl: 'registrationView/registrationView.html',
         controller: 'myAppRegistrationViewCtrl'
     });
 }]);
 
-app.controller('myAppRegistrationViewCtrl', ['$scope', '$rootScope', 'Auth', 'Utente', '$location', '$firebaseAuth', function($scope, $rootScope, Auth, Utente, $location, $firebaseAuth) {
+app.controller('myAppRegistrationViewCtrl', ['$scope', '$rootScope', 'Auth', 'Utente', '$location', '$firebaseAuth', function ($scope, $rootScope, Auth, Utente, $location, $firebaseAuth) {
 
     console.log('registration view controller');
 
-    $scope.user={};
-    $scope.dati={};
+    $scope.user = {};
+    $scope.dati = {};
 
 
-    $scope.signUp = function() {
+    $scope.signUp = function () {
         console.log("Entra nella function signUp");
         $scope.dati.feedback = "";
         $scope.dati.error = "";
 
         //check if the second password is equal to the first one
-        if ($scope.user.password!= '' && $scope.user.password === $scope.user.password2) {
+        if ($scope.user.password != '' && $scope.user.password === $scope.user.password2) {
 
             //CONTROLLO CHE L'UTENTE NON ESISTA GIA'
             console.log("metto esistente su false");
             var esistente = false;
-            $scope.control={};
+            $scope.control = {};
             $scope.control.utenti = Utente.getData();
             $scope.control.utenti.$loaded().then(function () {
                 for (var i = 0; i < $scope.control.utenti.length; i++) {
@@ -46,7 +46,7 @@ app.controller('myAppRegistrationViewCtrl', ['$scope', '$rootScope', 'Auth', 'Ut
                         .then(function (firebaseUser) {
                             //after creating the user, we will perform a login and then the new information will be saved in the database
                             //(the reason is that we cannot write in the database if we are not logged in ... it is not the best way of doing it but it is ok for our prototype)
-                            Auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(internalFirebaseUser) {
+                            Auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function (internalFirebaseUser) {
                                 var userId = internalFirebaseUser.uid;
                                 Utente.registerNewUserInfo(userId, $scope.user.nome, $scope.user.cognome, $scope.user.email, $scope.user.codice);
 
@@ -56,11 +56,10 @@ app.controller('myAppRegistrationViewCtrl', ['$scope', '$rootScope', 'Auth', 'Ut
                                 Utente.registerLogin(userId, $scope.user.email);
 
 
-
                                 //PRIMA DI REINDIRIZZARE SULLA HOME, CARICO I DATI DEL LOGGATO NEL ROOTSCOPE
                                 $rootScope.info.info = true;
-                                console.log("Nel InfoUserLogged setto info a true, e vale: " +  $rootScope.info.info);
-                                $rootScope.info={};
+                                console.log("Nel InfoUserLogged setto info a true, e vale: " + $rootScope.info.info);
+                                $rootScope.info = {};
                                 $rootScope.info.user = Utente.getUserInfo($firebaseAuth().$getAuth().uid);
 
 
@@ -68,7 +67,7 @@ app.controller('myAppRegistrationViewCtrl', ['$scope', '$rootScope', 'Auth', 'Ut
                                 // login successful: redirect to
                                 $location.path("/homeCapo");
 
-                            }).catch(function(error) {
+                            }).catch(function (error) {
                                 $scope.error = error;
                                 console.log(error.message);
                             });

@@ -1,6 +1,6 @@
 'use strict';
 
-var app=angular.module('myAppMete', [
+var app = angular.module('myAppMete', [
     'myAppMeteService'
 ]);
 

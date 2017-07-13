@@ -11,7 +11,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     })
 }]);
 
-app.controller('myAppListaSpecialitaCtrl', ['$scope', '$rootScope', 'Specialita', 'Utente', 'CartaSpecialita',  'CartaCompetenza','RegistrazioneCartaSpecialitaService', '$mdDialog', '$firebaseStorage', '$location',
+app.controller('myAppListaSpecialitaCtrl', ['$scope', '$rootScope', 'Specialita', 'Utente', 'CartaSpecialita', 'CartaCompetenza', 'RegistrazioneCartaSpecialitaService', '$mdDialog', '$firebaseStorage', '$location',
     function ($scope, $rootScope, Specialita, Utente, CartaSpecialita, CartaCompetenza, RegistrazioneCartaSpecialitaService, $mdDialog, $firebaseStorage, $location) {
         $scope.dati = {};
         $scope.dati.specialita = Specialita.getData();
@@ -20,8 +20,7 @@ app.controller('myAppListaSpecialitaCtrl', ['$scope', '$rootScope', 'Specialita'
         $scope.customFullscreen = false
 
 
-
-        $scope.dati.correlate= "";
+        $scope.dati.correlate = "";
         var elenco = "";
         $scope.dati.carteComp = CartaCompetenza.getData();
         $scope.dati.carteComp.$loaded().then(function () {
@@ -31,13 +30,13 @@ app.controller('myAppListaSpecialitaCtrl', ['$scope', '$rootScope', 'Specialita'
                         elenco = $scope.dati.carteComp[i].elenco_spec_collegate;
                     }
                     else {
-                        elenco = elenco + ", " +  $scope.dati.carteComp[i].elenco_spec_collegate;
+                        elenco = elenco + ", " + $scope.dati.carteComp[i].elenco_spec_collegate;
                         //console.log("duplicati: " + elenco);
                     }
                 }
             }
-            var senzaDuplicati = elenco.split(', ').filter(function(item,i,allItems){
-                return i==allItems.indexOf(item);
+            var senzaDuplicati = elenco.split(', ').filter(function (item, i, allItems) {
+                return i == allItems.indexOf(item);
             }).sort().join(', ');
 
             $scope.dati.correlate = senzaDuplicati;
@@ -55,24 +54,18 @@ app.controller('myAppListaSpecialitaCtrl', ['$scope', '$rootScope', 'Specialita'
                         elencoEscludi = $scope.dati.carte_specialita[i].nome;
                     }
                     else {
-                        elencoEscludi = elencoEscludi + ", " +  $scope.dati.carte_specialita[i].nome;
+                        elencoEscludi = elencoEscludi + ", " + $scope.dati.carte_specialita[i].nome;
                         //console.log("duplicati: " + elenco);
                     }
                 }
             }
-            var specSenzaDuplicati = elencoEscludi.split(', ').filter(function(item,i,allItems){
-                return i==allItems.indexOf(item);
+            var specSenzaDuplicati = elencoEscludi.split(', ').filter(function (item, i, allItems) {
+                return i == allItems.indexOf(item);
             }).sort().join(', ');
 
             $scope.dati.escludi = specSenzaDuplicati;
 
         });
-
-
-
-
-
-
 
 
         $scope.showAlert = function (ev, nome) {
