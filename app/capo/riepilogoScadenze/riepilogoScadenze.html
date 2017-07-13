@@ -19,7 +19,7 @@
                 <div>Ogni box indica il numero di giorni che mancano alla scadenza oppure, se è già passata (negativa) e se è già stata confermata (verde) o meno (arancione) dai capi.</div>
                 <br>
 
-                <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome_ragazzo'" ng-if="utente.ruolo == 'ragazzo'">
+                <div layout="row" layout-wrap ng-repeat="utente in dati.utenti  | orderBy:'nome'" ng-if="utente.ruolo == 'ragazzo'">
                     <div flex="30">
                         <a href="#!/profiloRagazzo/{{utente.codice}}"><b>{{utente.nome}}</b> {{utente.cognome[0]}}.</a>
                     </div>
