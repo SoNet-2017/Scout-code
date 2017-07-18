@@ -2,7 +2,7 @@ Presentation of the Scout project (ITA): [https://sonet-2017.github.io/Scout/](h
 
 Code of the Scout project: [https://github.com/SoNet-2017/Scout-code](https://github.com/SoNet-2017/Scout-code)
 
-Demo (developed for MOBILE devices) of the Scout project: [https://sonet-2017.github.io/Scout-code/app](https://sonet-2017.github.io/Scout-code/app)
+Demo (developed for MOBILE devices) of the Scout project: [https://sonet-2017.github.io/Scout-code](https://sonet-2017.github.io/Scout-code)
 
 # Prototype of the Scout project
 
